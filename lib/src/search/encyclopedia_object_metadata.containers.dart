@@ -15,7 +15,7 @@ extension SearchEncyclopediaObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchEncyclopediaObjectMetadata.toPointer);
+        obj, SearchEncyclopediaObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -46,7 +46,7 @@ extension SearchEncyclopediaObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchEncyclopediaObjectMetadata.toPointer);
+        obj, SearchEncyclopediaObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -72,8 +72,8 @@ extension SearchEncyclopediaObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            SearchEncyclopediaObjectMetadata.fromPointer(val, needFree: false));
+        (val) => SearchEncyclopediaObjectMetadataImpl.fromPointer(val,
+            needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchEncyclopediaObjectMetadata>>
@@ -99,8 +99,8 @@ extension SearchEncyclopediaObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            SearchEncyclopediaObjectMetadata.fromPointer(val, needFree: false));
+        (val) => SearchEncyclopediaObjectMetadataImpl.fromPointer(val,
+            needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchEncyclopediaObjectMetadata>>

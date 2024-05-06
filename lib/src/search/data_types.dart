@@ -2,7 +2,6 @@ import 'dart:ffi' as ffi;
 
 import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
@@ -14,12 +13,10 @@ import 'package:yandex_maps_mapkit/src/search/panoramas_object_metadata.dart'
     as search_panoramas_object_metadata;
 
 part 'data_types.containers.dart';
+part 'data_types.impl.dart';
 
 /// Bitmask for requested search types.
-@bindings_annotations.ContainerData(
-    toNative: 'SearchType.toPointer',
-    toPlatform: '(val) => SearchType.fromPointer(val, needFree: false)')
-class SearchType {
+final class SearchType {
   /// Default value: all types requested.
   static const None = SearchType(0);
 
@@ -30,6 +27,7 @@ class SearchType {
   static const Biz = SearchType(1 << 1);
 
   const SearchType(this.value);
+
   final core.int value;
 
   SearchType operator |(SearchType other) {
@@ -44,44 +42,17 @@ class SearchType {
     return SearchType(~value);
   }
 
-  /// @nodoc
-  @internal
-  static SearchType fromInt(core.int val) {
-    return SearchType(val);
+  @core.override
+  core.int get hashCode => value;
+
+  @core.override
+  core.bool operator ==(covariant SearchType other) {
+    return value == other.value;
   }
 
-  /// @nodoc
-  @internal
-  static core.int toInt(SearchType e) {
-    return e.value;
-  }
-
-  /// @nodoc
-  @internal
-  static SearchType? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = fromInt(ptr.cast<ffi.Int64>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchType? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Int64>();
-    result.value = toInt(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchType(value: ${value.toRadixString(16)})";
   }
 }
 
@@ -94,10 +65,7 @@ class SearchType {
 /// Different snippets are applicable to different objects: some of the
 /// snippets can be provided only for toponyms, some for businesses and
 /// some for all object types.
-@bindings_annotations.ContainerData(
-    toNative: 'SearchSnippet.toPointer',
-    toPlatform: '(val) => SearchSnippet.fromPointer(val, needFree: false)')
-class SearchSnippet {
+final class SearchSnippet {
   /// Default value: no snippets requested.
   static const None = SearchSnippet(0);
 
@@ -111,6 +79,7 @@ class SearchSnippet {
   static const Panoramas = SearchSnippet(1 << 5);
 
   const SearchSnippet(this.value);
+
   final core.int value;
 
   SearchSnippet operator |(SearchSnippet other) {
@@ -125,43 +94,16 @@ class SearchSnippet {
     return SearchSnippet(~value);
   }
 
-  /// @nodoc
-  @internal
-  static SearchSnippet fromInt(core.int val) {
-    return SearchSnippet(val);
+  @core.override
+  core.int get hashCode => value;
+
+  @core.override
+  core.bool operator ==(covariant SearchSnippet other) {
+    return value == other.value;
   }
 
-  /// @nodoc
-  @internal
-  static core.int toInt(SearchSnippet e) {
-    return e.value;
-  }
-
-  /// @nodoc
-  @internal
-  static SearchSnippet? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = fromInt(ptr.cast<ffi.Int64>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchSnippet? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Int64>();
-    result.value = toInt(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchSnippet(value: ${value.toRadixString(16)})";
   }
 }

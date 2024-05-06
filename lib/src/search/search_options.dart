@@ -3,7 +3,6 @@ import 'package:yandex_maps_mapkit/src/bindings/common/library.dart' as lib;
 
 import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
@@ -21,51 +20,9 @@ import 'package:yandex_maps_mapkit/src/search/filter_collection.dart'
     as search_filter_collection;
 
 part 'search_options.containers.dart';
+part 'search_options.impl.dart';
 
-/// @nodoc
-final class SearchOptionsNative extends ffi.Struct {
-  @ffi.Int64()
-  external core.int searchTypes;
-  external ffi.Pointer<ffi.Void> resultPageSize;
-  @ffi.Int64()
-  external core.int snippets;
-  external ffi.Pointer<ffi.Void> userPosition;
-  external ffi.Pointer<ffi.Void> origin;
-  @ffi.Bool()
-  external core.bool geometry;
-  @ffi.Bool()
-  external core.bool disableSpellingCorrection;
-  external ffi.Pointer<ffi.Void> filters;
-}
-
-final SearchOptionsNative Function(
-        core.int,
-        ffi.Pointer<ffi.Void>,
-        core.int,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        core.bool,
-        core.bool,
-        ffi.Pointer<ffi.Void>) _SearchOptionsNativeInit =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    SearchOptionsNative Function(
-                        ffi.Int64,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Int64,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Bool,
-                        ffi.Bool,
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchOptions_init')
-        .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'SearchOptions.toPointer',
-    toPlatform: '(val) => SearchOptions.fromPointer(val, needFree: false)')
-class SearchOptions {
+final class SearchOptions {
   final search_data_types.SearchType searchTypes;
   final core.int? resultPageSize;
   final search_data_types.SearchSnippet snippets;
@@ -86,64 +43,35 @@ class SearchOptions {
     this.filters,
   });
 
-  /// @nodoc
-  @internal
-  SearchOptions.fromNative(SearchOptionsNative native)
-      : this(
-            searchTypes:
-                search_data_types.SearchType.fromInt(native.searchTypes),
-            resultPageSize:
-                to_platform.toPlatformFromPointerUint32(native.resultPageSize),
-            snippets: search_data_types.SearchSnippet.fromInt(native.snippets),
-            userPosition:
-                mapkit_geometry_point.Point.fromPointer(native.userPosition),
-            origin: to_platform.toPlatformFromPointerString(native.origin),
-            geometry: native.geometry,
-            disableSpellingCorrection: native.disableSpellingCorrection,
-            filters:
-                search_filter_collection.SearchFilterCollection.fromOptionalPtr(
-                    native.filters));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([
+        searchTypes,
+        resultPageSize,
+        snippets,
+        userPosition,
+        origin,
+        geometry,
+        disableSpellingCorrection,
+        filters
+      ]);
 
-  /// @nodoc
-  @internal
-  static SearchOptionsNative toNative(SearchOptions c) {
-    return _SearchOptionsNativeInit(
-        search_data_types.SearchType.toInt(c.searchTypes),
-        to_native.toNativePtrUint32(c.resultPageSize),
-        search_data_types.SearchSnippet.toInt(c.snippets),
-        mapkit_geometry_point.Point.toPointer(c.userPosition),
-        to_native.toNativePtrString(c.origin),
-        c.geometry,
-        c.disableSpellingCorrection,
-        search_filter_collection.SearchFilterCollection.getNativePtr(
-            c.filters));
+  @core.override
+  core.bool operator ==(covariant SearchOptions other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return searchTypes == other.searchTypes &&
+        resultPageSize == other.resultPageSize &&
+        snippets == other.snippets &&
+        userPosition == other.userPosition &&
+        origin == other.origin &&
+        geometry == other.geometry &&
+        disableSpellingCorrection == other.disableSpellingCorrection &&
+        filters == other.filters;
   }
 
-  /// @nodoc
-  @internal
-  static SearchOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result =
-        SearchOptions.fromNative(ptr.cast<SearchOptionsNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchOptions? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<SearchOptionsNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchOptions(searchTypes: $searchTypes, resultPageSize: $resultPageSize, snippets: $snippets, userPosition: $userPosition, origin: $origin, geometry: $geometry, disableSpellingCorrection: $disableSpellingCorrection, filters: $filters)";
   }
 }

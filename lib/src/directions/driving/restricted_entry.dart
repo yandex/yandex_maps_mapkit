@@ -3,7 +3,6 @@ import 'package:yandex_maps_mapkit/src/bindings/common/library.dart' as lib;
 
 import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
@@ -13,69 +12,26 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
     as mapkit_geometry_geometry;
 
 part 'restricted_entry.containers.dart';
+part 'restricted_entry.impl.dart';
 
-/// @nodoc
-final class DrivingRestrictedEntryNative extends ffi.Struct {
-  external mapkit_geometry_geometry.PolylinePositionNative position;
-}
-
-final DrivingRestrictedEntryNative Function(
-        mapkit_geometry_geometry.PolylinePositionNative)
-    _DrivingRestrictedEntryNativeInit = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    DrivingRestrictedEntryNative Function(
-                        mapkit_geometry_geometry.PolylinePositionNative)>>(
-            'yandex_flutter_directions_driving_DrivingRestrictedEntry_init')
-        .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingRestrictedEntry.toPointer',
-    toPlatform:
-        '(val) => DrivingRestrictedEntry.fromPointer(val, needFree: false)')
-class DrivingRestrictedEntry {
+final class DrivingRestrictedEntry {
   final mapkit_geometry_geometry.PolylinePosition position;
 
   const DrivingRestrictedEntry(this.position);
 
-  /// @nodoc
-  @internal
-  DrivingRestrictedEntry.fromNative(DrivingRestrictedEntryNative native)
-      : this(mapkit_geometry_geometry.PolylinePosition.fromNative(
-            native.position));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([position]);
 
-  /// @nodoc
-  @internal
-  static DrivingRestrictedEntryNative toNative(DrivingRestrictedEntry c) {
-    return _DrivingRestrictedEntryNativeInit(
-        mapkit_geometry_geometry.PolylinePosition.toNative(c.position));
+  @core.override
+  core.bool operator ==(covariant DrivingRestrictedEntry other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return position == other.position;
   }
 
-  /// @nodoc
-  @internal
-  static DrivingRestrictedEntry? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = DrivingRestrictedEntry.fromNative(
-        ptr.cast<DrivingRestrictedEntryNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(DrivingRestrictedEntry? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<DrivingRestrictedEntryNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "DrivingRestrictedEntry(position: $position)";
   }
 }

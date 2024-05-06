@@ -3,7 +3,6 @@ import 'package:yandex_maps_mapkit/src/bindings/common/library.dart' as lib;
 
 import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/native_types.dart'
@@ -17,65 +16,28 @@ import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 
 part 'masstransit_1x_object_metadata.containers.dart';
+part 'masstransit_1x_object_metadata.impl.dart';
 
-/// @nodoc
-final class SearchLineNative extends ffi.Struct {
-  external native_types.NativeString name;
-}
-
-final SearchLineNative Function(native_types.NativeString)
-    _SearchLineNativeInit = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    SearchLineNative Function(native_types.NativeString)>>(
-            'yandex_flutter_search_SearchLine_init')
-        .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'SearchLine.toPointer',
-    toPlatform: '(val) => SearchLine.fromPointer(val, needFree: false)')
-class SearchLine {
+final class SearchLine {
   final core.String name;
 
   const SearchLine({
     required this.name,
   });
 
-  /// @nodoc
-  @internal
-  SearchLine.fromNative(SearchLineNative native)
-      : this(name: to_platform.toPlatformString(native.name));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([name]);
 
-  /// @nodoc
-  @internal
-  static SearchLineNative toNative(SearchLine c) {
-    return _SearchLineNativeInit(to_native.toNativeString(c.name));
+  @core.override
+  core.bool operator ==(covariant SearchLine other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return name == other.name;
   }
 
-  /// @nodoc
-  @internal
-  static SearchLine? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = SearchLine.fromNative(ptr.cast<SearchLineNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchLine? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<SearchLineNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchLine(name: $name)";
   }
 }

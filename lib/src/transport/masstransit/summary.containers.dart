@@ -13,7 +13,7 @@ extension MasstransitSummaryContainerExtension on MasstransitSummary {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitSummary.toPointer);
+    return string_map.toNativeMap(obj, MasstransitSummaryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension MasstransitSummaryContainerExtension on MasstransitSummary {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitSummary.toPointer);
+    return vector.toNativeVector(obj, MasstransitSummaryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension MasstransitSummaryContainerExtension on MasstransitSummary {
   static string_map.StringMap<MasstransitSummary> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => MasstransitSummary.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitSummaryImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitSummary>>
@@ -88,7 +88,7 @@ extension MasstransitSummaryContainerExtension on MasstransitSummary {
   static vector.Vector<MasstransitSummary> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => MasstransitSummary.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitSummaryImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitSummary>>

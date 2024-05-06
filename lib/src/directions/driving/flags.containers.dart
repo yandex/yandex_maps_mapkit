@@ -13,7 +13,7 @@ extension DrivingFlagsContainerExtension on DrivingFlags {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingFlags.toPointer);
+    return string_map.toNativeMap(obj, DrivingFlagsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension DrivingFlagsContainerExtension on DrivingFlags {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingFlags.toPointer);
+    return vector.toNativeVector(obj, DrivingFlagsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension DrivingFlagsContainerExtension on DrivingFlags {
   static string_map.StringMap<DrivingFlags> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingFlags.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingFlagsImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingFlags>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension DrivingFlagsContainerExtension on DrivingFlags {
   static vector.Vector<DrivingFlags> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingFlags.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingFlagsImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingFlags>> toPlatformVectorVector(

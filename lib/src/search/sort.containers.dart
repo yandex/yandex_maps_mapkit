@@ -6,108 +6,6 @@ part of 'sort.dart';
 // ContainerGenerator
 // **************************************************************************
 
-extension SearchSortContainerExtension on SearchSort {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, SearchSort?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, SearchSort.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<SearchSort?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, SearchSort?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(core.List<SearchSort?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, SearchSort.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<SearchSort?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, SearchSort?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<SearchSort> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => SearchSort.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<SearchSort>> toPlatformMapVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<SearchSort>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<SearchSort> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => SearchSort.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<SearchSort>> toPlatformVectorVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<SearchSort>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
 extension SearchSortTypeContainerExtension on SearchSortType {
   static ffi.Pointer<ffi.Void> toNativeMap(
       core.Map<core.String, SearchSortType?>? obj) {
@@ -115,7 +13,7 @@ extension SearchSortTypeContainerExtension on SearchSortType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchSortType.toPointer);
+    return string_map.toNativeMap(obj, SearchSortTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -141,7 +39,7 @@ extension SearchSortTypeContainerExtension on SearchSortType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchSortType.toPointer);
+    return vector.toNativeVector(obj, SearchSortTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -165,7 +63,7 @@ extension SearchSortTypeContainerExtension on SearchSortType {
   static string_map.StringMap<SearchSortType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchSortType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchSortTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchSortType>>
@@ -189,7 +87,7 @@ extension SearchSortTypeContainerExtension on SearchSortType {
   static vector.Vector<SearchSortType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchSortType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchSortTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchSortType>> toPlatformVectorVector(
@@ -218,7 +116,7 @@ extension SearchSortOriginContainerExtension on SearchSortOrigin {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchSortOrigin.toPointer);
+    return string_map.toNativeMap(obj, SearchSortOriginImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -245,7 +143,7 @@ extension SearchSortOriginContainerExtension on SearchSortOrigin {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchSortOrigin.toPointer);
+    return vector.toNativeVector(obj, SearchSortOriginImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -269,7 +167,7 @@ extension SearchSortOriginContainerExtension on SearchSortOrigin {
   static string_map.StringMap<SearchSortOrigin> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchSortOrigin.fromPointer(val, needFree: false));
+        ptr, (val) => SearchSortOriginImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchSortOrigin>>
@@ -293,7 +191,7 @@ extension SearchSortOriginContainerExtension on SearchSortOrigin {
   static vector.Vector<SearchSortOrigin> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchSortOrigin.fromPointer(val, needFree: false));
+        ptr, (val) => SearchSortOriginImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchSortOrigin>> toPlatformVectorVector(
@@ -306,6 +204,108 @@ extension SearchSortOriginContainerExtension on SearchSortOrigin {
   }
 
   static vector.Vector<string_map.StringMap<SearchSortOrigin>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
+extension SearchSortContainerExtension on SearchSort {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, SearchSort?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, SearchSortImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<SearchSort?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, SearchSort?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(core.List<SearchSort?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, SearchSortImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<SearchSort?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, SearchSort?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<SearchSort> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr, (val) => SearchSortImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<SearchSort>> toPlatformMapVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<SearchSort>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<SearchSort> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr, (val) => SearchSortImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<SearchSort>> toPlatformVectorVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<SearchSort>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,

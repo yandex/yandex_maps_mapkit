@@ -13,7 +13,7 @@ extension DrivingTrafficLightContainerExtension on DrivingTrafficLight {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingTrafficLight.toPointer);
+    return string_map.toNativeMap(obj, DrivingTrafficLightImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension DrivingTrafficLightContainerExtension on DrivingTrafficLight {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingTrafficLight.toPointer);
+    return vector.toNativeVector(obj, DrivingTrafficLightImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension DrivingTrafficLightContainerExtension on DrivingTrafficLight {
 
   static string_map.StringMap<DrivingTrafficLight> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => DrivingTrafficLight.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => DrivingTrafficLightImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingTrafficLight>>
@@ -88,8 +88,8 @@ extension DrivingTrafficLightContainerExtension on DrivingTrafficLight {
 
   static vector.Vector<DrivingTrafficLight> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => DrivingTrafficLight.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => DrivingTrafficLightImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingTrafficLight>>

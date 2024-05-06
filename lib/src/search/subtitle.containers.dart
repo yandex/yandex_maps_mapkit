@@ -13,7 +13,7 @@ extension SearchSubtitleItemContainerExtension on SearchSubtitleItem {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchSubtitleItem.toPointer);
+    return string_map.toNativeMap(obj, SearchSubtitleItemImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SearchSubtitleItemContainerExtension on SearchSubtitleItem {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchSubtitleItem.toPointer);
+    return vector.toNativeVector(obj, SearchSubtitleItemImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension SearchSubtitleItemContainerExtension on SearchSubtitleItem {
   static string_map.StringMap<SearchSubtitleItem> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchSubtitleItem.fromPointer(val, needFree: false));
+        ptr, (val) => SearchSubtitleItemImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchSubtitleItem>>
@@ -88,7 +88,7 @@ extension SearchSubtitleItemContainerExtension on SearchSubtitleItem {
   static vector.Vector<SearchSubtitleItem> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchSubtitleItem.fromPointer(val, needFree: false));
+        ptr, (val) => SearchSubtitleItemImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchSubtitleItem>>
@@ -117,7 +117,7 @@ extension SearchSubtitleMetadataContainerExtension on SearchSubtitleMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchSubtitleMetadata.toPointer);
+    return string_map.toNativeMap(obj, SearchSubtitleMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -145,7 +145,7 @@ extension SearchSubtitleMetadataContainerExtension on SearchSubtitleMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchSubtitleMetadata.toPointer);
+    return vector.toNativeVector(obj, SearchSubtitleMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -168,8 +168,8 @@ extension SearchSubtitleMetadataContainerExtension on SearchSubtitleMetadata {
 
   static string_map.StringMap<SearchSubtitleMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => SearchSubtitleMetadata.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => SearchSubtitleMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchSubtitleMetadata>>
@@ -192,8 +192,8 @@ extension SearchSubtitleMetadataContainerExtension on SearchSubtitleMetadata {
 
   static vector.Vector<SearchSubtitleMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => SearchSubtitleMetadata.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => SearchSubtitleMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchSubtitleMetadata>>

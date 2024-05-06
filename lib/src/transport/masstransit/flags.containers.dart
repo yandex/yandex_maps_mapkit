@@ -13,7 +13,7 @@ extension MasstransitFlagsContainerExtension on MasstransitFlags {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitFlags.toPointer);
+    return string_map.toNativeMap(obj, MasstransitFlagsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension MasstransitFlagsContainerExtension on MasstransitFlags {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitFlags.toPointer);
+    return vector.toNativeVector(obj, MasstransitFlagsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension MasstransitFlagsContainerExtension on MasstransitFlags {
   static string_map.StringMap<MasstransitFlags> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => MasstransitFlags.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitFlagsImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitFlags>>
@@ -88,7 +88,7 @@ extension MasstransitFlagsContainerExtension on MasstransitFlags {
   static vector.Vector<MasstransitFlags> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => MasstransitFlags.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitFlagsImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitFlags>> toPlatformVectorVector(

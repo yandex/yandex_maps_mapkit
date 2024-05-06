@@ -13,7 +13,7 @@ extension DrivingRestrictedTurnContainerExtension on DrivingRestrictedTurn {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingRestrictedTurn.toPointer);
+    return string_map.toNativeMap(obj, DrivingRestrictedTurnImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension DrivingRestrictedTurnContainerExtension on DrivingRestrictedTurn {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingRestrictedTurn.toPointer);
+    return vector.toNativeVector(obj, DrivingRestrictedTurnImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension DrivingRestrictedTurnContainerExtension on DrivingRestrictedTurn {
 
   static string_map.StringMap<DrivingRestrictedTurn> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => DrivingRestrictedTurn.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => DrivingRestrictedTurnImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingRestrictedTurn>>
@@ -88,8 +88,8 @@ extension DrivingRestrictedTurnContainerExtension on DrivingRestrictedTurn {
 
   static vector.Vector<DrivingRestrictedTurn> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => DrivingRestrictedTurn.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => DrivingRestrictedTurnImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingRestrictedTurn>>

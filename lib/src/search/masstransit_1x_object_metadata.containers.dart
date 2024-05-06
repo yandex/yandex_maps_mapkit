@@ -13,7 +13,7 @@ extension SearchLineContainerExtension on SearchLine {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchLine.toPointer);
+    return string_map.toNativeMap(obj, SearchLineImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchLineContainerExtension on SearchLine {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchLine.toPointer);
+    return vector.toNativeVector(obj, SearchLineImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchLineContainerExtension on SearchLine {
   static string_map.StringMap<SearchLine> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchLine.fromPointer(val, needFree: false));
+        ptr, (val) => SearchLineImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchLine>> toPlatformMapVector(
@@ -86,7 +86,7 @@ extension SearchLineContainerExtension on SearchLine {
 
   static vector.Vector<SearchLine> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchLine.fromPointer(val, needFree: false));
+        ptr, (val) => SearchLineImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchLine>> toPlatformVectorVector(

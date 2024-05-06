@@ -13,7 +13,7 @@ extension SearchContainerExtension on Search {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, Search.getNativePtr);
+    return string_map.toNativeMap(obj, SearchImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchContainerExtension on Search {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, Search.getNativePtr);
+    return vector.toNativeVector(obj, SearchImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,8 +63,8 @@ extension SearchContainerExtension on Search {
   static string_map.StringMap<Search> toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            Search.fromOptionalPtr(val.cast<ffi.Pointer<ffi.Void>>().value));
+        (val) => SearchImpl.fromOptionalPtr(
+            val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
   static string_map.StringMap<vector.Vector<Search>> toPlatformMapVector(
@@ -88,8 +88,8 @@ extension SearchContainerExtension on Search {
   static vector.Vector<Search> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            Search.fromOptionalPtr(val.cast<ffi.Pointer<ffi.Void>>().value));
+        (val) => SearchImpl.fromOptionalPtr(
+            val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
   static vector.Vector<vector.Vector<Search>> toPlatformVectorVector(

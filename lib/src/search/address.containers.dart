@@ -13,7 +13,7 @@ extension SearchAddressContainerExtension on SearchAddress {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchAddress.toPointer);
+    return string_map.toNativeMap(obj, SearchAddressImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchAddressContainerExtension on SearchAddress {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchAddress.toPointer);
+    return vector.toNativeVector(obj, SearchAddressImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchAddressContainerExtension on SearchAddress {
   static string_map.StringMap<SearchAddress> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchAddress.fromPointer(val, needFree: false));
+        ptr, (val) => SearchAddressImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchAddress>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension SearchAddressContainerExtension on SearchAddress {
   static vector.Vector<SearchAddress> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchAddress.fromPointer(val, needFree: false));
+        ptr, (val) => SearchAddressImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchAddress>> toPlatformVectorVector(
@@ -116,7 +116,7 @@ extension SearchAddressComponentContainerExtension on SearchAddressComponent {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchAddressComponent.toPointer);
+    return string_map.toNativeMap(obj, SearchAddressComponentImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +144,7 @@ extension SearchAddressComponentContainerExtension on SearchAddressComponent {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchAddressComponent.toPointer);
+    return vector.toNativeVector(obj, SearchAddressComponentImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -167,8 +167,8 @@ extension SearchAddressComponentContainerExtension on SearchAddressComponent {
 
   static string_map.StringMap<SearchAddressComponent> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => SearchAddressComponent.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => SearchAddressComponentImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchAddressComponent>>
@@ -191,8 +191,8 @@ extension SearchAddressComponentContainerExtension on SearchAddressComponent {
 
   static vector.Vector<SearchAddressComponent> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => SearchAddressComponent.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => SearchAddressComponentImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchAddressComponent>>
@@ -222,7 +222,8 @@ extension SearchAddressComponentKindContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchAddressComponentKind.toPointer);
+    return string_map.toNativeMap(
+        obj, SearchAddressComponentKindImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -251,7 +252,7 @@ extension SearchAddressComponentKindContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchAddressComponentKind.toPointer);
+    return vector.toNativeVector(obj, SearchAddressComponentKindImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -274,8 +275,10 @@ extension SearchAddressComponentKindContainerExtension
 
   static string_map.StringMap<SearchAddressComponentKind> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => SearchAddressComponentKind.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            SearchAddressComponentKindImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchAddressComponentKind>>
@@ -298,8 +301,10 @@ extension SearchAddressComponentKindContainerExtension
 
   static vector.Vector<SearchAddressComponentKind> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => SearchAddressComponentKind.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            SearchAddressComponentKindImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchAddressComponentKind>>

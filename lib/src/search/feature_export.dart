@@ -1,11 +1,17 @@
 export 'package:yandex_maps_mapkit/src/search/feature.dart'
     hide
+        SearchFeatureSetImpl,
         SearchFeatureSetContainerExtension,
+        SearchFeatureEnumValueImpl,
+        SearchFeatureVariantValueImpl,
         SearchFeatureVariantValueContainerExtension,
-        SearchFeatureVariantValueNativeData,
         SearchFeatureVariantValueNative,
-        SearchFeatureGroupContainerExtension,
-        SearchFeatureContainerExtension,
+        SearchFeatureBooleanValueContainerExtension,
+        SearchFeatureVariantValueNativeData,
+        SearchFeatureBooleanValueImpl,
         SearchFeatureEnumValueContainerExtension,
         SearchFeatureBooleanValueNative,
-        SearchFeatureBooleanValueContainerExtension;
+        SearchFeatureContainerExtension,
+        SearchFeatureGroupImpl,
+        SearchFeatureGroupContainerExtension,
+        SearchFeatureImpl;

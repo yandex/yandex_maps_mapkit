@@ -13,7 +13,7 @@ extension TransportContainerExtension on Transport {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, Transport.getNativePtr);
+    return string_map.toNativeMap(obj, TransportImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension TransportContainerExtension on Transport {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, Transport.getNativePtr);
+    return vector.toNativeVector(obj, TransportImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension TransportContainerExtension on Transport {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            Transport.fromOptionalPtr(val.cast<ffi.Pointer<ffi.Void>>().value));
+        (val) => TransportImpl.fromOptionalPtr(
+            val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
   static string_map.StringMap<vector.Vector<Transport>> toPlatformMapVector(
@@ -89,8 +89,8 @@ extension TransportContainerExtension on Transport {
   static vector.Vector<Transport> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            Transport.fromOptionalPtr(val.cast<ffi.Pointer<ffi.Void>>().value));
+        (val) => TransportImpl.fromOptionalPtr(
+            val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
   static vector.Vector<vector.Vector<Transport>> toPlatformVectorVector(

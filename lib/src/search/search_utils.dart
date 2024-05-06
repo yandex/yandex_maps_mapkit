@@ -9,20 +9,14 @@ import 'package:yandex_maps_mapkit/src/bindings/common/to_native.dart'
 import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
     as to_platform;
 
+part 'search_utils.impl.dart';
+
 class SearchUtils {
   SearchUtils._();
 
   static core.String makeBusinessUri(core.String oid) {
-    return to_platform.toPlatformString(
-        _SearchUtils_makeBusinessUri(to_native.toNativeString(oid)));
+    return _makeBusinessUri(
+      oid,
+    );
   }
 }
-
-final native_types.NativeString Function(native_types.NativeString)
-    _SearchUtils_makeBusinessUri = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    native_types.NativeString Function(
-                        native_types.NativeString)>>(
-            'yandex_flutter_search_SearchUtils_makeBusinessUri')
-        .asFunction();

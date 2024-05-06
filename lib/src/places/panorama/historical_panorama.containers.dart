@@ -13,7 +13,7 @@ extension HistoricalPanoramaContainerExtension on HistoricalPanorama {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, HistoricalPanorama.toPointer);
+    return string_map.toNativeMap(obj, HistoricalPanoramaImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension HistoricalPanoramaContainerExtension on HistoricalPanorama {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, HistoricalPanorama.toPointer);
+    return vector.toNativeVector(obj, HistoricalPanoramaImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension HistoricalPanoramaContainerExtension on HistoricalPanorama {
   static string_map.StringMap<HistoricalPanorama> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => HistoricalPanorama.fromPointer(val, needFree: false));
+        ptr, (val) => HistoricalPanoramaImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<HistoricalPanorama>>
@@ -88,7 +88,7 @@ extension HistoricalPanoramaContainerExtension on HistoricalPanorama {
   static vector.Vector<HistoricalPanorama> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => HistoricalPanorama.fromPointer(val, needFree: false));
+        ptr, (val) => HistoricalPanoramaImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<HistoricalPanorama>>

@@ -35,231 +35,79 @@ import 'package:yandex_maps_mapkit/src/transport/bicycle/weight.dart'
     as transport_bicycle_weight;
 
 part 'route.containers.dart';
+part 'route.impl.dart';
 
-/// @nodoc
-final class BicycleConstructionSegmentNative extends ffi.Struct {
-  @ffi.Int64()
-  external core.int construction;
-  external mapkit_geometry_geometry.SubpolylineNative subpolyline;
-}
-
-final BicycleConstructionSegmentNative Function(
-        core.int, mapkit_geometry_geometry.SubpolylineNative)
-    _BicycleConstructionSegmentNativeInit = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    BicycleConstructionSegmentNative Function(ffi.Int64,
-                        mapkit_geometry_geometry.SubpolylineNative)>>(
-            'yandex_flutter_transport_bicycle_BicycleConstructionSegment_init')
-        .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'BicycleConstructionSegment.toPointer',
-    toPlatform:
-        '(val) => BicycleConstructionSegment.fromPointer(val, needFree: false)')
-class BicycleConstructionSegment {
+final class BicycleConstructionSegment {
   final transport_bicycle_construction.BicycleConstructionID construction;
   final mapkit_geometry_geometry.Subpolyline subpolyline;
 
   const BicycleConstructionSegment(this.construction, this.subpolyline);
 
-  /// @nodoc
-  @internal
-  BicycleConstructionSegment.fromNative(BicycleConstructionSegmentNative native)
-      : this(
-            transport_bicycle_construction.BicycleConstructionID.fromInt(
-                native.construction),
-            mapkit_geometry_geometry.Subpolyline.fromNative(
-                native.subpolyline));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([construction, subpolyline]);
 
-  /// @nodoc
-  @internal
-  static BicycleConstructionSegmentNative toNative(
-      BicycleConstructionSegment c) {
-    return _BicycleConstructionSegmentNativeInit(
-        transport_bicycle_construction.BicycleConstructionID.toInt(
-            c.construction),
-        mapkit_geometry_geometry.Subpolyline.toNative(c.subpolyline));
+  @core.override
+  core.bool operator ==(covariant BicycleConstructionSegment other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return construction == other.construction &&
+        subpolyline == other.subpolyline;
   }
 
-  /// @nodoc
-  @internal
-  static BicycleConstructionSegment? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = BicycleConstructionSegment.fromNative(
-        ptr.cast<BicycleConstructionSegmentNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(BicycleConstructionSegment? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<BicycleConstructionSegmentNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "BicycleConstructionSegment(construction: $construction, subpolyline: $subpolyline)";
   }
 }
 
-/// @nodoc
-final class BicycleTrafficTypeSegmentNative extends ffi.Struct {
-  @ffi.Int64()
-  external core.int trafficType;
-  external mapkit_geometry_geometry.SubpolylineNative subpolyline;
-}
-
-final BicycleTrafficTypeSegmentNative Function(
-        core.int, mapkit_geometry_geometry.SubpolylineNative)
-    _BicycleTrafficTypeSegmentNativeInit = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    BicycleTrafficTypeSegmentNative Function(ffi.Int64,
-                        mapkit_geometry_geometry.SubpolylineNative)>>(
-            'yandex_flutter_transport_bicycle_BicycleTrafficTypeSegment_init')
-        .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'BicycleTrafficTypeSegment.toPointer',
-    toPlatform:
-        '(val) => BicycleTrafficTypeSegment.fromPointer(val, needFree: false)')
-class BicycleTrafficTypeSegment {
+final class BicycleTrafficTypeSegment {
   final transport_bicycle_traffic_type.BicycleTrafficTypeID trafficType;
   final mapkit_geometry_geometry.Subpolyline subpolyline;
 
   const BicycleTrafficTypeSegment(this.trafficType, this.subpolyline);
 
-  /// @nodoc
-  @internal
-  BicycleTrafficTypeSegment.fromNative(BicycleTrafficTypeSegmentNative native)
-      : this(
-            transport_bicycle_traffic_type.BicycleTrafficTypeID.fromInt(
-                native.trafficType),
-            mapkit_geometry_geometry.Subpolyline.fromNative(
-                native.subpolyline));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([trafficType, subpolyline]);
 
-  /// @nodoc
-  @internal
-  static BicycleTrafficTypeSegmentNative toNative(BicycleTrafficTypeSegment c) {
-    return _BicycleTrafficTypeSegmentNativeInit(
-        transport_bicycle_traffic_type.BicycleTrafficTypeID.toInt(
-            c.trafficType),
-        mapkit_geometry_geometry.Subpolyline.toNative(c.subpolyline));
+  @core.override
+  core.bool operator ==(covariant BicycleTrafficTypeSegment other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return trafficType == other.trafficType && subpolyline == other.subpolyline;
   }
 
-  /// @nodoc
-  @internal
-  static BicycleTrafficTypeSegment? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = BicycleTrafficTypeSegment.fromNative(
-        ptr.cast<BicycleTrafficTypeSegmentNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(BicycleTrafficTypeSegment? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<BicycleTrafficTypeSegmentNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "BicycleTrafficTypeSegment(trafficType: $trafficType, subpolyline: $subpolyline)";
   }
 }
 
 /// Bicycle route.
-@bindings_annotations.ContainerData(
-    toNative: 'BicycleRoute.getNativePtr',
-    toPlatform:
-        '(val) => BicycleRoute.fromOptionalPtr(val.cast<ffi.Pointer<ffi.Void>>().value)')
-class BicycleRoute implements ffi.Finalizable {
-  @protected
-  final ffi.Pointer<ffi.Void> ptr;
-  static final _finalizer = ffi.NativeFinalizer(_BicycleRoute_free.cast());
-
-  /// @nodoc
-  BicycleRoute.fromExternalPtr(this.ptr);
-
-  /// @nodoc
-  @internal
-  BicycleRoute.fromNativePtr(this.ptr) {
-    _finalizer.attach(this, ptr);
-  }
-
-  @internal
-
-  /// @nodoc
-  static ffi.Pointer<ffi.Void> getNativePtr(BicycleRoute? obj) {
-    if (obj == null) return ffi.nullptr;
-    return obj.ptr;
-  }
-
-  @internal
-
-  /// @nodoc
-  static BicycleRoute? fromOptionalPtr(ffi.Pointer<ffi.Void> ptr) {
-    if (ptr == ffi.nullptr) return null;
-    return BicycleRoute.fromNativePtr(ptr);
-  }
-
+abstract class BicycleRoute implements ffi.Finalizable {
   /// Quantitative characteristics of the route.
-  transport_bicycle_weight.BicycleWeight get weight {
-    return transport_bicycle_weight.BicycleWeight.fromNative(
-        _Route_get_weight(ptr));
-  }
+  transport_bicycle_weight.BicycleWeight get weight;
 
   /// Sections of the route.
-  core.List<transport_bicycle_section.BicycleSection> get sections {
-    return transport_bicycle_section.BicycleSectionContainerExtension
-        .toPlatformVector(_Route_get_sections(ptr));
-  }
+  core.List<transport_bicycle_section.BicycleSection> get sections;
 
   /// Legs of the route.
-  core.List<transport_bicycle_leg.BicycleLeg> get legs {
-    return transport_bicycle_leg.BicycleLegContainerExtension.toPlatformVector(
-        _Route_get_legs(ptr));
-  }
+  core.List<transport_bicycle_leg.BicycleLeg> get legs;
 
   /// Polyline with geometry of the route.
-  mapkit_geometry_geometry.Polyline get geometry {
-    return mapkit_geometry_geometry.Polyline.fromNativePtr(
-        _Route_get_geometry(ptr));
-  }
+  mapkit_geometry_geometry.Polyline get geometry;
 
   /// Specific properties of the route.
   ///
-  transport_bicycle_flags.BicycleFlags? get flags {
-    return transport_bicycle_flags.BicycleFlags.fromPointer(
-        _Route_get_flags(ptr));
-  }
+  transport_bicycle_flags.BicycleFlags? get flags;
 
   /// List of specific constructions along the bicycle path, such as stairs
   /// or crossings. See
   /// [transport_bicycle_construction.BicycleConstructionID] for a complete
   /// list of constructions. [BicycleConstructionSegment.subpolyline]
   /// fields of all segments cover the entire [BicycleRoute.geometry].
-  core.List<BicycleConstructionSegment> get constructions {
-    return BicycleConstructionSegmentContainerExtension.toPlatformVector(
-        _Route_get_constructions(ptr));
-  }
+  core.List<BicycleConstructionSegment> get constructions;
 
   /// List of traffic types
   /// ([transport_bicycle_traffic_type.BicycleTrafficTypeID]) along the
@@ -268,154 +116,29 @@ class BicycleRoute implements ffi.Finalizable {
   /// [transport_bicycle_traffic_type.BicycleTrafficTypeID] for a complete
   /// list of types. Fields [BicycleTrafficTypeSegment.subpolyline] of all
   /// segments cover whole [BicycleRoute.geometry]
-  core.List<BicycleTrafficTypeSegment> get trafficTypes {
-    return BicycleTrafficTypeSegmentContainerExtension.toPlatformVector(
-        _Route_get_trafficTypes(ptr));
-  }
+  core.List<BicycleTrafficTypeSegment> get trafficTypes;
 
   /// List of restricted entries with their positions along the path.
   core.List<transport_bicycle_restricted_entry.BicycleRestrictedEntry>
-      get restrictedEntries {
-    return transport_bicycle_restricted_entry
-            .BicycleRestrictedEntryContainerExtension
-        .toPlatformVector(_Route_get_restrictedEntries(ptr));
-  }
+      get restrictedEntries;
 
   /// List of via points on the path. See
   /// [transport_bicycle_intermediate_points.BicycleViaPoint] for details
   core.List<transport_bicycle_intermediate_points.BicycleViaPoint>
-      get viaPoints {
-    return transport_bicycle_intermediate_points
-            .BicycleViaPointContainerExtension
-        .toPlatformVector(_Route_get_viaPoints(ptr));
-  }
+      get viaPoints;
 
   /// List of waypoints on the route. See
   /// [transport_bicycle_intermediate_points.BicycleWayPoint] for details.
   core.List<transport_bicycle_intermediate_points.BicycleWayPoint>
-      get wayPoints {
-    return transport_bicycle_intermediate_points
-            .BicycleWayPointContainerExtension
-        .toPlatformVector(_Route_get_wayPoints(ptr));
-  }
+      get wayPoints;
 
   /// Route URI, which can be used with
   /// [transport_bicycle_bicycle_router.BicycleRouter] to fetch additional
   /// information about the route or can be bookmarked for future
   /// reference.
-  mapkit_uri_uri_object_metadata.UriObjectMetadata get uriMetadata {
-    return mapkit_uri_uri_object_metadata.UriObjectMetadata.fromNativePtr(
-        _Route_get_uriMetadata(ptr));
-  }
+  mapkit_uri_uri_object_metadata.UriObjectMetadata get uriMetadata;
 
   /// Unique route id.
   ///
-  core.String? get routeId {
-    return to_platform.toPlatformFromPointerString(_Route_get_routeId(ptr));
-  }
+  core.String? get routeId;
 }
-
-final _BicycleRoute_free = lib.library
-    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_bicycle_BicycleRoute_free');
-
-final transport_bicycle_weight.BicycleWeightNative Function(
-        ffi.Pointer<ffi.Void>) _Route_get_weight =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    transport_bicycle_weight.BicycleWeightNative Function(
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_weight')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _Route_get_sections = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_sections')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _Route_get_legs =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_legs')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _Route_get_geometry = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_geometry')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _Route_get_flags =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_flags')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _Route_get_constructions = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_constructions')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _Route_get_trafficTypes = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_trafficTypes')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _Route_get_restrictedEntries = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_bicycle_BicycleRoute_get_restrictedEntries')
-    .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _Route_get_viaPoints = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_viaPoints')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _Route_get_wayPoints = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_wayPoints')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _Route_get_uriMetadata = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_uriMetadata')
-        .asFunction();
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _Route_get_routeId =
-    lib
-        .library
-        .lookup<
-                ffi
-                .NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRoute_get_routeId')
-        .asFunction();

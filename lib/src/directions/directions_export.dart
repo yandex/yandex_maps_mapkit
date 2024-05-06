@@ -1,2 +1,2 @@
 export 'package:yandex_maps_mapkit/src/directions/directions.dart'
-    hide DirectionsContainerExtension;
+    hide DirectionsFactoryImpl, DirectionsContainerExtension, DirectionsImpl;

@@ -14,7 +14,8 @@ extension MasstransitRouteSerializerContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitRouteSerializer.getNativePtr);
+    return string_map.toNativeMap(
+        obj, MasstransitRouteSerializerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -43,7 +44,8 @@ extension MasstransitRouteSerializerContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRouteSerializer.getNativePtr);
+    return vector.toNativeVector(
+        obj, MasstransitRouteSerializerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -68,7 +70,7 @@ extension MasstransitRouteSerializerContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => MasstransitRouteSerializer.fromOptionalPtr(
+        (val) => MasstransitRouteSerializerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -94,7 +96,7 @@ extension MasstransitRouteSerializerContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => MasstransitRouteSerializer.fromOptionalPtr(
+        (val) => MasstransitRouteSerializerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

@@ -13,7 +13,7 @@ extension AirshipTapInfoContainerExtension on AirshipTapInfo {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, AirshipTapInfo.toPointer);
+    return string_map.toNativeMap(obj, AirshipTapInfoImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension AirshipTapInfoContainerExtension on AirshipTapInfo {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, AirshipTapInfo.toPointer);
+    return vector.toNativeVector(obj, AirshipTapInfoImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension AirshipTapInfoContainerExtension on AirshipTapInfo {
   static string_map.StringMap<AirshipTapInfo> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => AirshipTapInfo.fromPointer(val, needFree: false));
+        ptr, (val) => AirshipTapInfoImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<AirshipTapInfo>>
@@ -87,7 +87,7 @@ extension AirshipTapInfoContainerExtension on AirshipTapInfo {
   static vector.Vector<AirshipTapInfo> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => AirshipTapInfo.fromPointer(val, needFree: false));
+        ptr, (val) => AirshipTapInfoImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<AirshipTapInfo>> toPlatformVectorVector(

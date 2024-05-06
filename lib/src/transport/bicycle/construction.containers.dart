@@ -13,7 +13,7 @@ extension BicycleConstructionIDContainerExtension on BicycleConstructionID {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleConstructionID.toPointer);
+    return string_map.toNativeMap(obj, BicycleConstructionIDImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension BicycleConstructionIDContainerExtension on BicycleConstructionID {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleConstructionID.toPointer);
+    return vector.toNativeVector(obj, BicycleConstructionIDImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension BicycleConstructionIDContainerExtension on BicycleConstructionID {
 
   static string_map.StringMap<BicycleConstructionID> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => BicycleConstructionID.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => BicycleConstructionIDImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<BicycleConstructionID>>
@@ -88,8 +88,8 @@ extension BicycleConstructionIDContainerExtension on BicycleConstructionID {
 
   static vector.Vector<BicycleConstructionID> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => BicycleConstructionID.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => BicycleConstructionIDImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<BicycleConstructionID>>

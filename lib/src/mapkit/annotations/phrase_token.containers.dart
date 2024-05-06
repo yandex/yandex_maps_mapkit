@@ -13,7 +13,7 @@ extension SpeakerPhraseTokenContainerExtension on SpeakerPhraseToken {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SpeakerPhraseToken.toPointer);
+    return string_map.toNativeMap(obj, SpeakerPhraseTokenImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SpeakerPhraseTokenContainerExtension on SpeakerPhraseToken {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SpeakerPhraseToken.toPointer);
+    return vector.toNativeVector(obj, SpeakerPhraseTokenImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension SpeakerPhraseTokenContainerExtension on SpeakerPhraseToken {
   static string_map.StringMap<SpeakerPhraseToken> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SpeakerPhraseToken.fromPointer(val, needFree: false));
+        ptr, (val) => SpeakerPhraseTokenImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SpeakerPhraseToken>>
@@ -88,7 +88,7 @@ extension SpeakerPhraseTokenContainerExtension on SpeakerPhraseToken {
   static vector.Vector<SpeakerPhraseToken> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SpeakerPhraseToken.fromPointer(val, needFree: false));
+        ptr, (val) => SpeakerPhraseTokenImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SpeakerPhraseToken>>

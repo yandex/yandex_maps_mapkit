@@ -13,7 +13,7 @@ extension TimeOptionsContainerExtension on TimeOptions {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, TimeOptions.toPointer);
+    return string_map.toNativeMap(obj, TimeOptionsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension TimeOptionsContainerExtension on TimeOptions {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, TimeOptions.toPointer);
+    return vector.toNativeVector(obj, TimeOptionsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension TimeOptionsContainerExtension on TimeOptions {
   static string_map.StringMap<TimeOptions> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => TimeOptions.fromPointer(val, needFree: false));
+        ptr, (val) => TimeOptionsImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<TimeOptions>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension TimeOptionsContainerExtension on TimeOptions {
   static vector.Vector<TimeOptions> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => TimeOptions.fromPointer(val, needFree: false));
+        ptr, (val) => TimeOptionsImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<TimeOptions>> toPlatformVectorVector(

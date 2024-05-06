@@ -13,7 +13,7 @@ extension DrivingTollRoadContainerExtension on DrivingTollRoad {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingTollRoad.toPointer);
+    return string_map.toNativeMap(obj, DrivingTollRoadImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension DrivingTollRoadContainerExtension on DrivingTollRoad {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingTollRoad.toPointer);
+    return vector.toNativeVector(obj, DrivingTollRoadImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DrivingTollRoadContainerExtension on DrivingTollRoad {
   static string_map.StringMap<DrivingTollRoad> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingTollRoad.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingTollRoadImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingTollRoad>>
@@ -88,7 +88,7 @@ extension DrivingTollRoadContainerExtension on DrivingTollRoad {
   static vector.Vector<DrivingTollRoad> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingTollRoad.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingTollRoadImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingTollRoad>> toPlatformVectorVector(

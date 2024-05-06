@@ -13,7 +13,7 @@ extension SearchSessionContainerExtension on SearchSession {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchSession.getNativePtr);
+    return string_map.toNativeMap(obj, SearchSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchSessionContainerExtension on SearchSession {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchSession.getNativePtr);
+    return vector.toNativeVector(obj, SearchSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension SearchSessionContainerExtension on SearchSession {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchSession.fromOptionalPtr(
+        (val) => SearchSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -90,7 +90,7 @@ extension SearchSessionContainerExtension on SearchSession {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchSession.fromOptionalPtr(
+        (val) => SearchSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

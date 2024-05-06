@@ -13,7 +13,7 @@ extension SearchDisplayTypeContainerExtension on SearchDisplayType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchDisplayType.toPointer);
+    return string_map.toNativeMap(obj, SearchDisplayTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SearchDisplayTypeContainerExtension on SearchDisplayType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchDisplayType.toPointer);
+    return vector.toNativeVector(obj, SearchDisplayTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension SearchDisplayTypeContainerExtension on SearchDisplayType {
   static string_map.StringMap<SearchDisplayType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchDisplayType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchDisplayTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchDisplayType>>
@@ -88,7 +88,7 @@ extension SearchDisplayTypeContainerExtension on SearchDisplayType {
   static vector.Vector<SearchDisplayType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchDisplayType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchDisplayTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchDisplayType>> toPlatformVectorVector(

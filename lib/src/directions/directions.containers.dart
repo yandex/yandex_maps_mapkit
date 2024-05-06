@@ -13,7 +13,7 @@ extension DirectionsContainerExtension on Directions {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, Directions.getNativePtr);
+    return string_map.toNativeMap(obj, DirectionsImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension DirectionsContainerExtension on Directions {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, Directions.getNativePtr);
+    return vector.toNativeVector(obj, DirectionsImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DirectionsContainerExtension on Directions {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => Directions.fromOptionalPtr(
+        (val) => DirectionsImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -89,7 +89,7 @@ extension DirectionsContainerExtension on Directions {
   static vector.Vector<Directions> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => Directions.fromOptionalPtr(
+        (val) => DirectionsImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

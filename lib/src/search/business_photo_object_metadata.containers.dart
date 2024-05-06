@@ -15,7 +15,7 @@ extension SearchBusinessPhotoObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchBusinessPhotoObjectMetadata.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -46,7 +46,7 @@ extension SearchBusinessPhotoObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchBusinessPhotoObjectMetadata.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -72,7 +72,7 @@ extension SearchBusinessPhotoObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchBusinessPhotoObjectMetadata.fromPointer(val,
+        (val) => SearchBusinessPhotoObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -99,7 +99,7 @@ extension SearchBusinessPhotoObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchBusinessPhotoObjectMetadata.fromPointer(val,
+        (val) => SearchBusinessPhotoObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -131,7 +131,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchBusinessPhotoObjectMetadataPhoto.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataPhotoImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -163,7 +163,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchBusinessPhotoObjectMetadataPhoto.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataPhotoImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -190,7 +190,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoContainerExtension
       toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchBusinessPhotoObjectMetadataPhoto.fromPointer(val,
+        (val) => SearchBusinessPhotoObjectMetadataPhotoImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -218,7 +218,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchBusinessPhotoObjectMetadataPhoto.fromPointer(val,
+        (val) => SearchBusinessPhotoObjectMetadataPhotoImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -252,7 +252,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoPhotoLinkContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchBusinessPhotoObjectMetadataPhotoPhotoLink.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -286,7 +286,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoPhotoLinkContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchBusinessPhotoObjectMetadataPhotoPhotoLink.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -315,9 +315,9 @@ extension SearchBusinessPhotoObjectMetadataPhotoPhotoLinkContainerExtension
       toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchBusinessPhotoObjectMetadataPhotoPhotoLink.fromPointer(
-            val,
-            needFree: false));
+        (val) =>
+            SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.fromPointer(val,
+                needFree: false));
   }
 
   static string_map
@@ -344,9 +344,9 @@ extension SearchBusinessPhotoObjectMetadataPhotoPhotoLinkContainerExtension
       toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchBusinessPhotoObjectMetadataPhotoPhotoLink.fromPointer(
-            val,
-            needFree: false));
+        (val) =>
+            SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.fromPointer(val,
+                needFree: false));
   }
 
   static vector

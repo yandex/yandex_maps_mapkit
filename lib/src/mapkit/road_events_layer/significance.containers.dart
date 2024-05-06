@@ -13,7 +13,7 @@ extension RoadEventSignificanceContainerExtension on RoadEventSignificance {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, RoadEventSignificance.toPointer);
+    return string_map.toNativeMap(obj, RoadEventSignificanceImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension RoadEventSignificanceContainerExtension on RoadEventSignificance {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RoadEventSignificance.toPointer);
+    return vector.toNativeVector(obj, RoadEventSignificanceImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension RoadEventSignificanceContainerExtension on RoadEventSignificance {
 
   static string_map.StringMap<RoadEventSignificance> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => RoadEventSignificance.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => RoadEventSignificanceImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<RoadEventSignificance>>
@@ -88,8 +88,8 @@ extension RoadEventSignificanceContainerExtension on RoadEventSignificance {
 
   static vector.Vector<RoadEventSignificance> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => RoadEventSignificance.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => RoadEventSignificanceImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<RoadEventSignificance>>

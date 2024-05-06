@@ -13,7 +13,7 @@ extension SuggestTypeContainerExtension on SuggestType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SuggestType.toPointer);
+    return string_map.toNativeMap(obj, SuggestTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SuggestTypeContainerExtension on SuggestType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SuggestType.toPointer);
+    return vector.toNativeVector(obj, SuggestTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SuggestTypeContainerExtension on SuggestType {
   static string_map.StringMap<SuggestType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SuggestType.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SuggestType>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension SuggestTypeContainerExtension on SuggestType {
   static vector.Vector<SuggestType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SuggestType.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SuggestType>> toPlatformVectorVector(
@@ -116,7 +116,7 @@ extension SuggestOptionsContainerExtension on SuggestOptions {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SuggestOptions.toPointer);
+    return string_map.toNativeMap(obj, SuggestOptionsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -142,7 +142,7 @@ extension SuggestOptionsContainerExtension on SuggestOptions {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SuggestOptions.toPointer);
+    return vector.toNativeVector(obj, SuggestOptionsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -166,7 +166,7 @@ extension SuggestOptionsContainerExtension on SuggestOptions {
   static string_map.StringMap<SuggestOptions> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SuggestOptions.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestOptionsImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SuggestOptions>>
@@ -190,7 +190,7 @@ extension SuggestOptionsContainerExtension on SuggestOptions {
   static vector.Vector<SuggestOptions> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SuggestOptions.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestOptionsImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SuggestOptions>> toPlatformVectorVector(

@@ -13,7 +13,7 @@ extension DrivingVehicleTypeContainerExtension on DrivingVehicleType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingVehicleType.toPointer);
+    return string_map.toNativeMap(obj, DrivingVehicleTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension DrivingVehicleTypeContainerExtension on DrivingVehicleType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingVehicleType.toPointer);
+    return vector.toNativeVector(obj, DrivingVehicleTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DrivingVehicleTypeContainerExtension on DrivingVehicleType {
   static string_map.StringMap<DrivingVehicleType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingVehicleType.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingVehicleTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingVehicleType>>
@@ -88,7 +88,7 @@ extension DrivingVehicleTypeContainerExtension on DrivingVehicleType {
   static vector.Vector<DrivingVehicleType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingVehicleType.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingVehicleTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingVehicleType>>

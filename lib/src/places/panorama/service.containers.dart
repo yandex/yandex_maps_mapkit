@@ -13,7 +13,7 @@ extension PanoramaServiceContainerExtension on PanoramaService {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaService.getNativePtr);
+    return string_map.toNativeMap(obj, PanoramaServiceImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension PanoramaServiceContainerExtension on PanoramaService {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaService.getNativePtr);
+    return vector.toNativeVector(obj, PanoramaServiceImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,7 +65,7 @@ extension PanoramaServiceContainerExtension on PanoramaService {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => PanoramaService.fromOptionalPtr(
+        (val) => PanoramaServiceImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -91,7 +91,7 @@ extension PanoramaServiceContainerExtension on PanoramaService {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => PanoramaService.fromOptionalPtr(
+        (val) => PanoramaServiceImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -123,7 +123,7 @@ extension PanoramaServiceSearchSessionContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, PanoramaServiceSearchSession.getNativePtr);
+        obj, PanoramaServiceSearchSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -153,7 +153,7 @@ extension PanoramaServiceSearchSessionContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, PanoramaServiceSearchSession.getNativePtr);
+        obj, PanoramaServiceSearchSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -178,7 +178,7 @@ extension PanoramaServiceSearchSessionContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => PanoramaServiceSearchSession.fromOptionalPtr(
+        (val) => PanoramaServiceSearchSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -205,7 +205,7 @@ extension PanoramaServiceSearchSessionContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => PanoramaServiceSearchSession.fromOptionalPtr(
+        (val) => PanoramaServiceSearchSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

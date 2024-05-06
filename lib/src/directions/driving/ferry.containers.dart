@@ -13,7 +13,7 @@ extension DrivingFerryContainerExtension on DrivingFerry {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingFerry.toPointer);
+    return string_map.toNativeMap(obj, DrivingFerryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension DrivingFerryContainerExtension on DrivingFerry {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingFerry.toPointer);
+    return vector.toNativeVector(obj, DrivingFerryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension DrivingFerryContainerExtension on DrivingFerry {
   static string_map.StringMap<DrivingFerry> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingFerry.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingFerryImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingFerry>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension DrivingFerryContainerExtension on DrivingFerry {
   static vector.Vector<DrivingFerry> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingFerry.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingFerryImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingFerry>> toPlatformVectorVector(

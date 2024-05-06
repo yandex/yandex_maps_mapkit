@@ -1,2 +1,2 @@
 export 'package:yandex_maps_mapkit/src/search/link.dart'
-    hide SearchLinkNative, SearchLinkContainerExtension;
+    hide SearchLinkImpl, SearchLinkNative, SearchLinkContainerExtension;

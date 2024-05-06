@@ -13,7 +13,7 @@ extension SearchResponseContainerExtension on SearchResponse {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchResponse.toPointer);
+    return string_map.toNativeMap(obj, SearchResponseImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchResponseContainerExtension on SearchResponse {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchResponse.toPointer);
+    return vector.toNativeVector(obj, SearchResponseImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchResponseContainerExtension on SearchResponse {
   static string_map.StringMap<SearchResponse> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchResponse.fromPointer(val, needFree: false));
+        ptr, (val) => SearchResponseImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchResponse>>
@@ -87,7 +87,7 @@ extension SearchResponseContainerExtension on SearchResponse {
   static vector.Vector<SearchResponse> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchResponse.fromPointer(val, needFree: false));
+        ptr, (val) => SearchResponseImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchResponse>> toPlatformVectorVector(

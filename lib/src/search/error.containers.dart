@@ -15,7 +15,7 @@ extension SearchCacheUnavailableErrorContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchCacheUnavailableError.getNativePtr);
+        obj, SearchCacheUnavailableErrorImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -44,7 +44,8 @@ extension SearchCacheUnavailableErrorContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchCacheUnavailableError.getNativePtr);
+    return vector.toNativeVector(
+        obj, SearchCacheUnavailableErrorImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -69,7 +70,7 @@ extension SearchCacheUnavailableErrorContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchCacheUnavailableError.fromOptionalPtr(
+        (val) => SearchCacheUnavailableErrorImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -95,7 +96,7 @@ extension SearchCacheUnavailableErrorContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchCacheUnavailableError.fromOptionalPtr(
+        (val) => SearchCacheUnavailableErrorImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

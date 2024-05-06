@@ -12,6 +12,8 @@ import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
 import 'package:yandex_maps_mapkit/src/transport/bicycle/route.dart'
     as transport_bicycle_route;
 
+part 'bicycle_serializer.impl.dart';
+
 class BicycleRouteSerializer {
   BicycleRouteSerializer._();
 
@@ -19,28 +21,15 @@ class BicycleRouteSerializer {
   /// if there are any errors.
   static typed_data.ByteBuffer save(
       transport_bicycle_route.BicycleRoute route) {
-    return to_platform.toPlatformBytes(_BicycleRouteSerializer_save(
-        transport_bicycle_route.BicycleRoute.getNativePtr(route)));
+    return _save(
+      route,
+    );
   }
 
   /// Returns a deserialized route. Returns null on error.
   static transport_bicycle_route.BicycleRoute load(typed_data.ByteBuffer data) {
-    return transport_bicycle_route.BicycleRoute.fromNativePtr(
-        _BicycleRouteSerializer_load(to_native.toNativeBytes(data)));
+    return _load(
+      data,
+    );
   }
 }
-
-final native_types.NativeBytes Function(ffi.Pointer<ffi.Void>)
-    _BicycleRouteSerializer_save = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    native_types.NativeBytes Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRouteSerializer_save')
-        .asFunction();
-final ffi.Pointer<ffi.Void> Function(native_types.NativeBytes)
-    _BicycleRouteSerializer_load = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(native_types.NativeBytes)>>(
-            'yandex_flutter_transport_bicycle_BicycleRouteSerializer_load')
-        .asFunction();

@@ -2,9 +2,17 @@ export 'package:yandex_maps_mapkit/src/directions/driving/route.dart'
     hide
         DrivingRouteContainerExtension,
         DrivingEventContainerExtension,
+        DrivingConditionsListenerImpl,
         DrivingSectionContainerExtension,
+        DrivingSectionImpl,
+        DrivingRouteMetadataImpl,
         DrivingRoutePointContainerExtension,
-        DrivingSummaryContainerExtension,
-        DrivingRouteMetadataContainerExtension,
+        DrivingRoutePointImpl,
+        DrivingSectionMetadataImpl,
+        DrivingEventImpl,
         DrivingSectionMetadataContainerExtension,
-        DrivingSummaryNative;
+        DrivingSummaryImpl,
+        DrivingRouteImpl,
+        DrivingSummaryNative,
+        DrivingRouteMetadataContainerExtension,
+        DrivingSummaryContainerExtension;

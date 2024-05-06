@@ -26,107 +26,12 @@ import 'package:yandex_maps_mapkit/src/mapkit/request_point.dart'
 import 'package:yandex_maps_mapkit/src/runtime/error.dart' as runtime_error;
 
 part 'driving_router.containers.dart';
+part 'driving_router.impl.dart';
 
-@bindings_annotations
-    .WeakInterface('directions.driving.TooComplexAvoidedZonesError')
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingTooComplexAvoidedZonesError.getNativePtr',
-    toPlatform:
-        '(val) => DrivingTooComplexAvoidedZonesError.fromOptionalPtr(val.cast<ffi.Pointer<ffi.Void>>().value)')
-class DrivingTooComplexAvoidedZonesError extends runtime_error.Error
-    implements ffi.Finalizable {
-  static final _finalizer =
-      ffi.NativeFinalizer(_DrivingTooComplexAvoidedZonesError_free.cast());
+abstract class DrivingTooComplexAvoidedZonesError
+    implements runtime_error.Error, ffi.Finalizable {}
 
-  /// @nodoc
-  DrivingTooComplexAvoidedZonesError.fromExternalPtr(ffi.Pointer<ffi.Void> ptr)
-      : super.fromExternalPtr(ptr);
-
-  /// @nodoc
-  @internal
-  DrivingTooComplexAvoidedZonesError.fromNativePtrImpl(
-      ffi.Pointer<ffi.Void> ptr)
-      : super.fromExternalPtr(ptr) {
-    _finalizer.attach(this, ptr);
-  }
-
-  /// @nodoc
-  @internal
-  factory DrivingTooComplexAvoidedZonesError.fromNativePtr(
-          ffi.Pointer<ffi.Void> ptr) =>
-      weak_interface_wrapper.createFromNative(ptr);
-
-  @internal
-
-  /// @nodoc
-  static ffi.Pointer<ffi.Void> getNativePtr(
-      DrivingTooComplexAvoidedZonesError? obj) {
-    if (obj == null) return ffi.nullptr;
-    return obj.ptr;
-  }
-
-  core.bool isValid() {
-    return _DrivingTooComplexAvoidedZonesError_check(ptr);
-  }
-
-  @internal
-
-  /// @nodoc
-  static DrivingTooComplexAvoidedZonesError? fromOptionalPtr(
-      ffi.Pointer<ffi.Void> ptr) {
-    if (ptr == ffi.nullptr) return null;
-    return DrivingTooComplexAvoidedZonesError.fromNativePtr(ptr);
-  }
-}
-
-final _DrivingTooComplexAvoidedZonesError_free = lib.library.lookup<
-        ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-    'yandex_flutter_directions_driving_DrivingTooComplexAvoidedZonesError_free');
-final core.bool Function(
-    ffi
-        .Pointer<ffi.Void>) _DrivingTooComplexAvoidedZonesError_check = lib
-    .library
-    .lookup<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_directions_driving_DrivingTooComplexAvoidedZonesError_check')
-    .asFunction(isLeaf: true);
-
-/// @nodoc
-final class DrivingOptionsNative extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> initialAzimuth;
-  external ffi.Pointer<ffi.Void> routesCount;
-  external ffi.Pointer<ffi.Void> avoidTolls;
-  external ffi.Pointer<ffi.Void> avoidUnpaved;
-  external ffi.Pointer<ffi.Void> avoidPoorConditions;
-  external ffi.Pointer<ffi.Void> departureTime;
-  external ffi.Pointer<ffi.Void> annotationLanguage;
-}
-
-final DrivingOptionsNative Function(
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>) _DrivingOptionsNativeInit =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    DrivingOptionsNative Function(
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingOptions_init')
-        .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingOptions.toPointer',
-    toPlatform: '(val) => DrivingOptions.fromPointer(val, needFree: false)')
-class DrivingOptions {
+final class DrivingOptions {
   final core.double? initialAzimuth;
   final core.int? routesCount;
   final core.bool? avoidTolls;
@@ -146,72 +51,38 @@ class DrivingOptions {
     this.annotationLanguage,
   });
 
-  /// @nodoc
-  @internal
-  DrivingOptions.fromNative(DrivingOptionsNative native)
-      : this(
-            initialAzimuth:
-                to_platform.toPlatformFromPointerDouble(native.initialAzimuth),
-            routesCount:
-                to_platform.toPlatformFromPointerInt(native.routesCount),
-            avoidTolls:
-                to_platform.toPlatformFromPointerBool(native.avoidTolls),
-            avoidUnpaved:
-                to_platform.toPlatformFromPointerBool(native.avoidUnpaved),
-            avoidPoorConditions: to_platform
-                .toPlatformFromPointerBool(native.avoidPoorConditions),
-            departureTime: to_platform
-                .toPlatformFromPointerAbsTimestamp(native.departureTime),
-            annotationLanguage: mapkit_annotations_annotation_lang
-                .AnnotationLanguage.fromPointer(native.annotationLanguage));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([
+        initialAzimuth,
+        routesCount,
+        avoidTolls,
+        avoidUnpaved,
+        avoidPoorConditions,
+        departureTime,
+        annotationLanguage
+      ]);
 
-  /// @nodoc
-  @internal
-  static DrivingOptionsNative toNative(DrivingOptions c) {
-    return _DrivingOptionsNativeInit(
-        to_native.toNativePtrDouble(c.initialAzimuth),
-        to_native.toNativePtrInt(c.routesCount),
-        to_native.toNativePtrBool(c.avoidTolls),
-        to_native.toNativePtrBool(c.avoidUnpaved),
-        to_native.toNativePtrBool(c.avoidPoorConditions),
-        to_native.toNativePtrAbsTimestamp(c.departureTime),
-        mapkit_annotations_annotation_lang.AnnotationLanguage.toPointer(
-            c.annotationLanguage));
+  @core.override
+  core.bool operator ==(covariant DrivingOptions other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return initialAzimuth == other.initialAzimuth &&
+        routesCount == other.routesCount &&
+        avoidTolls == other.avoidTolls &&
+        avoidUnpaved == other.avoidUnpaved &&
+        avoidPoorConditions == other.avoidPoorConditions &&
+        departureTime == other.departureTime &&
+        annotationLanguage == other.annotationLanguage;
   }
 
-  /// @nodoc
-  @internal
-  static DrivingOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result =
-        DrivingOptions.fromNative(ptr.cast<DrivingOptionsNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(DrivingOptions? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<DrivingOptionsNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "DrivingOptions(initialAzimuth: $initialAzimuth, routesCount: $routesCount, avoidTolls: $avoidTolls, avoidUnpaved: $avoidUnpaved, avoidPoorConditions: $avoidPoorConditions, departureTime: $departureTime, annotationLanguage: $annotationLanguage)";
   }
 }
 
 /// Driving router type.
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingRouterType.toPointer',
-    toPlatform: '(val) => DrivingRouterType.fromPointer(val, needFree: false)')
 enum DrivingRouterType {
   /// Online driving router. Always tries to use online router even if
   /// network is not available.
@@ -230,83 +101,10 @@ enum DrivingRouterType {
   /// After that timeout is reduced to zero for all following resubmits.
   Combined,
   ;
-
-  /// @nodoc
-  @internal
-  static DrivingRouterType fromInt(core.int val) {
-    return DrivingRouterType.values[val];
-  }
-
-  /// @nodoc
-  @internal
-  static core.int toInt(DrivingRouterType e) {
-    return e.index;
-  }
-
-  /// @nodoc
-  @internal
-  static DrivingRouterType? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = fromInt(ptr.cast<ffi.Int64>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(DrivingRouterType? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Int64>();
-    result.value = toInt(val);
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 /// Interface for the driving router.
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingRouter.getNativePtr',
-    toPlatform:
-        '(val) => DrivingRouter.fromOptionalPtr(val.cast<ffi.Pointer<ffi.Void>>().value)')
-class DrivingRouter implements ffi.Finalizable {
-  @protected
-  final ffi.Pointer<ffi.Void> ptr;
-  static final _finalizer = ffi.NativeFinalizer(_DrivingRouter_free.cast());
-
-  /// @nodoc
-  DrivingRouter.fromExternalPtr(this.ptr);
-
-  /// @nodoc
-  @internal
-  DrivingRouter.fromNativePtr(this.ptr) {
-    _finalizer.attach(this, ptr);
-  }
-
-  @internal
-
-  /// @nodoc
-  static ffi.Pointer<ffi.Void> getNativePtr(DrivingRouter? obj) {
-    if (obj == null) return ffi.nullptr;
-    return obj.ptr;
-  }
-
-  @internal
-
-  /// @nodoc
-  static DrivingRouter? fromOptionalPtr(ffi.Pointer<ffi.Void> ptr) {
-    if (ptr == ffi.nullptr) return null;
-    return DrivingRouter.fromNativePtr(ptr);
-  }
-
+abstract class DrivingRouter implements ffi.Finalizable {
   /// Builds a route.
   ///
   /// [points] Route points.
@@ -318,19 +116,7 @@ class DrivingRouter implements ffi.Finalizable {
     directions_driving_vehicle_options.DrivingVehicleOptions vehicleOptions,
     directions_driving_session.DrivingSessionRouteListener routeListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-  }) {
-    return directions_driving_session.DrivingSession.fromNativePtr(
-        _DrivingRouter_requestRoutes(
-      ptr,
-      mapkit_request_point.RequestPointContainerExtension.toNativeVector(
-          points),
-      DrivingOptions.toNative(drivingOptions),
-      directions_driving_vehicle_options.DrivingVehicleOptions.toNative(
-          vehicleOptions),
-      directions_driving_session.DrivingSessionRouteListener.getNativePtr(
-          routeListener),
-    ));
-  }
+  });
 
   /// Creates a route summary.
   ///
@@ -344,57 +130,5 @@ class DrivingRouter implements ffi.Finalizable {
     directions_driving_session.DrivingSummarySessionSummaryListener
         summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-  }) {
-    return directions_driving_session.DrivingSummarySession.fromNativePtr(
-        _DrivingRouter_requestRoutesSummary(
-      ptr,
-      mapkit_request_point.RequestPointContainerExtension.toNativeVector(
-          points),
-      DrivingOptions.toNative(drivingOptions),
-      directions_driving_vehicle_options.DrivingVehicleOptions.toNative(
-          vehicleOptions),
-      directions_driving_session.DrivingSummarySessionSummaryListener
-          .getNativePtr(summaryListener),
-    ));
-  }
+  });
 }
-
-final _DrivingRouter_free = lib.library
-    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_directions_driving_DrivingRouter_free');
-
-final ffi.Pointer<ffi.Void> Function(
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        DrivingOptionsNative,
-        directions_driving_vehicle_options.DrivingVehicleOptionsNative,
-        ffi.Pointer<ffi.Void>) _DrivingRouter_requestRoutes =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        DrivingOptionsNative,
-                        directions_driving_vehicle_options
-                            .DrivingVehicleOptionsNative,
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingRouter_requestRoutes')
-        .asFunction();
-final ffi.Pointer<ffi.Void> Function(
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    DrivingOptionsNative,
-    directions_driving_vehicle_options.DrivingVehicleOptionsNative,
-    ffi
-        .Pointer<ffi.Void>) _DrivingRouter_requestRoutesSummary = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(
-                    ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>,
-                    DrivingOptionsNative,
-                    directions_driving_vehicle_options.DrivingVehicleOptionsNative,
-                    ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_directions_driving_DrivingRouter_requestRoutesSummary')
-    .asFunction();

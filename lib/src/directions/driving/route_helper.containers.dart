@@ -13,7 +13,7 @@ extension ArrowManeuverStyleContainerExtension on ArrowManeuverStyle {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, ArrowManeuverStyle.toPointer);
+    return string_map.toNativeMap(obj, ArrowManeuverStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension ArrowManeuverStyleContainerExtension on ArrowManeuverStyle {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, ArrowManeuverStyle.toPointer);
+    return vector.toNativeVector(obj, ArrowManeuverStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension ArrowManeuverStyleContainerExtension on ArrowManeuverStyle {
   static string_map.StringMap<ArrowManeuverStyle> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => ArrowManeuverStyle.fromPointer(val, needFree: false));
+        ptr, (val) => ArrowManeuverStyleImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<ArrowManeuverStyle>>
@@ -88,7 +88,7 @@ extension ArrowManeuverStyleContainerExtension on ArrowManeuverStyle {
   static vector.Vector<ArrowManeuverStyle> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => ArrowManeuverStyle.fromPointer(val, needFree: false));
+        ptr, (val) => ArrowManeuverStyleImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<ArrowManeuverStyle>>
@@ -110,6 +110,116 @@ extension ArrowManeuverStyleContainerExtension on ArrowManeuverStyle {
   }
 }
 
+extension PolygonManeuverRenderModeContainerExtension
+    on PolygonManeuverRenderMode {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, PolygonManeuverRenderMode?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, PolygonManeuverRenderModeImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<PolygonManeuverRenderMode?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, PolygonManeuverRenderMode?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<PolygonManeuverRenderMode?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, PolygonManeuverRenderModeImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<PolygonManeuverRenderMode?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, PolygonManeuverRenderMode?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<PolygonManeuverRenderMode> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            PolygonManeuverRenderModeImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<PolygonManeuverRenderMode>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<PolygonManeuverRenderMode>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<PolygonManeuverRenderMode> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
+            PolygonManeuverRenderModeImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<PolygonManeuverRenderMode>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<PolygonManeuverRenderMode>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
 extension PolygonManeuverStyleContainerExtension on PolygonManeuverStyle {
   static ffi.Pointer<ffi.Void> toNativeMap(
       core.Map<core.String, PolygonManeuverStyle?>? obj) {
@@ -117,7 +227,7 @@ extension PolygonManeuverStyleContainerExtension on PolygonManeuverStyle {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PolygonManeuverStyle.toPointer);
+    return string_map.toNativeMap(obj, PolygonManeuverStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -145,7 +255,7 @@ extension PolygonManeuverStyleContainerExtension on PolygonManeuverStyle {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PolygonManeuverStyle.toPointer);
+    return vector.toNativeVector(obj, PolygonManeuverStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -168,8 +278,8 @@ extension PolygonManeuverStyleContainerExtension on PolygonManeuverStyle {
 
   static string_map.StringMap<PolygonManeuverStyle> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => PolygonManeuverStyle.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => PolygonManeuverStyleImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PolygonManeuverStyle>>
@@ -192,8 +302,8 @@ extension PolygonManeuverStyleContainerExtension on PolygonManeuverStyle {
 
   static vector.Vector<PolygonManeuverStyle> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => PolygonManeuverStyle.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => PolygonManeuverStyleImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PolygonManeuverStyle>>
@@ -222,7 +332,7 @@ extension ManeuverStyleContainerExtension on ManeuverStyle {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, ManeuverStyle.toPointer);
+    return string_map.toNativeMap(obj, ManeuverStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -248,7 +358,7 @@ extension ManeuverStyleContainerExtension on ManeuverStyle {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, ManeuverStyle.toPointer);
+    return vector.toNativeVector(obj, ManeuverStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -272,7 +382,7 @@ extension ManeuverStyleContainerExtension on ManeuverStyle {
   static string_map.StringMap<ManeuverStyle> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => ManeuverStyle.fromPointer(val, needFree: false));
+        ptr, (val) => ManeuverStyleImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<ManeuverStyle>> toPlatformMapVector(
@@ -296,7 +406,7 @@ extension ManeuverStyleContainerExtension on ManeuverStyle {
   static vector.Vector<ManeuverStyle> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => ManeuverStyle.fromPointer(val, needFree: false));
+        ptr, (val) => ManeuverStyleImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<ManeuverStyle>> toPlatformVectorVector(
@@ -309,112 +419,6 @@ extension ManeuverStyleContainerExtension on ManeuverStyle {
   }
 
   static vector.Vector<string_map.StringMap<ManeuverStyle>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
-extension PolygonManeuverRenderModeContainerExtension
-    on PolygonManeuverRenderMode {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, PolygonManeuverRenderMode?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, PolygonManeuverRenderMode.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<PolygonManeuverRenderMode?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, PolygonManeuverRenderMode?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<PolygonManeuverRenderMode?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, PolygonManeuverRenderMode.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<PolygonManeuverRenderMode?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, PolygonManeuverRenderMode?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<PolygonManeuverRenderMode> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => PolygonManeuverRenderMode.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<PolygonManeuverRenderMode>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<PolygonManeuverRenderMode>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<PolygonManeuverRenderMode> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => PolygonManeuverRenderMode.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<PolygonManeuverRenderMode>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<PolygonManeuverRenderMode>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,

@@ -14,7 +14,8 @@ extension SearchCurrencyExchangeTypeContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchCurrencyExchangeType.toPointer);
+    return string_map.toNativeMap(
+        obj, SearchCurrencyExchangeTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -43,7 +44,7 @@ extension SearchCurrencyExchangeTypeContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchCurrencyExchangeType.toPointer);
+    return vector.toNativeVector(obj, SearchCurrencyExchangeTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -66,8 +67,10 @@ extension SearchCurrencyExchangeTypeContainerExtension
 
   static string_map.StringMap<SearchCurrencyExchangeType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => SearchCurrencyExchangeType.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            SearchCurrencyExchangeTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchCurrencyExchangeType>>
@@ -90,8 +93,10 @@ extension SearchCurrencyExchangeTypeContainerExtension
 
   static vector.Vector<SearchCurrencyExchangeType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => SearchCurrencyExchangeType.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            SearchCurrencyExchangeTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchCurrencyExchangeType>>
@@ -122,7 +127,7 @@ extension SearchCurrencyExchangeMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchCurrencyExchangeMetadata.toPointer);
+        obj, SearchCurrencyExchangeMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -151,7 +156,8 @@ extension SearchCurrencyExchangeMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchCurrencyExchangeMetadata.toPointer);
+    return vector.toNativeVector(
+        obj, SearchCurrencyExchangeMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -176,8 +182,8 @@ extension SearchCurrencyExchangeMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            SearchCurrencyExchangeMetadata.fromPointer(val, needFree: false));
+        (val) => SearchCurrencyExchangeMetadataImpl.fromPointer(val,
+            needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchCurrencyExchangeMetadata>>
@@ -203,8 +209,8 @@ extension SearchCurrencyExchangeMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            SearchCurrencyExchangeMetadata.fromPointer(val, needFree: false));
+        (val) => SearchCurrencyExchangeMetadataImpl.fromPointer(val,
+            needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchCurrencyExchangeMetadata>>

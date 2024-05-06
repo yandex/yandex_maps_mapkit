@@ -13,7 +13,7 @@ extension DrivingTollPostContainerExtension on DrivingTollPost {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingTollPost.toPointer);
+    return string_map.toNativeMap(obj, DrivingTollPostImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension DrivingTollPostContainerExtension on DrivingTollPost {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingTollPost.toPointer);
+    return vector.toNativeVector(obj, DrivingTollPostImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DrivingTollPostContainerExtension on DrivingTollPost {
   static string_map.StringMap<DrivingTollPost> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingTollPost.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingTollPostImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingTollPost>>
@@ -88,7 +88,7 @@ extension DrivingTollPostContainerExtension on DrivingTollPost {
   static vector.Vector<DrivingTollPost> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingTollPost.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingTollPostImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingTollPost>> toPlatformVectorVector(

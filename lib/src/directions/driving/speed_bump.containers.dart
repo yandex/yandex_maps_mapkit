@@ -13,7 +13,7 @@ extension DrivingSpeedBumpContainerExtension on DrivingSpeedBump {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingSpeedBump.toPointer);
+    return string_map.toNativeMap(obj, DrivingSpeedBumpImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension DrivingSpeedBumpContainerExtension on DrivingSpeedBump {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingSpeedBump.toPointer);
+    return vector.toNativeVector(obj, DrivingSpeedBumpImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DrivingSpeedBumpContainerExtension on DrivingSpeedBump {
   static string_map.StringMap<DrivingSpeedBump> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingSpeedBump.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingSpeedBumpImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingSpeedBump>>
@@ -88,7 +88,7 @@ extension DrivingSpeedBumpContainerExtension on DrivingSpeedBump {
   static vector.Vector<DrivingSpeedBump> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingSpeedBump.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingSpeedBumpImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingSpeedBump>> toPlatformVectorVector(

@@ -13,7 +13,7 @@ extension PanoramaLayerContainerExtension on PanoramaLayer {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaLayer.getNativePtr);
+    return string_map.toNativeMap(obj, PanoramaLayerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension PanoramaLayerContainerExtension on PanoramaLayer {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaLayer.getNativePtr);
+    return vector.toNativeVector(obj, PanoramaLayerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension PanoramaLayerContainerExtension on PanoramaLayer {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => PanoramaLayer.fromOptionalPtr(
+        (val) => PanoramaLayerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -90,7 +90,7 @@ extension PanoramaLayerContainerExtension on PanoramaLayer {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => PanoramaLayer.fromOptionalPtr(
+        (val) => PanoramaLayerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

@@ -13,7 +13,7 @@ extension DrivingActionContainerExtension on DrivingAction {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingAction.toPointer);
+    return string_map.toNativeMap(obj, DrivingActionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension DrivingActionContainerExtension on DrivingAction {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingAction.toPointer);
+    return vector.toNativeVector(obj, DrivingActionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension DrivingActionContainerExtension on DrivingAction {
   static string_map.StringMap<DrivingAction> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingAction.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingActionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingAction>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension DrivingActionContainerExtension on DrivingAction {
   static vector.Vector<DrivingAction> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingAction.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingActionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingAction>> toPlatformVectorVector(

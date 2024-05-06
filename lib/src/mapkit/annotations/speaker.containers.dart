@@ -13,7 +13,7 @@ extension LocalizedPhraseContainerExtension on LocalizedPhrase {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, LocalizedPhrase.toPointer);
+    return string_map.toNativeMap(obj, LocalizedPhraseImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension LocalizedPhraseContainerExtension on LocalizedPhrase {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, LocalizedPhrase.toPointer);
+    return vector.toNativeVector(obj, LocalizedPhraseImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension LocalizedPhraseContainerExtension on LocalizedPhrase {
   static string_map.StringMap<LocalizedPhrase> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => LocalizedPhrase.fromPointer(val, needFree: false));
+        ptr, (val) => LocalizedPhraseImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<LocalizedPhrase>>
@@ -88,7 +88,7 @@ extension LocalizedPhraseContainerExtension on LocalizedPhrase {
   static vector.Vector<LocalizedPhrase> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => LocalizedPhrase.fromPointer(val, needFree: false));
+        ptr, (val) => LocalizedPhraseImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<LocalizedPhrase>> toPlatformVectorVector(

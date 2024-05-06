@@ -14,7 +14,7 @@ extension RoadEventsLayerTextStyleContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, RoadEventsLayerTextStyle.toPointer);
+    return string_map.toNativeMap(obj, RoadEventsLayerTextStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -42,7 +42,7 @@ extension RoadEventsLayerTextStyleContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RoadEventsLayerTextStyle.toPointer);
+    return vector.toNativeVector(obj, RoadEventsLayerTextStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,8 +65,10 @@ extension RoadEventsLayerTextStyleContainerExtension
 
   static string_map.StringMap<RoadEventsLayerTextStyle> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => RoadEventsLayerTextStyle.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            RoadEventsLayerTextStyleImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<RoadEventsLayerTextStyle>>
@@ -89,8 +91,10 @@ extension RoadEventsLayerTextStyleContainerExtension
 
   static vector.Vector<RoadEventsLayerTextStyle> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => RoadEventsLayerTextStyle.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            RoadEventsLayerTextStyleImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<RoadEventsLayerTextStyle>>
@@ -112,124 +116,6 @@ extension RoadEventsLayerTextStyleContainerExtension
   }
 }
 
-extension RoadEventsLayerHighlightCircleStyleContainerExtension
-    on RoadEventsLayerHighlightCircleStyle {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, RoadEventsLayerHighlightCircleStyle?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(
-        obj, RoadEventsLayerHighlightCircleStyle.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<RoadEventsLayerHighlightCircleStyle?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String,
-              core.Map<core.String, RoadEventsLayerHighlightCircleStyle?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<RoadEventsLayerHighlightCircleStyle?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(
-        obj, RoadEventsLayerHighlightCircleStyle.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<RoadEventsLayerHighlightCircleStyle?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, RoadEventsLayerHighlightCircleStyle?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<RoadEventsLayerHighlightCircleStyle>
-      toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => RoadEventsLayerHighlightCircleStyle.fromPointer(val,
-            needFree: false));
-  }
-
-  static string_map
-      .StringMap<vector.Vector<RoadEventsLayerHighlightCircleStyle>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map
-      .StringMap<string_map.StringMap<RoadEventsLayerHighlightCircleStyle>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<RoadEventsLayerHighlightCircleStyle> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => RoadEventsLayerHighlightCircleStyle.fromPointer(val,
-            needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<RoadEventsLayerHighlightCircleStyle>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector
-      .Vector<string_map.StringMap<RoadEventsLayerHighlightCircleStyle>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
 extension RoadEventsLayerRoadEventStyleContainerExtension
     on RoadEventsLayerRoadEventStyle {
   static ffi.Pointer<ffi.Void> toNativeMap(
@@ -239,7 +125,7 @@ extension RoadEventsLayerRoadEventStyleContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, RoadEventsLayerRoadEventStyle.getNativePtr);
+        obj, RoadEventsLayerRoadEventStyleImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -269,7 +155,7 @@ extension RoadEventsLayerRoadEventStyleContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, RoadEventsLayerRoadEventStyle.getNativePtr);
+        obj, RoadEventsLayerRoadEventStyleImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -294,7 +180,7 @@ extension RoadEventsLayerRoadEventStyleContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => RoadEventsLayerRoadEventStyle.fromOptionalPtr(
+        (val) => RoadEventsLayerRoadEventStyleImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -321,7 +207,7 @@ extension RoadEventsLayerRoadEventStyleContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => RoadEventsLayerRoadEventStyle.fromOptionalPtr(
+        (val) => RoadEventsLayerRoadEventStyleImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -353,7 +239,7 @@ extension RoadEventsLayerRoadEventStylingPropertiesContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, RoadEventsLayerRoadEventStylingProperties.getNativePtr);
+        obj, RoadEventsLayerRoadEventStylingPropertiesImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -387,7 +273,7 @@ extension RoadEventsLayerRoadEventStylingPropertiesContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, RoadEventsLayerRoadEventStylingProperties.getNativePtr);
+        obj, RoadEventsLayerRoadEventStylingPropertiesImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -415,7 +301,7 @@ extension RoadEventsLayerRoadEventStylingPropertiesContainerExtension
       toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => RoadEventsLayerRoadEventStylingProperties.fromOptionalPtr(
+        (val) => RoadEventsLayerRoadEventStylingPropertiesImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -443,7 +329,7 @@ extension RoadEventsLayerRoadEventStylingPropertiesContainerExtension
       toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => RoadEventsLayerRoadEventStylingProperties.fromOptionalPtr(
+        (val) => RoadEventsLayerRoadEventStylingPropertiesImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -467,6 +353,124 @@ extension RoadEventsLayerRoadEventStylingPropertiesContainerExtension
   }
 }
 
+extension RoadEventsLayerHighlightCircleStyleContainerExtension
+    on RoadEventsLayerHighlightCircleStyle {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, RoadEventsLayerHighlightCircleStyle?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(
+        obj, RoadEventsLayerHighlightCircleStyleImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<RoadEventsLayerHighlightCircleStyle?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String,
+              core.Map<core.String, RoadEventsLayerHighlightCircleStyle?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<RoadEventsLayerHighlightCircleStyle?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(
+        obj, RoadEventsLayerHighlightCircleStyleImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<RoadEventsLayerHighlightCircleStyle?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, RoadEventsLayerHighlightCircleStyle?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<RoadEventsLayerHighlightCircleStyle>
+      toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => RoadEventsLayerHighlightCircleStyleImpl.fromPointer(val,
+            needFree: false));
+  }
+
+  static string_map
+      .StringMap<vector.Vector<RoadEventsLayerHighlightCircleStyle>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map
+      .StringMap<string_map.StringMap<RoadEventsLayerHighlightCircleStyle>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<RoadEventsLayerHighlightCircleStyle> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => RoadEventsLayerHighlightCircleStyleImpl.fromPointer(val,
+            needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<RoadEventsLayerHighlightCircleStyle>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector
+      .Vector<string_map.StringMap<RoadEventsLayerHighlightCircleStyle>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
 extension RoadEventsLayerHighlightModeContainerExtension
     on RoadEventsLayerHighlightMode {
   static ffi.Pointer<ffi.Void> toNativeMap(
@@ -475,7 +479,8 @@ extension RoadEventsLayerHighlightModeContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, RoadEventsLayerHighlightMode.toPointer);
+    return string_map.toNativeMap(
+        obj, RoadEventsLayerHighlightModeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -504,7 +509,8 @@ extension RoadEventsLayerHighlightModeContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RoadEventsLayerHighlightMode.toPointer);
+    return vector.toNativeVector(
+        obj, RoadEventsLayerHighlightModeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -530,7 +536,7 @@ extension RoadEventsLayerHighlightModeContainerExtension
     return string_map.StringMap(
         ptr,
         (val) =>
-            RoadEventsLayerHighlightMode.fromPointer(val, needFree: false));
+            RoadEventsLayerHighlightModeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<RoadEventsLayerHighlightMode>>
@@ -557,7 +563,7 @@ extension RoadEventsLayerHighlightModeContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            RoadEventsLayerHighlightMode.fromPointer(val, needFree: false));
+            RoadEventsLayerHighlightModeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<RoadEventsLayerHighlightMode>>

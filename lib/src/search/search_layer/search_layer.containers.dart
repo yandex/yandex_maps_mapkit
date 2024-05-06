@@ -13,7 +13,7 @@ extension SearchLayerContainerExtension on SearchLayer {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchLayer.getNativePtr);
+    return string_map.toNativeMap(obj, SearchLayerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchLayerContainerExtension on SearchLayer {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchLayer.getNativePtr);
+    return vector.toNativeVector(obj, SearchLayerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension SearchLayerContainerExtension on SearchLayer {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchLayer.fromOptionalPtr(
+        (val) => SearchLayerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -90,7 +90,7 @@ extension SearchLayerContainerExtension on SearchLayer {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchLayer.fromOptionalPtr(
+        (val) => SearchLayerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

@@ -3,7 +3,6 @@ import 'package:yandex_maps_mapkit/src/bindings/common/library.dart' as lib;
 
 import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/native_types.dart'
@@ -19,206 +18,53 @@ import 'package:yandex_maps_mapkit/src/mapkit/image.dart' as mapkit_image;
 import 'package:yandex_maps_mapkit/src/search/feature.dart' as search_feature;
 
 part 'business_filter.containers.dart';
+part 'business_filter.impl.dart';
 
-@bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessFilter.toPointer',
-    toPlatform:
-        '(val) => SearchBusinessFilter.fromPointer(val, needFree: false)')
-class SearchBusinessFilter implements ffi.Finalizable {
-  late final id =
-      to_platform.toPlatformString(_SearchBusinessFilter_get_id(_ptr));
-  late final name = to_platform
-      .toPlatformFromPointerString(_SearchBusinessFilter_get_name(_ptr));
-  late final disabled = to_platform
-      .toPlatformFromPointerBool(_SearchBusinessFilter_get_disabled(_ptr));
-  late final iconLight = mapkit_image.Image.fromOptionalPtr(
-      _SearchBusinessFilter_get_iconLight(_ptr));
-  late final iconDark = mapkit_image.Image.fromOptionalPtr(
-      _SearchBusinessFilter_get_iconDark(_ptr));
-  late final singleSelect = to_platform
-      .toPlatformFromPointerBool(_SearchBusinessFilter_get_singleSelect(_ptr));
-  late final values = SearchBusinessFilterValues.toPlatform(
-      _SearchBusinessFilter_get_values(_ptr));
+abstract final class SearchBusinessFilter implements ffi.Finalizable {
+  factory SearchBusinessFilter(
+          core.String id,
+          core.String? name,
+          core.bool? disabled,
+          mapkit_image.Image? iconLight,
+          mapkit_image.Image? iconDark,
+          core.bool? singleSelect,
+          SearchBusinessFilterValues values) =>
+      SearchBusinessFilterImpl(
+          id, name, disabled, iconLight, iconDark, singleSelect, values);
 
-  final ffi.Pointer<ffi.Void> _ptr;
-  static final _finalizer =
-      ffi.NativeFinalizer(_SearchBusinessFilter_free.cast());
+  core.String get id;
+  core.String? get name;
+  core.bool? get disabled;
+  mapkit_image.Image? get iconLight;
+  mapkit_image.Image? get iconDark;
+  core.bool? get singleSelect;
+  SearchBusinessFilterValues get values;
 
-  SearchBusinessFilter(
-      core.String id,
-      core.String? name,
-      core.bool? disabled,
-      mapkit_image.Image? iconLight,
-      mapkit_image.Image? iconDark,
-      core.bool? singleSelect,
-      SearchBusinessFilterValues values)
-      : this.fromNativePtr(_SearchBusinessFilter_init(
-            to_native.toNativeString(id),
-            to_native.toNativePtrString(name),
-            to_native.toNativePtrBool(disabled),
-            mapkit_image.Image.getNativePtr(iconLight),
-            mapkit_image.Image.getNativePtr(iconDark),
-            to_native.toNativePtrBool(singleSelect),
-            SearchBusinessFilterValues.toNative(values)));
+  @core.override
+  core.int get hashCode => core.Object.hashAll(
+      [id, name, disabled, iconLight, iconDark, singleSelect, values]);
 
-  /// @nodoc
-  @internal
-  SearchBusinessFilter.fromNativePtr(this._ptr) {
-    _finalizer.attach(this, _ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> getNativePtr(SearchBusinessFilter? obj) {
-    if (obj == null) return ffi.nullptr;
-    return obj._ptr;
-  }
-
-  /// @nodoc
-  @internal
-  static SearchBusinessFilter? fromOptionalPtr(ffi.Pointer<ffi.Void> ptr) {
-    if (ptr == ffi.nullptr) return null;
-    return SearchBusinessFilter.fromNativePtr(ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static SearchBusinessFilter? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
+  @core.override
+  core.bool operator ==(covariant SearchBusinessFilter other) {
+    if (core.identical(this, other)) {
+      return true;
     }
-    final result = SearchBusinessFilter.fromNativePtr(
-        ptr.cast<ffi.Pointer<ffi.Void>>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
+    return id == other.id &&
+        name == other.name &&
+        disabled == other.disabled &&
+        iconLight == other.iconLight &&
+        iconDark == other.iconDark &&
+        singleSelect == other.singleSelect &&
+        values == other.values;
   }
 
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessFilter? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchBusinessFilter_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchBusinessFilter(id: $id, name: $name, disabled: $disabled, iconLight: $iconLight, iconDark: $iconDark, singleSelect: $singleSelect, values: $values)";
   }
 }
 
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_clone')
-        .asFunction(isLeaf: true);
-
-final _SearchBusinessFilter_free = lib.library
-    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
-        'yandex_flutter_search_SearchBusinessFilter_free');
-
-final ffi.Pointer<ffi.Void> Function(
-        native_types.NativeString,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        SearchBusinessFilterValuesNative) _SearchBusinessFilter_init =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        native_types.NativeString,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        SearchBusinessFilterValuesNative)>>(
-            'yandex_flutter_search_SearchBusinessFilter_init')
-        .asFunction(isLeaf: true);
-
-final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_get_id = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    native_types.NativeString Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_get_id')
-        .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_get_name = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_get_name')
-        .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_get_disabled = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_get_disabled')
-        .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_get_iconLight = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_get_iconLight')
-        .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_get_iconDark = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_get_iconDark')
-        .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_get_singleSelect = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_get_singleSelect')
-        .asFunction(isLeaf: true);
-final SearchBusinessFilterValuesNative Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_get_values = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    SearchBusinessFilterValuesNative Function(
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_get_values')
-        .asFunction(isLeaf: true);
-
-/// @nodoc
-final class SearchBusinessFilterBooleanValueNative extends ffi.Struct {
-  @ffi.Bool()
-  external core.bool value;
-  external ffi.Pointer<ffi.Void> selected;
-}
-
-final SearchBusinessFilterBooleanValueNative Function(
-    core.bool,
-    ffi
-        .Pointer<ffi.Void>) _SearchBusinessFilterBooleanValueNativeInit = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                SearchBusinessFilterBooleanValueNative Function(
-                    ffi.Bool, ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterBooleanValue_init')
-    .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessFilterBooleanValue.toPointer',
-    toPlatform:
-        '(val) => SearchBusinessFilterBooleanValue.fromPointer(val, needFree: false)')
-class SearchBusinessFilterBooleanValue {
+final class SearchBusinessFilterBooleanValue {
   final core.bool value;
   final core.bool? selected;
 
@@ -227,204 +73,54 @@ class SearchBusinessFilterBooleanValue {
     this.selected,
   });
 
-  /// @nodoc
-  @internal
-  SearchBusinessFilterBooleanValue.fromNative(
-      SearchBusinessFilterBooleanValueNative native)
-      : this(
-            value: native.value,
-            selected: to_platform.toPlatformFromPointerBool(native.selected));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([value, selected]);
 
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterBooleanValueNative toNative(
-      SearchBusinessFilterBooleanValue c) {
-    return _SearchBusinessFilterBooleanValueNativeInit(
-        c.value, to_native.toNativePtrBool(c.selected));
+  @core.override
+  core.bool operator ==(covariant SearchBusinessFilterBooleanValue other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return value == other.value && selected == other.selected;
   }
 
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterBooleanValue? fromPointer(
-      ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = SearchBusinessFilterBooleanValue.fromNative(
-        ptr.cast<SearchBusinessFilterBooleanValueNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(
-      SearchBusinessFilterBooleanValue? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<SearchBusinessFilterBooleanValueNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchBusinessFilterBooleanValue(value: $value, selected: $selected)";
   }
 }
 
-@bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessFilterEnumValue.toPointer',
-    toPlatform:
-        '(val) => SearchBusinessFilterEnumValue.fromPointer(val, needFree: false)')
-class SearchBusinessFilterEnumValue implements ffi.Finalizable {
-  late final value = search_feature.SearchFeatureEnumValue.fromNativePtr(
-      _SearchBusinessFilterEnumValue_get_value(_ptr));
-  late final selected = to_platform.toPlatformFromPointerBool(
-      _SearchBusinessFilterEnumValue_get_selected(_ptr));
-  late final disabled = to_platform.toPlatformFromPointerBool(
-      _SearchBusinessFilterEnumValue_get_disabled(_ptr));
+abstract final class SearchBusinessFilterEnumValue implements ffi.Finalizable {
+  factory SearchBusinessFilterEnumValue(
+          search_feature.SearchFeatureEnumValue value,
+          core.bool? selected,
+          core.bool? disabled) =>
+      SearchBusinessFilterEnumValueImpl(value, selected, disabled);
 
-  final ffi.Pointer<ffi.Void> _ptr;
-  static final _finalizer =
-      ffi.NativeFinalizer(_SearchBusinessFilterEnumValue_free.cast());
+  search_feature.SearchFeatureEnumValue get value;
+  core.bool? get selected;
+  core.bool? get disabled;
 
-  SearchBusinessFilterEnumValue(search_feature.SearchFeatureEnumValue value,
-      core.bool? selected, core.bool? disabled)
-      : this.fromNativePtr(_SearchBusinessFilterEnumValue_init(
-            search_feature.SearchFeatureEnumValue.getNativePtr(value),
-            to_native.toNativePtrBool(selected),
-            to_native.toNativePtrBool(disabled)));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([value, selected, disabled]);
 
-  /// @nodoc
-  @internal
-  SearchBusinessFilterEnumValue.fromNativePtr(this._ptr) {
-    _finalizer.attach(this, _ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> getNativePtr(
-      SearchBusinessFilterEnumValue? obj) {
-    if (obj == null) return ffi.nullptr;
-    return obj._ptr;
-  }
-
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterEnumValue? fromOptionalPtr(
-      ffi.Pointer<ffi.Void> ptr) {
-    if (ptr == ffi.nullptr) return null;
-    return SearchBusinessFilterEnumValue.fromNativePtr(ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterEnumValue? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
+  @core.override
+  core.bool operator ==(covariant SearchBusinessFilterEnumValue other) {
+    if (core.identical(this, other)) {
+      return true;
     }
-    final result = SearchBusinessFilterEnumValue.fromNativePtr(
-        ptr.cast<ffi.Pointer<ffi.Void>>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
+    return value == other.value &&
+        selected == other.selected &&
+        disabled == other.disabled;
   }
 
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessFilterEnumValue? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchBusinessFilterEnumValue_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchBusinessFilterEnumValue(value: $value, selected: $selected, disabled: $disabled)";
   }
 }
 
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _SearchBusinessFilterEnumValue_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterEnumValue_clone')
-    .asFunction(isLeaf: true);
-
-final _SearchBusinessFilterEnumValue_free = lib.library.lookup<
-        ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
-    'yandex_flutter_search_BusinessFilter_SearchBusinessFilterEnumValue_free');
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi
-        .Pointer<ffi.Void>) _SearchBusinessFilterEnumValue_init = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterEnumValue_init')
-    .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _SearchBusinessFilterEnumValue_get_value = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterEnumValue_get_value')
-    .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _SearchBusinessFilterEnumValue_get_selected = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterEnumValue_get_selected')
-    .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _SearchBusinessFilterEnumValue_get_disabled = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterEnumValue_get_disabled')
-    .asFunction(isLeaf: true);
-
-/// @nodoc
-final class SearchBusinessFilterRangeValueNative extends ffi.Struct {
-  @ffi.Double()
-  external core.double from;
-  @ffi.Double()
-  external core.double to;
-}
-
-final SearchBusinessFilterRangeValueNative Function(
-    core.double,
-    core
-        .double) _SearchBusinessFilterRangeValueNativeInit = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                SearchBusinessFilterRangeValueNative Function(
-                    ffi.Double, ffi.Double)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterRangeValue_init')
-    .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessFilterRangeValue.toPointer',
-    toPlatform:
-        '(val) => SearchBusinessFilterRangeValue.fromPointer(val, needFree: false)')
-class SearchBusinessFilterRangeValue {
+final class SearchBusinessFilterRangeValue {
   final core.double from;
   final core.double to;
 
@@ -433,139 +129,49 @@ class SearchBusinessFilterRangeValue {
     required this.to,
   });
 
-  /// @nodoc
-  @internal
-  SearchBusinessFilterRangeValue.fromNative(
-      SearchBusinessFilterRangeValueNative native)
-      : this(from: native.from, to: native.to);
+  @core.override
+  core.int get hashCode => core.Object.hashAll([from, to]);
 
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterRangeValueNative toNative(
-      SearchBusinessFilterRangeValue c) {
-    return _SearchBusinessFilterRangeValueNativeInit(c.from, c.to);
+  @core.override
+  core.bool operator ==(covariant SearchBusinessFilterRangeValue other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return from == other.from && to == other.to;
   }
 
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterRangeValue? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = SearchBusinessFilterRangeValue.fromNative(
-        ptr.cast<SearchBusinessFilterRangeValueNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessFilterRangeValue? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<SearchBusinessFilterRangeValueNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchBusinessFilterRangeValue(from: $from, to: $to)";
   }
 }
 
-/// @nodoc
-final class SearchBusinessFilterDateValueNative extends ffi.Struct {
-  @ffi.Int()
-  external core.int reserved;
-}
-
-final SearchBusinessFilterDateValueNative Function(
-    core
-        .int) _SearchBusinessFilterDateValueNativeInit = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                SearchBusinessFilterDateValueNative Function(ffi.Int)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterDateValue_init')
-    .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessFilterDateValue.toPointer',
-    toPlatform:
-        '(val) => SearchBusinessFilterDateValue.fromPointer(val, needFree: false)')
-class SearchBusinessFilterDateValue {
+final class SearchBusinessFilterDateValue {
   final core.int reserved;
 
   const SearchBusinessFilterDateValue({
     required this.reserved,
   });
 
-  /// @nodoc
-  @internal
-  SearchBusinessFilterDateValue.fromNative(
-      SearchBusinessFilterDateValueNative native)
-      : this(reserved: native.reserved);
+  @core.override
+  core.int get hashCode => core.Object.hashAll([reserved]);
 
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterDateValueNative toNative(
-      SearchBusinessFilterDateValue c) {
-    return _SearchBusinessFilterDateValueNativeInit(c.reserved);
+  @core.override
+  core.bool operator ==(covariant SearchBusinessFilterDateValue other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return reserved == other.reserved;
   }
 
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterDateValue? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = SearchBusinessFilterDateValue.fromNative(
-        ptr.cast<SearchBusinessFilterDateValueNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
+  @core.override
+  core.String toString() {
+    return "SearchBusinessFilterDateValue(reserved: $reserved)";
   }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessFilterDateValue? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<SearchBusinessFilterDateValueNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
-  }
-}
-
-/// @nodoc
-@internal
-final class SearchBusinessFilterValuesNativeData extends ffi.Union {
-  external ffi.Pointer<ffi.Void> booleans;
-  external ffi.Pointer<ffi.Void> enums;
-  external SearchBusinessFilterRangeValueNative range;
-  external SearchBusinessFilterDateValueNative date;
-}
-
-/// @nodoc
-@internal
-final class SearchBusinessFilterValuesNative extends ffi.Struct {
-  @ffi.Int()
-  external core.int tag;
-  external SearchBusinessFilterValuesNativeData data;
 }
 
 /// Possible filter values.
-@bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessFilterValues.toPointer',
-    toPlatform:
-        '(val) => SearchBusinessFilterValues.fromPointer(val, needFree: false)')
-class SearchBusinessFilterValues {
+final class SearchBusinessFilterValues {
   const SearchBusinessFilterValues.fromVectorBooleanValue(
       core.List<SearchBusinessFilterBooleanValue> booleans)
       : _value = booleans;
@@ -581,54 +187,6 @@ class SearchBusinessFilterValues {
   const SearchBusinessFilterValues.fromDateValue(
       SearchBusinessFilterDateValue date)
       : _value = date;
-
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterValues toPlatform(
-      SearchBusinessFilterValuesNative obj) {
-    switch (obj.tag) {
-      case 0:
-        return SearchBusinessFilterValues.fromVectorBooleanValue(
-            SearchBusinessFilterBooleanValueContainerExtension.toPlatformVector(
-                obj.data.booleans));
-      case 1:
-        return SearchBusinessFilterValues.fromVectorEnumValue(
-            SearchBusinessFilterEnumValueContainerExtension.toPlatformVector(
-                obj.data.enums));
-      case 2:
-        return SearchBusinessFilterValues.fromRangeValue(
-            SearchBusinessFilterRangeValue.fromNative(obj.data.range));
-      case 3:
-        return SearchBusinessFilterValues.fromDateValue(
-            SearchBusinessFilterDateValue.fromNative(obj.data.date));
-    }
-    throw core.TypeError();
-  }
-
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterValuesNative toNative(
-      SearchBusinessFilterValues obj) {
-    if (obj._value is core.List<SearchBusinessFilterBooleanValue>) {
-      return _BusinessFilter_ValuesNative_VectorBusinessFilter_BooleanValueNative_init(
-          SearchBusinessFilterBooleanValueContainerExtension.toNativeVector(
-              obj._value));
-    }
-    if (obj._value is core.List<SearchBusinessFilterEnumValue>) {
-      return _BusinessFilter_ValuesNative_VectorBusinessFilter_EnumValue_init(
-          SearchBusinessFilterEnumValueContainerExtension.toNativeVector(
-              obj._value));
-    }
-    if (obj._value is SearchBusinessFilterRangeValue) {
-      return _BusinessFilter_ValuesNative_BusinessFilter_RangeValueNative_init(
-          SearchBusinessFilterRangeValue.toNative(obj._value));
-    }
-    if (obj._value is SearchBusinessFilterDateValue) {
-      return _BusinessFilter_ValuesNative_BusinessFilter_DateValueNative_init(
-          SearchBusinessFilterDateValue.toNative(obj._value));
-    }
-    throw core.TypeError();
-  }
 
   core.List<SearchBusinessFilterBooleanValue>? asVectorBooleanValue() {
     if (_value is core.List<SearchBusinessFilterBooleanValue>) {
@@ -684,162 +242,28 @@ class SearchBusinessFilterValues {
     assert(false);
   }
 
-  /// @nodoc
-  @internal
-  static SearchBusinessFilterValues? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = toPlatform(ptr.cast<SearchBusinessFilterValuesNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessFilterValues? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<SearchBusinessFilterValuesNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
-  }
-
   final core.dynamic _value;
 }
 
-final SearchBusinessFilterValuesNative Function(ffi.Pointer<ffi.Void>)
-    _BusinessFilter_ValuesNative_VectorBusinessFilter_BooleanValueNative_init =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    SearchBusinessFilterValuesNative Function(
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_BusinessFilter_SearchBusinessFilterValues_VectorBusinessFilter_BooleanValueNative_init')
-        .asFunction(isLeaf: true);
-final SearchBusinessFilterValuesNative Function(ffi.Pointer<ffi.Void>)
-    _BusinessFilter_ValuesNative_VectorBusinessFilter_EnumValue_init = lib
-        .library
-        .lookup<
-                ffi.NativeFunction<
-                    SearchBusinessFilterValuesNative Function(
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_BusinessFilter_SearchBusinessFilterValues_VectorBusinessFilter_EnumValue_init')
-        .asFunction(isLeaf: true);
-final SearchBusinessFilterValuesNative Function(
-        SearchBusinessFilterRangeValueNative)
-    _BusinessFilter_ValuesNative_BusinessFilter_RangeValueNative_init = lib
-        .library
-        .lookup<
-                ffi.NativeFunction<
-                    SearchBusinessFilterValuesNative Function(
-                        SearchBusinessFilterRangeValueNative)>>(
-            'yandex_flutter_search_BusinessFilter_SearchBusinessFilterValues_BusinessFilter_RangeValueNative_init')
-        .asFunction(isLeaf: true);
-final SearchBusinessFilterValuesNative Function(
-        SearchBusinessFilterDateValueNative)
-    _BusinessFilter_ValuesNative_BusinessFilter_DateValueNative_init = lib
-        .library
-        .lookup<
-                ffi.NativeFunction<
-                    SearchBusinessFilterValuesNative Function(
-                        SearchBusinessFilterDateValueNative)>>(
-            'yandex_flutter_search_BusinessFilter_SearchBusinessFilterValues_BusinessFilter_DateValueNative_init')
-        .asFunction(isLeaf: true);
+abstract final class SearchFilterSet implements ffi.Finalizable {
+  factory SearchFilterSet(core.List<core.String> ids) =>
+      SearchFilterSetImpl(ids);
 
-@bindings_annotations.ContainerData(
-    toNative: 'SearchFilterSet.toPointer',
-    toPlatform: '(val) => SearchFilterSet.fromPointer(val, needFree: false)')
-class SearchFilterSet implements ffi.Finalizable {
-  late final ids = to_platform.toVectorString(_SearchFilterSet_get_ids(_ptr));
+  core.List<core.String> get ids;
 
-  final ffi.Pointer<ffi.Void> _ptr;
-  static final _finalizer = ffi.NativeFinalizer(_SearchFilterSet_free.cast());
+  @core.override
+  core.int get hashCode => core.Object.hashAll([ids]);
 
-  SearchFilterSet(core.List<core.String> ids)
-      : this.fromNativePtr(
-            _SearchFilterSet_init(to_native.toNativeVectorString(ids)));
-
-  /// @nodoc
-  @internal
-  SearchFilterSet.fromNativePtr(this._ptr) {
-    _finalizer.attach(this, _ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> getNativePtr(SearchFilterSet? obj) {
-    if (obj == null) return ffi.nullptr;
-    return obj._ptr;
-  }
-
-  /// @nodoc
-  @internal
-  static SearchFilterSet? fromOptionalPtr(ffi.Pointer<ffi.Void> ptr) {
-    if (ptr == ffi.nullptr) return null;
-    return SearchFilterSet.fromNativePtr(ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static SearchFilterSet? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
+  @core.override
+  core.bool operator ==(covariant SearchFilterSet other) {
+    if (core.identical(this, other)) {
+      return true;
     }
-    final result =
-        SearchFilterSet.fromNativePtr(ptr.cast<ffi.Pointer<ffi.Void>>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
+    return ids == other.ids;
   }
 
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(SearchFilterSet? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFilterSet_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "SearchFilterSet(ids: $ids)";
   }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFilterSet_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFilterSet_clone')
-        .asFunction(isLeaf: true);
-
-final _SearchFilterSet_free = lib.library
-    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
-        'yandex_flutter_search_SearchFilterSet_free');
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFilterSet_init = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFilterSet_init')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFilterSet_get_ids = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFilterSet_get_ids')
-        .asFunction(isLeaf: true);

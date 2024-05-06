@@ -13,7 +13,7 @@ extension BicycleRouterContainerExtension on BicycleRouter {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleRouter.getNativePtr);
+    return string_map.toNativeMap(obj, BicycleRouterImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension BicycleRouterContainerExtension on BicycleRouter {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleRouter.getNativePtr);
+    return vector.toNativeVector(obj, BicycleRouterImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension BicycleRouterContainerExtension on BicycleRouter {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => BicycleRouter.fromOptionalPtr(
+        (val) => BicycleRouterImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -90,7 +90,7 @@ extension BicycleRouterContainerExtension on BicycleRouter {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => BicycleRouter.fromOptionalPtr(
+        (val) => BicycleRouterImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -120,7 +120,7 @@ extension BicycleVehicleTypeContainerExtension on BicycleVehicleType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleVehicleType.toPointer);
+    return string_map.toNativeMap(obj, BicycleVehicleTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -147,7 +147,7 @@ extension BicycleVehicleTypeContainerExtension on BicycleVehicleType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleVehicleType.toPointer);
+    return vector.toNativeVector(obj, BicycleVehicleTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -171,7 +171,7 @@ extension BicycleVehicleTypeContainerExtension on BicycleVehicleType {
   static string_map.StringMap<BicycleVehicleType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => BicycleVehicleType.fromPointer(val, needFree: false));
+        ptr, (val) => BicycleVehicleTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<BicycleVehicleType>>
@@ -195,7 +195,7 @@ extension BicycleVehicleTypeContainerExtension on BicycleVehicleType {
   static vector.Vector<BicycleVehicleType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => BicycleVehicleType.fromPointer(val, needFree: false));
+        ptr, (val) => BicycleVehicleTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<BicycleVehicleType>>

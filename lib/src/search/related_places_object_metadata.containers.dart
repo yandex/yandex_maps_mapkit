@@ -15,7 +15,7 @@ extension SearchRelatedPlacesObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchRelatedPlacesObjectMetadata.toPointer);
+        obj, SearchRelatedPlacesObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -46,7 +46,7 @@ extension SearchRelatedPlacesObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchRelatedPlacesObjectMetadata.toPointer);
+        obj, SearchRelatedPlacesObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -72,7 +72,7 @@ extension SearchRelatedPlacesObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchRelatedPlacesObjectMetadata.fromPointer(val,
+        (val) => SearchRelatedPlacesObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -99,7 +99,7 @@ extension SearchRelatedPlacesObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchRelatedPlacesObjectMetadata.fromPointer(val,
+        (val) => SearchRelatedPlacesObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 

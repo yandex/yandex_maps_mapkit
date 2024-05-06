@@ -14,7 +14,7 @@ extension DrivingPedestrianCrossingContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingPedestrianCrossing.toPointer);
+    return string_map.toNativeMap(obj, DrivingPedestrianCrossingImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -42,7 +42,7 @@ extension DrivingPedestrianCrossingContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingPedestrianCrossing.toPointer);
+    return vector.toNativeVector(obj, DrivingPedestrianCrossingImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,8 +65,10 @@ extension DrivingPedestrianCrossingContainerExtension
 
   static string_map.StringMap<DrivingPedestrianCrossing> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => DrivingPedestrianCrossing.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            DrivingPedestrianCrossingImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingPedestrianCrossing>>
@@ -89,8 +91,10 @@ extension DrivingPedestrianCrossingContainerExtension
 
   static vector.Vector<DrivingPedestrianCrossing> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => DrivingPedestrianCrossing.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            DrivingPedestrianCrossingImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingPedestrianCrossing>>

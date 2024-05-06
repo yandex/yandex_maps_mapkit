@@ -9,6 +9,8 @@ import 'package:yandex_maps_mapkit/src/mapkit/navigation/jam_segment.dart'
 import 'package:yandex_maps_mapkit/src/mapkit/navigation/jam_style.dart'
     as mapkit_navigation_jam_style;
 
+part 'route_painter.impl.dart';
+
 class MasstransitDrivingJamsPainter {
   MasstransitDrivingJamsPainter._();
 
@@ -20,23 +22,10 @@ class MasstransitDrivingJamsPainter {
     mapkit_navigation_jam_style.JamStyle style, {
     required core.List<mapkit_navigation_jam_segment.JamSegment> jams,
   }) {
-    _DrivingJamsPainter_applyJamsStyle(
-      mapkit_map_polyline.PolylineMapObject.getNativePtr(polyline),
-      mapkit_navigation_jam_segment.JamSegmentContainerExtension.toNativeVector(
-          jams),
-      mapkit_navigation_jam_style.JamStyle.getNativePtr(style),
+    _applyJamsStyle(
+      polyline,
+      jams: jams,
+      style,
     );
   }
 }
-
-final void Function(
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi
-        .Pointer<ffi.Void>) _DrivingJamsPainter_applyJamsStyle = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_MasstransitDrivingJamsPainter_applyJamsStyle')
-    .asFunction();

@@ -1,2 +1,4 @@
 export 'package:yandex_maps_mapkit/src/transport/masstransit/internal/trajectory.dart'
-    hide TrajectorySegmentMetadataContainerExtension;
+    hide
+        TrajectorySegmentMetadataImpl,
+        TrajectorySegmentMetadataContainerExtension;

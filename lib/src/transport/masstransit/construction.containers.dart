@@ -14,7 +14,7 @@ extension MasstransitConstructionIDContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitConstructionID.toPointer);
+    return string_map.toNativeMap(obj, MasstransitConstructionIDImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -42,7 +42,7 @@ extension MasstransitConstructionIDContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitConstructionID.toPointer);
+    return vector.toNativeVector(obj, MasstransitConstructionIDImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,8 +65,10 @@ extension MasstransitConstructionIDContainerExtension
 
   static string_map.StringMap<MasstransitConstructionID> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitConstructionID.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitConstructionIDImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitConstructionID>>
@@ -89,8 +91,10 @@ extension MasstransitConstructionIDContainerExtension
 
   static vector.Vector<MasstransitConstructionID> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitConstructionID.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitConstructionIDImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitConstructionID>>

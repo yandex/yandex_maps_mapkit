@@ -13,7 +13,7 @@ extension MasstransitSessionContainerExtension on MasstransitSession {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitSession.getNativePtr);
+    return string_map.toNativeMap(obj, MasstransitSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension MasstransitSessionContainerExtension on MasstransitSession {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitSession.getNativePtr);
+    return vector.toNativeVector(obj, MasstransitSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,7 +65,7 @@ extension MasstransitSessionContainerExtension on MasstransitSession {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => MasstransitSession.fromOptionalPtr(
+        (val) => MasstransitSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -91,7 +91,7 @@ extension MasstransitSessionContainerExtension on MasstransitSession {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => MasstransitSession.fromOptionalPtr(
+        (val) => MasstransitSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -122,7 +122,8 @@ extension MasstransitSummarySessionContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitSummarySession.getNativePtr);
+    return string_map.toNativeMap(
+        obj, MasstransitSummarySessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -150,7 +151,8 @@ extension MasstransitSummarySessionContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitSummarySession.getNativePtr);
+    return vector.toNativeVector(
+        obj, MasstransitSummarySessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -175,7 +177,7 @@ extension MasstransitSummarySessionContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => MasstransitSummarySession.fromOptionalPtr(
+        (val) => MasstransitSummarySessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -201,7 +203,7 @@ extension MasstransitSummarySessionContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => MasstransitSummarySession.fromOptionalPtr(
+        (val) => MasstransitSummarySessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

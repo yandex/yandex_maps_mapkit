@@ -13,7 +13,7 @@ extension DrivingSessionContainerExtension on DrivingSession {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingSession.getNativePtr);
+    return string_map.toNativeMap(obj, DrivingSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension DrivingSessionContainerExtension on DrivingSession {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingSession.getNativePtr);
+    return vector.toNativeVector(obj, DrivingSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DrivingSessionContainerExtension on DrivingSession {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => DrivingSession.fromOptionalPtr(
+        (val) => DrivingSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -90,7 +90,7 @@ extension DrivingSessionContainerExtension on DrivingSession {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => DrivingSession.fromOptionalPtr(
+        (val) => DrivingSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -120,7 +120,7 @@ extension DrivingSummarySessionContainerExtension on DrivingSummarySession {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingSummarySession.getNativePtr);
+    return string_map.toNativeMap(obj, DrivingSummarySessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -148,7 +148,7 @@ extension DrivingSummarySessionContainerExtension on DrivingSummarySession {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingSummarySession.getNativePtr);
+    return vector.toNativeVector(obj, DrivingSummarySessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -173,7 +173,7 @@ extension DrivingSummarySessionContainerExtension on DrivingSummarySession {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => DrivingSummarySession.fromOptionalPtr(
+        (val) => DrivingSummarySessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -199,7 +199,7 @@ extension DrivingSummarySessionContainerExtension on DrivingSummarySession {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => DrivingSummarySession.fromOptionalPtr(
+        (val) => DrivingSummarySessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

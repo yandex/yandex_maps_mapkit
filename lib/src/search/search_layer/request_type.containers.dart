@@ -13,7 +13,7 @@ extension RequestTypeContainerExtension on RequestType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, RequestType.toPointer);
+    return string_map.toNativeMap(obj, RequestTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension RequestTypeContainerExtension on RequestType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RequestType.toPointer);
+    return vector.toNativeVector(obj, RequestTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension RequestTypeContainerExtension on RequestType {
   static string_map.StringMap<RequestType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => RequestType.fromPointer(val, needFree: false));
+        ptr, (val) => RequestTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<RequestType>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension RequestTypeContainerExtension on RequestType {
   static vector.Vector<RequestType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => RequestType.fromPointer(val, needFree: false));
+        ptr, (val) => RequestTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<RequestType>> toPlatformVectorVector(

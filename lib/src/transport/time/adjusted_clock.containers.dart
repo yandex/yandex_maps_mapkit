@@ -13,7 +13,7 @@ extension AdjustedClockContainerExtension on AdjustedClock {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, AdjustedClock.getNativePtr);
+    return string_map.toNativeMap(obj, AdjustedClockImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension AdjustedClockContainerExtension on AdjustedClock {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, AdjustedClock.getNativePtr);
+    return vector.toNativeVector(obj, AdjustedClockImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension AdjustedClockContainerExtension on AdjustedClock {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => AdjustedClock.fromOptionalPtr(
+        (val) => AdjustedClockImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -90,7 +90,7 @@ extension AdjustedClockContainerExtension on AdjustedClock {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => AdjustedClock.fromOptionalPtr(
+        (val) => AdjustedClockImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

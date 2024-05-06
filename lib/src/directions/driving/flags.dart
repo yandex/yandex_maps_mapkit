@@ -3,7 +3,6 @@ import 'package:yandex_maps_mapkit/src/bindings/common/library.dart' as lib;
 
 import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
@@ -11,94 +10,9 @@ import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 
 part 'flags.containers.dart';
+part 'flags.impl.dart';
 
-/// @nodoc
-final class DrivingFlagsNative extends ffi.Struct {
-  @ffi.Bool()
-  external core.bool blocked;
-  @ffi.Bool()
-  external core.bool hasFerries;
-  @ffi.Bool()
-  external core.bool hasTolls;
-  @ffi.Bool()
-  external core.bool requiresAccessPass;
-  @ffi.Bool()
-  external core.bool forParking;
-  @ffi.Bool()
-  external core.bool futureBlocked;
-  @ffi.Bool()
-  external core.bool deadJam;
-  @ffi.Bool()
-  external core.bool builtOffline;
-  @ffi.Bool()
-  external core.bool predicted;
-  @ffi.Bool()
-  external core.bool hasRuggedRoads;
-  @ffi.Bool()
-  external core.bool hasFordCrossing;
-  @ffi.Bool()
-  external core.bool hasVehicleRestrictions;
-  @ffi.Bool()
-  external core.bool hasUnpavedRoads;
-  @ffi.Bool()
-  external core.bool hasInPoorConditionRoads;
-  @ffi.Bool()
-  external core.bool hasRailwayCrossing;
-  @ffi.Bool()
-  external core.bool hasCheckpoints;
-  @ffi.Bool()
-  external core.bool scheduledDeparture;
-  @ffi.Bool()
-  external core.bool hasNonTransactionalTolls;
-}
-
-final DrivingFlagsNative Function(
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core.bool,
-    core
-        .bool) _DrivingFlagsNativeInit = lib.library
-    .lookup<
-        ffi.NativeFunction<
-            DrivingFlagsNative Function(
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Bool)>>('yandex_flutter_directions_driving_DrivingFlags_init')
-    .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingFlags.toPointer',
-    toPlatform: '(val) => DrivingFlags.fromPointer(val, needFree: false)')
-class DrivingFlags {
+final class DrivingFlags {
   final core.bool blocked;
   final core.bool hasFerries;
   final core.bool hasTolls;
@@ -139,77 +53,55 @@ class DrivingFlags {
     required this.hasNonTransactionalTolls,
   });
 
-  /// @nodoc
-  @internal
-  DrivingFlags.fromNative(DrivingFlagsNative native)
-      : this(
-            blocked: native.blocked,
-            hasFerries: native.hasFerries,
-            hasTolls: native.hasTolls,
-            requiresAccessPass: native.requiresAccessPass,
-            forParking: native.forParking,
-            futureBlocked: native.futureBlocked,
-            deadJam: native.deadJam,
-            builtOffline: native.builtOffline,
-            predicted: native.predicted,
-            hasRuggedRoads: native.hasRuggedRoads,
-            hasFordCrossing: native.hasFordCrossing,
-            hasVehicleRestrictions: native.hasVehicleRestrictions,
-            hasUnpavedRoads: native.hasUnpavedRoads,
-            hasInPoorConditionRoads: native.hasInPoorConditionRoads,
-            hasRailwayCrossing: native.hasRailwayCrossing,
-            hasCheckpoints: native.hasCheckpoints,
-            scheduledDeparture: native.scheduledDeparture,
-            hasNonTransactionalTolls: native.hasNonTransactionalTolls);
+  @core.override
+  core.int get hashCode => core.Object.hashAll([
+        blocked,
+        hasFerries,
+        hasTolls,
+        requiresAccessPass,
+        forParking,
+        futureBlocked,
+        deadJam,
+        builtOffline,
+        predicted,
+        hasRuggedRoads,
+        hasFordCrossing,
+        hasVehicleRestrictions,
+        hasUnpavedRoads,
+        hasInPoorConditionRoads,
+        hasRailwayCrossing,
+        hasCheckpoints,
+        scheduledDeparture,
+        hasNonTransactionalTolls
+      ]);
 
-  /// @nodoc
-  @internal
-  static DrivingFlagsNative toNative(DrivingFlags c) {
-    return _DrivingFlagsNativeInit(
-        c.blocked,
-        c.hasFerries,
-        c.hasTolls,
-        c.requiresAccessPass,
-        c.forParking,
-        c.futureBlocked,
-        c.deadJam,
-        c.builtOffline,
-        c.predicted,
-        c.hasRuggedRoads,
-        c.hasFordCrossing,
-        c.hasVehicleRestrictions,
-        c.hasUnpavedRoads,
-        c.hasInPoorConditionRoads,
-        c.hasRailwayCrossing,
-        c.hasCheckpoints,
-        c.scheduledDeparture,
-        c.hasNonTransactionalTolls);
+  @core.override
+  core.bool operator ==(covariant DrivingFlags other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return blocked == other.blocked &&
+        hasFerries == other.hasFerries &&
+        hasTolls == other.hasTolls &&
+        requiresAccessPass == other.requiresAccessPass &&
+        forParking == other.forParking &&
+        futureBlocked == other.futureBlocked &&
+        deadJam == other.deadJam &&
+        builtOffline == other.builtOffline &&
+        predicted == other.predicted &&
+        hasRuggedRoads == other.hasRuggedRoads &&
+        hasFordCrossing == other.hasFordCrossing &&
+        hasVehicleRestrictions == other.hasVehicleRestrictions &&
+        hasUnpavedRoads == other.hasUnpavedRoads &&
+        hasInPoorConditionRoads == other.hasInPoorConditionRoads &&
+        hasRailwayCrossing == other.hasRailwayCrossing &&
+        hasCheckpoints == other.hasCheckpoints &&
+        scheduledDeparture == other.scheduledDeparture &&
+        hasNonTransactionalTolls == other.hasNonTransactionalTolls;
   }
 
-  /// @nodoc
-  @internal
-  static DrivingFlags? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = DrivingFlags.fromNative(ptr.cast<DrivingFlagsNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(DrivingFlags? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<DrivingFlagsNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "DrivingFlags(blocked: $blocked, hasFerries: $hasFerries, hasTolls: $hasTolls, requiresAccessPass: $requiresAccessPass, forParking: $forParking, futureBlocked: $futureBlocked, deadJam: $deadJam, builtOffline: $builtOffline, predicted: $predicted, hasRuggedRoads: $hasRuggedRoads, hasFordCrossing: $hasFordCrossing, hasVehicleRestrictions: $hasVehicleRestrictions, hasUnpavedRoads: $hasUnpavedRoads, hasInPoorConditionRoads: $hasInPoorConditionRoads, hasRailwayCrossing: $hasRailwayCrossing, hasCheckpoints: $hasCheckpoints, scheduledDeparture: $scheduledDeparture, hasNonTransactionalTolls: $hasNonTransactionalTolls)";
   }
 }

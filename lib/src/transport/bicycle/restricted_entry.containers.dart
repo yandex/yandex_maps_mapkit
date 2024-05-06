@@ -13,7 +13,7 @@ extension BicycleRestrictedEntryContainerExtension on BicycleRestrictedEntry {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleRestrictedEntry.toPointer);
+    return string_map.toNativeMap(obj, BicycleRestrictedEntryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension BicycleRestrictedEntryContainerExtension on BicycleRestrictedEntry {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleRestrictedEntry.toPointer);
+    return vector.toNativeVector(obj, BicycleRestrictedEntryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension BicycleRestrictedEntryContainerExtension on BicycleRestrictedEntry {
 
   static string_map.StringMap<BicycleRestrictedEntry> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => BicycleRestrictedEntry.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => BicycleRestrictedEntryImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<BicycleRestrictedEntry>>
@@ -88,8 +88,8 @@ extension BicycleRestrictedEntryContainerExtension on BicycleRestrictedEntry {
 
   static vector.Vector<BicycleRestrictedEntry> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => BicycleRestrictedEntry.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => BicycleRestrictedEntryImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<BicycleRestrictedEntry>>

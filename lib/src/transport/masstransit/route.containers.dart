@@ -6,548 +6,6 @@ part of 'route.dart';
 // ContainerGenerator
 // **************************************************************************
 
-extension MasstransitWaitContainerExtension on MasstransitWait {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, MasstransitWait?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, MasstransitWait.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<MasstransitWait?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, MasstransitWait?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<MasstransitWait?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, MasstransitWait.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<MasstransitWait?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, MasstransitWait?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<MasstransitWait> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => MasstransitWait.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<MasstransitWait>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<MasstransitWait>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<MasstransitWait> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => MasstransitWait.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<MasstransitWait>> toPlatformVectorVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<MasstransitWait>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
-extension MasstransitConstructionMaskContainerExtension
-    on MasstransitConstructionMask {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, MasstransitConstructionMask?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, MasstransitConstructionMask.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<MasstransitConstructionMask?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String,
-              core.Map<core.String, MasstransitConstructionMask?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<MasstransitConstructionMask?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, MasstransitConstructionMask.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<MasstransitConstructionMask?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, MasstransitConstructionMask?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<MasstransitConstructionMask> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitConstructionMask.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<MasstransitConstructionMask>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<MasstransitConstructionMask>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<MasstransitConstructionMask> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitConstructionMask.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<MasstransitConstructionMask>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<MasstransitConstructionMask>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
-extension MasstransitConstructionSegmentContainerExtension
-    on MasstransitConstructionSegment {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, MasstransitConstructionSegment?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(
-        obj, MasstransitConstructionSegment.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<MasstransitConstructionSegment?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String,
-              core.Map<core.String, MasstransitConstructionSegment?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<MasstransitConstructionSegment?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, MasstransitConstructionSegment.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<MasstransitConstructionSegment?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, MasstransitConstructionSegment?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<MasstransitConstructionSegment> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) =>
-            MasstransitConstructionSegment.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<MasstransitConstructionSegment>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map
-      .StringMap<string_map.StringMap<MasstransitConstructionSegment>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<MasstransitConstructionSegment> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
-            MasstransitConstructionSegment.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<MasstransitConstructionSegment>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<MasstransitConstructionSegment>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
-extension MasstransitTrafficTypeSegmentContainerExtension
-    on MasstransitTrafficTypeSegment {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, MasstransitTrafficTypeSegment?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, MasstransitTrafficTypeSegment.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<MasstransitTrafficTypeSegment?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String,
-              core.Map<core.String, MasstransitTrafficTypeSegment?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<MasstransitTrafficTypeSegment?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, MasstransitTrafficTypeSegment.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<MasstransitTrafficTypeSegment?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, MasstransitTrafficTypeSegment?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<MasstransitTrafficTypeSegment> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) =>
-            MasstransitTrafficTypeSegment.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<MasstransitTrafficTypeSegment>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map
-      .StringMap<string_map.StringMap<MasstransitTrafficTypeSegment>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<MasstransitTrafficTypeSegment> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
-            MasstransitTrafficTypeSegment.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<MasstransitTrafficTypeSegment>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<MasstransitTrafficTypeSegment>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
-extension MasstransitInclineSectionContainerExtension
-    on MasstransitInclineSection {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, MasstransitInclineSection?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, MasstransitInclineSection.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<MasstransitInclineSection?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, MasstransitInclineSection?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<MasstransitInclineSection?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, MasstransitInclineSection.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<MasstransitInclineSection?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, MasstransitInclineSection?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<MasstransitInclineSection> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitInclineSection.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<MasstransitInclineSection>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<MasstransitInclineSection>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<MasstransitInclineSection> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitInclineSection.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<MasstransitInclineSection>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<MasstransitInclineSection>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
 extension MasstransitElevationDataContainerExtension
     on MasstransitElevationData {
   static ffi.Pointer<ffi.Void> toNativeMap(
@@ -556,7 +14,7 @@ extension MasstransitElevationDataContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitElevationData.toPointer);
+    return string_map.toNativeMap(obj, MasstransitElevationDataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -584,7 +42,7 @@ extension MasstransitElevationDataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitElevationData.toPointer);
+    return vector.toNativeVector(obj, MasstransitElevationDataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -607,8 +65,10 @@ extension MasstransitElevationDataContainerExtension
 
   static string_map.StringMap<MasstransitElevationData> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitElevationData.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitElevationDataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitElevationData>>
@@ -631,8 +91,10 @@ extension MasstransitElevationDataContainerExtension
 
   static vector.Vector<MasstransitElevationData> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitElevationData.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitElevationDataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitElevationData>>
@@ -661,7 +123,7 @@ extension MasstransitFitnessContainerExtension on MasstransitFitness {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitFitness.toPointer);
+    return string_map.toNativeMap(obj, MasstransitFitnessImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -688,7 +150,7 @@ extension MasstransitFitnessContainerExtension on MasstransitFitness {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitFitness.toPointer);
+    return vector.toNativeVector(obj, MasstransitFitnessImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -712,7 +174,7 @@ extension MasstransitFitnessContainerExtension on MasstransitFitness {
   static string_map.StringMap<MasstransitFitness> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => MasstransitFitness.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitFitnessImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitFitness>>
@@ -736,7 +198,7 @@ extension MasstransitFitnessContainerExtension on MasstransitFitness {
   static vector.Vector<MasstransitFitness> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => MasstransitFitness.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitFitnessImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitFitness>>
@@ -766,7 +228,8 @@ extension MasstransitRouteStopMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitRouteStopMetadata.toPointer);
+    return string_map.toNativeMap(
+        obj, MasstransitRouteStopMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -795,7 +258,8 @@ extension MasstransitRouteStopMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRouteStopMetadata.toPointer);
+    return vector.toNativeVector(
+        obj, MasstransitRouteStopMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -821,7 +285,7 @@ extension MasstransitRouteStopMetadataContainerExtension
     return string_map.StringMap(
         ptr,
         (val) =>
-            MasstransitRouteStopMetadata.fromPointer(val, needFree: false));
+            MasstransitRouteStopMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitRouteStopMetadata>>
@@ -848,7 +312,7 @@ extension MasstransitRouteStopMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            MasstransitRouteStopMetadata.fromPointer(val, needFree: false));
+            MasstransitRouteStopMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitRouteStopMetadata>>
@@ -877,7 +341,7 @@ extension MasstransitRouteStopContainerExtension on MasstransitRouteStop {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitRouteStop.toPointer);
+    return string_map.toNativeMap(obj, MasstransitRouteStopImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -905,7 +369,7 @@ extension MasstransitRouteStopContainerExtension on MasstransitRouteStop {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRouteStop.toPointer);
+    return vector.toNativeVector(obj, MasstransitRouteStopImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -928,8 +392,8 @@ extension MasstransitRouteStopContainerExtension on MasstransitRouteStop {
 
   static string_map.StringMap<MasstransitRouteStop> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => MasstransitRouteStop.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => MasstransitRouteStopImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitRouteStop>>
@@ -952,8 +416,8 @@ extension MasstransitRouteStopContainerExtension on MasstransitRouteStop {
 
   static vector.Vector<MasstransitRouteStop> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => MasstransitRouteStop.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => MasstransitRouteStopImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitRouteStop>>
@@ -982,7 +446,7 @@ extension MasstransitTransferStopContainerExtension on MasstransitTransferStop {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitTransferStop.toPointer);
+    return string_map.toNativeMap(obj, MasstransitTransferStopImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1010,7 +474,7 @@ extension MasstransitTransferStopContainerExtension on MasstransitTransferStop {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitTransferStop.toPointer);
+    return vector.toNativeVector(obj, MasstransitTransferStopImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1034,7 +498,7 @@ extension MasstransitTransferStopContainerExtension on MasstransitTransferStop {
   static string_map.StringMap<MasstransitTransferStop> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(ptr,
-        (val) => MasstransitTransferStop.fromPointer(val, needFree: false));
+        (val) => MasstransitTransferStopImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitTransferStop>>
@@ -1058,7 +522,7 @@ extension MasstransitTransferStopContainerExtension on MasstransitTransferStop {
   static vector.Vector<MasstransitTransferStop> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => MasstransitTransferStop.fromPointer(val, needFree: false));
+        (val) => MasstransitTransferStopImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTransferStop>>
@@ -1087,7 +551,7 @@ extension MasstransitTransferContainerExtension on MasstransitTransfer {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitTransfer.toPointer);
+    return string_map.toNativeMap(obj, MasstransitTransferImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1115,7 +579,7 @@ extension MasstransitTransferContainerExtension on MasstransitTransfer {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitTransfer.toPointer);
+    return vector.toNativeVector(obj, MasstransitTransferImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1138,8 +602,8 @@ extension MasstransitTransferContainerExtension on MasstransitTransfer {
 
   static string_map.StringMap<MasstransitTransfer> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => MasstransitTransfer.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => MasstransitTransferImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitTransfer>>
@@ -1162,8 +626,8 @@ extension MasstransitTransferContainerExtension on MasstransitTransfer {
 
   static vector.Vector<MasstransitTransfer> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => MasstransitTransfer.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => MasstransitTransferImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTransfer>>
@@ -1192,7 +656,7 @@ extension MasstransitTaxiContainerExtension on MasstransitTaxi {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitTaxi.toPointer);
+    return string_map.toNativeMap(obj, MasstransitTaxiImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1219,7 +683,7 @@ extension MasstransitTaxiContainerExtension on MasstransitTaxi {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitTaxi.toPointer);
+    return vector.toNativeVector(obj, MasstransitTaxiImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1243,7 +707,7 @@ extension MasstransitTaxiContainerExtension on MasstransitTaxi {
   static string_map.StringMap<MasstransitTaxi> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => MasstransitTaxi.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitTaxiImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitTaxi>>
@@ -1267,7 +731,7 @@ extension MasstransitTaxiContainerExtension on MasstransitTaxi {
   static vector.Vector<MasstransitTaxi> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => MasstransitTaxi.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitTaxiImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTaxi>> toPlatformVectorVector(
@@ -1297,7 +761,8 @@ extension MasstransitSectionMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitSectionMetadata.toPointer);
+    return string_map.toNativeMap(
+        obj, MasstransitSectionMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1326,7 +791,7 @@ extension MasstransitSectionMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitSectionMetadata.toPointer);
+    return vector.toNativeVector(obj, MasstransitSectionMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1349,8 +814,10 @@ extension MasstransitSectionMetadataContainerExtension
 
   static string_map.StringMap<MasstransitSectionMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitSectionMetadata.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitSectionMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitSectionMetadata>>
@@ -1373,8 +840,10 @@ extension MasstransitSectionMetadataContainerExtension
 
   static vector.Vector<MasstransitSectionMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitSectionMetadata.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitSectionMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitSectionMetadata>>
@@ -1396,124 +865,6 @@ extension MasstransitSectionMetadataContainerExtension
   }
 }
 
-extension MasstransitSectionMetadataSectionDataContainerExtension
-    on MasstransitSectionMetadataSectionData {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, MasstransitSectionMetadataSectionData?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(
-        obj, MasstransitSectionMetadataSectionData.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<MasstransitSectionMetadataSectionData?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String,
-              core.Map<core.String, MasstransitSectionMetadataSectionData?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<MasstransitSectionMetadataSectionData?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(
-        obj, MasstransitSectionMetadataSectionData.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<MasstransitSectionMetadataSectionData?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, MasstransitSectionMetadataSectionData?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<MasstransitSectionMetadataSectionData>
-      toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => MasstransitSectionMetadataSectionData.fromPointer(val,
-            needFree: false));
-  }
-
-  static string_map
-      .StringMap<vector.Vector<MasstransitSectionMetadataSectionData>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map
-      .StringMap<string_map.StringMap<MasstransitSectionMetadataSectionData>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<MasstransitSectionMetadataSectionData> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitSectionMetadataSectionData.fromPointer(val,
-            needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<MasstransitSectionMetadataSectionData>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector
-      .Vector<string_map.StringMap<MasstransitSectionMetadataSectionData>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
 extension MasstransitRouteSettingsContainerExtension
     on MasstransitRouteSettings {
   static ffi.Pointer<ffi.Void> toNativeMap(
@@ -1522,7 +873,7 @@ extension MasstransitRouteSettingsContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitRouteSettings.toPointer);
+    return string_map.toNativeMap(obj, MasstransitRouteSettingsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1550,7 +901,7 @@ extension MasstransitRouteSettingsContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRouteSettings.toPointer);
+    return vector.toNativeVector(obj, MasstransitRouteSettingsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1573,8 +924,10 @@ extension MasstransitRouteSettingsContainerExtension
 
   static string_map.StringMap<MasstransitRouteSettings> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitRouteSettings.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitRouteSettingsImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitRouteSettings>>
@@ -1597,8 +950,10 @@ extension MasstransitRouteSettingsContainerExtension
 
   static vector.Vector<MasstransitRouteSettings> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitRouteSettings.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitRouteSettingsImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitRouteSettings>>
@@ -1628,7 +983,7 @@ extension MasstransitRouteMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitRouteMetadata.toPointer);
+    return string_map.toNativeMap(obj, MasstransitRouteMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1656,7 +1011,7 @@ extension MasstransitRouteMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRouteMetadata.toPointer);
+    return vector.toNativeVector(obj, MasstransitRouteMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1679,8 +1034,10 @@ extension MasstransitRouteMetadataContainerExtension
 
   static string_map.StringMap<MasstransitRouteMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitRouteMetadata.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitRouteMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitRouteMetadata>>
@@ -1703,8 +1060,10 @@ extension MasstransitRouteMetadataContainerExtension
 
   static vector.Vector<MasstransitRouteMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitRouteMetadata.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitRouteMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitRouteMetadata>>
@@ -1733,7 +1092,7 @@ extension MasstransitSectionContainerExtension on MasstransitSection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitSection.toPointer);
+    return string_map.toNativeMap(obj, MasstransitSectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1760,7 +1119,7 @@ extension MasstransitSectionContainerExtension on MasstransitSection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitSection.toPointer);
+    return vector.toNativeVector(obj, MasstransitSectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1784,7 +1143,7 @@ extension MasstransitSectionContainerExtension on MasstransitSection {
   static string_map.StringMap<MasstransitSection> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => MasstransitSection.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitSectionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitSection>>
@@ -1808,7 +1167,7 @@ extension MasstransitSectionContainerExtension on MasstransitSection {
   static vector.Vector<MasstransitSection> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => MasstransitSection.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitSectionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitSection>>
@@ -1837,7 +1196,7 @@ extension MasstransitRouteContainerExtension on MasstransitRoute {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitRoute.getNativePtr);
+    return string_map.toNativeMap(obj, MasstransitRouteImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1864,7 +1223,7 @@ extension MasstransitRouteContainerExtension on MasstransitRoute {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRoute.getNativePtr);
+    return vector.toNativeVector(obj, MasstransitRouteImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1889,7 +1248,7 @@ extension MasstransitRouteContainerExtension on MasstransitRoute {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => MasstransitRoute.fromOptionalPtr(
+        (val) => MasstransitRouteImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -1915,7 +1274,7 @@ extension MasstransitRouteContainerExtension on MasstransitRoute {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => MasstransitRoute.fromOptionalPtr(
+        (val) => MasstransitRouteImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -1938,6 +1297,223 @@ extension MasstransitRouteContainerExtension on MasstransitRoute {
   }
 }
 
+extension MasstransitWaitContainerExtension on MasstransitWait {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, MasstransitWait?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, MasstransitWaitImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<MasstransitWait?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, MasstransitWait?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<MasstransitWait?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, MasstransitWaitImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<MasstransitWait?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, MasstransitWait?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<MasstransitWait> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr, (val) => MasstransitWaitImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<MasstransitWait>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<MasstransitWait>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<MasstransitWait> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr, (val) => MasstransitWaitImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<MasstransitWait>> toPlatformVectorVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<MasstransitWait>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
+extension MasstransitConstructionMaskContainerExtension
+    on MasstransitConstructionMask {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, MasstransitConstructionMask?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(
+        obj, MasstransitConstructionMaskImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<MasstransitConstructionMask?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String,
+              core.Map<core.String, MasstransitConstructionMask?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<MasstransitConstructionMask?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(
+        obj, MasstransitConstructionMaskImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<MasstransitConstructionMask?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, MasstransitConstructionMask?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<MasstransitConstructionMask> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitConstructionMaskImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<MasstransitConstructionMask>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<MasstransitConstructionMask>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<MasstransitConstructionMask> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitConstructionMaskImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<MasstransitConstructionMask>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<MasstransitConstructionMask>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
 extension MasstransitConstructionMaskStairsContainerExtension
     on MasstransitConstructionMaskStairs {
   static ffi.Pointer<ffi.Void> toNativeMap(
@@ -1947,7 +1523,7 @@ extension MasstransitConstructionMaskStairsContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, MasstransitConstructionMaskStairs.toPointer);
+        obj, MasstransitConstructionMaskStairsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1978,7 +1554,7 @@ extension MasstransitConstructionMaskStairsContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, MasstransitConstructionMaskStairs.toPointer);
+        obj, MasstransitConstructionMaskStairsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -2004,7 +1580,7 @@ extension MasstransitConstructionMaskStairsContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => MasstransitConstructionMaskStairs.fromPointer(val,
+        (val) => MasstransitConstructionMaskStairsImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -2031,7 +1607,7 @@ extension MasstransitConstructionMaskStairsContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => MasstransitConstructionMaskStairs.fromPointer(val,
+        (val) => MasstransitConstructionMaskStairsImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -2063,7 +1639,7 @@ extension MasstransitConstructionMaskPassContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, MasstransitConstructionMaskPass.toPointer);
+        obj, MasstransitConstructionMaskPassImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -2094,7 +1670,7 @@ extension MasstransitConstructionMaskPassContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, MasstransitConstructionMaskPass.toPointer);
+        obj, MasstransitConstructionMaskPassImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -2120,8 +1696,8 @@ extension MasstransitConstructionMaskPassContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            MasstransitConstructionMaskPass.fromPointer(val, needFree: false));
+        (val) => MasstransitConstructionMaskPassImpl.fromPointer(val,
+            needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitConstructionMaskPass>>
@@ -2147,8 +1723,8 @@ extension MasstransitConstructionMaskPassContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            MasstransitConstructionMaskPass.fromPointer(val, needFree: false));
+        (val) => MasstransitConstructionMaskPassImpl.fromPointer(val,
+            needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitConstructionMaskPass>>
@@ -2170,6 +1746,120 @@ extension MasstransitConstructionMaskPassContainerExtension
   }
 }
 
+extension MasstransitConstructionSegmentContainerExtension
+    on MasstransitConstructionSegment {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, MasstransitConstructionSegment?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(
+        obj, MasstransitConstructionSegmentImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<MasstransitConstructionSegment?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String,
+              core.Map<core.String, MasstransitConstructionSegment?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<MasstransitConstructionSegment?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(
+        obj, MasstransitConstructionSegmentImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<MasstransitConstructionSegment?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, MasstransitConstructionSegment?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<MasstransitConstructionSegment> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => MasstransitConstructionSegmentImpl.fromPointer(val,
+            needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<MasstransitConstructionSegment>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map
+      .StringMap<string_map.StringMap<MasstransitConstructionSegment>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<MasstransitConstructionSegment> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => MasstransitConstructionSegmentImpl.fromPointer(val,
+            needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<MasstransitConstructionSegment>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<MasstransitConstructionSegment>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
 extension MasstransitTrafficTypeIDContainerExtension
     on MasstransitTrafficTypeID {
   static ffi.Pointer<ffi.Void> toNativeMap(
@@ -2178,7 +1868,7 @@ extension MasstransitTrafficTypeIDContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitTrafficTypeID.toPointer);
+    return string_map.toNativeMap(obj, MasstransitTrafficTypeIDImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -2206,7 +1896,7 @@ extension MasstransitTrafficTypeIDContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitTrafficTypeID.toPointer);
+    return vector.toNativeVector(obj, MasstransitTrafficTypeIDImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -2229,8 +1919,10 @@ extension MasstransitTrafficTypeIDContainerExtension
 
   static string_map.StringMap<MasstransitTrafficTypeID> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitTrafficTypeID.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitTrafficTypeIDImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitTrafficTypeID>>
@@ -2253,8 +1945,10 @@ extension MasstransitTrafficTypeIDContainerExtension
 
   static vector.Vector<MasstransitTrafficTypeID> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitTrafficTypeID.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitTrafficTypeIDImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTrafficTypeID>>
@@ -2276,6 +1970,120 @@ extension MasstransitTrafficTypeIDContainerExtension
   }
 }
 
+extension MasstransitTrafficTypeSegmentContainerExtension
+    on MasstransitTrafficTypeSegment {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, MasstransitTrafficTypeSegment?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(
+        obj, MasstransitTrafficTypeSegmentImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<MasstransitTrafficTypeSegment?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String,
+              core.Map<core.String, MasstransitTrafficTypeSegment?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<MasstransitTrafficTypeSegment?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(
+        obj, MasstransitTrafficTypeSegmentImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<MasstransitTrafficTypeSegment?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, MasstransitTrafficTypeSegment?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<MasstransitTrafficTypeSegment> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => MasstransitTrafficTypeSegmentImpl.fromPointer(val,
+            needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<MasstransitTrafficTypeSegment>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map
+      .StringMap<string_map.StringMap<MasstransitTrafficTypeSegment>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<MasstransitTrafficTypeSegment> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => MasstransitTrafficTypeSegmentImpl.fromPointer(val,
+            needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<MasstransitTrafficTypeSegment>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<MasstransitTrafficTypeSegment>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
 extension MasstransitFitnessTypeContainerExtension on MasstransitFitnessType {
   static ffi.Pointer<ffi.Void> toNativeMap(
       core.Map<core.String, MasstransitFitnessType?>? obj) {
@@ -2283,7 +2091,7 @@ extension MasstransitFitnessTypeContainerExtension on MasstransitFitnessType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitFitnessType.toPointer);
+    return string_map.toNativeMap(obj, MasstransitFitnessTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -2311,7 +2119,7 @@ extension MasstransitFitnessTypeContainerExtension on MasstransitFitnessType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitFitnessType.toPointer);
+    return vector.toNativeVector(obj, MasstransitFitnessTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -2334,8 +2142,8 @@ extension MasstransitFitnessTypeContainerExtension on MasstransitFitnessType {
 
   static string_map.StringMap<MasstransitFitnessType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => MasstransitFitnessType.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => MasstransitFitnessTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitFitnessType>>
@@ -2358,8 +2166,8 @@ extension MasstransitFitnessTypeContainerExtension on MasstransitFitnessType {
 
   static vector.Vector<MasstransitFitnessType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => MasstransitFitnessType.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => MasstransitFitnessTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitFitnessType>>
@@ -2388,7 +2196,7 @@ extension MasstransitInclineTypeContainerExtension on MasstransitInclineType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitInclineType.toPointer);
+    return string_map.toNativeMap(obj, MasstransitInclineTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -2416,7 +2224,7 @@ extension MasstransitInclineTypeContainerExtension on MasstransitInclineType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitInclineType.toPointer);
+    return vector.toNativeVector(obj, MasstransitInclineTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -2439,8 +2247,8 @@ extension MasstransitInclineTypeContainerExtension on MasstransitInclineType {
 
   static string_map.StringMap<MasstransitInclineType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => MasstransitInclineType.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => MasstransitInclineTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitInclineType>>
@@ -2463,8 +2271,8 @@ extension MasstransitInclineTypeContainerExtension on MasstransitInclineType {
 
   static vector.Vector<MasstransitInclineType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => MasstransitInclineType.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => MasstransitInclineTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitInclineType>>
@@ -2486,6 +2294,234 @@ extension MasstransitInclineTypeContainerExtension on MasstransitInclineType {
   }
 }
 
+extension MasstransitInclineSectionContainerExtension
+    on MasstransitInclineSection {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, MasstransitInclineSection?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, MasstransitInclineSectionImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<MasstransitInclineSection?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, MasstransitInclineSection?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<MasstransitInclineSection?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, MasstransitInclineSectionImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<MasstransitInclineSection?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, MasstransitInclineSection?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<MasstransitInclineSection> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitInclineSectionImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<MasstransitInclineSection>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<MasstransitInclineSection>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<MasstransitInclineSection> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitInclineSectionImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<MasstransitInclineSection>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<MasstransitInclineSection>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
+extension MasstransitSectionMetadataSectionDataContainerExtension
+    on MasstransitSectionMetadataSectionData {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, MasstransitSectionMetadataSectionData?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(
+        obj, MasstransitSectionMetadataSectionDataImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<MasstransitSectionMetadataSectionData?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String,
+              core.Map<core.String, MasstransitSectionMetadataSectionData?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<MasstransitSectionMetadataSectionData?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(
+        obj, MasstransitSectionMetadataSectionDataImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<MasstransitSectionMetadataSectionData?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, MasstransitSectionMetadataSectionData?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<MasstransitSectionMetadataSectionData>
+      toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => MasstransitSectionMetadataSectionDataImpl.fromPointer(val,
+            needFree: false));
+  }
+
+  static string_map
+      .StringMap<vector.Vector<MasstransitSectionMetadataSectionData>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map
+      .StringMap<string_map.StringMap<MasstransitSectionMetadataSectionData>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<MasstransitSectionMetadataSectionData> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => MasstransitSectionMetadataSectionDataImpl.fromPointer(val,
+            needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<MasstransitSectionMetadataSectionData>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector
+      .Vector<string_map.StringMap<MasstransitSectionMetadataSectionData>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
 extension MasstransitComfortTagContainerExtension on MasstransitComfortTag {
   static ffi.Pointer<ffi.Void> toNativeMap(
       core.Map<core.String, MasstransitComfortTag?>? obj) {
@@ -2493,7 +2529,7 @@ extension MasstransitComfortTagContainerExtension on MasstransitComfortTag {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitComfortTag.toPointer);
+    return string_map.toNativeMap(obj, MasstransitComfortTagImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -2521,7 +2557,7 @@ extension MasstransitComfortTagContainerExtension on MasstransitComfortTag {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitComfortTag.toPointer);
+    return vector.toNativeVector(obj, MasstransitComfortTagImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -2544,8 +2580,8 @@ extension MasstransitComfortTagContainerExtension on MasstransitComfortTag {
 
   static string_map.StringMap<MasstransitComfortTag> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => MasstransitComfortTag.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => MasstransitComfortTagImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitComfortTag>>
@@ -2568,8 +2604,8 @@ extension MasstransitComfortTagContainerExtension on MasstransitComfortTag {
 
   static vector.Vector<MasstransitComfortTag> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => MasstransitComfortTag.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => MasstransitComfortTagImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitComfortTag>>

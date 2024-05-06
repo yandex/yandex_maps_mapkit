@@ -13,7 +13,7 @@ extension CompanyTapInfoContainerExtension on CompanyTapInfo {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, CompanyTapInfo.toPointer);
+    return string_map.toNativeMap(obj, CompanyTapInfoImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension CompanyTapInfoContainerExtension on CompanyTapInfo {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, CompanyTapInfo.toPointer);
+    return vector.toNativeVector(obj, CompanyTapInfoImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension CompanyTapInfoContainerExtension on CompanyTapInfo {
   static string_map.StringMap<CompanyTapInfo> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => CompanyTapInfo.fromPointer(val, needFree: false));
+        ptr, (val) => CompanyTapInfoImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<CompanyTapInfo>>
@@ -87,7 +87,7 @@ extension CompanyTapInfoContainerExtension on CompanyTapInfo {
   static vector.Vector<CompanyTapInfo> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => CompanyTapInfo.fromPointer(val, needFree: false));
+        ptr, (val) => CompanyTapInfoImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<CompanyTapInfo>> toPlatformVectorVector(

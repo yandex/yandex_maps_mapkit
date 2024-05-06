@@ -1,2 +1,5 @@
 export 'package:yandex_maps_mapkit/src/directions/driving/speed_bump.dart'
-    hide DrivingSpeedBumpNative, DrivingSpeedBumpContainerExtension;
+    hide
+        DrivingSpeedBumpImpl,
+        DrivingSpeedBumpNative,
+        DrivingSpeedBumpContainerExtension;

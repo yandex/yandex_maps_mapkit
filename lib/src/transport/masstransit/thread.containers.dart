@@ -13,7 +13,7 @@ extension MasstransitThreadStopContainerExtension on MasstransitThreadStop {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitThreadStop.toPointer);
+    return string_map.toNativeMap(obj, MasstransitThreadStopImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension MasstransitThreadStopContainerExtension on MasstransitThreadStop {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitThreadStop.toPointer);
+    return vector.toNativeVector(obj, MasstransitThreadStopImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension MasstransitThreadStopContainerExtension on MasstransitThreadStop {
 
   static string_map.StringMap<MasstransitThreadStop> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => MasstransitThreadStop.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => MasstransitThreadStopImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitThreadStop>>
@@ -88,8 +88,8 @@ extension MasstransitThreadStopContainerExtension on MasstransitThreadStop {
 
   static vector.Vector<MasstransitThreadStop> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => MasstransitThreadStop.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => MasstransitThreadStopImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitThreadStop>>

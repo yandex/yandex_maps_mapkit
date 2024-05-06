@@ -13,7 +13,7 @@ extension SearchLinkContainerExtension on SearchLink {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchLink.toPointer);
+    return string_map.toNativeMap(obj, SearchLinkImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchLinkContainerExtension on SearchLink {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchLink.toPointer);
+    return vector.toNativeVector(obj, SearchLinkImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchLinkContainerExtension on SearchLink {
   static string_map.StringMap<SearchLink> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchLink.fromPointer(val, needFree: false));
+        ptr, (val) => SearchLinkImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchLink>> toPlatformMapVector(
@@ -86,7 +86,7 @@ extension SearchLinkContainerExtension on SearchLink {
 
   static vector.Vector<SearchLink> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchLink.fromPointer(val, needFree: false));
+        ptr, (val) => SearchLinkImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchLink>> toPlatformVectorVector(

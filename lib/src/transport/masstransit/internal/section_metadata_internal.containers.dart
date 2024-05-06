@@ -13,7 +13,7 @@ extension SectionMetadataInternalContainerExtension on SectionMetadataInternal {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SectionMetadataInternal.toPointer);
+    return string_map.toNativeMap(obj, SectionMetadataInternalImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension SectionMetadataInternalContainerExtension on SectionMetadataInternal {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SectionMetadataInternal.toPointer);
+    return vector.toNativeVector(obj, SectionMetadataInternalImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,7 +65,7 @@ extension SectionMetadataInternalContainerExtension on SectionMetadataInternal {
   static string_map.StringMap<SectionMetadataInternal> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(ptr,
-        (val) => SectionMetadataInternal.fromPointer(val, needFree: false));
+        (val) => SectionMetadataInternalImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SectionMetadataInternal>>
@@ -89,7 +89,7 @@ extension SectionMetadataInternalContainerExtension on SectionMetadataInternal {
   static vector.Vector<SectionMetadataInternal> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => SectionMetadataInternal.fromPointer(val, needFree: false));
+        (val) => SectionMetadataInternalImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SectionMetadataInternal>>

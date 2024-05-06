@@ -13,7 +13,7 @@ extension DrivingFordCrossingContainerExtension on DrivingFordCrossing {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingFordCrossing.toPointer);
+    return string_map.toNativeMap(obj, DrivingFordCrossingImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension DrivingFordCrossingContainerExtension on DrivingFordCrossing {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingFordCrossing.toPointer);
+    return vector.toNativeVector(obj, DrivingFordCrossingImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension DrivingFordCrossingContainerExtension on DrivingFordCrossing {
 
   static string_map.StringMap<DrivingFordCrossing> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => DrivingFordCrossing.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => DrivingFordCrossingImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingFordCrossing>>
@@ -88,8 +88,8 @@ extension DrivingFordCrossingContainerExtension on DrivingFordCrossing {
 
   static vector.Vector<DrivingFordCrossing> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => DrivingFordCrossing.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => DrivingFordCrossingImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingFordCrossing>>

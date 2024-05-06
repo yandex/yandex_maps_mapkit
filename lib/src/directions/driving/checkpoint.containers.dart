@@ -13,7 +13,7 @@ extension DrivingCheckpointContainerExtension on DrivingCheckpoint {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingCheckpoint.toPointer);
+    return string_map.toNativeMap(obj, DrivingCheckpointImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension DrivingCheckpointContainerExtension on DrivingCheckpoint {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingCheckpoint.toPointer);
+    return vector.toNativeVector(obj, DrivingCheckpointImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DrivingCheckpointContainerExtension on DrivingCheckpoint {
   static string_map.StringMap<DrivingCheckpoint> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingCheckpoint.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingCheckpointImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingCheckpoint>>
@@ -88,7 +88,7 @@ extension DrivingCheckpointContainerExtension on DrivingCheckpoint {
   static vector.Vector<DrivingCheckpoint> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingCheckpoint.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingCheckpointImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingCheckpoint>> toPlatformVectorVector(

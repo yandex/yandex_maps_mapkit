@@ -13,7 +13,7 @@ extension SearchPrecisionContainerExtension on SearchPrecision {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchPrecision.toPointer);
+    return string_map.toNativeMap(obj, SearchPrecisionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SearchPrecisionContainerExtension on SearchPrecision {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchPrecision.toPointer);
+    return vector.toNativeVector(obj, SearchPrecisionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension SearchPrecisionContainerExtension on SearchPrecision {
   static string_map.StringMap<SearchPrecision> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchPrecision.fromPointer(val, needFree: false));
+        ptr, (val) => SearchPrecisionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchPrecision>>
@@ -88,7 +88,7 @@ extension SearchPrecisionContainerExtension on SearchPrecision {
   static vector.Vector<SearchPrecision> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchPrecision.fromPointer(val, needFree: false));
+        ptr, (val) => SearchPrecisionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchPrecision>> toPlatformVectorVector(

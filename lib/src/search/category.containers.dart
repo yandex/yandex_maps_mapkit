@@ -13,7 +13,7 @@ extension SearchCategoryContainerExtension on SearchCategory {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchCategory.toPointer);
+    return string_map.toNativeMap(obj, SearchCategoryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchCategoryContainerExtension on SearchCategory {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchCategory.toPointer);
+    return vector.toNativeVector(obj, SearchCategoryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchCategoryContainerExtension on SearchCategory {
   static string_map.StringMap<SearchCategory> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchCategory.fromPointer(val, needFree: false));
+        ptr, (val) => SearchCategoryImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchCategory>>
@@ -87,7 +87,7 @@ extension SearchCategoryContainerExtension on SearchCategory {
   static vector.Vector<SearchCategory> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchCategory.fromPointer(val, needFree: false));
+        ptr, (val) => SearchCategoryImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchCategory>> toPlatformVectorVector(

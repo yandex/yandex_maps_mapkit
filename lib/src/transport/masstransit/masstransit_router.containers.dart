@@ -13,7 +13,7 @@ extension MasstransitRouterContainerExtension on MasstransitRouter {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitRouter.getNativePtr);
+    return string_map.toNativeMap(obj, MasstransitRouterImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension MasstransitRouterContainerExtension on MasstransitRouter {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRouter.getNativePtr);
+    return vector.toNativeVector(obj, MasstransitRouterImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,7 +65,7 @@ extension MasstransitRouterContainerExtension on MasstransitRouter {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => MasstransitRouter.fromOptionalPtr(
+        (val) => MasstransitRouterImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -91,7 +91,7 @@ extension MasstransitRouterContainerExtension on MasstransitRouter {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => MasstransitRouter.fromOptionalPtr(
+        (val) => MasstransitRouterImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

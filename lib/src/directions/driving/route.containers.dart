@@ -6,109 +6,6 @@ part of 'route.dart';
 // ContainerGenerator
 // **************************************************************************
 
-extension DrivingSummaryContainerExtension on DrivingSummary {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, DrivingSummary?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, DrivingSummary.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<DrivingSummary?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, DrivingSummary?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(core.List<DrivingSummary?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, DrivingSummary.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<DrivingSummary?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, DrivingSummary?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<DrivingSummary> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => DrivingSummary.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<DrivingSummary>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<DrivingSummary>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<DrivingSummary> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => DrivingSummary.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<DrivingSummary>> toPlatformVectorVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingSummary>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
 extension DrivingSectionMetadataContainerExtension on DrivingSectionMetadata {
   static ffi.Pointer<ffi.Void> toNativeMap(
       core.Map<core.String, DrivingSectionMetadata?>? obj) {
@@ -116,7 +13,7 @@ extension DrivingSectionMetadataContainerExtension on DrivingSectionMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingSectionMetadata.toPointer);
+    return string_map.toNativeMap(obj, DrivingSectionMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +41,7 @@ extension DrivingSectionMetadataContainerExtension on DrivingSectionMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingSectionMetadata.toPointer);
+    return vector.toNativeVector(obj, DrivingSectionMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -167,8 +64,8 @@ extension DrivingSectionMetadataContainerExtension on DrivingSectionMetadata {
 
   static string_map.StringMap<DrivingSectionMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => DrivingSectionMetadata.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => DrivingSectionMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingSectionMetadata>>
@@ -191,8 +88,8 @@ extension DrivingSectionMetadataContainerExtension on DrivingSectionMetadata {
 
   static vector.Vector<DrivingSectionMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => DrivingSectionMetadata.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => DrivingSectionMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingSectionMetadata>>
@@ -221,7 +118,7 @@ extension DrivingRoutePointContainerExtension on DrivingRoutePoint {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingRoutePoint.toPointer);
+    return string_map.toNativeMap(obj, DrivingRoutePointImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -248,7 +145,7 @@ extension DrivingRoutePointContainerExtension on DrivingRoutePoint {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingRoutePoint.toPointer);
+    return vector.toNativeVector(obj, DrivingRoutePointImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -272,7 +169,7 @@ extension DrivingRoutePointContainerExtension on DrivingRoutePoint {
   static string_map.StringMap<DrivingRoutePoint> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingRoutePoint.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingRoutePointImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingRoutePoint>>
@@ -296,7 +193,7 @@ extension DrivingRoutePointContainerExtension on DrivingRoutePoint {
   static vector.Vector<DrivingRoutePoint> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingRoutePoint.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingRoutePointImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingRoutePoint>> toPlatformVectorVector(
@@ -325,7 +222,7 @@ extension DrivingRouteMetadataContainerExtension on DrivingRouteMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingRouteMetadata.toPointer);
+    return string_map.toNativeMap(obj, DrivingRouteMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -353,7 +250,7 @@ extension DrivingRouteMetadataContainerExtension on DrivingRouteMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingRouteMetadata.toPointer);
+    return vector.toNativeVector(obj, DrivingRouteMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -376,8 +273,8 @@ extension DrivingRouteMetadataContainerExtension on DrivingRouteMetadata {
 
   static string_map.StringMap<DrivingRouteMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => DrivingRouteMetadata.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => DrivingRouteMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingRouteMetadata>>
@@ -400,8 +297,8 @@ extension DrivingRouteMetadataContainerExtension on DrivingRouteMetadata {
 
   static vector.Vector<DrivingRouteMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => DrivingRouteMetadata.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => DrivingRouteMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingRouteMetadata>>
@@ -430,7 +327,7 @@ extension DrivingSectionContainerExtension on DrivingSection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingSection.toPointer);
+    return string_map.toNativeMap(obj, DrivingSectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -456,7 +353,7 @@ extension DrivingSectionContainerExtension on DrivingSection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingSection.toPointer);
+    return vector.toNativeVector(obj, DrivingSectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -480,7 +377,7 @@ extension DrivingSectionContainerExtension on DrivingSection {
   static string_map.StringMap<DrivingSection> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingSection.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingSectionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingSection>>
@@ -504,7 +401,7 @@ extension DrivingSectionContainerExtension on DrivingSection {
   static vector.Vector<DrivingSection> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingSection.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingSectionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingSection>> toPlatformVectorVector(
@@ -533,7 +430,7 @@ extension DrivingEventContainerExtension on DrivingEvent {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingEvent.toPointer);
+    return string_map.toNativeMap(obj, DrivingEventImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -559,7 +456,7 @@ extension DrivingEventContainerExtension on DrivingEvent {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingEvent.toPointer);
+    return vector.toNativeVector(obj, DrivingEventImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -583,7 +480,7 @@ extension DrivingEventContainerExtension on DrivingEvent {
   static string_map.StringMap<DrivingEvent> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingEvent.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingEventImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingEvent>> toPlatformMapVector(
@@ -607,7 +504,7 @@ extension DrivingEventContainerExtension on DrivingEvent {
   static vector.Vector<DrivingEvent> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingEvent.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingEventImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingEvent>> toPlatformVectorVector(
@@ -636,7 +533,7 @@ extension DrivingRouteContainerExtension on DrivingRoute {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingRoute.getNativePtr);
+    return string_map.toNativeMap(obj, DrivingRouteImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -662,7 +559,7 @@ extension DrivingRouteContainerExtension on DrivingRoute {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingRoute.getNativePtr);
+    return vector.toNativeVector(obj, DrivingRouteImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -687,7 +584,7 @@ extension DrivingRouteContainerExtension on DrivingRoute {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => DrivingRoute.fromOptionalPtr(
+        (val) => DrivingRouteImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -713,7 +610,7 @@ extension DrivingRouteContainerExtension on DrivingRoute {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => DrivingRoute.fromOptionalPtr(
+        (val) => DrivingRouteImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -727,6 +624,109 @@ extension DrivingRouteContainerExtension on DrivingRoute {
   }
 
   static vector.Vector<string_map.StringMap<DrivingRoute>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
+extension DrivingSummaryContainerExtension on DrivingSummary {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, DrivingSummary?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, DrivingSummaryImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<DrivingSummary?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, DrivingSummary?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(core.List<DrivingSummary?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, DrivingSummaryImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<DrivingSummary?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, DrivingSummary?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<DrivingSummary> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr, (val) => DrivingSummaryImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<DrivingSummary>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<DrivingSummary>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<DrivingSummary> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr, (val) => DrivingSummaryImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<DrivingSummary>> toPlatformVectorVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<DrivingSummary>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,

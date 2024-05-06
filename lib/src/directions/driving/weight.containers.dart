@@ -13,7 +13,7 @@ extension DrivingWeightContainerExtension on DrivingWeight {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingWeight.toPointer);
+    return string_map.toNativeMap(obj, DrivingWeightImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension DrivingWeightContainerExtension on DrivingWeight {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingWeight.toPointer);
+    return vector.toNativeVector(obj, DrivingWeightImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension DrivingWeightContainerExtension on DrivingWeight {
   static string_map.StringMap<DrivingWeight> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingWeight.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingWeightImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingWeight>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension DrivingWeightContainerExtension on DrivingWeight {
   static vector.Vector<DrivingWeight> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingWeight.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingWeightImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingWeight>> toPlatformVectorVector(

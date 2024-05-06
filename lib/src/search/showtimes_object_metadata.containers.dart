@@ -13,7 +13,7 @@ extension SearchShowtimeContainerExtension on SearchShowtime {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchShowtime.toPointer);
+    return string_map.toNativeMap(obj, SearchShowtimeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchShowtimeContainerExtension on SearchShowtime {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchShowtime.toPointer);
+    return vector.toNativeVector(obj, SearchShowtimeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchShowtimeContainerExtension on SearchShowtime {
   static string_map.StringMap<SearchShowtime> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchShowtime.fromPointer(val, needFree: false));
+        ptr, (val) => SearchShowtimeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchShowtime>>
@@ -87,7 +87,7 @@ extension SearchShowtimeContainerExtension on SearchShowtime {
   static vector.Vector<SearchShowtime> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchShowtime.fromPointer(val, needFree: false));
+        ptr, (val) => SearchShowtimeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchShowtime>> toPlatformVectorVector(
@@ -117,7 +117,8 @@ extension SearchShowtimesObjectMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchShowtimesObjectMetadata.toPointer);
+    return string_map.toNativeMap(
+        obj, SearchShowtimesObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -146,7 +147,8 @@ extension SearchShowtimesObjectMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchShowtimesObjectMetadata.toPointer);
+    return vector.toNativeVector(
+        obj, SearchShowtimesObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -171,8 +173,8 @@ extension SearchShowtimesObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            SearchShowtimesObjectMetadata.fromPointer(val, needFree: false));
+        (val) => SearchShowtimesObjectMetadataImpl.fromPointer(val,
+            needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchShowtimesObjectMetadata>>
@@ -198,8 +200,8 @@ extension SearchShowtimesObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            SearchShowtimesObjectMetadata.fromPointer(val, needFree: false));
+        (val) => SearchShowtimesObjectMetadataImpl.fromPointer(val,
+            needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchShowtimesObjectMetadata>>

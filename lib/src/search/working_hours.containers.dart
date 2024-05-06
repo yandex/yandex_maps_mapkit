@@ -13,7 +13,7 @@ extension SearchStateContainerExtension on SearchState {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchState.toPointer);
+    return string_map.toNativeMap(obj, SearchStateImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchStateContainerExtension on SearchState {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchState.toPointer);
+    return vector.toNativeVector(obj, SearchStateImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchStateContainerExtension on SearchState {
   static string_map.StringMap<SearchState> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchState.fromPointer(val, needFree: false));
+        ptr, (val) => SearchStateImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchState>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension SearchStateContainerExtension on SearchState {
   static vector.Vector<SearchState> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchState.fromPointer(val, needFree: false));
+        ptr, (val) => SearchStateImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchState>> toPlatformVectorVector(
@@ -116,7 +116,7 @@ extension SearchWorkingHoursContainerExtension on SearchWorkingHours {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchWorkingHours.toPointer);
+    return string_map.toNativeMap(obj, SearchWorkingHoursImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -143,7 +143,7 @@ extension SearchWorkingHoursContainerExtension on SearchWorkingHours {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchWorkingHours.toPointer);
+    return vector.toNativeVector(obj, SearchWorkingHoursImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -167,7 +167,7 @@ extension SearchWorkingHoursContainerExtension on SearchWorkingHours {
   static string_map.StringMap<SearchWorkingHours> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchWorkingHours.fromPointer(val, needFree: false));
+        ptr, (val) => SearchWorkingHoursImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchWorkingHours>>
@@ -191,7 +191,7 @@ extension SearchWorkingHoursContainerExtension on SearchWorkingHours {
   static vector.Vector<SearchWorkingHours> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchWorkingHours.fromPointer(val, needFree: false));
+        ptr, (val) => SearchWorkingHoursImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchWorkingHours>>

@@ -13,7 +13,7 @@ extension MasstransitWayPointContainerExtension on MasstransitWayPoint {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitWayPoint.toPointer);
+    return string_map.toNativeMap(obj, MasstransitWayPointImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension MasstransitWayPointContainerExtension on MasstransitWayPoint {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitWayPoint.toPointer);
+    return vector.toNativeVector(obj, MasstransitWayPointImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension MasstransitWayPointContainerExtension on MasstransitWayPoint {
 
   static string_map.StringMap<MasstransitWayPoint> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => MasstransitWayPoint.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => MasstransitWayPointImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitWayPoint>>
@@ -88,8 +88,8 @@ extension MasstransitWayPointContainerExtension on MasstransitWayPoint {
 
   static vector.Vector<MasstransitWayPoint> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => MasstransitWayPoint.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => MasstransitWayPointImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitWayPoint>>

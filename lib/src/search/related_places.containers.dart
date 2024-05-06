@@ -13,7 +13,7 @@ extension SearchPlaceInfoContainerExtension on SearchPlaceInfo {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchPlaceInfo.toPointer);
+    return string_map.toNativeMap(obj, SearchPlaceInfoImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SearchPlaceInfoContainerExtension on SearchPlaceInfo {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchPlaceInfo.toPointer);
+    return vector.toNativeVector(obj, SearchPlaceInfoImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension SearchPlaceInfoContainerExtension on SearchPlaceInfo {
   static string_map.StringMap<SearchPlaceInfo> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchPlaceInfo.fromPointer(val, needFree: false));
+        ptr, (val) => SearchPlaceInfoImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchPlaceInfo>>
@@ -88,7 +88,7 @@ extension SearchPlaceInfoContainerExtension on SearchPlaceInfo {
   static vector.Vector<SearchPlaceInfo> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchPlaceInfo.fromPointer(val, needFree: false));
+        ptr, (val) => SearchPlaceInfoImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchPlaceInfo>> toPlatformVectorVector(

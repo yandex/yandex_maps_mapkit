@@ -13,7 +13,7 @@ extension RoadEventContainerExtension on RoadEvent {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, RoadEvent.toPointer);
+    return string_map.toNativeMap(obj, RoadEventImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension RoadEventContainerExtension on RoadEvent {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RoadEvent.toPointer);
+    return vector.toNativeVector(obj, RoadEventImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension RoadEventContainerExtension on RoadEvent {
   static string_map.StringMap<RoadEvent> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => RoadEvent.fromPointer(val, needFree: false));
+        ptr, (val) => RoadEventImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<RoadEvent>> toPlatformMapVector(
@@ -86,7 +86,7 @@ extension RoadEventContainerExtension on RoadEvent {
 
   static vector.Vector<RoadEvent> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => RoadEvent.fromPointer(val, needFree: false));
+        ptr, (val) => RoadEventImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<RoadEvent>> toPlatformVectorVector(

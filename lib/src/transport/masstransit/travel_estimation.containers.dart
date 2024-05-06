@@ -14,7 +14,8 @@ extension MasstransitTravelEstimationContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitTravelEstimation.toPointer);
+    return string_map.toNativeMap(
+        obj, MasstransitTravelEstimationImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -43,7 +44,8 @@ extension MasstransitTravelEstimationContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitTravelEstimation.toPointer);
+    return vector.toNativeVector(
+        obj, MasstransitTravelEstimationImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -66,8 +68,10 @@ extension MasstransitTravelEstimationContainerExtension
 
   static string_map.StringMap<MasstransitTravelEstimation> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitTravelEstimation.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitTravelEstimationImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitTravelEstimation>>
@@ -90,8 +94,10 @@ extension MasstransitTravelEstimationContainerExtension
 
   static vector.Vector<MasstransitTravelEstimation> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitTravelEstimation.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitTravelEstimationImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTravelEstimation>>

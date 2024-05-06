@@ -15,7 +15,7 @@ extension SearchFilterCollectionBuilderContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchFilterCollectionBuilder.getNativePtr);
+        obj, SearchFilterCollectionBuilderImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -45,7 +45,7 @@ extension SearchFilterCollectionBuilderContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchFilterCollectionBuilder.getNativePtr);
+        obj, SearchFilterCollectionBuilderImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -70,7 +70,7 @@ extension SearchFilterCollectionBuilderContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchFilterCollectionBuilder.fromOptionalPtr(
+        (val) => SearchFilterCollectionBuilderImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -97,7 +97,7 @@ extension SearchFilterCollectionBuilderContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchFilterCollectionBuilder.fromOptionalPtr(
+        (val) => SearchFilterCollectionBuilderImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

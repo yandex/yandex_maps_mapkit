@@ -13,7 +13,7 @@ extension DrivingLaneContainerExtension on DrivingLane {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingLane.toPointer);
+    return string_map.toNativeMap(obj, DrivingLaneImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension DrivingLaneContainerExtension on DrivingLane {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingLane.toPointer);
+    return vector.toNativeVector(obj, DrivingLaneImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension DrivingLaneContainerExtension on DrivingLane {
   static string_map.StringMap<DrivingLane> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingLane.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingLaneImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingLane>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension DrivingLaneContainerExtension on DrivingLane {
   static vector.Vector<DrivingLane> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingLane.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingLaneImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingLane>> toPlatformVectorVector(
@@ -116,7 +116,7 @@ extension DrivingLaneSignContainerExtension on DrivingLaneSign {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingLaneSign.toPointer);
+    return string_map.toNativeMap(obj, DrivingLaneSignImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -143,7 +143,7 @@ extension DrivingLaneSignContainerExtension on DrivingLaneSign {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingLaneSign.toPointer);
+    return vector.toNativeVector(obj, DrivingLaneSignImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -167,7 +167,7 @@ extension DrivingLaneSignContainerExtension on DrivingLaneSign {
   static string_map.StringMap<DrivingLaneSign> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingLaneSign.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingLaneSignImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingLaneSign>>
@@ -191,7 +191,7 @@ extension DrivingLaneSignContainerExtension on DrivingLaneSign {
   static vector.Vector<DrivingLaneSign> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingLaneSign.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingLaneSignImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingLaneSign>> toPlatformVectorVector(
@@ -220,7 +220,7 @@ extension DrivingLaneDirectionContainerExtension on DrivingLaneDirection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingLaneDirection.toPointer);
+    return string_map.toNativeMap(obj, DrivingLaneDirectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -248,7 +248,7 @@ extension DrivingLaneDirectionContainerExtension on DrivingLaneDirection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingLaneDirection.toPointer);
+    return vector.toNativeVector(obj, DrivingLaneDirectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -271,8 +271,8 @@ extension DrivingLaneDirectionContainerExtension on DrivingLaneDirection {
 
   static string_map.StringMap<DrivingLaneDirection> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => DrivingLaneDirection.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => DrivingLaneDirectionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingLaneDirection>>
@@ -295,8 +295,8 @@ extension DrivingLaneDirectionContainerExtension on DrivingLaneDirection {
 
   static vector.Vector<DrivingLaneDirection> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => DrivingLaneDirection.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => DrivingLaneDirectionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingLaneDirection>>
@@ -325,7 +325,7 @@ extension DrivingLaneKindContainerExtension on DrivingLaneKind {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingLaneKind.toPointer);
+    return string_map.toNativeMap(obj, DrivingLaneKindImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -352,7 +352,7 @@ extension DrivingLaneKindContainerExtension on DrivingLaneKind {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingLaneKind.toPointer);
+    return vector.toNativeVector(obj, DrivingLaneKindImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -376,7 +376,7 @@ extension DrivingLaneKindContainerExtension on DrivingLaneKind {
   static string_map.StringMap<DrivingLaneKind> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingLaneKind.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingLaneKindImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingLaneKind>>
@@ -400,7 +400,7 @@ extension DrivingLaneKindContainerExtension on DrivingLaneKind {
   static vector.Vector<DrivingLaneKind> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingLaneKind.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingLaneKindImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingLaneKind>> toPlatformVectorVector(

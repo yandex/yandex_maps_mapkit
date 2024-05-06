@@ -14,7 +14,8 @@ extension SearchToponymObjectMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchToponymObjectMetadata.toPointer);
+    return string_map.toNativeMap(
+        obj, SearchToponymObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -43,7 +44,8 @@ extension SearchToponymObjectMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchToponymObjectMetadata.toPointer);
+    return vector.toNativeVector(
+        obj, SearchToponymObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -66,8 +68,10 @@ extension SearchToponymObjectMetadataContainerExtension
 
   static string_map.StringMap<SearchToponymObjectMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => SearchToponymObjectMetadata.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            SearchToponymObjectMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchToponymObjectMetadata>>
@@ -90,8 +94,10 @@ extension SearchToponymObjectMetadataContainerExtension
 
   static vector.Vector<SearchToponymObjectMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => SearchToponymObjectMetadata.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            SearchToponymObjectMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchToponymObjectMetadata>>

@@ -13,7 +13,7 @@ extension SuggestItemContainerExtension on SuggestItem {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SuggestItem.toPointer);
+    return string_map.toNativeMap(obj, SuggestItemImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SuggestItemContainerExtension on SuggestItem {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SuggestItem.toPointer);
+    return vector.toNativeVector(obj, SuggestItemImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SuggestItemContainerExtension on SuggestItem {
   static string_map.StringMap<SuggestItem> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SuggestItem.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestItemImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SuggestItem>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension SuggestItemContainerExtension on SuggestItem {
   static vector.Vector<SuggestItem> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SuggestItem.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestItemImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SuggestItem>> toPlatformVectorVector(
@@ -116,7 +116,7 @@ extension SuggestResponseContainerExtension on SuggestResponse {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SuggestResponse.toPointer);
+    return string_map.toNativeMap(obj, SuggestResponseImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -143,7 +143,7 @@ extension SuggestResponseContainerExtension on SuggestResponse {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SuggestResponse.toPointer);
+    return vector.toNativeVector(obj, SuggestResponseImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -167,7 +167,7 @@ extension SuggestResponseContainerExtension on SuggestResponse {
   static string_map.StringMap<SuggestResponse> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SuggestResponse.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestResponseImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SuggestResponse>>
@@ -191,7 +191,7 @@ extension SuggestResponseContainerExtension on SuggestResponse {
   static vector.Vector<SuggestResponse> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SuggestResponse.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestResponseImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SuggestResponse>> toPlatformVectorVector(
@@ -220,7 +220,7 @@ extension SuggestItemTypeContainerExtension on SuggestItemType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SuggestItemType.toPointer);
+    return string_map.toNativeMap(obj, SuggestItemTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -247,7 +247,7 @@ extension SuggestItemTypeContainerExtension on SuggestItemType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SuggestItemType.toPointer);
+    return vector.toNativeVector(obj, SuggestItemTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -271,7 +271,7 @@ extension SuggestItemTypeContainerExtension on SuggestItemType {
   static string_map.StringMap<SuggestItemType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SuggestItemType.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestItemTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SuggestItemType>>
@@ -295,7 +295,7 @@ extension SuggestItemTypeContainerExtension on SuggestItemType {
   static vector.Vector<SuggestItemType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SuggestItemType.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestItemTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SuggestItemType>> toPlatformVectorVector(
@@ -324,7 +324,7 @@ extension SuggestItemActionContainerExtension on SuggestItemAction {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SuggestItemAction.toPointer);
+    return string_map.toNativeMap(obj, SuggestItemActionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -351,7 +351,7 @@ extension SuggestItemActionContainerExtension on SuggestItemAction {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SuggestItemAction.toPointer);
+    return vector.toNativeVector(obj, SuggestItemActionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -375,7 +375,7 @@ extension SuggestItemActionContainerExtension on SuggestItemAction {
   static string_map.StringMap<SuggestItemAction> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SuggestItemAction.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestItemActionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SuggestItemAction>>
@@ -399,7 +399,7 @@ extension SuggestItemActionContainerExtension on SuggestItemAction {
   static vector.Vector<SuggestItemAction> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SuggestItemAction.fromPointer(val, needFree: false));
+        ptr, (val) => SuggestItemActionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SuggestItemAction>> toPlatformVectorVector(

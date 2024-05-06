@@ -13,7 +13,7 @@ extension BicycleSessionContainerExtension on BicycleSession {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleSession.getNativePtr);
+    return string_map.toNativeMap(obj, BicycleSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension BicycleSessionContainerExtension on BicycleSession {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleSession.getNativePtr);
+    return vector.toNativeVector(obj, BicycleSessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension BicycleSessionContainerExtension on BicycleSession {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => BicycleSession.fromOptionalPtr(
+        (val) => BicycleSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -90,7 +90,7 @@ extension BicycleSessionContainerExtension on BicycleSession {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => BicycleSession.fromOptionalPtr(
+        (val) => BicycleSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -120,7 +120,7 @@ extension BicycleSummarySessionContainerExtension on BicycleSummarySession {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleSummarySession.getNativePtr);
+    return string_map.toNativeMap(obj, BicycleSummarySessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -148,7 +148,7 @@ extension BicycleSummarySessionContainerExtension on BicycleSummarySession {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleSummarySession.getNativePtr);
+    return vector.toNativeVector(obj, BicycleSummarySessionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -173,7 +173,7 @@ extension BicycleSummarySessionContainerExtension on BicycleSummarySession {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => BicycleSummarySession.fromOptionalPtr(
+        (val) => BicycleSummarySessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -199,7 +199,7 @@ extension BicycleSummarySessionContainerExtension on BicycleSummarySession {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => BicycleSummarySession.fromOptionalPtr(
+        (val) => BicycleSummarySessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

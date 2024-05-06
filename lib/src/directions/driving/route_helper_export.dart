@@ -1,9 +1,14 @@
 export 'package:yandex_maps_mapkit/src/directions/driving/route_helper.dart'
     hide
+        RouteHelperImpl,
         ManeuverStyleContainerExtension,
-        ArrowManeuverStyleNative,
-        PolygonManeuverStyleNative,
-        PolygonManeuverStyleContainerExtension,
-        PolygonManeuverRenderModeContainerExtension,
+        ManeuverStyleImpl,
+        PolygonManeuverRenderModeImpl,
+        ArrowManeuverStyleImpl,
         ManeuverStyleNative,
-        ArrowManeuverStyleContainerExtension;
+        PolygonManeuverRenderModeContainerExtension,
+        PolygonManeuverStyleImpl,
+        PolygonManeuverStyleNative,
+        ArrowManeuverStyleContainerExtension,
+        PolygonManeuverStyleContainerExtension,
+        ArrowManeuverStyleNative;

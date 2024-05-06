@@ -13,7 +13,7 @@ extension FilterVehicleTypesContainerExtension on FilterVehicleTypes {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, FilterVehicleTypes.toPointer);
+    return string_map.toNativeMap(obj, FilterVehicleTypesImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension FilterVehicleTypesContainerExtension on FilterVehicleTypes {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, FilterVehicleTypes.toPointer);
+    return vector.toNativeVector(obj, FilterVehicleTypesImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension FilterVehicleTypesContainerExtension on FilterVehicleTypes {
   static string_map.StringMap<FilterVehicleTypes> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => FilterVehicleTypes.fromPointer(val, needFree: false));
+        ptr, (val) => FilterVehicleTypesImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<FilterVehicleTypes>>
@@ -88,7 +88,7 @@ extension FilterVehicleTypesContainerExtension on FilterVehicleTypes {
   static vector.Vector<FilterVehicleTypes> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => FilterVehicleTypes.fromPointer(val, needFree: false));
+        ptr, (val) => FilterVehicleTypesImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<FilterVehicleTypes>>
@@ -117,7 +117,7 @@ extension TransitOptionsContainerExtension on TransitOptions {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, TransitOptions.toPointer);
+    return string_map.toNativeMap(obj, TransitOptionsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -143,7 +143,7 @@ extension TransitOptionsContainerExtension on TransitOptions {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, TransitOptions.toPointer);
+    return vector.toNativeVector(obj, TransitOptionsImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -167,7 +167,7 @@ extension TransitOptionsContainerExtension on TransitOptions {
   static string_map.StringMap<TransitOptions> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => TransitOptions.fromPointer(val, needFree: false));
+        ptr, (val) => TransitOptionsImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<TransitOptions>>
@@ -191,7 +191,7 @@ extension TransitOptionsContainerExtension on TransitOptions {
   static vector.Vector<TransitOptions> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => TransitOptions.fromPointer(val, needFree: false));
+        ptr, (val) => TransitOptionsImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<TransitOptions>> toPlatformVectorVector(

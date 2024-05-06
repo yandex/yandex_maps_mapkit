@@ -13,7 +13,7 @@ extension SearchReferenceTypeContainerExtension on SearchReferenceType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchReferenceType.toPointer);
+    return string_map.toNativeMap(obj, SearchReferenceTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension SearchReferenceTypeContainerExtension on SearchReferenceType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchReferenceType.toPointer);
+    return vector.toNativeVector(obj, SearchReferenceTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension SearchReferenceTypeContainerExtension on SearchReferenceType {
 
   static string_map.StringMap<SearchReferenceType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => SearchReferenceType.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => SearchReferenceTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchReferenceType>>
@@ -88,8 +88,8 @@ extension SearchReferenceTypeContainerExtension on SearchReferenceType {
 
   static vector.Vector<SearchReferenceType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => SearchReferenceType.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => SearchReferenceTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchReferenceType>>
@@ -120,7 +120,7 @@ extension SearchReferencesObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchReferencesObjectMetadata.toPointer);
+        obj, SearchReferencesObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -149,7 +149,8 @@ extension SearchReferencesObjectMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchReferencesObjectMetadata.toPointer);
+    return vector.toNativeVector(
+        obj, SearchReferencesObjectMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -174,8 +175,8 @@ extension SearchReferencesObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            SearchReferencesObjectMetadata.fromPointer(val, needFree: false));
+        (val) => SearchReferencesObjectMetadataImpl.fromPointer(val,
+            needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchReferencesObjectMetadata>>
@@ -201,8 +202,8 @@ extension SearchReferencesObjectMetadataContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            SearchReferencesObjectMetadata.fromPointer(val, needFree: false));
+        (val) => SearchReferencesObjectMetadataImpl.fromPointer(val,
+            needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchReferencesObjectMetadata>>

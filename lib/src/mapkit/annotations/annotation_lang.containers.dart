@@ -13,7 +13,7 @@ extension AnnotationLanguageContainerExtension on AnnotationLanguage {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, AnnotationLanguage.toPointer);
+    return string_map.toNativeMap(obj, AnnotationLanguageImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension AnnotationLanguageContainerExtension on AnnotationLanguage {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, AnnotationLanguage.toPointer);
+    return vector.toNativeVector(obj, AnnotationLanguageImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension AnnotationLanguageContainerExtension on AnnotationLanguage {
   static string_map.StringMap<AnnotationLanguage> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => AnnotationLanguage.fromPointer(val, needFree: false));
+        ptr, (val) => AnnotationLanguageImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<AnnotationLanguage>>
@@ -88,7 +88,7 @@ extension AnnotationLanguageContainerExtension on AnnotationLanguage {
   static vector.Vector<AnnotationLanguage> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => AnnotationLanguage.fromPointer(val, needFree: false));
+        ptr, (val) => AnnotationLanguageImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<AnnotationLanguage>>

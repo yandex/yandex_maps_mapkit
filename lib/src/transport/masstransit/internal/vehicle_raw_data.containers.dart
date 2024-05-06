@@ -13,7 +13,7 @@ extension VehicleRawDataContainerExtension on VehicleRawData {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, VehicleRawData.toPointer);
+    return string_map.toNativeMap(obj, VehicleRawDataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension VehicleRawDataContainerExtension on VehicleRawData {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, VehicleRawData.toPointer);
+    return vector.toNativeVector(obj, VehicleRawDataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension VehicleRawDataContainerExtension on VehicleRawData {
   static string_map.StringMap<VehicleRawData> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => VehicleRawData.fromPointer(val, needFree: false));
+        ptr, (val) => VehicleRawDataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<VehicleRawData>>
@@ -87,7 +87,7 @@ extension VehicleRawDataContainerExtension on VehicleRawData {
   static vector.Vector<VehicleRawData> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => VehicleRawData.fromPointer(val, needFree: false));
+        ptr, (val) => VehicleRawDataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<VehicleRawData>> toPlatformVectorVector(

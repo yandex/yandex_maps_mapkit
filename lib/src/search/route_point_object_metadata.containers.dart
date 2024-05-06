@@ -13,7 +13,7 @@ extension SearchEntranceContainerExtension on SearchEntrance {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchEntrance.toPointer);
+    return string_map.toNativeMap(obj, SearchEntranceImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchEntranceContainerExtension on SearchEntrance {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchEntrance.toPointer);
+    return vector.toNativeVector(obj, SearchEntranceImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchEntranceContainerExtension on SearchEntrance {
   static string_map.StringMap<SearchEntrance> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchEntrance.fromPointer(val, needFree: false));
+        ptr, (val) => SearchEntranceImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchEntrance>>
@@ -87,7 +87,7 @@ extension SearchEntranceContainerExtension on SearchEntrance {
   static vector.Vector<SearchEntrance> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchEntrance.fromPointer(val, needFree: false));
+        ptr, (val) => SearchEntranceImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchEntrance>> toPlatformVectorVector(
@@ -116,7 +116,7 @@ extension SearchParkingAttributesContainerExtension on SearchParkingAttributes {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchParkingAttributes.toPointer);
+    return string_map.toNativeMap(obj, SearchParkingAttributesImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +144,7 @@ extension SearchParkingAttributesContainerExtension on SearchParkingAttributes {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchParkingAttributes.toPointer);
+    return vector.toNativeVector(obj, SearchParkingAttributesImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -168,7 +168,7 @@ extension SearchParkingAttributesContainerExtension on SearchParkingAttributes {
   static string_map.StringMap<SearchParkingAttributes> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(ptr,
-        (val) => SearchParkingAttributes.fromPointer(val, needFree: false));
+        (val) => SearchParkingAttributesImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchParkingAttributes>>
@@ -192,7 +192,7 @@ extension SearchParkingAttributesContainerExtension on SearchParkingAttributes {
   static vector.Vector<SearchParkingAttributes> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => SearchParkingAttributes.fromPointer(val, needFree: false));
+        (val) => SearchParkingAttributesImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchParkingAttributes>>

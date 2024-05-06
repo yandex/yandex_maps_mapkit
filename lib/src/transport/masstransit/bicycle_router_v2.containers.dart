@@ -13,7 +13,7 @@ extension BicycleRouterV2ContainerExtension on BicycleRouterV2 {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleRouterV2.getNativePtr);
+    return string_map.toNativeMap(obj, BicycleRouterV2Impl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension BicycleRouterV2ContainerExtension on BicycleRouterV2 {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleRouterV2.getNativePtr);
+    return vector.toNativeVector(obj, BicycleRouterV2Impl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,7 +65,7 @@ extension BicycleRouterV2ContainerExtension on BicycleRouterV2 {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => BicycleRouterV2.fromOptionalPtr(
+        (val) => BicycleRouterV2Impl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -91,7 +91,7 @@ extension BicycleRouterV2ContainerExtension on BicycleRouterV2 {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => BicycleRouterV2.fromOptionalPtr(
+        (val) => BicycleRouterV2Impl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

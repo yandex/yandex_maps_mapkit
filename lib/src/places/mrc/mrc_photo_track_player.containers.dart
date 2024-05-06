@@ -13,7 +13,7 @@ extension MrcPhotoTrackPlayerContainerExtension on MrcPhotoTrackPlayer {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MrcPhotoTrackPlayer.getNativePtr);
+    return string_map.toNativeMap(obj, MrcPhotoTrackPlayerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension MrcPhotoTrackPlayerContainerExtension on MrcPhotoTrackPlayer {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MrcPhotoTrackPlayer.getNativePtr);
+    return vector.toNativeVector(obj, MrcPhotoTrackPlayerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -66,7 +66,7 @@ extension MrcPhotoTrackPlayerContainerExtension on MrcPhotoTrackPlayer {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => MrcPhotoTrackPlayer.fromOptionalPtr(
+        (val) => MrcPhotoTrackPlayerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -92,7 +92,7 @@ extension MrcPhotoTrackPlayerContainerExtension on MrcPhotoTrackPlayer {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => MrcPhotoTrackPlayer.fromOptionalPtr(
+        (val) => MrcPhotoTrackPlayerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

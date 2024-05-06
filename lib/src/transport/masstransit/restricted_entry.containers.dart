@@ -14,7 +14,8 @@ extension MasstransitRestrictedEntryContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitRestrictedEntry.toPointer);
+    return string_map.toNativeMap(
+        obj, MasstransitRestrictedEntryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -43,7 +44,7 @@ extension MasstransitRestrictedEntryContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRestrictedEntry.toPointer);
+    return vector.toNativeVector(obj, MasstransitRestrictedEntryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -66,8 +67,10 @@ extension MasstransitRestrictedEntryContainerExtension
 
   static string_map.StringMap<MasstransitRestrictedEntry> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => MasstransitRestrictedEntry.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            MasstransitRestrictedEntryImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitRestrictedEntry>>
@@ -90,8 +93,10 @@ extension MasstransitRestrictedEntryContainerExtension
 
   static vector.Vector<MasstransitRestrictedEntry> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => MasstransitRestrictedEntry.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            MasstransitRestrictedEntryImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitRestrictedEntry>>
@@ -121,7 +126,8 @@ extension RestrictedEntriesContainerContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, RestrictedEntriesContainer.toPointer);
+    return string_map.toNativeMap(
+        obj, RestrictedEntriesContainerImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -150,7 +156,7 @@ extension RestrictedEntriesContainerContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RestrictedEntriesContainer.toPointer);
+    return vector.toNativeVector(obj, RestrictedEntriesContainerImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -173,8 +179,10 @@ extension RestrictedEntriesContainerContainerExtension
 
   static string_map.StringMap<RestrictedEntriesContainer> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => RestrictedEntriesContainer.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            RestrictedEntriesContainerImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<RestrictedEntriesContainer>>
@@ -197,8 +205,10 @@ extension RestrictedEntriesContainerContainerExtension
 
   static vector.Vector<RestrictedEntriesContainer> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => RestrictedEntriesContainer.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            RestrictedEntriesContainerImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<RestrictedEntriesContainer>>

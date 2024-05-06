@@ -13,7 +13,7 @@ extension SearchFuelTypeContainerExtension on SearchFuelType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFuelType.toPointer);
+    return string_map.toNativeMap(obj, SearchFuelTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchFuelTypeContainerExtension on SearchFuelType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFuelType.toPointer);
+    return vector.toNativeVector(obj, SearchFuelTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchFuelTypeContainerExtension on SearchFuelType {
   static string_map.StringMap<SearchFuelType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchFuelType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchFuelTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchFuelType>>
@@ -87,7 +87,7 @@ extension SearchFuelTypeContainerExtension on SearchFuelType {
   static vector.Vector<SearchFuelType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchFuelType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchFuelTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFuelType>> toPlatformVectorVector(
@@ -116,7 +116,7 @@ extension SearchFuelMetadataContainerExtension on SearchFuelMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFuelMetadata.toPointer);
+    return string_map.toNativeMap(obj, SearchFuelMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -143,7 +143,7 @@ extension SearchFuelMetadataContainerExtension on SearchFuelMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFuelMetadata.toPointer);
+    return vector.toNativeVector(obj, SearchFuelMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -167,7 +167,7 @@ extension SearchFuelMetadataContainerExtension on SearchFuelMetadata {
   static string_map.StringMap<SearchFuelMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchFuelMetadata.fromPointer(val, needFree: false));
+        ptr, (val) => SearchFuelMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchFuelMetadata>>
@@ -191,7 +191,7 @@ extension SearchFuelMetadataContainerExtension on SearchFuelMetadata {
   static vector.Vector<SearchFuelMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchFuelMetadata.fromPointer(val, needFree: false));
+        ptr, (val) => SearchFuelMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFuelMetadata>>

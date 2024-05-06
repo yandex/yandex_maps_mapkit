@@ -13,7 +13,7 @@ extension PanoramaNotFoundErrorContainerExtension on PanoramaNotFoundError {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaNotFoundError.getNativePtr);
+    return string_map.toNativeMap(obj, PanoramaNotFoundErrorImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension PanoramaNotFoundErrorContainerExtension on PanoramaNotFoundError {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaNotFoundError.getNativePtr);
+    return vector.toNativeVector(obj, PanoramaNotFoundErrorImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -66,7 +66,7 @@ extension PanoramaNotFoundErrorContainerExtension on PanoramaNotFoundError {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => PanoramaNotFoundError.fromOptionalPtr(
+        (val) => PanoramaNotFoundErrorImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -92,7 +92,7 @@ extension PanoramaNotFoundErrorContainerExtension on PanoramaNotFoundError {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => PanoramaNotFoundError.fromOptionalPtr(
+        (val) => PanoramaNotFoundErrorImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

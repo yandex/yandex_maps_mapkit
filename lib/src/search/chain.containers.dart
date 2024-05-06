@@ -13,7 +13,7 @@ extension SearchChainContainerExtension on SearchChain {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchChain.toPointer);
+    return string_map.toNativeMap(obj, SearchChainImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchChainContainerExtension on SearchChain {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchChain.toPointer);
+    return vector.toNativeVector(obj, SearchChainImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchChainContainerExtension on SearchChain {
   static string_map.StringMap<SearchChain> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchChain.fromPointer(val, needFree: false));
+        ptr, (val) => SearchChainImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchChain>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension SearchChainContainerExtension on SearchChain {
   static vector.Vector<SearchChain> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchChain.fromPointer(val, needFree: false));
+        ptr, (val) => SearchChainImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchChain>> toPlatformVectorVector(

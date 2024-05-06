@@ -14,7 +14,7 @@ extension DrivingVehicleRestrictionContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingVehicleRestriction.toPointer);
+    return string_map.toNativeMap(obj, DrivingVehicleRestrictionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -42,7 +42,7 @@ extension DrivingVehicleRestrictionContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingVehicleRestriction.toPointer);
+    return vector.toNativeVector(obj, DrivingVehicleRestrictionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,8 +65,10 @@ extension DrivingVehicleRestrictionContainerExtension
 
   static string_map.StringMap<DrivingVehicleRestriction> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => DrivingVehicleRestriction.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            DrivingVehicleRestrictionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingVehicleRestriction>>
@@ -89,8 +91,10 @@ extension DrivingVehicleRestrictionContainerExtension
 
   static vector.Vector<DrivingVehicleRestriction> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => DrivingVehicleRestriction.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            DrivingVehicleRestrictionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingVehicleRestriction>>
@@ -120,7 +124,8 @@ extension DrivingRoadVehicleRestrictionContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingRoadVehicleRestriction.toPointer);
+    return string_map.toNativeMap(
+        obj, DrivingRoadVehicleRestrictionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -149,7 +154,8 @@ extension DrivingRoadVehicleRestrictionContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingRoadVehicleRestriction.toPointer);
+    return vector.toNativeVector(
+        obj, DrivingRoadVehicleRestrictionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -174,8 +180,8 @@ extension DrivingRoadVehicleRestrictionContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            DrivingRoadVehicleRestriction.fromPointer(val, needFree: false));
+        (val) => DrivingRoadVehicleRestrictionImpl.fromPointer(val,
+            needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingRoadVehicleRestriction>>
@@ -201,8 +207,8 @@ extension DrivingRoadVehicleRestrictionContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            DrivingRoadVehicleRestriction.fromPointer(val, needFree: false));
+        (val) => DrivingRoadVehicleRestrictionImpl.fromPointer(val,
+            needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingRoadVehicleRestriction>>
@@ -233,7 +239,7 @@ extension DrivingManoeuvreVehicleRestrictionContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, DrivingManoeuvreVehicleRestriction.toPointer);
+        obj, DrivingManoeuvreVehicleRestrictionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -264,7 +270,7 @@ extension DrivingManoeuvreVehicleRestrictionContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, DrivingManoeuvreVehicleRestriction.toPointer);
+        obj, DrivingManoeuvreVehicleRestrictionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -290,7 +296,7 @@ extension DrivingManoeuvreVehicleRestrictionContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => DrivingManoeuvreVehicleRestriction.fromPointer(val,
+        (val) => DrivingManoeuvreVehicleRestrictionImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -317,7 +323,7 @@ extension DrivingManoeuvreVehicleRestrictionContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => DrivingManoeuvreVehicleRestriction.fromPointer(val,
+        (val) => DrivingManoeuvreVehicleRestrictionImpl.fromPointer(val,
             needFree: false));
   }
 

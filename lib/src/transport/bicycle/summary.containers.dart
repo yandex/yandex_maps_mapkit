@@ -13,7 +13,7 @@ extension BicycleSummaryContainerExtension on BicycleSummary {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleSummary.toPointer);
+    return string_map.toNativeMap(obj, BicycleSummaryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension BicycleSummaryContainerExtension on BicycleSummary {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleSummary.toPointer);
+    return vector.toNativeVector(obj, BicycleSummaryImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension BicycleSummaryContainerExtension on BicycleSummary {
   static string_map.StringMap<BicycleSummary> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => BicycleSummary.fromPointer(val, needFree: false));
+        ptr, (val) => BicycleSummaryImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<BicycleSummary>>
@@ -87,7 +87,7 @@ extension BicycleSummaryContainerExtension on BicycleSummary {
   static vector.Vector<BicycleSummary> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => BicycleSummary.fromPointer(val, needFree: false));
+        ptr, (val) => BicycleSummaryImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<BicycleSummary>> toPlatformVectorVector(

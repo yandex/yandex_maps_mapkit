@@ -13,7 +13,7 @@ extension SearchResultItemContainerExtension on SearchResultItem {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchResultItem.getNativePtr);
+    return string_map.toNativeMap(obj, SearchResultItemImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SearchResultItemContainerExtension on SearchResultItem {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchResultItem.getNativePtr);
+    return vector.toNativeVector(obj, SearchResultItemImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,7 +65,7 @@ extension SearchResultItemContainerExtension on SearchResultItem {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchResultItem.fromOptionalPtr(
+        (val) => SearchResultItemImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -91,7 +91,7 @@ extension SearchResultItemContainerExtension on SearchResultItem {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchResultItem.fromOptionalPtr(
+        (val) => SearchResultItemImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 

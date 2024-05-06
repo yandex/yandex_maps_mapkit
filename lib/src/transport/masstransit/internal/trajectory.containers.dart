@@ -14,7 +14,7 @@ extension TrajectorySegmentMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, TrajectorySegmentMetadata.toPointer);
+    return string_map.toNativeMap(obj, TrajectorySegmentMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -42,7 +42,7 @@ extension TrajectorySegmentMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, TrajectorySegmentMetadata.toPointer);
+    return vector.toNativeVector(obj, TrajectorySegmentMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -65,8 +65,10 @@ extension TrajectorySegmentMetadataContainerExtension
 
   static string_map.StringMap<TrajectorySegmentMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => TrajectorySegmentMetadata.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            TrajectorySegmentMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<TrajectorySegmentMetadata>>
@@ -89,8 +91,10 @@ extension TrajectorySegmentMetadataContainerExtension
 
   static vector.Vector<TrajectorySegmentMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => TrajectorySegmentMetadata.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            TrajectorySegmentMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<TrajectorySegmentMetadata>>

@@ -13,7 +13,7 @@ extension MasstransitWeightContainerExtension on MasstransitWeight {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitWeight.toPointer);
+    return string_map.toNativeMap(obj, MasstransitWeightImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension MasstransitWeightContainerExtension on MasstransitWeight {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitWeight.toPointer);
+    return vector.toNativeVector(obj, MasstransitWeightImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension MasstransitWeightContainerExtension on MasstransitWeight {
   static string_map.StringMap<MasstransitWeight> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => MasstransitWeight.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitWeightImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<MasstransitWeight>>
@@ -88,7 +88,7 @@ extension MasstransitWeightContainerExtension on MasstransitWeight {
   static vector.Vector<MasstransitWeight> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => MasstransitWeight.fromPointer(val, needFree: false));
+        ptr, (val) => MasstransitWeightImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitWeight>> toPlatformVectorVector(

@@ -13,7 +13,7 @@ extension DrivingRuggedRoadContainerExtension on DrivingRuggedRoad {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingRuggedRoad.toPointer);
+    return string_map.toNativeMap(obj, DrivingRuggedRoadImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension DrivingRuggedRoadContainerExtension on DrivingRuggedRoad {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingRuggedRoad.toPointer);
+    return vector.toNativeVector(obj, DrivingRuggedRoadImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DrivingRuggedRoadContainerExtension on DrivingRuggedRoad {
   static string_map.StringMap<DrivingRuggedRoad> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingRuggedRoad.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingRuggedRoadImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingRuggedRoad>>
@@ -88,7 +88,7 @@ extension DrivingRuggedRoadContainerExtension on DrivingRuggedRoad {
   static vector.Vector<DrivingRuggedRoad> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingRuggedRoad.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingRuggedRoadImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingRuggedRoad>> toPlatformVectorVector(

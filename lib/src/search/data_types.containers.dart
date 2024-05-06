@@ -13,7 +13,7 @@ extension SearchTypeContainerExtension on SearchType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchType.toPointer);
+    return string_map.toNativeMap(obj, SearchTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchTypeContainerExtension on SearchType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchType.toPointer);
+    return vector.toNativeVector(obj, SearchTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchTypeContainerExtension on SearchType {
   static string_map.StringMap<SearchType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchType>> toPlatformMapVector(
@@ -86,7 +86,7 @@ extension SearchTypeContainerExtension on SearchType {
 
   static vector.Vector<SearchType> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchType>> toPlatformVectorVector(
@@ -115,7 +115,7 @@ extension SearchSnippetContainerExtension on SearchSnippet {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchSnippet.toPointer);
+    return string_map.toNativeMap(obj, SearchSnippetImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -141,7 +141,7 @@ extension SearchSnippetContainerExtension on SearchSnippet {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchSnippet.toPointer);
+    return vector.toNativeVector(obj, SearchSnippetImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -165,7 +165,7 @@ extension SearchSnippetContainerExtension on SearchSnippet {
   static string_map.StringMap<SearchSnippet> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchSnippet.fromPointer(val, needFree: false));
+        ptr, (val) => SearchSnippetImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchSnippet>> toPlatformMapVector(
@@ -189,7 +189,7 @@ extension SearchSnippetContainerExtension on SearchSnippet {
   static vector.Vector<SearchSnippet> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchSnippet.fromPointer(val, needFree: false));
+        ptr, (val) => SearchSnippetImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchSnippet>> toPlatformVectorVector(

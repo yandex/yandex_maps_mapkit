@@ -14,7 +14,8 @@ extension SearchBusinessResultMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchBusinessResultMetadata.toPointer);
+    return string_map.toNativeMap(
+        obj, SearchBusinessResultMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -43,7 +44,8 @@ extension SearchBusinessResultMetadataContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchBusinessResultMetadata.toPointer);
+    return vector.toNativeVector(
+        obj, SearchBusinessResultMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -69,7 +71,7 @@ extension SearchBusinessResultMetadataContainerExtension
     return string_map.StringMap(
         ptr,
         (val) =>
-            SearchBusinessResultMetadata.fromPointer(val, needFree: false));
+            SearchBusinessResultMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchBusinessResultMetadata>>
@@ -96,7 +98,7 @@ extension SearchBusinessResultMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            SearchBusinessResultMetadata.fromPointer(val, needFree: false));
+            SearchBusinessResultMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessResultMetadata>>

@@ -1,2 +1,2 @@
 export 'package:yandex_maps_mapkit/src/mapkit/logo/logo.dart'
-    hide LogoContainerExtension;
+    hide LogoContainerExtension, LogoImpl;

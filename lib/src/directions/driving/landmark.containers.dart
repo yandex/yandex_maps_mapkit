@@ -13,7 +13,7 @@ extension DrivingLandmarkContainerExtension on DrivingLandmark {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingLandmark.toPointer);
+    return string_map.toNativeMap(obj, DrivingLandmarkImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension DrivingLandmarkContainerExtension on DrivingLandmark {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingLandmark.toPointer);
+    return vector.toNativeVector(obj, DrivingLandmarkImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension DrivingLandmarkContainerExtension on DrivingLandmark {
   static string_map.StringMap<DrivingLandmark> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => DrivingLandmark.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingLandmarkImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<DrivingLandmark>>
@@ -88,7 +88,7 @@ extension DrivingLandmarkContainerExtension on DrivingLandmark {
   static vector.Vector<DrivingLandmark> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => DrivingLandmark.fromPointer(val, needFree: false));
+        ptr, (val) => DrivingLandmarkImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingLandmark>> toPlatformVectorVector(

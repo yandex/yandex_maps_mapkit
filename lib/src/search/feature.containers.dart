@@ -13,7 +13,7 @@ extension SearchFeatureContainerExtension on SearchFeature {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFeature.toPointer);
+    return string_map.toNativeMap(obj, SearchFeatureImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchFeatureContainerExtension on SearchFeature {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFeature.toPointer);
+    return vector.toNativeVector(obj, SearchFeatureImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchFeatureContainerExtension on SearchFeature {
   static string_map.StringMap<SearchFeature> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchFeature.fromPointer(val, needFree: false));
+        ptr, (val) => SearchFeatureImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchFeature>> toPlatformMapVector(
@@ -87,7 +87,7 @@ extension SearchFeatureContainerExtension on SearchFeature {
   static vector.Vector<SearchFeature> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchFeature.fromPointer(val, needFree: false));
+        ptr, (val) => SearchFeatureImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeature>> toPlatformVectorVector(
@@ -116,7 +116,7 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFeatureEnumValue.toPointer);
+    return string_map.toNativeMap(obj, SearchFeatureEnumValueImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +144,7 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFeatureEnumValue.toPointer);
+    return vector.toNativeVector(obj, SearchFeatureEnumValueImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -167,8 +167,8 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
 
   static string_map.StringMap<SearchFeatureEnumValue> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => SearchFeatureEnumValue.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => SearchFeatureEnumValueImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchFeatureEnumValue>>
@@ -191,8 +191,8 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
 
   static vector.Vector<SearchFeatureEnumValue> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => SearchFeatureEnumValue.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => SearchFeatureEnumValueImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeatureEnumValue>>
@@ -214,6 +214,214 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
   }
 }
 
+extension SearchFeatureSetContainerExtension on SearchFeatureSet {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, SearchFeatureSet?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, SearchFeatureSetImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<SearchFeatureSet?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, SearchFeatureSet?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<SearchFeatureSet?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, SearchFeatureSetImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<SearchFeatureSet?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, SearchFeatureSet?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<SearchFeatureSet> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr, (val) => SearchFeatureSetImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<SearchFeatureSet>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<SearchFeatureSet>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<SearchFeatureSet> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr, (val) => SearchFeatureSetImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<SearchFeatureSet>> toPlatformVectorVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFeatureSet>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
+extension SearchFeatureGroupContainerExtension on SearchFeatureGroup {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, SearchFeatureGroup?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, SearchFeatureGroupImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<SearchFeatureGroup?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, SearchFeatureGroup?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<SearchFeatureGroup?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, SearchFeatureGroupImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<SearchFeatureGroup?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, SearchFeatureGroup?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<SearchFeatureGroup> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr, (val) => SearchFeatureGroupImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<SearchFeatureGroup>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<SearchFeatureGroup>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<SearchFeatureGroup> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr, (val) => SearchFeatureGroupImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<SearchFeatureGroup>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFeatureGroup>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
 extension SearchFeatureBooleanValueContainerExtension
     on SearchFeatureBooleanValue {
   static ffi.Pointer<ffi.Void> toNativeMap(
@@ -222,7 +430,7 @@ extension SearchFeatureBooleanValueContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFeatureBooleanValue.toPointer);
+    return string_map.toNativeMap(obj, SearchFeatureBooleanValueImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -250,7 +458,7 @@ extension SearchFeatureBooleanValueContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFeatureBooleanValue.toPointer);
+    return vector.toNativeVector(obj, SearchFeatureBooleanValueImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -273,8 +481,10 @@ extension SearchFeatureBooleanValueContainerExtension
 
   static string_map.StringMap<SearchFeatureBooleanValue> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => SearchFeatureBooleanValue.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            SearchFeatureBooleanValueImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchFeatureBooleanValue>>
@@ -297,8 +507,10 @@ extension SearchFeatureBooleanValueContainerExtension
 
   static vector.Vector<SearchFeatureBooleanValue> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => SearchFeatureBooleanValue.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            SearchFeatureBooleanValueImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeatureBooleanValue>>
@@ -328,7 +540,7 @@ extension SearchFeatureVariantValueContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFeatureVariantValue.toPointer);
+    return string_map.toNativeMap(obj, SearchFeatureVariantValueImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -356,7 +568,7 @@ extension SearchFeatureVariantValueContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFeatureVariantValue.toPointer);
+    return vector.toNativeVector(obj, SearchFeatureVariantValueImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -379,8 +591,10 @@ extension SearchFeatureVariantValueContainerExtension
 
   static string_map.StringMap<SearchFeatureVariantValue> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => SearchFeatureVariantValue.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            SearchFeatureVariantValueImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchFeatureVariantValue>>
@@ -403,8 +617,10 @@ extension SearchFeatureVariantValueContainerExtension
 
   static vector.Vector<SearchFeatureVariantValue> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => SearchFeatureVariantValue.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr,
+        (val) =>
+            SearchFeatureVariantValueImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeatureVariantValue>>
@@ -417,214 +633,6 @@ extension SearchFeatureVariantValueContainerExtension
   }
 
   static vector.Vector<string_map.StringMap<SearchFeatureVariantValue>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
-extension SearchFeatureSetContainerExtension on SearchFeatureSet {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, SearchFeatureSet?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, SearchFeatureSet.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<SearchFeatureSet?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, SearchFeatureSet?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<SearchFeatureSet?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, SearchFeatureSet.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<SearchFeatureSet?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, SearchFeatureSet?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<SearchFeatureSet> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => SearchFeatureSet.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<SearchFeatureSet>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<SearchFeatureSet>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<SearchFeatureSet> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => SearchFeatureSet.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<SearchFeatureSet>> toPlatformVectorVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<SearchFeatureSet>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
-extension SearchFeatureGroupContainerExtension on SearchFeatureGroup {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, SearchFeatureGroup?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, SearchFeatureGroup.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<SearchFeatureGroup?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, SearchFeatureGroup?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<SearchFeatureGroup?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, SearchFeatureGroup.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<SearchFeatureGroup?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, SearchFeatureGroup?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<SearchFeatureGroup> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => SearchFeatureGroup.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<SearchFeatureGroup>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<SearchFeatureGroup>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<SearchFeatureGroup> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => SearchFeatureGroup.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<SearchFeatureGroup>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<SearchFeatureGroup>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,

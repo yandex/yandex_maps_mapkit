@@ -13,7 +13,7 @@ extension SearchFilterCollectionContainerExtension on SearchFilterCollection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFilterCollection.toPointer);
+    return string_map.toNativeMap(obj, SearchFilterCollectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension SearchFilterCollectionContainerExtension on SearchFilterCollection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFilterCollection.toPointer);
+    return vector.toNativeVector(obj, SearchFilterCollectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,8 +64,8 @@ extension SearchFilterCollectionContainerExtension on SearchFilterCollection {
 
   static string_map.StringMap<SearchFilterCollection> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => SearchFilterCollection.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => SearchFilterCollectionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchFilterCollection>>
@@ -88,8 +88,8 @@ extension SearchFilterCollectionContainerExtension on SearchFilterCollection {
 
   static vector.Vector<SearchFilterCollection> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => SearchFilterCollection.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => SearchFilterCollectionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFilterCollection>>
@@ -120,7 +120,7 @@ extension SearchFilterCollectionNumberRangeContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchFilterCollectionNumberRange.toPointer);
+        obj, SearchFilterCollectionNumberRangeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -151,7 +151,7 @@ extension SearchFilterCollectionNumberRangeContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchFilterCollectionNumberRange.toPointer);
+        obj, SearchFilterCollectionNumberRangeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -177,7 +177,7 @@ extension SearchFilterCollectionNumberRangeContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchFilterCollectionNumberRange.fromPointer(val,
+        (val) => SearchFilterCollectionNumberRangeImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -204,7 +204,7 @@ extension SearchFilterCollectionNumberRangeContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchFilterCollectionNumberRange.fromPointer(val,
+        (val) => SearchFilterCollectionNumberRangeImpl.fromPointer(val,
             needFree: false));
   }
 
@@ -236,7 +236,7 @@ extension SearchFilterCollectionDateRangeContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchFilterCollectionDateRange.toPointer);
+        obj, SearchFilterCollectionDateRangeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -267,7 +267,7 @@ extension SearchFilterCollectionDateRangeContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchFilterCollectionDateRange.toPointer);
+        obj, SearchFilterCollectionDateRangeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -293,8 +293,8 @@ extension SearchFilterCollectionDateRangeContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) =>
-            SearchFilterCollectionDateRange.fromPointer(val, needFree: false));
+        (val) => SearchFilterCollectionDateRangeImpl.fromPointer(val,
+            needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchFilterCollectionDateRange>>
@@ -320,8 +320,8 @@ extension SearchFilterCollectionDateRangeContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) =>
-            SearchFilterCollectionDateRange.fromPointer(val, needFree: false));
+        (val) => SearchFilterCollectionDateRangeImpl.fromPointer(val,
+            needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFilterCollectionDateRange>>

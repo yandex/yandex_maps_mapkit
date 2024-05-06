@@ -13,7 +13,7 @@ extension SearchMetadataContainerExtension on SearchMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchMetadata.toPointer);
+    return string_map.toNativeMap(obj, SearchMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchMetadataContainerExtension on SearchMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchMetadata.toPointer);
+    return vector.toNativeVector(obj, SearchMetadataImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -63,7 +63,7 @@ extension SearchMetadataContainerExtension on SearchMetadata {
   static string_map.StringMap<SearchMetadata> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchMetadata.fromPointer(val, needFree: false));
+        ptr, (val) => SearchMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchMetadata>>
@@ -87,7 +87,7 @@ extension SearchMetadataContainerExtension on SearchMetadata {
   static vector.Vector<SearchMetadata> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchMetadata.fromPointer(val, needFree: false));
+        ptr, (val) => SearchMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchMetadata>> toPlatformVectorVector(

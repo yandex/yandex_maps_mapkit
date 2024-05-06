@@ -6,110 +6,6 @@ part of 'panorama_description.dart';
 // ContainerGenerator
 // **************************************************************************
 
-extension PanoramaImageSizeContainerExtension on PanoramaImageSize {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, PanoramaImageSize?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, PanoramaImageSize.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<PanoramaImageSize?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, PanoramaImageSize?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<PanoramaImageSize?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, PanoramaImageSize.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<PanoramaImageSize?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, PanoramaImageSize?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<PanoramaImageSize> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => PanoramaImageSize.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<PanoramaImageSize>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<PanoramaImageSize>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<PanoramaImageSize> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => PanoramaImageSize.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<PanoramaImageSize>> toPlatformVectorVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<PanoramaImageSize>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
 extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
   static ffi.Pointer<ffi.Void> toNativeMap(
       core.Map<core.String, PanoramaTileLevel?>? obj) {
@@ -117,7 +13,7 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaTileLevel.toPointer);
+    return string_map.toNativeMap(obj, PanoramaTileLevelImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +40,7 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaTileLevel.toPointer);
+    return vector.toNativeVector(obj, PanoramaTileLevelImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -168,7 +64,7 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
   static string_map.StringMap<PanoramaTileLevel> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => PanoramaTileLevel.fromPointer(val, needFree: false));
+        ptr, (val) => PanoramaTileLevelImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PanoramaTileLevel>>
@@ -192,7 +88,7 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
   static vector.Vector<PanoramaTileLevel> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => PanoramaTileLevel.fromPointer(val, needFree: false));
+        ptr, (val) => PanoramaTileLevelImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaTileLevel>> toPlatformVectorVector(
@@ -214,110 +110,6 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
   }
 }
 
-extension PanoramaPositionContainerExtension on PanoramaPosition {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, PanoramaPosition?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, PanoramaPosition.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<PanoramaPosition?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, PanoramaPosition?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<PanoramaPosition?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, PanoramaPosition.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<PanoramaPosition?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, PanoramaPosition?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<PanoramaPosition> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => PanoramaPosition.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<PanoramaPosition>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<PanoramaPosition>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<PanoramaPosition> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => PanoramaPosition.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<PanoramaPosition>> toPlatformVectorVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<PanoramaPosition>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
 extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
   static ffi.Pointer<ffi.Void> toNativeMap(
       core.Map<core.String, PanoramaTextMarker?>? obj) {
@@ -325,7 +117,7 @@ extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaTextMarker.toPointer);
+    return string_map.toNativeMap(obj, PanoramaTextMarkerImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -352,7 +144,7 @@ extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaTextMarker.toPointer);
+    return vector.toNativeVector(obj, PanoramaTextMarkerImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -376,7 +168,7 @@ extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
   static string_map.StringMap<PanoramaTextMarker> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => PanoramaTextMarker.fromPointer(val, needFree: false));
+        ptr, (val) => PanoramaTextMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PanoramaTextMarker>>
@@ -400,7 +192,7 @@ extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
   static vector.Vector<PanoramaTextMarker> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => PanoramaTextMarker.fromPointer(val, needFree: false));
+        ptr, (val) => PanoramaTextMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaTextMarker>>
@@ -429,7 +221,7 @@ extension PanoramaCompanyMarkerContainerExtension on PanoramaCompanyMarker {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaCompanyMarker.toPointer);
+    return string_map.toNativeMap(obj, PanoramaCompanyMarkerImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -457,7 +249,7 @@ extension PanoramaCompanyMarkerContainerExtension on PanoramaCompanyMarker {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaCompanyMarker.toPointer);
+    return vector.toNativeVector(obj, PanoramaCompanyMarkerImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -480,8 +272,8 @@ extension PanoramaCompanyMarkerContainerExtension on PanoramaCompanyMarker {
 
   static string_map.StringMap<PanoramaCompanyMarker> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => PanoramaCompanyMarker.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => PanoramaCompanyMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PanoramaCompanyMarker>>
@@ -504,8 +296,8 @@ extension PanoramaCompanyMarkerContainerExtension on PanoramaCompanyMarker {
 
   static vector.Vector<PanoramaCompanyMarker> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => PanoramaCompanyMarker.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => PanoramaCompanyMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaCompanyMarker>>
@@ -534,7 +326,7 @@ extension PanoramaIconMarkerContainerExtension on PanoramaIconMarker {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaIconMarker.toPointer);
+    return string_map.toNativeMap(obj, PanoramaIconMarkerImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -561,7 +353,7 @@ extension PanoramaIconMarkerContainerExtension on PanoramaIconMarker {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaIconMarker.toPointer);
+    return vector.toNativeVector(obj, PanoramaIconMarkerImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -585,7 +377,7 @@ extension PanoramaIconMarkerContainerExtension on PanoramaIconMarker {
   static string_map.StringMap<PanoramaIconMarker> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => PanoramaIconMarker.fromPointer(val, needFree: false));
+        ptr, (val) => PanoramaIconMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PanoramaIconMarker>>
@@ -609,7 +401,7 @@ extension PanoramaIconMarkerContainerExtension on PanoramaIconMarker {
   static vector.Vector<PanoramaIconMarker> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => PanoramaIconMarker.fromPointer(val, needFree: false));
+        ptr, (val) => PanoramaIconMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaIconMarker>>
@@ -638,7 +430,7 @@ extension PanoramaIconConnectionContainerExtension on PanoramaIconConnection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaIconConnection.toPointer);
+    return string_map.toNativeMap(obj, PanoramaIconConnectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -666,7 +458,7 @@ extension PanoramaIconConnectionContainerExtension on PanoramaIconConnection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaIconConnection.toPointer);
+    return vector.toNativeVector(obj, PanoramaIconConnectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -689,8 +481,8 @@ extension PanoramaIconConnectionContainerExtension on PanoramaIconConnection {
 
   static string_map.StringMap<PanoramaIconConnection> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => PanoramaIconConnection.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => PanoramaIconConnectionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PanoramaIconConnection>>
@@ -713,8 +505,8 @@ extension PanoramaIconConnectionContainerExtension on PanoramaIconConnection {
 
   static vector.Vector<PanoramaIconConnection> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => PanoramaIconConnection.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => PanoramaIconConnectionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaIconConnection>>
@@ -743,7 +535,7 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaArrowConnection.toPointer);
+    return string_map.toNativeMap(obj, PanoramaArrowConnectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -771,7 +563,7 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaArrowConnection.toPointer);
+    return vector.toNativeVector(obj, PanoramaArrowConnectionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -795,7 +587,7 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
   static string_map.StringMap<PanoramaArrowConnection> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(ptr,
-        (val) => PanoramaArrowConnection.fromPointer(val, needFree: false));
+        (val) => PanoramaArrowConnectionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PanoramaArrowConnection>>
@@ -819,7 +611,7 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
   static vector.Vector<PanoramaArrowConnection> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => PanoramaArrowConnection.fromPointer(val, needFree: false));
+        (val) => PanoramaArrowConnectionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaArrowConnection>>
@@ -841,113 +633,6 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
   }
 }
 
-extension PanoramaAngularBoundingBoxContainerExtension
-    on PanoramaAngularBoundingBox {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, PanoramaAngularBoundingBox?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, PanoramaAngularBoundingBox.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<PanoramaAngularBoundingBox?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String,
-              core.Map<core.String, PanoramaAngularBoundingBox?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<PanoramaAngularBoundingBox?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, PanoramaAngularBoundingBox.toPointer);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<PanoramaAngularBoundingBox?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, PanoramaAngularBoundingBox?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<PanoramaAngularBoundingBox> toPlatformMap(
-      ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => PanoramaAngularBoundingBox.fromPointer(val, needFree: false));
-  }
-
-  static string_map.StringMap<vector.Vector<PanoramaAngularBoundingBox>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map.StringMap<string_map.StringMap<PanoramaAngularBoundingBox>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<PanoramaAngularBoundingBox> toPlatformVector(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => PanoramaAngularBoundingBox.fromPointer(val, needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<PanoramaAngularBoundingBox>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<string_map.StringMap<PanoramaAngularBoundingBox>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
 extension PanoramaDescriptionContainerExtension on PanoramaDescription {
   static ffi.Pointer<ffi.Void> toNativeMap(
       core.Map<core.String, PanoramaDescription?>? obj) {
@@ -955,7 +640,7 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaDescription.toPointer);
+    return string_map.toNativeMap(obj, PanoramaDescriptionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -983,7 +668,7 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaDescription.toPointer);
+    return vector.toNativeVector(obj, PanoramaDescriptionImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1006,8 +691,8 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
 
   static string_map.StringMap<PanoramaDescription> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => PanoramaDescription.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => PanoramaDescriptionImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PanoramaDescription>>
@@ -1030,8 +715,8 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
 
   static vector.Vector<PanoramaDescription> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => PanoramaDescription.fromPointer(val, needFree: false));
+    return vector.Vector(ptr,
+        (val) => PanoramaDescriptionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaDescription>>
@@ -1053,6 +738,214 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
   }
 }
 
+extension PanoramaImageSizeContainerExtension on PanoramaImageSize {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, PanoramaImageSize?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, PanoramaImageSizeImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<PanoramaImageSize?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, PanoramaImageSize?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<PanoramaImageSize?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, PanoramaImageSizeImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<PanoramaImageSize?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, PanoramaImageSize?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<PanoramaImageSize> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr, (val) => PanoramaImageSizeImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<PanoramaImageSize>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<PanoramaImageSize>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<PanoramaImageSize> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr, (val) => PanoramaImageSizeImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<PanoramaImageSize>> toPlatformVectorVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaImageSize>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
+extension PanoramaPositionContainerExtension on PanoramaPosition {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, PanoramaPosition?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, PanoramaPositionImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<PanoramaPosition?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String, core.Map<core.String, PanoramaPosition?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<PanoramaPosition?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, PanoramaPositionImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<PanoramaPosition?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, PanoramaPosition?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<PanoramaPosition> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr, (val) => PanoramaPositionImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<PanoramaPosition>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<PanoramaPosition>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<PanoramaPosition> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr, (val) => PanoramaPositionImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<PanoramaPosition>> toPlatformVectorVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaPosition>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
 extension PanoramaArrowConnectionStyleContainerExtension
     on PanoramaArrowConnectionStyle {
   static ffi.Pointer<ffi.Void> toNativeMap(
@@ -1061,7 +954,8 @@ extension PanoramaArrowConnectionStyleContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaArrowConnectionStyle.toPointer);
+    return string_map.toNativeMap(
+        obj, PanoramaArrowConnectionStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -1090,7 +984,8 @@ extension PanoramaArrowConnectionStyleContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaArrowConnectionStyle.toPointer);
+    return vector.toNativeVector(
+        obj, PanoramaArrowConnectionStyleImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -1116,7 +1011,7 @@ extension PanoramaArrowConnectionStyleContainerExtension
     return string_map.StringMap(
         ptr,
         (val) =>
-            PanoramaArrowConnectionStyle.fromPointer(val, needFree: false));
+            PanoramaArrowConnectionStyleImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<PanoramaArrowConnectionStyle>>
@@ -1143,7 +1038,7 @@ extension PanoramaArrowConnectionStyleContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            PanoramaArrowConnectionStyle.fromPointer(val, needFree: false));
+            PanoramaArrowConnectionStyleImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaArrowConnectionStyle>>
@@ -1156,6 +1051,118 @@ extension PanoramaArrowConnectionStyleContainerExtension
   }
 
   static vector.Vector<string_map.StringMap<PanoramaArrowConnectionStyle>>
+      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+}
+
+extension PanoramaAngularBoundingBoxContainerExtension
+    on PanoramaAngularBoundingBox {
+  static ffi.Pointer<ffi.Void> toNativeMap(
+      core.Map<core.String, PanoramaAngularBoundingBox?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(
+        obj, PanoramaAngularBoundingBoxImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapVector(
+      core.Map<core.String, core.List<PanoramaAngularBoundingBox?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
+      core.Map<core.String,
+              core.Map<core.String, PanoramaAngularBoundingBox?>?>?
+          obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return string_map.toNativeMap(obj, toNativeMap);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<PanoramaAngularBoundingBox?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, PanoramaAngularBoundingBoxImpl.toPointer);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorVector(
+      core.List<core.List<PanoramaAngularBoundingBox?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeVector);
+  }
+
+  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
+      core.List<core.Map<core.String, PanoramaAngularBoundingBox?>?>? obj) {
+    if (obj == null) {
+      return ffi.nullptr;
+    }
+
+    return vector.toNativeVector(obj, toNativeMap);
+  }
+
+  static string_map.StringMap<PanoramaAngularBoundingBox> toPlatformMap(
+      ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) =>
+            PanoramaAngularBoundingBoxImpl.fromPointer(val, needFree: false));
+  }
+
+  static string_map.StringMap<vector.Vector<PanoramaAngularBoundingBox>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static string_map.StringMap<string_map.StringMap<PanoramaAngularBoundingBox>>
+      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return string_map.StringMap(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<PanoramaAngularBoundingBox> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
+            PanoramaAngularBoundingBoxImpl.fromPointer(val, needFree: false));
+  }
+
+  static vector.Vector<vector.Vector<PanoramaAngularBoundingBox>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => val == ffi.nullptr
+            ? null
+            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaAngularBoundingBox>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,

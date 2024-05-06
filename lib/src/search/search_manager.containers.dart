@@ -13,7 +13,7 @@ extension SearchManagerContainerExtension on SearchManager {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchManager.getNativePtr);
+    return string_map.toNativeMap(obj, SearchManagerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchManagerContainerExtension on SearchManager {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchManager.getNativePtr);
+    return vector.toNativeVector(obj, SearchManagerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -64,7 +64,7 @@ extension SearchManagerContainerExtension on SearchManager {
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
-        (val) => SearchManager.fromOptionalPtr(
+        (val) => SearchManagerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -90,7 +90,7 @@ extension SearchManagerContainerExtension on SearchManager {
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
-        (val) => SearchManager.fromOptionalPtr(
+        (val) => SearchManagerImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
@@ -120,7 +120,7 @@ extension SearchManagerTypeContainerExtension on SearchManagerType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchManagerType.toPointer);
+    return string_map.toNativeMap(obj, SearchManagerTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -147,7 +147,7 @@ extension SearchManagerTypeContainerExtension on SearchManagerType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchManagerType.toPointer);
+    return vector.toNativeVector(obj, SearchManagerTypeImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -171,7 +171,7 @@ extension SearchManagerTypeContainerExtension on SearchManagerType {
   static string_map.StringMap<SearchManagerType> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
-        ptr, (val) => SearchManagerType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchManagerTypeImpl.fromPointer(val, needFree: false));
   }
 
   static string_map.StringMap<vector.Vector<SearchManagerType>>
@@ -195,7 +195,7 @@ extension SearchManagerTypeContainerExtension on SearchManagerType {
   static vector.Vector<SearchManagerType> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchManagerType.fromPointer(val, needFree: false));
+        ptr, (val) => SearchManagerTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchManagerType>> toPlatformVectorVector(

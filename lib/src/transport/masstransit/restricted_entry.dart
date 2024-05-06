@@ -3,7 +3,6 @@ import 'package:yandex_maps_mapkit/src/bindings/common/library.dart' as lib;
 
 import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
@@ -11,195 +10,51 @@ import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 
 part 'restricted_entry.containers.dart';
+part 'restricted_entry.impl.dart';
 
-@bindings_annotations.ContainerData(
-    toNative: 'MasstransitRestrictedEntry.toPointer',
-    toPlatform:
-        '(val) => MasstransitRestrictedEntry.fromPointer(val, needFree: false)')
-class MasstransitRestrictedEntry implements ffi.Finalizable {
-  late final position = _MasstransitRestrictedEntry_get_position(_ptr);
+abstract final class MasstransitRestrictedEntry implements ffi.Finalizable {
+  factory MasstransitRestrictedEntry(core.int position) =>
+      MasstransitRestrictedEntryImpl(position);
 
-  final ffi.Pointer<ffi.Void> _ptr;
-  static final _finalizer =
-      ffi.NativeFinalizer(_MasstransitRestrictedEntry_free.cast());
+  core.int get position;
 
-  MasstransitRestrictedEntry(core.int position)
-      : this.fromNativePtr(_MasstransitRestrictedEntry_init(position));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([position]);
 
-  /// @nodoc
-  @internal
-  MasstransitRestrictedEntry.fromNativePtr(this._ptr) {
-    _finalizer.attach(this, _ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> getNativePtr(MasstransitRestrictedEntry? obj) {
-    if (obj == null) return ffi.nullptr;
-    return obj._ptr;
-  }
-
-  /// @nodoc
-  @internal
-  static MasstransitRestrictedEntry? fromOptionalPtr(
-      ffi.Pointer<ffi.Void> ptr) {
-    if (ptr == ffi.nullptr) return null;
-    return MasstransitRestrictedEntry.fromNativePtr(ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static MasstransitRestrictedEntry? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
+  @core.override
+  core.bool operator ==(covariant MasstransitRestrictedEntry other) {
+    if (core.identical(this, other)) {
+      return true;
     }
-    final result = MasstransitRestrictedEntry.fromNativePtr(
-        ptr.cast<ffi.Pointer<ffi.Void>>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
+    return position == other.position;
   }
 
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitRestrictedEntry? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _MasstransitRestrictedEntry_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "MasstransitRestrictedEntry(position: $position)";
   }
 }
 
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _MasstransitRestrictedEntry_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_MasstransitRestrictedEntry_clone')
-    .asFunction(isLeaf: true);
+abstract final class RestrictedEntriesContainer implements ffi.Finalizable {
+  factory RestrictedEntriesContainer(
+          core.List<MasstransitRestrictedEntry> entries) =>
+      RestrictedEntriesContainerImpl(entries);
 
-final _MasstransitRestrictedEntry_free = lib.library
-    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
-        'yandex_flutter_transport_masstransit_MasstransitRestrictedEntry_free');
+  core.List<MasstransitRestrictedEntry> get entries;
 
-final ffi.Pointer<ffi.Void> Function(
-    core
-        .int) _MasstransitRestrictedEntry_init = lib.library
-    .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Uint32)>>(
-        'yandex_flutter_transport_masstransit_MasstransitRestrictedEntry_init')
-    .asFunction(isLeaf: true);
+  @core.override
+  core.int get hashCode => core.Object.hashAll([entries]);
 
-final core.int Function(
-    ffi
-        .Pointer<ffi.Void>) _MasstransitRestrictedEntry_get_position = lib
-    .library
-    .lookup<ffi.NativeFunction<ffi.Uint32 Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_MasstransitRestrictedEntry_get_position')
-    .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'RestrictedEntriesContainer.toPointer',
-    toPlatform:
-        '(val) => RestrictedEntriesContainer.fromPointer(val, needFree: false)')
-class RestrictedEntriesContainer implements ffi.Finalizable {
-  late final entries =
-      MasstransitRestrictedEntryContainerExtension.toPlatformVector(
-          _RestrictedEntriesContainer_get_entries(_ptr));
-
-  final ffi.Pointer<ffi.Void> _ptr;
-  static final _finalizer =
-      ffi.NativeFinalizer(_RestrictedEntriesContainer_free.cast());
-
-  RestrictedEntriesContainer(core.List<MasstransitRestrictedEntry> entries)
-      : this.fromNativePtr(_RestrictedEntriesContainer_init(
-            MasstransitRestrictedEntryContainerExtension.toNativeVector(
-                entries)));
-
-  /// @nodoc
-  @internal
-  RestrictedEntriesContainer.fromNativePtr(this._ptr) {
-    _finalizer.attach(this, _ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> getNativePtr(RestrictedEntriesContainer? obj) {
-    if (obj == null) return ffi.nullptr;
-    return obj._ptr;
-  }
-
-  /// @nodoc
-  @internal
-  static RestrictedEntriesContainer? fromOptionalPtr(
-      ffi.Pointer<ffi.Void> ptr) {
-    if (ptr == ffi.nullptr) return null;
-    return RestrictedEntriesContainer.fromNativePtr(ptr);
-  }
-
-  /// @nodoc
-  @internal
-  static RestrictedEntriesContainer? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
+  @core.override
+  core.bool operator ==(covariant RestrictedEntriesContainer other) {
+    if (core.identical(this, other)) {
+      return true;
     }
-    final result = RestrictedEntriesContainer.fromNativePtr(
-        ptr.cast<ffi.Pointer<ffi.Void>>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
+    return entries == other.entries;
   }
 
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(RestrictedEntriesContainer? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _RestrictedEntriesContainer_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "RestrictedEntriesContainer(entries: $entries)";
   }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _RestrictedEntriesContainer_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_RestrictedEntriesContainer_clone')
-    .asFunction(isLeaf: true);
-
-final _RestrictedEntriesContainer_free = lib.library
-    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
-        'yandex_flutter_transport_masstransit_RestrictedEntriesContainer_free');
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _RestrictedEntriesContainer_init = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_RestrictedEntriesContainer_init')
-    .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _RestrictedEntriesContainer_get_entries = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_RestrictedEntriesContainer_get_entries')
-    .asFunction(isLeaf: true);

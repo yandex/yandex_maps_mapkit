@@ -3,7 +3,6 @@ import 'package:yandex_maps_mapkit/src/bindings/common/library.dart' as lib;
 
 import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
@@ -17,58 +16,9 @@ import 'package:yandex_maps_mapkit/src/directions/driving/vehicle_type.dart'
     as directions_driving_vehicle_type;
 
 part 'vehicle_options.containers.dart';
+part 'vehicle_options.impl.dart';
 
-/// @nodoc
-final class DrivingVehicleOptionsNative extends ffi.Struct {
-  @ffi.Int64()
-  external core.int vehicleType;
-  external ffi.Pointer<ffi.Void> weight;
-  external ffi.Pointer<ffi.Void> axleWeight;
-  external ffi.Pointer<ffi.Void> maxWeight;
-  external ffi.Pointer<ffi.Void> height;
-  external ffi.Pointer<ffi.Void> width;
-  external ffi.Pointer<ffi.Void> length;
-  external ffi.Pointer<ffi.Void> payload;
-  external ffi.Pointer<ffi.Void> ecoClass;
-  external ffi.Pointer<ffi.Void> hasTrailer;
-  external ffi.Pointer<ffi.Void> buswayPermitted;
-}
-
-final DrivingVehicleOptionsNative Function(
-        core.int,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>) _DrivingVehicleOptionsNativeInit =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    DrivingVehicleOptionsNative Function(
-                        ffi.Int64,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingVehicleOptions_init')
-        .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingVehicleOptions.toPointer',
-    toPlatform:
-        '(val) => DrivingVehicleOptions.fromPointer(val, needFree: false)')
-class DrivingVehicleOptions {
+final class DrivingVehicleOptions {
   final directions_driving_vehicle_type.DrivingVehicleType vehicleType;
   final core.double? weight;
   final core.double? axleWeight;
@@ -96,69 +46,41 @@ class DrivingVehicleOptions {
     this.buswayPermitted,
   });
 
-  /// @nodoc
-  @internal
-  DrivingVehicleOptions.fromNative(DrivingVehicleOptionsNative native)
-      : this(
-            vehicleType:
-                directions_driving_vehicle_type.DrivingVehicleType.fromInt(
-                    native.vehicleType),
-            weight: to_platform.toPlatformFromPointerFloat(native.weight),
-            axleWeight:
-                to_platform.toPlatformFromPointerFloat(native.axleWeight),
-            maxWeight: to_platform.toPlatformFromPointerFloat(native.maxWeight),
-            height: to_platform.toPlatformFromPointerFloat(native.height),
-            width: to_platform.toPlatformFromPointerFloat(native.width),
-            length: to_platform.toPlatformFromPointerFloat(native.length),
-            payload: to_platform.toPlatformFromPointerFloat(native.payload),
-            ecoClass: to_platform.toPlatformFromPointerUint32(native.ecoClass),
-            hasTrailer:
-                to_platform.toPlatformFromPointerBool(native.hasTrailer),
-            buswayPermitted:
-                to_platform.toPlatformFromPointerBool(native.buswayPermitted));
+  @core.override
+  core.int get hashCode => core.Object.hashAll([
+        vehicleType,
+        weight,
+        axleWeight,
+        maxWeight,
+        height,
+        width,
+        length,
+        payload,
+        ecoClass,
+        hasTrailer,
+        buswayPermitted
+      ]);
 
-  /// @nodoc
-  @internal
-  static DrivingVehicleOptionsNative toNative(DrivingVehicleOptions c) {
-    return _DrivingVehicleOptionsNativeInit(
-        directions_driving_vehicle_type.DrivingVehicleType.toInt(c.vehicleType),
-        to_native.toNativePtrFloat(c.weight),
-        to_native.toNativePtrFloat(c.axleWeight),
-        to_native.toNativePtrFloat(c.maxWeight),
-        to_native.toNativePtrFloat(c.height),
-        to_native.toNativePtrFloat(c.width),
-        to_native.toNativePtrFloat(c.length),
-        to_native.toNativePtrFloat(c.payload),
-        to_native.toNativePtrUint32(c.ecoClass),
-        to_native.toNativePtrBool(c.hasTrailer),
-        to_native.toNativePtrBool(c.buswayPermitted));
+  @core.override
+  core.bool operator ==(covariant DrivingVehicleOptions other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return vehicleType == other.vehicleType &&
+        weight == other.weight &&
+        axleWeight == other.axleWeight &&
+        maxWeight == other.maxWeight &&
+        height == other.height &&
+        width == other.width &&
+        length == other.length &&
+        payload == other.payload &&
+        ecoClass == other.ecoClass &&
+        hasTrailer == other.hasTrailer &&
+        buswayPermitted == other.buswayPermitted;
   }
 
-  /// @nodoc
-  @internal
-  static DrivingVehicleOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr.address == 0) {
-      return null;
-    }
-    final result = DrivingVehicleOptions.fromNative(
-        ptr.cast<DrivingVehicleOptionsNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  /// @nodoc
-  @internal
-  static ffi.Pointer<ffi.Void> toPointer(DrivingVehicleOptions? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<DrivingVehicleOptionsNative>();
-    result.ref = toNative(val);
-
-    return result.cast<ffi.Void>();
+  @core.override
+  core.String toString() {
+    return "DrivingVehicleOptions(vehicleType: $vehicleType, weight: $weight, axleWeight: $axleWeight, maxWeight: $maxWeight, height: $height, width: $width, length: $length, payload: $payload, ecoClass: $ecoClass, hasTrailer: $hasTrailer, buswayPermitted: $buswayPermitted)";
   }
 }
