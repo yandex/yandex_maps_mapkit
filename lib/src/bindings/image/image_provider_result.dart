@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:ffi';
 import 'dart:ui' as ui;
 
-
 import 'package:yandex_maps_mapkit/src/bindings/common/native_types.dart';
 
 class ImageProviderResult {

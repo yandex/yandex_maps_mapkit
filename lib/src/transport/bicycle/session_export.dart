@@ -1,8 +1,8 @@
 export 'package:yandex_maps_mapkit/src/transport/bicycle/session.dart'
     hide
-        BicycleSessionImpl,
-        BicycleSessionContainerExtension,
+        BicycleSummarySessionImpl,
         BicycleSummarySessionSummaryListenerImpl,
-        BicycleSessionRouteListenerImpl,
         BicycleSummarySessionContainerExtension,
-        BicycleSummarySessionImpl;
+        BicycleSessionRouteListenerImpl,
+        BicycleSessionImpl,
+        BicycleSessionContainerExtension;

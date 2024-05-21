@@ -148,7 +148,7 @@ abstract class Map implements ffi.Finalizable {
 
   /// Changes camera position. Can cancel a previous unfinished movement.
   ///
-  /// [animation] Required. Defines animation parameters. @see
+  /// [animation] Required. Defines animation parameters. \@see
   /// mapkit.Animation for more details.
   /// [cameraCallback] A function that takes the bool argument marking the
   /// camera action complete. Invoked when: <ul><li>A camera action is

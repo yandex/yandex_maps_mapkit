@@ -413,8 +413,6 @@ abstract class PanoramaTileImageFactory {
   /// Called once the tile is within the view frustum. If tile can't be
   /// loaded, empty value must be returned.
   ///
-  /// This method will be called on a background thread.
-  ///
   /// [panoramaId] The id of the panorama to get tile for.
   /// [x] Tile x coordinate in range
   /// \[0..tileLevels\[tileLevel\].width/tileSize.width\] x=0,y=0 is the
@@ -432,16 +430,12 @@ abstract class PanoramaIconImageFactory {
   /// loaded, empty value must be returned. Scale - scale factor. mdpi: 1.0
   /// , xhdpi: 2.0, etc. If you have image resources for different pixel
   /// densities, just ignore this parameter.
-  ///
-  /// This method will be called on a background thread.
   core.Future<image_provider.ImageProvider?> load(
       core.String iconId, core.double scale);
 }
 
 abstract class PanoramaTileUrlProvider {
   /// Called once the tile within the view frustum.
-  ///
-  /// This method may be called on any thread. Its implementation must be thread-safe.
   ///
   /// [panoramaId] The id of the panorama to get tile for.
   /// [x] Tile x coordinate in range
@@ -458,7 +452,5 @@ abstract class PanoramaTileUrlProvider {
 abstract class PanoramaIconUrlProvider {
   /// Called once the icon is visible in view frustum Scale - scale factor.
   /// mdpi: 1.0 , xhdpi: 2.0 etc.
-  ///
-  /// This method may be called on any thread. Its implementation must be thread-safe.
   core.String formatUrl(core.String iconId, core.double scale);
 }

@@ -1,7 +1,7 @@
 export 'package:yandex_maps_mapkit/src/mapkit/map/tile_data_source_builder.dart'
     hide
         CreateTileDataSourceImpl,
-        TileDataSourceBuilderContainerExtension,
         TileDataSourceBuilderImpl,
-        BaseTileDataSourceBuilderContainerExtension,
-        BaseTileDataSourceBuilderImpl;
+        TileDataSourceBuilderContainerExtension,
+        BaseTileDataSourceBuilderImpl,
+        BaseTileDataSourceBuilderContainerExtension;

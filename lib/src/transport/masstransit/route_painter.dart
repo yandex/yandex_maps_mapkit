@@ -14,7 +14,7 @@ part 'route_painter.impl.dart';
 class MasstransitDrivingJamsPainter {
   MasstransitDrivingJamsPainter._();
 
-  /// @ internal
+  /// \@ internal
   ///
   /// Draw driving "jams" with specified "style"
   static void applyJamsStyle(

@@ -4,13 +4,13 @@ export 'package:yandex_maps_mapkit/src/mapkit/user_location/user_location.dart'
         UserLocationTapListenerImpl,
         UserLocationLayerImpl,
         UserLocationObjectListenerImpl,
-        UserLocationIconChangedContainerExtension,
         UserLocationIconTypeImpl,
         UserLocationIconChangedImpl,
+        UserLocationIconChangedContainerExtension,
         UserLocationIconTypeContainerExtension,
         UserLocationAnchorTypeImpl,
         UserLocationAnchorChangedContainerExtension,
         UserLocationAnchorTypeContainerExtension,
-        UserLocationAnchorChangedImpl,
         UserLocationViewContainerExtension,
-        UserLocationViewImpl;
+        UserLocationViewImpl,
+        UserLocationAnchorChangedImpl;

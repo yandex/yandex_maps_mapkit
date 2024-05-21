@@ -1,2 +1,2 @@
 export 'package:yandex_maps_mapkit/src/runtime/key_value_pair.dart'
-    hide KeyValuePairImpl, KeyValuePairNative, KeyValuePairContainerExtension;
+    hide KeyValuePairNative, KeyValuePairContainerExtension;

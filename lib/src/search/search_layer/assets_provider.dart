@@ -91,16 +91,12 @@ final class Size {
 /// methods.
 abstract class AssetsProvider {
   /// Returns an image for certain placemark type with given search result
-  ///
-  /// This method will be called on a background thread.
   core.Future<image_provider.ImageProvider> image(
       search_search_layer_search_result_item.SearchResultItem searchResult,
       core.int placemarkIconType);
 
   /// Returns the size of the icon of certain placemark type with given
   /// search result
-  ///
-  /// This method may be called on any thread. Its implementation must be thread-safe.
   Size size(
       search_search_layer_search_result_item.SearchResultItem searchResult,
       core.int placemarkIconType);
@@ -108,8 +104,6 @@ abstract class AssetsProvider {
   /// Returns the icon style for certain placemark type with given search
   /// result. If obtainAdIcons mode is enabled, IconStyle.anchor will be
   /// replaced for advertisement pins
-  ///
-  /// This method may be called on any thread. Its implementation must be thread-safe.
   mapkit_map_icon_style.IconStyle iconStyle(
       search_search_layer_search_result_item.SearchResultItem searchResult,
       core.int placemarkIconType);
@@ -118,8 +112,6 @@ abstract class AssetsProvider {
   /// result and placemark types of `LabelShortLeft`, `LabelShortRight`,
   /// `LabelDetailedLeft` and `LabelDetailedRight`. If `false` is returned
   /// then no label would be shown for this search result.
-  ///
-  /// This method may be called on any thread. Its implementation must be thread-safe.
   core.bool canProvideLabels(
       search_search_layer_search_result_item.SearchResultItem searchResult);
 }
