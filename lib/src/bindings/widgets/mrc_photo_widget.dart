@@ -7,6 +7,8 @@ class MrcPhotoWidget extends PlatformViewWidget {
     super.key,
     super.platformViewType,
     super.textDirection,
+    super.gestureRecognizers,
+    super.hitTestBehavior,
     required this.onPlayerCreated,
   }) : super(
           onViewCreated: (view) {

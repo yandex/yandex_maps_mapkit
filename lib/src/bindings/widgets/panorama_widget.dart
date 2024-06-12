@@ -7,6 +7,8 @@ class PanoramaWidget extends PlatformViewWidget {
     super.key,
     super.platformViewType,
     super.textDirection,
+    super.gestureRecognizers,
+    super.hitTestBehavior,
     required this.onPanoramaCreated,
     this.scale,
   }) : super(

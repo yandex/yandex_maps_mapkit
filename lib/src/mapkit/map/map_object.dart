@@ -5,6 +5,10 @@ import 'dart:core' as core;
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:yandex_maps_mapkit/src/bindings/common/dispatcher.dart'
+    as nativeBinding;
+import 'package:yandex_maps_mapkit/src/bindings/common/platform_user_data.dart'
+    as platform_user_data;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
@@ -76,4 +80,7 @@ abstract class MapObject implements ffi.Finalizable {
   /// the target object while it is attached to a class.
   void setDragListener(
       mapkit_map_map_object_drag_listener.MapObjectDragListener? dragListener);
+
+  core.Object? get userData;
+  set userData(core.Object? val);
 }
