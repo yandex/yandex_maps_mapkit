@@ -15,17 +15,31 @@ part 'camera_position.containers.dart';
 part 'camera_position.impl.dart';
 
 final class CameraPosition {
-  final mapkit_geometry_point.Point target;
-  final core.double zoom;
-  final core.double azimuth;
-  final core.double tilt;
-
   const CameraPosition(
     this.target, {
     required this.zoom,
     required this.azimuth,
     required this.tilt,
   });
+
+  final mapkit_geometry_point.Point target;
+  final core.double zoom;
+  final core.double azimuth;
+  final core.double tilt;
+
+  CameraPosition copyWith({
+    mapkit_geometry_point.Point? target,
+    core.double? zoom,
+    core.double? azimuth,
+    core.double? tilt,
+  }) {
+    return CameraPosition(
+      target ?? this.target,
+      zoom: zoom ?? this.zoom,
+      azimuth: azimuth ?? this.azimuth,
+      tilt: tilt ?? this.tilt,
+    );
+  }
 
   @core.override
   core.int get hashCode => core.Object.hashAll([target, zoom, azimuth, tilt]);
