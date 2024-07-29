@@ -13,7 +13,7 @@ extension SearchFilterCollectionContainerExtension on SearchFilterCollection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFilterCollectionImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchFilterCollectionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension SearchFilterCollectionContainerExtension on SearchFilterCollection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFilterCollectionImpl.toPointer);
+    return vector.toNativeVector(obj, SearchFilterCollectionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

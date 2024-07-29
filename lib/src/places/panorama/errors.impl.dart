@@ -35,6 +35,7 @@ class PanoramaNotFoundErrorImpl extends runtime_error.ErrorImpl
     return (obj as PanoramaNotFoundErrorImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _PanoramaNotFoundError_check(ptr);
   }
@@ -55,4 +56,12 @@ final core.bool Function(ffi.Pointer<ffi.Void>) _PanoramaNotFoundError_check =
     lib.library
         .lookup<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_places_panorama_PanoramaNotFoundError_check')
+        .asFunction(isLeaf: true);
+
+final void Function(ffi.Pointer<ffi.Void>, core.int)
+    _PanoramaNotFoundError_set = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+            'yandex_flutter_places_panorama_PanoramaNotFoundError_set_')
         .asFunction(isLeaf: true);

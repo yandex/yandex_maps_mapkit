@@ -22,8 +22,13 @@ import 'package:yandex_maps_mapkit/src/mapkit/base_metadata.dart'
 part 'common.containers.dart';
 part 'common.impl.dart';
 
+/// Describes various features a stop can have.
+
 final class MasstransitStopFeatureMask {
+  /// The stop is cooled at hot weather conditions.
   final core.bool cooled;
+
+  /// The stop is heated at cold weather conditions.
   final core.bool heated;
 
   const MasstransitStopFeatureMask({
@@ -48,12 +53,17 @@ final class MasstransitStopFeatureMask {
   }
 }
 
+/// Describes transport contours and it's properties
 abstract final class MasstransitTransportContour implements ffi.Finalizable {
   factory MasstransitTransportContour(
           core.String name, MasstransitTransportContourStyle? style) =>
       MasstransitTransportContourImpl(name, style);
 
+  /// Contour name
   core.String get name;
+
+  /// Contour style; see [MasstransitTransportContourStyle].
+  ///
   MasstransitTransportContourStyle? get style;
 
   @core.override
@@ -73,7 +83,14 @@ abstract final class MasstransitTransportContour implements ffi.Finalizable {
   }
 }
 
+/// Describes the style of transport contour objects
+
 final class MasstransitTransportContourStyle {
+  /// Describes the main color of transport contour. Main color is used to
+  /// identify the object among others. For example, the color of MCD line
+  /// icon meant to be the main color of the contour. Presented in versions
+  /// for light and dark themes.
+  ///
   final core.int? mainColor;
   final core.int? mainColorNight;
 
@@ -100,6 +117,7 @@ final class MasstransitTransportContourStyle {
   }
 }
 
+/// Describes a public transport stop.
 abstract final class MasstransitStop extends mapkit_base_metadata.BaseMetadata
     implements ffi.Finalizable {
   factory MasstransitStop(
@@ -111,10 +129,22 @@ abstract final class MasstransitStop extends mapkit_base_metadata.BaseMetadata
       MasstransitStopImpl(
           id, name, additionalName, features, transportContours);
 
+  /// Stop ID.
   core.String get id;
+
+  /// Stop name.
   core.String get name;
+
+  /// Additional stop name. Can be a local number or specifying index.
+  /// Similar to thread description, but for stops
+  ///
   core.String? get additionalName;
+
+  /// Additional stop features.
+  ///
   MasstransitStopFeatureMask? get features;
+
+  /// Describes transport contours represented at this Stop.
   core.List<MasstransitTransportContour> get transportContours;
 
   @core.override
@@ -156,6 +186,7 @@ enum MasstransitTransportType {
   ;
 }
 
+/// Describes a public transport line.
 abstract final class MasstransitLine extends mapkit_base_metadata.BaseMetadata
     implements ffi.Finalizable {
   factory MasstransitLine(
@@ -170,13 +201,33 @@ abstract final class MasstransitLine extends mapkit_base_metadata.BaseMetadata
       MasstransitLineImpl(id, name, vehicleTypes, style, isNight, uri,
           shortName, transportSystemId);
 
+  /// Line ID.
   core.String get id;
+
+  /// Line name.
   core.String get name;
+
+  /// List of line types. Starts from the most detailed, ends with the most
+  /// general.
   core.List<core.String> get vehicleTypes;
+
+  /// Line style; see [MasstransitLineStyle].
+  ///
   MasstransitLineStyle? get style;
+
+  /// True if the line operates only at night.
   core.bool get isNight;
+
+  /// URI for a line.
+  ///
   core.String? get uri;
+
+  /// Subway short line name.
+  ///
   core.String? get shortName;
+
+  /// Subway transport system ID.
+  ///
   core.String? get transportSystemId;
 
   @core.override
@@ -215,7 +266,11 @@ abstract final class MasstransitLine extends mapkit_base_metadata.BaseMetadata
       const _MasstransitLineFactory();
 }
 
+/// Describes the style of line.
+
 final class MasstransitLineStyle {
+  /// Line color in #RRGGBB format.
+  ///
   final core.int? color;
 
   const MasstransitLineStyle({
@@ -239,6 +294,9 @@ final class MasstransitLineStyle {
   }
 }
 
+/// Describes a public transport thread. A thread is one of the
+/// [MasstransitLine] variants. For example, one line can have two
+/// threads: direct and return.
 abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
     implements ffi.Finalizable {
   factory MasstransitThread(
@@ -247,8 +305,21 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
           core.String? description) =>
       MasstransitThreadImpl(id, essentialStops, description);
 
+  /// Thread ID.
   core.String get id;
+
+  /// List of important stops on the thread, such as the first and last
+  /// stops.
   core.List<MasstransitStop> get essentialStops;
+
+  /// 'Description' is a specific thread name which must be used in
+  /// addition to the corresponding [MasstransitLine] name.
+  ///
+  /// For example, line "bus 34" has two thread with descriptions: "short"
+  /// and "long". To get full thread name you should combine line name and
+  /// thread description. After this, you get two threads name: "bus 34
+  /// short" and "bus 34 long".
+  ///
   core.String? get description;
 
   @core.override

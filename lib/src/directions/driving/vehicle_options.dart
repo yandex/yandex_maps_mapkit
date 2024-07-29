@@ -19,16 +19,47 @@ part 'vehicle_options.containers.dart';
 part 'vehicle_options.impl.dart';
 
 final class DrivingVehicleOptions {
+  /// Sets the vehicle type for special routing.
   final directions_driving_vehicle_type.DrivingVehicleType vehicleType;
+
+  /// Real vehicle weight.
+  ///
   final core.double? weight;
+
+  /// Maximal weight supported by a vehicle axle.
+  ///
   final core.double? axleWeight;
+
+  /// Maximal allowed weight for the vehicle.
+  ///
   final core.double? maxWeight;
+
+  /// Vehicle height.
+  ///
   final core.double? height;
+
+  /// Vehicle width.
+  ///
   final core.double? width;
+
+  /// Vehicle length.
+  ///
   final core.double? length;
+
+  /// Vehicle cargo weight.
+  ///
   final core.double? payload;
+
+  /// Vehicle eco class.
+  ///
   final core.int? ecoClass;
+
+  /// The vehicle has a trailer attached.
+  ///
   final core.bool? hasTrailer;
+
+  /// The vehicle is permitted for busway.
+  ///
   final core.bool? buswayPermitted;
 
   const DrivingVehicleOptions({

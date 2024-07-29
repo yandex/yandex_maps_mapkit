@@ -24,6 +24,7 @@ import 'package:yandex_maps_mapkit/src/mapkit/base_metadata.dart'
 part 'encyclopedia_object_metadata.containers.dart';
 part 'encyclopedia_object_metadata.impl.dart';
 
+/// Snippet with encyclopedia data.
 abstract final class SearchEncyclopediaObjectMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchEncyclopediaObjectMetadata(
@@ -32,8 +33,16 @@ abstract final class SearchEncyclopediaObjectMetadata
           mapkit_attribution.Attribution? attribution) =>
       SearchEncyclopediaObjectMetadataImpl(title, description, attribution);
 
+  /// Encyclopedia article title.
+  ///
   core.String? get title;
+
+  /// Encyclopedia article body.
+  ///
   core.String? get description;
+
+  /// Attribution information.
+  ///
   mapkit_attribution.Attribution? get attribution;
 
   @core.override

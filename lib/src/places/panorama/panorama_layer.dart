@@ -21,4 +21,6 @@ abstract class PanoramaLayer implements ffi.Finalizable {
 
   /// Enables or disables the airship icons.
   void setAirshipPanoramaVisible(core.bool on);
+
+  core.bool isValid();
 }

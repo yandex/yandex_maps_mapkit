@@ -28,10 +28,19 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/span.dart'
 part 'panoramas_object_metadata.containers.dart';
 part 'panoramas_object_metadata.impl.dart';
 
+/// Panorama info.
+
 final class SearchPanorama {
+  /// Machine readable panorama identifier.
   final core.String id;
+
+  /// Direction of the panorama center.
   final mapkit_geometry_direction.Direction direction;
+
+  /// H-Span and V-Span hints for the panorama player.
   final mapkit_geometry_span.Span span;
+
+  /// Panorama point.
   final mapkit_geometry_point.Point point;
 
   const SearchPanorama(
@@ -66,11 +75,13 @@ final class SearchPanorama {
   }
 }
 
+/// Snippet data to get panoramas info.
 abstract final class SearchPanoramasObjectMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchPanoramasObjectMetadata(core.List<SearchPanorama> panoramas) =>
       SearchPanoramasObjectMetadataImpl(panoramas);
 
+  /// List of panoramas.
   core.List<SearchPanorama> get panoramas;
 
   @core.override

@@ -13,7 +13,7 @@ extension AirshipTapInfoContainerExtension on AirshipTapInfo {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, AirshipTapInfoImpl.toPointer);
+    return string_map.toNativeMap(obj, AirshipTapInfoImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension AirshipTapInfoContainerExtension on AirshipTapInfo {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, AirshipTapInfoImpl.toPointer);
+    return vector.toNativeVector(obj, AirshipTapInfoImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

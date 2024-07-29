@@ -13,7 +13,7 @@ extension CompanyTapInfoContainerExtension on CompanyTapInfo {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, CompanyTapInfoImpl.toPointer);
+    return string_map.toNativeMap(obj, CompanyTapInfoImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension CompanyTapInfoContainerExtension on CompanyTapInfo {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, CompanyTapInfoImpl.toPointer);
+    return vector.toNativeVector(obj, CompanyTapInfoImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

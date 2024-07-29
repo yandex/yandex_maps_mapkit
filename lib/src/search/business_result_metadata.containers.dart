@@ -15,7 +15,7 @@ extension SearchBusinessResultMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchBusinessResultMetadataImpl.toPointer);
+        obj, SearchBusinessResultMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -45,7 +45,7 @@ extension SearchBusinessResultMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchBusinessResultMetadataImpl.toPointer);
+        obj, SearchBusinessResultMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

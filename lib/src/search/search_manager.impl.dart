@@ -256,3 +256,10 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SearchManager_createSuggestSession')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _SearchManager_set = lib
+    .library
+    .lookup<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>,
+                ffi.Int64)>>('yandex_flutter_search_SearchManager_set_')
+    .asFunction(isLeaf: true);

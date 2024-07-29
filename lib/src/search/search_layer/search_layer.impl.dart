@@ -288,6 +288,7 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
     return (obj as SearchLayerImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _SearchLayer_check(ptr);
   }
@@ -764,3 +765,10 @@ final void Function(
                         ffi.Uint32, ffi.Uint32, ffi.Uint32)>>(
             'yandex_flutter_search_search_layer_SearchLayer_setInsets')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _SearchLayer_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_search_search_layer_SearchLayer_set_')
+    .asFunction(isLeaf: true);

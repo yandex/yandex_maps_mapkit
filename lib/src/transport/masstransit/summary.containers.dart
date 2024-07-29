@@ -13,7 +13,7 @@ extension MasstransitSummaryContainerExtension on MasstransitSummary {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitSummaryImpl.toPointer);
+    return string_map.toNativeMap(obj, MasstransitSummaryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension MasstransitSummaryContainerExtension on MasstransitSummary {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitSummaryImpl.toPointer);
+    return vector.toNativeVector(obj, MasstransitSummaryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

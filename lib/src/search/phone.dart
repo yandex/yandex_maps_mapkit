@@ -31,13 +31,34 @@ enum SearchPhoneType {
   ;
 }
 
+/// Organization phone.
+
 final class SearchPhone {
+  /// Phone type.
   final SearchPhoneType type;
+
+  /// Full phone number as human readable string.
   final core.String formattedNumber;
+
+  /// Some additional info to differentiate multiple phones for single
+  /// organization.
+  ///
   final core.String? info;
+
+  /// Phone country code.
+  ///
   final core.String? country;
+
+  /// Phone prefix.
+  ///
   final core.String? prefix;
+
+  /// Phone extension.
+  ///
   final core.String? ext;
+
+  /// Phone number.
+  ///
   final core.String? number;
 
   const SearchPhone(

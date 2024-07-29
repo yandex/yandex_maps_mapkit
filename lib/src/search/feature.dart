@@ -14,11 +14,23 @@ import 'package:yandex_maps_mapkit/src/bindings/common/to_native.dart'
 import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
     as to_platform;
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
+import 'package:yandex_maps_mapkit/src/mapkit/attribution.dart'
+    as mapkit_attribution;
 import 'package:yandex_maps_mapkit/src/mapkit/image.dart' as mapkit_image;
 
 part 'feature.containers.dart';
 part 'feature.impl.dart';
 
+/// Describes some common feature of organizations. Can be of three
+/// types:
+///
+/// - boolean (like on/off switch, as for free Wi-Fi availability).
+///
+/// - enumerated (can have multiple values at once, like cuisine types in
+/// a cafe).
+///
+/// - text (like enumerated but with any strings instead of predefined
+/// values).
 abstract final class SearchFeature implements ffi.Finalizable {
   factory SearchFeature(
           core.String id,
@@ -29,9 +41,19 @@ abstract final class SearchFeature implements ffi.Finalizable {
           mapkit_image.Image? iconDark) =>
       SearchFeatureImpl(id, value, name, aref, iconLight, iconDark);
 
+  /// Machine readable feature identifier.
   core.String get id;
+
+  /// Feature value (depends on feature type).
   SearchFeatureVariantValue get value;
+
+  /// Human readable localized representation.
+  ///
   core.String? get name;
+
+  /// Reference to information source providing given feature (see
+  /// [mapkit_attribution.Attribution])
+  ///
   core.String? get aref;
   mapkit_image.Image? get iconLight;
   mapkit_image.Image? get iconDark;
@@ -59,13 +81,21 @@ abstract final class SearchFeature implements ffi.Finalizable {
   }
 }
 
+/// Value for enumerated features.
 abstract final class SearchFeatureEnumValue implements ffi.Finalizable {
   factory SearchFeatureEnumValue(core.String id, core.String name,
           core.String? imageUrlTemplate, core.List<core.String> tags) =>
       SearchFeatureEnumValueImpl(id, name, imageUrlTemplate, tags);
 
+  /// Machine readable value identifier.
   core.String get id;
+
+  /// Human readable localized representation.
   core.String get name;
+
+  /// urlTemplate for the image. Available sizes are listed here:
+  /// http://api.yandex.ru/fotki/doc/format-ref/f-img.xml
+  ///
   core.String? get imageUrlTemplate;
   core.List<core.String> get tags;
 
@@ -171,10 +201,12 @@ final class SearchFeatureVariantValue {
   final core.dynamic _value;
 }
 
+/// Collection of features.
 abstract final class SearchFeatureSet implements ffi.Finalizable {
   factory SearchFeatureSet(core.List<core.String> ids) =>
       SearchFeatureSetImpl(ids);
 
+  /// IDs for features in the collection.
   core.List<core.String> get ids;
 
   @core.override
@@ -194,11 +226,16 @@ abstract final class SearchFeatureSet implements ffi.Finalizable {
   }
 }
 
+/// Group of features.
 abstract final class SearchFeatureGroup implements ffi.Finalizable {
   factory SearchFeatureGroup(core.String? name, core.List<core.String> ids) =>
       SearchFeatureGroupImpl(name, ids);
 
+  /// Group name.
+  ///
   core.String? get name;
+
+  /// IDs for features in the group.
   core.List<core.String> get ids;
 
   @core.override

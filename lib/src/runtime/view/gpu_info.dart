@@ -9,7 +9,7 @@ import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
 
 part 'gpu_info.impl.dart';
 
-///
+/// @nodoc
 class GpuInfoManager {
   GpuInfoManager._();
 

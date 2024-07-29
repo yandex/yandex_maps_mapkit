@@ -60,8 +60,13 @@ enum PlacemarkIconType {
   ;
 }
 
+/// Size of the icon
+
 final class Size {
+  /// Width.
   final core.double width;
+
+  /// Height.
   final core.double height;
 
   const Size({

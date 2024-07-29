@@ -18,9 +18,19 @@ import 'package:yandex_maps_mapkit/src/mapkit/attribution.dart'
 part 'link.containers.dart';
 part 'link.impl.dart';
 
+/// Link structure. Combines actual link with attribution and type info.
+
 final class SearchLink {
+  /// Attribution reference.
+  ///
   final core.String? aref;
+
+  /// Actual link.
   final mapkit_attribution.AttributionLink link;
+
+  /// Link tag. Possible values (non-exhaustive)
+  /// 'self/social/attribution/showtimes/booking'.
+  ///
   final core.String? tag;
 
   const SearchLink(

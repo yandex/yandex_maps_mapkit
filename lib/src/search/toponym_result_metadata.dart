@@ -24,6 +24,7 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/point.dart'
 part 'toponym_result_metadata.containers.dart';
 part 'toponym_result_metadata.impl.dart';
 
+/// Common info for response from toponym search.
 abstract final class SearchToponymResultMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchToponymResultMetadata(
@@ -32,8 +33,16 @@ abstract final class SearchToponymResultMetadata
           mapkit_geometry_point.Point? reversePoint) =>
       SearchToponymResultMetadataImpl(found, responseInfo, reversePoint);
 
+  /// Approximate number of found objects.
   core.int get found;
+
+  /// Additional response info.
+  ///
   SearchToponymResultMetadataResponseInfo? get responseInfo;
+
+  /// The search coordinates given via 'll' or parsed from 'text' (only in
+  /// reverse mode).
+  ///
   mapkit_geometry_point.Point? get reversePoint;
 
   @core.override
@@ -69,8 +78,14 @@ enum SearchToponymResultMetadataSearchMode {
   ;
 }
 
+/// Additional response info.
+
 final class SearchToponymResultMetadataResponseInfo {
+  /// Search mode.
   final SearchToponymResultMetadataSearchMode mode;
+
+  /// Search response accuracy.
+  ///
   final core.double? accuracy;
 
   const SearchToponymResultMetadataResponseInfo(

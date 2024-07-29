@@ -158,3 +158,10 @@ final ffi.Pointer<ffi.Void> Function(
                         native_types.NativeString, ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_transport_bicycle_BicycleRouter_resolveUri')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _BicycleRouter_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_transport_bicycle_BicycleRouter_set_')
+    .asFunction(isLeaf: true);

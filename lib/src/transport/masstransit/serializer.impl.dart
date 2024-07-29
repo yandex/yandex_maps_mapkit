@@ -75,3 +75,12 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>, native_types.NativeBytes)>>(
         'yandex_flutter_transport_masstransit_MasstransitRouteSerializer_load')
     .asFunction();
+final void Function(
+    ffi.Pointer<ffi.Void>,
+    core
+        .int) _MasstransitRouteSerializer_set = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRouteSerializer_set_')
+    .asFunction(isLeaf: true);

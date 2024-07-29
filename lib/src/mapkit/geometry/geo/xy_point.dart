@@ -12,8 +12,13 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'xy_point.containers.dart';
 part 'xy_point.impl.dart';
 
+/// World coordinates.
+
 final class XYPoint {
+  /// The horizontal position of the point.
   final core.double x;
+
+  /// The vertical position of the point.
   final core.double y;
 
   const XYPoint({

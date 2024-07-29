@@ -12,8 +12,13 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'direction.containers.dart';
 part 'direction.impl.dart';
 
+/// Represents the panorama direction.
+
 final class Direction {
+  /// Panorama azimuth.
   final core.double azimuth;
+
+  /// Panorama tilt.
   final core.double tilt;
 
   const Direction({

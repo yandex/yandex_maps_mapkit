@@ -294,4 +294,6 @@ abstract class SearchLayer implements ffi.Finalizable {
     required core.int bottom,
     required core.int right,
   });
+
+  core.bool isValid();
 }

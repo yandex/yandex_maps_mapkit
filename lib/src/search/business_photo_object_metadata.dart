@@ -22,13 +22,18 @@ import 'package:yandex_maps_mapkit/src/mapkit/base_metadata.dart'
 part 'business_photo_object_metadata.containers.dart';
 part 'business_photo_object_metadata.impl.dart';
 
+/// Snippet for company-related photos (becoming obsolete).
 abstract final class SearchBusinessPhotoObjectMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchBusinessPhotoObjectMetadata(core.int count,
           core.List<SearchBusinessPhotoObjectMetadataPhoto> photos) =>
       SearchBusinessPhotoObjectMetadataImpl(count, photos);
 
+  /// Number of photos for the organisation. (see PhotosManager for
+  /// details)
   core.int get count;
+
+  /// List of photos for the company (usually first three)
   core.List<SearchBusinessPhotoObjectMetadataPhoto> get photos;
 
   @core.override
@@ -51,13 +56,19 @@ abstract final class SearchBusinessPhotoObjectMetadata
       factory = const _SearchBusinessPhotoObjectMetadataFactory();
 }
 
+/// Information about single photos.
 abstract final class SearchBusinessPhotoObjectMetadataPhoto
     implements ffi.Finalizable {
   factory SearchBusinessPhotoObjectMetadataPhoto(core.String id,
           core.List<SearchBusinessPhotoObjectMetadataPhotoPhotoLink> links) =>
       SearchBusinessPhotoObjectMetadataPhotoImpl(id, links);
 
+  /// To get a valid download link use the value of id + /\[size\], where
+  /// \[size\] is one of: 1. XXXS 2. XXS 3. XS 4. S 5. M 6. L 7. XL 8. XXL
+  /// 9. XXXL 10. orig
   core.String get id;
+
+  /// Photo links.
   core.List<SearchBusinessPhotoObjectMetadataPhotoPhotoLink> get links;
 
   @core.override
@@ -78,13 +89,18 @@ abstract final class SearchBusinessPhotoObjectMetadataPhoto
   }
 }
 
+/// Photo link details.
 abstract final class SearchBusinessPhotoObjectMetadataPhotoPhotoLink
     implements ffi.Finalizable {
   factory SearchBusinessPhotoObjectMetadataPhotoPhotoLink(
           core.String? type, core.String uri) =>
       SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl(type, uri);
 
+  /// Optional link type, for example "panorama".
+  ///
   core.String? get type;
+
+  /// Link URI.
   core.String get uri;
 
   @core.override

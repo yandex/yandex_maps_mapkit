@@ -38,8 +38,14 @@ abstract final class RoadEventsLayerTextStyle implements ffi.Finalizable {
           core.double fontSize, ui.Color color, ui.Color? outlineColor) =>
       RoadEventsLayerTextStyleImpl(fontSize, color, outlineColor);
 
+  /// Font size in device-independent pixels.
   core.double get fontSize;
+
+  /// Text primary color.
   ui.Color get color;
+
+  /// Text outline color.
+  ///
   ui.Color? get outlineColor;
 
   @core.override
@@ -63,9 +69,17 @@ abstract final class RoadEventsLayerTextStyle implements ffi.Finalizable {
 
 final class RoadEventsLayerHighlightCircleStyle {
   final ui.Color strokeColor;
+
+  /// Sets the stroke width in units. The size of a unit is equal to the
+  /// size of a pixel at the current zoom level when the camera position's
+  /// tilt is equal to 0 and the scale factor is equal to 1.
   final core.double strokeWidth;
   final ui.Color fillColor;
+
+  /// Sets the maximum circle radius in units.
   final core.double maximumRadius;
+
+  /// Sets the time it takes for the circle to reach its maximum size.
   final core.Duration animationDuration;
 
   const RoadEventsLayerHighlightCircleStyle(
@@ -135,6 +149,8 @@ abstract class RoadEventsLayerRoadEventStyle implements ffi.Finalizable {
 
   /// Road event icon image.
   void setIconImage(image_provider.ImageProvider image);
+
+  core.bool isValid();
 }
 
 /// Interface that has subset of fields of RoadEvent necessary for
@@ -167,6 +183,8 @@ abstract class RoadEventsLayerRoadEventStylingProperties
   /// different tag sets can be visible on different zoom ranges.
   core.bool hasSignificanceGreaterOrEqual(
       mapkit_road_events_layer_significance.RoadEventSignificance significance);
+
+  core.bool isValid();
 }
 
 abstract class RoadEventsLayerStyleProvider {

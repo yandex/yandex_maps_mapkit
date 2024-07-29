@@ -50,6 +50,8 @@ abstract class Transport implements ffi.Finalizable {
   /// Creates a manager that builds scooter routes using the origin and
   /// destination points.
   transport_masstransit_bicycle_router_v2.BicycleRouterV2 createScooterRouter();
+
+  core.bool isValid();
 }
 
 class TransportFactory {

@@ -21,6 +21,7 @@ import 'package:yandex_maps_mapkit/src/mapkit/money.dart' as mapkit_money;
 part 'route_point_object_metadata.containers.dart';
 part 'route_point_object_metadata.impl.dart';
 
+/// An entrance to a building
 abstract final class SearchEntrance implements ffi.Finalizable {
   factory SearchEntrance(core.String? name, mapkit_geometry_point.Point point,
           mapkit_geometry_direction.Direction? direction) =>
@@ -54,8 +55,17 @@ abstract final class SearchParkingAttributes implements ffi.Finalizable {
           mapkit_money.TaxiMoney? firstHourPrice, core.int? placesCount) =>
       SearchParkingAttributesImpl(orgURI, firstHourPrice, placesCount);
 
+  /// Parking organization URI. For example, parking zone or any toll area
+  /// or inside building parking.
+  ///
   core.String? get orgURI;
+
+  /// Price of the first hour.
+  ///
   mapkit_money.TaxiMoney? get firstHourPrice;
+
+  /// Maximum number of parking places (capacity).
+  ///
   core.int? get placesCount;
 
   @core.override

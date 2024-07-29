@@ -12,9 +12,16 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'tile_id.containers.dart';
 part 'tile_id.impl.dart';
 
+/// The ID of a tile on the map.
+
 final class TileId {
+  /// The number of the tile horizontally.
   final core.int x;
+
+  /// The number of the tile vertically.
   final core.int y;
+
+  /// The number of columns and rows to split the map into.
   final core.int z;
 
   const TileId({

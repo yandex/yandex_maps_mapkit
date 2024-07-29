@@ -1,7 +1,7 @@
 part of 'working_hours.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchStateImpl.toPointer',
+    toNative: 'SearchStateImpl.getNativePtr',
     toPlatform: '(val) => SearchStateImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchState')
 final class SearchStateImpl implements SearchState {
@@ -54,27 +54,7 @@ final class SearchStateImpl implements SearchState {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchState? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchState_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _SearchState_clone =
-    lib
-        .library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchState_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchState_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -123,7 +103,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchWorkingHoursImpl.toPointer',
+    toNative: 'SearchWorkingHoursImpl.getNativePtr',
     toPlatform:
         '(val) => SearchWorkingHoursImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchWorkingHours')
@@ -181,26 +161,7 @@ final class SearchWorkingHoursImpl implements SearchWorkingHours {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchWorkingHours? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchWorkingHours_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchWorkingHours_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchWorkingHours_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchWorkingHours_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

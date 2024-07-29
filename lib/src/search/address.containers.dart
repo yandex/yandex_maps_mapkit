@@ -13,7 +13,7 @@ extension SearchAddressContainerExtension on SearchAddress {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchAddressImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchAddressImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchAddressContainerExtension on SearchAddress {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchAddressImpl.toPointer);
+    return vector.toNativeVector(obj, SearchAddressImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -116,7 +116,7 @@ extension SearchAddressComponentContainerExtension on SearchAddressComponent {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchAddressComponentImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchAddressComponentImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +144,7 @@ extension SearchAddressComponentContainerExtension on SearchAddressComponent {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchAddressComponentImpl.toPointer);
+    return vector.toNativeVector(obj, SearchAddressComponentImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

@@ -135,6 +135,13 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SearchFilterCollectionBuilder_build')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int)
+    _SearchFilterCollectionBuilder_set = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+            'yandex_flutter_search_SearchFilterCollectionBuilder_set_')
+        .asFunction(isLeaf: true);
 
 SearchFilterCollectionBuilder _createFilterCollectionBuilder() {
   return SearchFilterCollectionBuilderImpl.fromNativePtr(

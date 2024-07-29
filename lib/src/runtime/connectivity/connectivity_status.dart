@@ -11,7 +11,7 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'connectivity_status.containers.dart';
 part 'connectivity_status.impl.dart';
 
-///
+/// @nodoc
 /// The status of the current connection to the internet.
 enum ConnectivityStatus {
   /// No connection to the internet.

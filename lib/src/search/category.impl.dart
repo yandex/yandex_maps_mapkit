@@ -1,7 +1,7 @@
 part of 'category.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchCategoryImpl.toPointer',
+    toNative: 'SearchCategoryImpl.getNativePtr',
     toPlatform: '(val) => SearchCategoryImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchCategory')
 final class SearchCategoryImpl implements SearchCategory {
@@ -50,26 +50,7 @@ final class SearchCategoryImpl implements SearchCategory {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchCategory? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchCategory_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchCategory_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchCategory_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchCategory_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

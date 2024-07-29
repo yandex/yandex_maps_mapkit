@@ -72,7 +72,7 @@ extension SearchPanoramaImpl on SearchPanorama {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchPanoramasObjectMetadataImpl.toPointer',
+    toNative: 'SearchPanoramasObjectMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchPanoramasObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchPanoramasObjectMetadata')
@@ -124,17 +124,6 @@ final class SearchPanoramasObjectMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchPanoramasObjectMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchPanoramasObjectMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchPanoramasObjectMetadataFactory
@@ -185,14 +174,6 @@ final native_types.NativeString Function() _SearchPanoramasObjectMetadata_name =
         .library
         .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
             'yandex_flutter_search_SearchPanoramasObjectMetadata_name')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchPanoramasObjectMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchPanoramasObjectMetadata_clone')
         .asFunction(isLeaf: true);
 
 final _SearchPanoramasObjectMetadata_free = lib.library

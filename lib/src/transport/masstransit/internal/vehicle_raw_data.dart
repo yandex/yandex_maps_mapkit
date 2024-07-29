@@ -24,14 +24,20 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
 part 'vehicle_raw_data.containers.dart';
 part 'vehicle_raw_data.impl.dart';
 
+/// Represents a mass transport unit on the map
 abstract final class VehicleRawData extends mapkit_base_metadata.BaseMetadata
     implements ffi.Finalizable {
   factory VehicleRawData(core.String id, core.String threadId,
           transport_masstransit_common.MasstransitLine line) =>
       VehicleRawDataImpl(id, threadId, line);
 
+  /// Id of a vehicle
   core.String get id;
+
+  /// Id of the line thread on which the vehicle is running
   core.String get threadId;
+
+  /// Stores the vehicle's public transport line info
   transport_masstransit_common.MasstransitLine get line;
 
   @core.override

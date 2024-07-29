@@ -18,9 +18,16 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'time.containers.dart';
 part 'time.impl.dart';
 
+/// Time in I18nTime format.
+
 final class Time {
+  /// Time value.
   final core.int value;
+
+  /// Time offset to account for time zones.
   final core.int tzOffset;
+
+  /// The description of the timer.
   final core.String text;
 
   const Time({

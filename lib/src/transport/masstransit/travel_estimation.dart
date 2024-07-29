@@ -13,8 +13,14 @@ import 'package:yandex_maps_mapkit/src/mapkit/time.dart' as mapkit_time;
 part 'travel_estimation.containers.dart';
 part 'travel_estimation.impl.dart';
 
+/// Arrival and departure time estimations for time-dependent routes or
+/// sections of time-dependent routes.
+
 final class MasstransitTravelEstimation {
+  /// Departure time for a route or a route section.
   final mapkit_time.Time departureTime;
+
+  /// Arrival time for a route or a route section.
   final mapkit_time.Time arrivalTime;
 
   const MasstransitTravelEstimation(this.departureTime, this.arrivalTime);

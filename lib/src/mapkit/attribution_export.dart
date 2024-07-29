@@ -1,8 +1,8 @@
 export 'package:yandex_maps_mapkit/src/mapkit/attribution.dart'
     hide
+        AttributionLinkContainerExtension,
         AttributionLinkNative,
         AttributionAuthorContainerExtension,
-        AttributionLinkContainerExtension,
-        AttributionNative,
+        AttributionImpl,
         AttributionAuthorNative,
         AttributionContainerExtension;

@@ -13,7 +13,7 @@ extension RoadEventContainerExtension on RoadEvent {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, RoadEventImpl.toPointer);
+    return string_map.toNativeMap(obj, RoadEventImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension RoadEventContainerExtension on RoadEvent {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RoadEventImpl.toPointer);
+    return vector.toNativeVector(obj, RoadEventImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

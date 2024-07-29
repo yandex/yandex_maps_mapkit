@@ -40,4 +40,6 @@ abstract class CameraBounds implements ffi.Finalizable {
 
   /// Reset minimum and maximum available zoom level hints.
   void resetMinMaxZoomPreference();
+
+  core.bool isValid();
 }

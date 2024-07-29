@@ -18,8 +18,13 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'chain.containers.dart';
 part 'chain.impl.dart';
 
+/// Single chain (group of companies) description.
+
 final class SearchChain {
+  /// Chain identifier.
   final core.String id;
+
+  /// Chain name.
   final core.String name;
 
   const SearchChain({

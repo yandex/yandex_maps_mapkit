@@ -61,6 +61,13 @@ final void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
                         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_transport_bicycle_BicycleSession_retry')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _BicycleSession_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_transport_bicycle_BicycleSession_set_')
+    .asFunction(isLeaf: true);
 
 final class BicycleSessionRouteListenerImpl
     implements BicycleSessionRouteListener {
@@ -232,6 +239,13 @@ final void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
                         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_transport_bicycle_BicycleSummarySession_retry')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int)
+    _BicycleSummarySession_set = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+            'yandex_flutter_transport_bicycle_BicycleSummarySession_set_')
+        .asFunction(isLeaf: true);
 
 final class BicycleSummarySessionSummaryListenerImpl
     implements BicycleSummarySessionSummaryListener {

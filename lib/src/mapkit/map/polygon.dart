@@ -77,4 +77,6 @@ abstract class PolygonMapObject
 
   /// Removes pattern.
   void resetPattern();
+
+  core.bool isValid();
 }

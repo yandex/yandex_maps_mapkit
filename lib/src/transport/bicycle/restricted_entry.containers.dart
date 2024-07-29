@@ -13,7 +13,7 @@ extension BicycleRestrictedEntryContainerExtension on BicycleRestrictedEntry {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleRestrictedEntryImpl.toPointer);
+    return string_map.toNativeMap(obj, BicycleRestrictedEntryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension BicycleRestrictedEntryContainerExtension on BicycleRestrictedEntry {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleRestrictedEntryImpl.toPointer);
+    return vector.toNativeVector(obj, BicycleRestrictedEntryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

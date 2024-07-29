@@ -13,7 +13,7 @@ extension SearchMetadataContainerExtension on SearchMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchMetadataImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchMetadataContainerExtension on SearchMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchMetadataImpl.toPointer);
+    return vector.toNativeVector(obj, SearchMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

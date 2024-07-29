@@ -508,7 +508,7 @@ final DrivingDirectionSignItemNative Function(DrivingDirectionSignIconNative)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingDirectionSignImpl.toPointer',
+    toNative: 'DrivingDirectionSignImpl.getNativePtr',
     toPlatform:
         '(val) => DrivingDirectionSignImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingDirectionSign')
@@ -566,26 +566,7 @@ final class DrivingDirectionSignImpl implements DrivingDirectionSign {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingDirectionSign? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingDirectionSign_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingDirectionSign_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingDirectionSign_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingDirectionSign_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

@@ -1,7 +1,7 @@
 part of 'style_provider.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'RoadEventsLayerTextStyleImpl.toPointer',
+    toNative: 'RoadEventsLayerTextStyleImpl.getNativePtr',
     toPlatform:
         '(val) => RoadEventsLayerTextStyleImpl.fromPointer(val, needFree: false)',
     platformType: 'RoadEventsLayerTextStyle')
@@ -54,27 +54,7 @@ final class RoadEventsLayerTextStyleImpl implements RoadEventsLayerTextStyle {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(RoadEventsLayerTextStyle? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _RoadEventsLayerTextStyle_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _RoadEventsLayerTextStyle_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerTextStyle_clone')
-    .asFunction(isLeaf: true);
 
 final _RoadEventsLayerTextStyle_free = lib.library.lookup<
         ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -277,6 +257,7 @@ class RoadEventsLayerRoadEventStyleImpl
     return (obj as RoadEventsLayerRoadEventStyleImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _RoadEventsLayerRoadEventStyle_check(ptr);
   }
@@ -461,6 +442,15 @@ final void Function(
                     ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerRoadEventStyle_setIconImage')
     .asFunction();
+final void Function(
+    ffi.Pointer<ffi.Void>,
+    core
+        .int) _RoadEventsLayerRoadEventStyle_set = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerRoadEventStyle_set_')
+    .asFunction(isLeaf: true);
 
 @bindings_annotations
     .WeakInterface('mapkit.road_events_layer.RoadEventStylingProperties')
@@ -500,6 +490,7 @@ class RoadEventsLayerRoadEventStylingPropertiesImpl
     return (obj as RoadEventsLayerRoadEventStylingPropertiesImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _RoadEventsLayerRoadEventStylingProperties_check(ptr);
   }
@@ -611,6 +602,15 @@ final core.bool Function(
                 ffi.Bool Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
         'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerRoadEventStylingProperties_hasSignificanceGreaterOrEqual')
     .asFunction();
+final void Function(
+    ffi.Pointer<ffi.Void>,
+    core
+        .int) _RoadEventsLayerRoadEventStylingProperties_set = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerRoadEventStylingProperties_set_')
+    .asFunction(isLeaf: true);
 
 extension RoadEventsLayerStyleProviderImpl on RoadEventsLayerStyleProvider {
   static final _pointerToListener =

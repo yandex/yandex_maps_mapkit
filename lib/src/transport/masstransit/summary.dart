@@ -18,6 +18,8 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/weight.dart'
 part 'summary.containers.dart';
 part 'summary.impl.dart';
 
+/// Contains brief information associated with a route constructed by the
+/// mass transit router.
 abstract final class MasstransitSummary implements ffi.Finalizable {
   factory MasstransitSummary(
           transport_masstransit_weight.MasstransitWeight weight,
@@ -26,9 +28,17 @@ abstract final class MasstransitSummary implements ffi.Finalizable {
           transport_masstransit_flags.MasstransitFlags? flags) =>
       MasstransitSummaryImpl(weight, estimation, flags);
 
+  /// Contains the route time, distance of the walking part, and the number
+  /// of transfers.
   transport_masstransit_weight.MasstransitWeight get weight;
+
+  /// Arrival and departure time estimations for time-dependent routes.
+  ///
   transport_masstransit_travel_estimation.MasstransitTravelEstimation?
       get estimation;
+
+  /// Specific properties of the route.
+  ///
   transport_masstransit_flags.MasstransitFlags? get flags;
 
   @core.override

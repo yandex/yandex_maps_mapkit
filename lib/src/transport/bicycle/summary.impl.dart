@@ -1,7 +1,7 @@
 part of 'summary.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'BicycleSummaryImpl.toPointer',
+    toNative: 'BicycleSummaryImpl.getNativePtr',
     toPlatform: '(val) => BicycleSummaryImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleSummary')
 final class BicycleSummaryImpl implements BicycleSummary {
@@ -47,26 +47,7 @@ final class BicycleSummaryImpl implements BicycleSummary {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(BicycleSummary? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _BicycleSummary_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _BicycleSummary_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleSummary_clone')
-        .asFunction(isLeaf: true);
 
 final _BicycleSummary_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

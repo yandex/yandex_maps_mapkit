@@ -33,6 +33,7 @@ class AdjustedClockImpl implements AdjustedClock, ffi.Finalizable {
     return (obj as AdjustedClockImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _AdjustedClock_check(ptr);
   }
@@ -83,3 +84,10 @@ final void Function(ffi.Pointer<ffi.Void>) _AdjustedClock_pause = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_time_AdjustedClock_pause')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _AdjustedClock_set = lib
+    .library
+    .lookup<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>,
+                ffi.Int64)>>('yandex_flutter_transport_time_AdjustedClock_set_')
+    .asFunction(isLeaf: true);

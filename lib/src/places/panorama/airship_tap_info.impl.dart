@@ -1,7 +1,7 @@
 part of 'airship_tap_info.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'AirshipTapInfoImpl.toPointer',
+    toNative: 'AirshipTapInfoImpl.getNativePtr',
     toPlatform: '(val) => AirshipTapInfoImpl.fromPointer(val, needFree: false)',
     platformType: 'AirshipTapInfo')
 final class AirshipTapInfoImpl implements AirshipTapInfo {
@@ -44,17 +44,6 @@ final class AirshipTapInfoImpl implements AirshipTapInfo {
     }
 
     return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(AirshipTapInfo? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _AirshipTapInfo_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
   }
 }
 
@@ -103,14 +92,6 @@ final native_types.NativeString Function() _AirshipTapInfo_name = lib.library
     .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
         'yandex_flutter_places_panorama_AirshipTapInfo_name')
     .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _AirshipTapInfo_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_AirshipTapInfo_clone')
-        .asFunction(isLeaf: true);
 
 final _AirshipTapInfo_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

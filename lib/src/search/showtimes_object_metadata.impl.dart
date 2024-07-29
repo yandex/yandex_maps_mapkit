@@ -1,7 +1,7 @@
 part of 'showtimes_object_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchShowtimeImpl.toPointer',
+    toNative: 'SearchShowtimeImpl.getNativePtr',
     toPlatform: '(val) => SearchShowtimeImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchShowtime')
 final class SearchShowtimeImpl implements SearchShowtime {
@@ -51,26 +51,7 @@ final class SearchShowtimeImpl implements SearchShowtime {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchShowtime? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchShowtime_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchShowtime_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchShowtime_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchShowtime_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -109,7 +90,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchShowtimesObjectMetadataImpl.toPointer',
+    toNative: 'SearchShowtimesObjectMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchShowtimesObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchShowtimesObjectMetadata')
@@ -166,17 +147,6 @@ final class SearchShowtimesObjectMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchShowtimesObjectMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchShowtimesObjectMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchShowtimesObjectMetadataFactory
@@ -227,14 +197,6 @@ final native_types.NativeString Function() _SearchShowtimesObjectMetadata_name =
         .library
         .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
             'yandex_flutter_search_SearchShowtimesObjectMetadata_name')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchShowtimesObjectMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchShowtimesObjectMetadata_clone')
         .asFunction(isLeaf: true);
 
 final _SearchShowtimesObjectMetadata_free = lib.library

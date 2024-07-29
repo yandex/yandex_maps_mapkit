@@ -1,7 +1,7 @@
 part of 'business_filter.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessFilterImpl.toPointer',
+    toNative: 'SearchBusinessFilterImpl.getNativePtr',
     toPlatform:
         '(val) => SearchBusinessFilterImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessFilter')
@@ -77,26 +77,7 @@ final class SearchBusinessFilterImpl implements SearchBusinessFilter {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessFilter? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchBusinessFilter_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessFilter_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessFilter_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchBusinessFilter_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -241,7 +222,7 @@ extension SearchBusinessFilterBooleanValueImpl
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessFilterEnumValueImpl.toPointer',
+    toNative: 'SearchBusinessFilterEnumValueImpl.getNativePtr',
     toPlatform:
         '(val) => SearchBusinessFilterEnumValueImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessFilterEnumValue')
@@ -298,27 +279,7 @@ final class SearchBusinessFilterEnumValueImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessFilterEnumValue? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchBusinessFilterEnumValue_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _SearchBusinessFilterEnumValue_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessFilter_SearchBusinessFilterEnumValue_clone')
-    .asFunction(isLeaf: true);
 
 final _SearchBusinessFilterEnumValue_free = lib.library.lookup<
         ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -606,7 +567,7 @@ final SearchBusinessFilterValuesNative Function(
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchFilterSetImpl.toPointer',
+    toNative: 'SearchFilterSetImpl.getNativePtr',
     toPlatform:
         '(val) => SearchFilterSetImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFilterSet')
@@ -647,26 +608,7 @@ final class SearchFilterSetImpl implements SearchFilterSet {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchFilterSet? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFilterSet_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFilterSet_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFilterSet_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchFilterSet_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

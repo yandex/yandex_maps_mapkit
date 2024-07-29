@@ -1,7 +1,7 @@
 part of 'thread.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitThreadStopImpl.toPointer',
+    toNative: 'MasstransitThreadStopImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitThreadStopImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitThreadStop')
@@ -52,26 +52,7 @@ final class MasstransitThreadStopImpl implements MasstransitThreadStop {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitThreadStop? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _MasstransitThreadStop_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _MasstransitThreadStop_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_masstransit_MasstransitThreadStop_clone')
-        .asFunction(isLeaf: true);
 
 final _MasstransitThreadStop_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

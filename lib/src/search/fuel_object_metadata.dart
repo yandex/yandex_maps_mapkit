@@ -25,11 +25,17 @@ import 'package:yandex_maps_mapkit/src/mapkit/money.dart' as mapkit_money;
 part 'fuel_object_metadata.containers.dart';
 part 'fuel_object_metadata.impl.dart';
 
+/// Fuel name and price.
 abstract final class SearchFuelType implements ffi.Finalizable {
   factory SearchFuelType(core.String? name, mapkit_money.TaxiMoney? price) =>
       SearchFuelTypeImpl(name, price);
 
+  /// Fuel name.
+  ///
   core.String? get name;
+
+  /// Fuel price.
+  ///
   mapkit_money.TaxiMoney? get price;
 
   @core.override
@@ -49,6 +55,7 @@ abstract final class SearchFuelType implements ffi.Finalizable {
   }
 }
 
+/// Fuel snippet.
 abstract final class SearchFuelMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchFuelMetadata(
@@ -57,8 +64,15 @@ abstract final class SearchFuelMetadata
           mapkit_attribution.Attribution? attribution) =>
       SearchFuelMetadataImpl(timestamp, fuels, attribution);
 
+  /// Snippet update time as UNIX timestamp.
+  ///
   core.int? get timestamp;
+
+  /// Fuel list.
   core.List<SearchFuelType> get fuels;
+
+  /// Attribution information.
+  ///
   mapkit_attribution.Attribution? get attribution;
 
   @core.override

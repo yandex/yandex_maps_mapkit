@@ -344,3 +344,11 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _Route_get_routeId =
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_transport_bicycle_BicycleRoute_get_routeId')
         .asFunction();
+
+final void Function(ffi.Pointer<ffi.Void>, core.int) _BicycleRoute_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_transport_bicycle_BicycleRoute_set_')
+    .asFunction(isLeaf: true);

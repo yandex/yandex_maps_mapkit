@@ -16,7 +16,7 @@ import 'package:yandex_maps_mapkit/src/bindings/common/weak_interface_wrapper.da
 part 'mrc_photo_player.containers.dart';
 part 'mrc_photo_player.impl.dart';
 
-///
+/// @nodoc
 abstract class MrcPhotoPlayer implements ffi.Finalizable {
   /// Current photo ID. Set to null after reset.
   ///
@@ -33,4 +33,6 @@ abstract class MrcPhotoPlayer implements ffi.Finalizable {
 
   /// Checks if switching photos is enabled.
   core.bool moveEnabled();
+
+  core.bool isValid();
 }

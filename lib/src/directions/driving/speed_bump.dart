@@ -14,7 +14,10 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
 part 'speed_bump.containers.dart';
 part 'speed_bump.impl.dart';
 
+/// A speed bump object.
+
 final class DrivingSpeedBump {
+  /// The position of speed bump.
   final mapkit_geometry_geometry.PolylinePosition position;
 
   const DrivingSpeedBump(this.position);

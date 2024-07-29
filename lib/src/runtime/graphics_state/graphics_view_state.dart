@@ -12,14 +12,14 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'graphics_view_state.containers.dart';
 part 'graphics_view_state.impl.dart';
 
-///
+/// @nodoc
 enum GraphicsViewType {
   OpenGl,
   Vulkan,
   ;
 }
 
-///
+/// @nodoc
 class GraphicsViewState {
   GraphicsViewState._();
 

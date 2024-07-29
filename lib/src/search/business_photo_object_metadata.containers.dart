@@ -15,7 +15,7 @@ extension SearchBusinessPhotoObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchBusinessPhotoObjectMetadataImpl.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -46,7 +46,7 @@ extension SearchBusinessPhotoObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchBusinessPhotoObjectMetadataImpl.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -131,7 +131,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchBusinessPhotoObjectMetadataPhotoImpl.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataPhotoImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -163,7 +163,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchBusinessPhotoObjectMetadataPhotoImpl.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataPhotoImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -252,7 +252,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoPhotoLinkContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -286,7 +286,7 @@ extension SearchBusinessPhotoObjectMetadataPhotoPhotoLinkContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.toPointer);
+        obj, SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

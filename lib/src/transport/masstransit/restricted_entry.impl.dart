@@ -1,7 +1,7 @@
 part of 'restricted_entry.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitRestrictedEntryImpl.toPointer',
+    toNative: 'MasstransitRestrictedEntryImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitRestrictedEntryImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitRestrictedEntry')
@@ -46,27 +46,7 @@ final class MasstransitRestrictedEntryImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitRestrictedEntry? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _MasstransitRestrictedEntry_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _MasstransitRestrictedEntry_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_MasstransitRestrictedEntry_clone')
-    .asFunction(isLeaf: true);
 
 final _MasstransitRestrictedEntry_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -88,7 +68,7 @@ final core.int Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'RestrictedEntriesContainerImpl.toPointer',
+    toNative: 'RestrictedEntriesContainerImpl.getNativePtr',
     toPlatform:
         '(val) => RestrictedEntriesContainerImpl.fromPointer(val, needFree: false)',
     platformType: 'RestrictedEntriesContainer')
@@ -137,27 +117,7 @@ final class RestrictedEntriesContainerImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(RestrictedEntriesContainer? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _RestrictedEntriesContainer_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _RestrictedEntriesContainer_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_RestrictedEntriesContainer_clone')
-    .asFunction(isLeaf: true);
 
 final _RestrictedEntriesContainer_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

@@ -39,7 +39,7 @@ abstract class Places implements ffi.Finalizable {
   places_panorama_panorama_layer.PanoramaLayer createPanoramaLayer(
       mapkit_map_map_window.MapWindow mapWindow);
 
-  ///
+  /// @nodoc
   /// Creates an internal "window" object with scale factor of the main
   /// screen needed to show the panorama viewer.
   ///
@@ -48,7 +48,7 @@ abstract class Places implements ffi.Finalizable {
   places_panorama_player.PanoramaPlayer createPanoramaPlayer(
       platform_view.PlatformView platformView);
 
-  ///
+  /// @nodoc
   /// Creates an internal "window" object with the specified scale factor
   /// needed to show the panorama viewer.
   ///
@@ -59,7 +59,7 @@ abstract class Places implements ffi.Finalizable {
     required core.double scaleFactor,
   });
 
-  ///
+  /// @nodoc
   /// Creates an internal "window" object needed to show the mrc photo
   /// viewer.
   ///
@@ -68,7 +68,7 @@ abstract class Places implements ffi.Finalizable {
   places_mrc_mrc_photo_player.MrcPhotoPlayer createMrcPhotoPlayer(
       platform_view.PlatformView platformView);
 
-  ///
+  /// @nodoc
   /// Creates an internal "window" object needed to show the mrc photo
   /// track viewer.
   ///
@@ -76,6 +76,8 @@ abstract class Places implements ffi.Finalizable {
   /// viewer, use the corresponding mrc photo "view" object instead.
   places_mrc_mrc_photo_track_player.MrcPhotoTrackPlayer
       createMrcPhotoTrackPlayer(platform_view.PlatformView platformView);
+
+  core.bool isValid();
 }
 
 class PlacesFactory {

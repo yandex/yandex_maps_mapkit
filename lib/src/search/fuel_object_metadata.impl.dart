@@ -1,7 +1,7 @@
 part of 'fuel_object_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchFuelTypeImpl.toPointer',
+    toNative: 'SearchFuelTypeImpl.getNativePtr',
     toPlatform: '(val) => SearchFuelTypeImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFuelType')
 final class SearchFuelTypeImpl implements SearchFuelType {
@@ -46,26 +46,7 @@ final class SearchFuelTypeImpl implements SearchFuelType {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchFuelType? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFuelType_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFuelType_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFuelType_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchFuelType_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -97,7 +78,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchFuelMetadataImpl.toPointer',
+    toNative: 'SearchFuelMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchFuelMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFuelMetadata')
@@ -107,7 +88,7 @@ final class SearchFuelMetadataImpl implements SearchFuelMetadata {
       : this.fromNativePtr(_SearchFuelMetadata_init(
             to_native.toNativePtrInt64(timestamp),
             SearchFuelTypeContainerExtension.toNativeVector(fuels),
-            mapkit_attribution.AttributionImpl.toPointer(attribution)));
+            mapkit_attribution.AttributionImpl.getNativePtr(attribution)));
 
   @core.override
   late final timestamp = to_platform
@@ -116,7 +97,7 @@ final class SearchFuelMetadataImpl implements SearchFuelMetadata {
   late final fuels = SearchFuelTypeContainerExtension.toPlatformVector(
       _SearchFuelMetadata_get_fuels(_ptr));
   @core.override
-  late final attribution = mapkit_attribution.AttributionImpl.fromPointer(
+  late final attribution = mapkit_attribution.AttributionImpl.fromOptionalPtr(
       _SearchFuelMetadata_get_attribution(_ptr));
 
   @core.override
@@ -154,17 +135,6 @@ final class SearchFuelMetadataImpl implements SearchFuelMetadata {
     }
 
     return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchFuelMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFuelMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
   }
 }
 
@@ -215,14 +185,6 @@ final native_types.NativeString Function() _SearchFuelMetadata_name = lib
     .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
         'yandex_flutter_search_SearchFuelMetadata_name')
     .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFuelMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFuelMetadata_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchFuelMetadata_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

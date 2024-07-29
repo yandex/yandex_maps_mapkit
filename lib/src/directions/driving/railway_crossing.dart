@@ -20,8 +20,12 @@ enum DrivingRailwayCrossingType {
   ;
 }
 
+/// A railway crossing object.
+
 final class DrivingRailwayCrossing {
   final DrivingRailwayCrossingType type;
+
+  /// The position of railway crossing.
   final mapkit_geometry_geometry.PolylinePosition position;
 
   const DrivingRailwayCrossing(this.type, this.position);

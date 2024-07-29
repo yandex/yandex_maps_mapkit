@@ -15,7 +15,7 @@ extension SearchEncyclopediaObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchEncyclopediaObjectMetadataImpl.toPointer);
+        obj, SearchEncyclopediaObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -46,7 +46,7 @@ extension SearchEncyclopediaObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchEncyclopediaObjectMetadataImpl.toPointer);
+        obj, SearchEncyclopediaObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

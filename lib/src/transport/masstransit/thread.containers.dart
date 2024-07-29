@@ -13,7 +13,7 @@ extension MasstransitThreadStopContainerExtension on MasstransitThreadStop {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitThreadStopImpl.toPointer);
+    return string_map.toNativeMap(obj, MasstransitThreadStopImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension MasstransitThreadStopContainerExtension on MasstransitThreadStop {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitThreadStopImpl.toPointer);
+    return vector.toNativeVector(obj, MasstransitThreadStopImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

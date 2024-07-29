@@ -82,6 +82,14 @@ final void Function(ffi.Pointer<ffi.Void>) _SuggestSession_reset = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_search_SearchSuggestSession_reset')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _SearchSuggestSession_set =
+    lib
+        .library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+            'yandex_flutter_search_SearchSuggestSession_set_')
+        .asFunction(isLeaf: true);
 
 final class SearchSuggestSessionSuggestListenerImpl
     implements SearchSuggestSessionSuggestListener {

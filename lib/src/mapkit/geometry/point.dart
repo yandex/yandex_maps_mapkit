@@ -12,8 +12,13 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'point.containers.dart';
 part 'point.impl.dart';
 
+/// A point at the specified coordinates.
+
 final class Point {
+  /// The point's latitude.
   final core.double latitude;
+
+  /// The point's longitude.
   final core.double longitude;
 
   const Point({

@@ -1,7 +1,7 @@
 part of 'road_event.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'RoadEventImpl.toPointer',
+    toNative: 'RoadEventImpl.getNativePtr',
     toPlatform: '(val) => RoadEventImpl.fromPointer(val, needFree: false)',
     platformType: 'RoadEvent')
 final class RoadEventImpl implements RoadEvent {
@@ -63,26 +63,7 @@ final class RoadEventImpl implements RoadEvent {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(RoadEvent? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _RoadEvent_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _RoadEvent_clone =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_mapkit_road_events_layer_RoadEvent_clone')
-        .asFunction(isLeaf: true);
 
 final _RoadEvent_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

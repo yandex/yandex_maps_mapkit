@@ -31,10 +31,22 @@ abstract final class RoadEvent implements ffi.Finalizable {
           core.bool isInFuture) =>
       RoadEventImpl(id, position, tags, caption, isInFuture);
 
+  /// The road event unique id.
   core.String get id;
+
+  /// Position of the road event on the globe.
   mapkit_geometry_point.Point get position;
+
+  /// Set of road event tags.
   core.List<mapkit_road_events_event_tag.RoadEventsEventTag> get tags;
+
+  /// Text caption displayed under the road event icon.
   core.String get caption;
+
+  /// Some road events can be not active yet, but still must be displayed
+  /// to notify users about future events, for example drawbridges or
+  /// closures. Usually such events have a greyscale icon and/or clock
+  /// drawn in the icon's corner.
   core.bool get isInFuture;
 
   @core.override

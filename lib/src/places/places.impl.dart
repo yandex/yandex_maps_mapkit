@@ -33,6 +33,7 @@ class PlacesImpl implements Places, ffi.Finalizable {
     return (obj as PlacesImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _Places_check(ptr);
   }
@@ -148,6 +149,12 @@ final ffi.Pointer<ffi.Void> Function(
                         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_places_Places_createMrcPhotoTrackPlayer')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _Places_set = lib.library
+    .lookup<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>,
+                ffi.Int64)>>('yandex_flutter_places_Places_set_')
+    .asFunction(isLeaf: true);
 
 Places get _instance {
   return PlacesImpl.fromNativePtr(_PlacesFactory_get_instance());

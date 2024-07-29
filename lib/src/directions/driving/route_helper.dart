@@ -25,12 +25,25 @@ import 'package:yandex_maps_mapkit/src/mapkit/navigation/jam_style.dart'
 part 'route_helper.containers.dart';
 part 'route_helper.impl.dart';
 
+/// The style that is used to display arrow maneuvers on the map.
+
 final class ArrowManeuverStyle {
+  /// Fill color of the arrow.
   final ui.Color fillColor;
+
+  /// Color of the arrow's outline.
   final ui.Color outlineColor;
+
+  /// Width of the arrow's outline in units.
   final core.double outlineWidth;
+
+  /// Overall length of the arrow (including the tip) in units.
   final core.double length;
+
+  /// Height of the arrow tip in units.
   final core.double triangleHeight;
+
+  /// Enables/disables arrow maneuvers.
   final core.bool enabled;
 
   const ArrowManeuverStyle(
@@ -77,14 +90,34 @@ enum PolygonManeuverRenderMode {
   ;
 }
 
+/// The style that is used to display polygon maneuvers and trajectories
+/// on the map.
+
 final class PolygonManeuverStyle {
+  /// Width of trajectory line on polygon maneuvers. Used only
+  /// ColoredPolygon render mode.
   final core.double trajectoryWidth;
+
+  /// Color of trajectory line on polygon maneuvers. Used only
+  /// ColoredPolygon render mode.
   final ui.Color trajectoryColor;
+
+  /// Polygon maneuver alpha.
   final core.double polygonAlpha;
+
+  /// Color of polygon maneuver. Used only ColoredTrajectory render mode.
   final ui.Color polygonColor;
+
+  /// Polygon maneuver render mode.
   final PolygonManeuverRenderMode renderMode;
+
+  /// In meters.
   final core.double fadeDistance;
+
+  /// Must be in range \[0, 1\], where 0 means invisibility.
   final core.double fadeAlpha;
+
+  /// Enables/disables polygon maneuvers.
   final core.bool enabled;
 
   const PolygonManeuverStyle(
@@ -131,8 +164,13 @@ final class PolygonManeuverStyle {
   }
 }
 
+/// The style that is used to display maneuvers on the map.
+
 final class ManeuverStyle {
+  /// Arrow maneuver style.
   final ArrowManeuverStyle arrow;
+
+  /// Polygon maneuver style.
   final PolygonManeuverStyle polygon;
 
   const ManeuverStyle(this.arrow, this.polygon);

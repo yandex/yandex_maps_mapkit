@@ -20,6 +20,18 @@ import 'package:yandex_maps_mapkit/src/search/feature.dart' as search_feature;
 part 'business_filter.containers.dart';
 part 'business_filter.impl.dart';
 
+/// A filter that could be applied to search results.
+///
+/// Filters can be either boolean (that is Wi-Fi availability in a cafe)
+/// or enumerated (that is cuisine type in a restaurant). Enumerated
+/// filters support multiple selected values (OR-combined), to search,
+/// for example, for restaurants with Armenian or Georgian cuisine at
+/// once.
+///
+/// This class is used in two separate ways: server response contains all
+/// filters applicable to current search request and client can use some
+/// of these filters to get more specific results in the following search
+/// requests
 abstract final class SearchBusinessFilter implements ffi.Finalizable {
   factory SearchBusinessFilter(
           core.String id,
@@ -32,12 +44,26 @@ abstract final class SearchBusinessFilter implements ffi.Finalizable {
       SearchBusinessFilterImpl(
           id, name, disabled, iconLight, iconDark, singleSelect, values);
 
+  /// Filter id.
   core.String get id;
+
+  /// Human-readable filter name.
+  ///
   core.String? get name;
+
+  /// The filter should not be used by the client, because filter is either
+  /// used already (selected:true, disabled:true) or nothing would be found
+  /// (selected:false, disabled:true).
+  ///
   core.bool? get disabled;
   mapkit_image.Image? get iconLight;
   mapkit_image.Image? get iconDark;
+
+  /// Only one of multiple available values should be selected.
+  ///
   core.bool? get singleSelect;
+
+  /// Filter values.
   SearchBusinessFilterValues get values;
 
   @core.override
@@ -64,8 +90,14 @@ abstract final class SearchBusinessFilter implements ffi.Finalizable {
   }
 }
 
+/// Value for boolean filters.
+
 final class SearchBusinessFilterBooleanValue {
+  /// Filter value. Set in server reponse for selected filters.
   final core.bool value;
+
+  /// Selected marker. Set in server response for selected filters.
+  ///
   final core.bool? selected;
 
   const SearchBusinessFilterBooleanValue({
@@ -90,6 +122,7 @@ final class SearchBusinessFilterBooleanValue {
   }
 }
 
+/// Value for enum filters.
 abstract final class SearchBusinessFilterEnumValue implements ffi.Finalizable {
   factory SearchBusinessFilterEnumValue(
           search_feature.SearchFeatureEnumValue value,
@@ -97,8 +130,16 @@ abstract final class SearchBusinessFilterEnumValue implements ffi.Finalizable {
           core.bool? disabled) =>
       SearchBusinessFilterEnumValueImpl(value, selected, disabled);
 
+  /// Filter value. Set in server response for selected filters.
   search_feature.SearchFeatureEnumValue get value;
+
+  /// Selected marker. Set in server response for selected filters.
+  ///
   core.bool? get selected;
+
+  /// Same as [SearchBusinessFilter.disabled], but for this specific enum
+  /// value.
+  ///
   core.bool? get disabled;
 
   @core.override
@@ -120,8 +161,13 @@ abstract final class SearchBusinessFilterEnumValue implements ffi.Finalizable {
   }
 }
 
+/// Value for range filters.
+
 final class SearchBusinessFilterRangeValue {
+  /// Minimum allowed filter value.
   final core.double from;
+
+  /// Maximum allowed filter value.
   final core.double to;
 
   const SearchBusinessFilterRangeValue({
@@ -146,7 +192,11 @@ final class SearchBusinessFilterRangeValue {
   }
 }
 
+/// Value for date filters.
+
 final class SearchBusinessFilterDateValue {
+  /// @nodoc
+  /// Dummy field to make code generation work.
   final core.int reserved;
 
   const SearchBusinessFilterDateValue({
@@ -245,10 +295,12 @@ final class SearchBusinessFilterValues {
   final core.dynamic _value;
 }
 
+/// Collection of filters.
 abstract final class SearchFilterSet implements ffi.Finalizable {
   factory SearchFilterSet(core.List<core.String> ids) =>
       SearchFilterSetImpl(ids);
 
+  /// IDs for filters in the collection.
   core.List<core.String> get ids;
 
   @core.override

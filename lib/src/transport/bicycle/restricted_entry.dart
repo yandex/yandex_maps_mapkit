@@ -14,11 +14,13 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
 part 'restricted_entry.containers.dart';
 part 'restricted_entry.impl.dart';
 
+/// Special point on the route (like gates).
 abstract final class BicycleRestrictedEntry implements ffi.Finalizable {
   factory BicycleRestrictedEntry(
           mapkit_geometry_geometry.PolylinePosition position) =>
       BicycleRestrictedEntryImpl(position);
 
+  /// Entry position on the route polyline.
   mapkit_geometry_geometry.PolylinePosition get position;
 
   @core.override

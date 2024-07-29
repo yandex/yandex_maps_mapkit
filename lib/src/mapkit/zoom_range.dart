@@ -12,8 +12,14 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'zoom_range.containers.dart';
 part 'zoom_range.impl.dart';
 
+/// Describes the range of zoom levels. Zooming is allowed between zMin
+/// and zMax values.
+
 final class ZoomRangeIdl {
+  /// Lower limit of zoom range, inclusive.
   final core.int zMin;
+
+  /// Upper limit of zoom range, exclusive.
   final core.int zMax;
 
   const ZoomRangeIdl({

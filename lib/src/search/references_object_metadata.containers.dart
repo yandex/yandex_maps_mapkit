@@ -13,7 +13,7 @@ extension SearchReferenceTypeContainerExtension on SearchReferenceType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchReferenceTypeImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchReferenceTypeImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension SearchReferenceTypeContainerExtension on SearchReferenceType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchReferenceTypeImpl.toPointer);
+    return vector.toNativeVector(obj, SearchReferenceTypeImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -120,7 +120,7 @@ extension SearchReferencesObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchReferencesObjectMetadataImpl.toPointer);
+        obj, SearchReferencesObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -150,7 +150,7 @@ extension SearchReferencesObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchReferencesObjectMetadataImpl.toPointer);
+        obj, SearchReferencesObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

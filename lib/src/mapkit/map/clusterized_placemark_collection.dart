@@ -122,4 +122,6 @@ abstract class ClusterizedPlacemarkCollection
     required core.double clusterRadius,
     required core.int minZoom,
   });
+
+  core.bool isValid();
 }

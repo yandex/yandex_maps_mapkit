@@ -70,4 +70,6 @@ abstract class BaseMapObjectCollection
   void removeListener(
       mapkit_map_map_object_collection_listener.MapObjectCollectionListener
           collectionListener);
+
+  core.bool isValid();
 }

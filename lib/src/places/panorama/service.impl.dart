@@ -60,6 +60,13 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_places_panorama_PanoramaService_findNearest')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _PanoramaService_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_places_panorama_PanoramaService_set_')
+    .asFunction(isLeaf: true);
 
 final class PanoramaServiceSearchListenerImpl
     implements PanoramaServiceSearchListener {
@@ -233,3 +240,12 @@ final void Function(
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_places_panorama_PanoramaService_PanoramaServiceSearchSession_cancel')
     .asFunction();
+final void Function(
+    ffi.Pointer<ffi.Void>,
+    core
+        .int) _PanoramaServiceSearchSession_set = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_places_panorama_PanoramaService_PanoramaServiceSearchSession_set_')
+    .asFunction(isLeaf: true);

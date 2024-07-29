@@ -147,4 +147,6 @@ abstract class PlacemarkMapObject
 
   /// Changes the text style.
   void setTextStyle(mapkit_map_text_style.TextStyle style);
+
+  core.bool isValid();
 }

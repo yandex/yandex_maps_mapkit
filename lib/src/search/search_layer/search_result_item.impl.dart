@@ -159,3 +159,10 @@ final core.bool Function(ffi.Pointer<ffi.Void>) _SearchResultItem_isOffline =
         .lookup<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_search_layer_SearchResultItem_isOffline')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _SearchResultItem_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_search_search_layer_SearchResultItem_set_')
+    .asFunction(isLeaf: true);

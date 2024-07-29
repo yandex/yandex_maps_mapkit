@@ -1,7 +1,7 @@
 part of 'intermediate_points.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'BicycleViaPointImpl.toPointer',
+    toNative: 'BicycleViaPointImpl.getNativePtr',
     toPlatform:
         '(val) => BicycleViaPointImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleViaPoint')
@@ -44,26 +44,7 @@ final class BicycleViaPointImpl implements BicycleViaPoint {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(BicycleViaPoint? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _BicycleViaPoint_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _BicycleViaPoint_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleViaPoint_clone')
-        .asFunction(isLeaf: true);
 
 final _BicycleViaPoint_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -90,7 +71,7 @@ final mapkit_geometry_geometry.PolylinePositionNative Function(
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'BicycleWayPointImpl.toPointer',
+    toNative: 'BicycleWayPointImpl.getNativePtr',
     toPlatform:
         '(val) => BicycleWayPointImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleWayPoint')
@@ -137,26 +118,7 @@ final class BicycleWayPointImpl implements BicycleWayPoint {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(BicycleWayPoint? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _BicycleWayPoint_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _BicycleWayPoint_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleWayPoint_clone')
-        .asFunction(isLeaf: true);
 
 final _BicycleWayPoint_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

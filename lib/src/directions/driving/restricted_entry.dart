@@ -14,7 +14,10 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
 part 'restricted_entry.containers.dart';
 part 'restricted_entry.impl.dart';
 
+/// A restricted entry object.
+
 final class DrivingRestrictedEntry {
+  /// The position of the restricted entry.
   final mapkit_geometry_geometry.PolylinePosition position;
 
   const DrivingRestrictedEntry(this.position);

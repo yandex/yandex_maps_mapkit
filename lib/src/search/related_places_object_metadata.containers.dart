@@ -15,7 +15,7 @@ extension SearchRelatedPlacesObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchRelatedPlacesObjectMetadataImpl.toPointer);
+        obj, SearchRelatedPlacesObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -46,7 +46,7 @@ extension SearchRelatedPlacesObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchRelatedPlacesObjectMetadataImpl.toPointer);
+        obj, SearchRelatedPlacesObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

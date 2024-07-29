@@ -208,7 +208,7 @@ extension DrivingAnnotationSchemeIDImpl on DrivingAnnotationSchemeID {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingToponymPhraseImpl.toPointer',
+    toNative: 'DrivingToponymPhraseImpl.getNativePtr',
     toPlatform:
         '(val) => DrivingToponymPhraseImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingToponymPhrase')
@@ -253,26 +253,7 @@ final class DrivingToponymPhraseImpl implements DrivingToponymPhrase {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingToponymPhrase? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingToponymPhrase_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingToponymPhrase_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingToponymPhrase_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingToponymPhrase_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -295,7 +276,7 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingAnnotationImpl.toPointer',
+    toNative: 'DrivingAnnotationImpl.getNativePtr',
     toPlatform:
         '(val) => DrivingAnnotationImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingAnnotation')
@@ -365,26 +346,7 @@ final class DrivingAnnotationImpl implements DrivingAnnotation {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingAnnotation? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingAnnotation_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingAnnotation_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingAnnotation_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingAnnotation_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

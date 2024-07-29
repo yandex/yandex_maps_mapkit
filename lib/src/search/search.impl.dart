@@ -33,6 +33,7 @@ class SearchImpl implements Search, ffi.Finalizable {
     return (obj as SearchImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _Search_check(ptr);
   }
@@ -87,6 +88,12 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, core.int)
                         ffi.Pointer<ffi.Void>, ffi.Int64)>>(
             'yandex_flutter_search_Search_createSearchManager')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _Search_set = lib.library
+    .lookup<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>,
+                ffi.Int64)>>('yandex_flutter_search_Search_set_')
+    .asFunction(isLeaf: true);
 
 Search get _instance {
   return SearchImpl.fromNativePtr(_SearchFactory_get_instance());

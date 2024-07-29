@@ -194,3 +194,10 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_PedestrianRouter_routeSerializer')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _PedestrianRouter_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_transport_masstransit_PedestrianRouter_set_')
+    .asFunction(isLeaf: true);

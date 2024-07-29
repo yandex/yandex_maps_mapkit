@@ -29,15 +29,40 @@ part 'driving_router.containers.dart';
 part 'driving_router.impl.dart';
 
 abstract class DrivingTooComplexAvoidedZonesError
-    implements runtime_error.Error, ffi.Finalizable {}
+    implements runtime_error.Error, ffi.Finalizable {
+  core.bool isValid();
+}
+
+/// Driving options.
 
 final class DrivingOptions {
+  /// Starting location azimuth.
+  ///
   final core.double? initialAzimuth;
+
+  /// The number of alternatives.
+  ///
   final core.int? routesCount;
+
+  /// The 'avoidTolls' option instructs the router to return routes that
+  /// avoid tolls when possible.
+  ///
   final core.bool? avoidTolls;
+
+  /// The 'avoidUnpaved' option instructs the router to return routes that
+  /// avoid unpaved roads when possible.
+  ///
   final core.bool? avoidUnpaved;
+
+  /// The 'avoidPoorConditions' option instructs the router to return
+  /// routes that avoid roads in poor conditions when possible.
+  ///
   final core.bool? avoidPoorConditions;
   final core.DateTime? departureTime;
+
+  /// A method to set the annotation language. lang The annotation
+  /// language.
+  ///
   final mapkit_annotations_annotation_lang.AnnotationLanguage?
       annotationLanguage;
 

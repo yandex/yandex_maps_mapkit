@@ -24,13 +24,21 @@ import 'package:yandex_maps_mapkit/src/mapkit/time.dart' as mapkit_time;
 part 'showtimes_object_metadata.containers.dart';
 part 'showtimes_object_metadata.impl.dart';
 
+/// Session details.
 abstract final class SearchShowtime implements ffi.Finalizable {
   factory SearchShowtime(mapkit_time.Time startTime,
           mapkit_money.TaxiMoney? price, core.String? ticketId) =>
       SearchShowtimeImpl(startTime, price, ticketId);
 
+  /// Session start time.
   mapkit_time.Time get startTime;
+
+  /// Ticket price.
+  ///
   mapkit_money.TaxiMoney? get price;
+
+  /// Ticket id.
+  ///
   core.String? get ticketId;
 
   @core.override
@@ -52,13 +60,17 @@ abstract final class SearchShowtime implements ffi.Finalizable {
   }
 }
 
+/// Event schedule snippet.
 abstract final class SearchShowtimesObjectMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchShowtimesObjectMetadata(
           core.String title, core.List<SearchShowtime> showtimes) =>
       SearchShowtimesObjectMetadataImpl(title, showtimes);
 
+  /// Event title.
   core.String get title;
+
+  /// List of showtimes.
   core.List<SearchShowtime> get showtimes;
 
   @core.override

@@ -19,6 +19,7 @@ part 'masstransit_1x_object_metadata.containers.dart';
 part 'masstransit_1x_object_metadata.impl.dart';
 
 final class SearchLine {
+  /// Name of the line that the nearest stop is on.
   final core.String name;
 
   const SearchLine({

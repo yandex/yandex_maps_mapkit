@@ -13,7 +13,7 @@ extension SearchPlaceInfoContainerExtension on SearchPlaceInfo {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchPlaceInfoImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchPlaceInfoImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SearchPlaceInfoContainerExtension on SearchPlaceInfo {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchPlaceInfoImpl.toPointer);
+    return vector.toNativeVector(obj, SearchPlaceInfoImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

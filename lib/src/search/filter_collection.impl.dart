@@ -1,7 +1,7 @@
 part of 'filter_collection.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchFilterCollectionImpl.toPointer',
+    toNative: 'SearchFilterCollectionImpl.getNativePtr',
     toPlatform:
         '(val) => SearchFilterCollectionImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFilterCollection')
@@ -66,26 +66,7 @@ final class SearchFilterCollectionImpl implements SearchFilterCollection {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchFilterCollection? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFilterCollection_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFilterCollection_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFilterCollection_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchFilterCollection_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

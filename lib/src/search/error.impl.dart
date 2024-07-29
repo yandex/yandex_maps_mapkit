@@ -36,6 +36,7 @@ class SearchCacheUnavailableErrorImpl extends runtime_error.ErrorImpl
     return (obj as SearchCacheUnavailableErrorImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _SearchCacheUnavailableError_check(ptr);
   }
@@ -57,4 +58,12 @@ final core.bool Function(ffi.Pointer<ffi.Void>)
     _SearchCacheUnavailableError_check = lib.library
         .lookup<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SearchCacheUnavailableError_check')
+        .asFunction(isLeaf: true);
+
+final void Function(ffi.Pointer<ffi.Void>, core.int)
+    _SearchCacheUnavailableError_set = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+            'yandex_flutter_search_SearchCacheUnavailableError_set_')
         .asFunction(isLeaf: true);

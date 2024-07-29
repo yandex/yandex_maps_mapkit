@@ -33,6 +33,7 @@ class PanoramaLayerImpl implements PanoramaLayer, ffi.Finalizable {
     return (obj as PanoramaLayerImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _PanoramaLayer_check(ptr);
   }
@@ -81,3 +82,10 @@ final void Function(
                 ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>>(
         'yandex_flutter_places_panorama_PanoramaLayer_setAirshipPanoramaVisible')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _PanoramaLayer_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_places_panorama_PanoramaLayer_set_')
+    .asFunction(isLeaf: true);

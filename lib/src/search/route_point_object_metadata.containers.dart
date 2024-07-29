@@ -13,7 +13,7 @@ extension SearchEntranceContainerExtension on SearchEntrance {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchEntranceImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchEntranceImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchEntranceContainerExtension on SearchEntrance {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchEntranceImpl.toPointer);
+    return vector.toNativeVector(obj, SearchEntranceImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -116,7 +116,8 @@ extension SearchParkingAttributesContainerExtension on SearchParkingAttributes {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchParkingAttributesImpl.toPointer);
+    return string_map.toNativeMap(
+        obj, SearchParkingAttributesImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +145,7 @@ extension SearchParkingAttributesContainerExtension on SearchParkingAttributes {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchParkingAttributesImpl.toPointer);
+    return vector.toNativeVector(obj, SearchParkingAttributesImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

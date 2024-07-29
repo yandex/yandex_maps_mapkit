@@ -323,4 +323,6 @@ abstract class PanoramaPlayer implements ffi.Finalizable {
 
   /// Called when a memory warning happens.
   void onMemoryWarning();
+
+  core.bool isValid();
 }

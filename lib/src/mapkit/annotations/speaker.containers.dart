@@ -13,7 +13,7 @@ extension LocalizedPhraseContainerExtension on LocalizedPhrase {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, LocalizedPhraseImpl.toPointer);
+    return string_map.toNativeMap(obj, LocalizedPhraseImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension LocalizedPhraseContainerExtension on LocalizedPhrase {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, LocalizedPhraseImpl.toPointer);
+    return vector.toNativeVector(obj, LocalizedPhraseImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

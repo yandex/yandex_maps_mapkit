@@ -101,7 +101,7 @@ extension SearchDayGroupImpl on SearchDayGroup {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchAvailabilityImpl.toPointer',
+    toNative: 'SearchAvailabilityImpl.getNativePtr',
     toPlatform:
         '(val) => SearchAvailabilityImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchAvailability')
@@ -151,26 +151,7 @@ final class SearchAvailabilityImpl implements SearchAvailability {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchAvailability? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchAvailability_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchAvailability_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchAvailability_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchAvailability_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

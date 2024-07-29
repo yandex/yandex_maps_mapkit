@@ -55,7 +55,7 @@ extension PanoramaImageSizeImpl on PanoramaImageSize {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'PanoramaTileLevelImpl.toPointer',
+    toNative: 'PanoramaTileLevelImpl.getNativePtr',
     toPlatform:
         '(val) => PanoramaTileLevelImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaTileLevel')
@@ -99,26 +99,7 @@ final class PanoramaTileLevelImpl implements PanoramaTileLevel {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(PanoramaTileLevel? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _PanoramaTileLevel_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _PanoramaTileLevel_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_PanoramaTileLevel_clone')
-        .asFunction(isLeaf: true);
 
 final _PanoramaTileLevel_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -205,7 +186,7 @@ extension PanoramaPositionImpl on PanoramaPosition {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'PanoramaTextMarkerImpl.toPointer',
+    toNative: 'PanoramaTextMarkerImpl.getNativePtr',
     toPlatform:
         '(val) => PanoramaTextMarkerImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaTextMarker')
@@ -260,26 +241,7 @@ final class PanoramaTextMarkerImpl implements PanoramaTextMarker {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(PanoramaTextMarker? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _PanoramaTextMarker_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _PanoramaTextMarker_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_PanoramaTextMarker_clone')
-        .asFunction(isLeaf: true);
 
 final _PanoramaTextMarker_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -323,7 +285,7 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'PanoramaCompanyMarkerImpl.toPointer',
+    toNative: 'PanoramaCompanyMarkerImpl.getNativePtr',
     toPlatform:
         '(val) => PanoramaCompanyMarkerImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaCompanyMarker')
@@ -382,26 +344,7 @@ final class PanoramaCompanyMarkerImpl implements PanoramaCompanyMarker {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(PanoramaCompanyMarker? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _PanoramaCompanyMarker_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _PanoramaCompanyMarker_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_PanoramaCompanyMarker_clone')
-        .asFunction(isLeaf: true);
 
 final _PanoramaCompanyMarker_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -457,7 +400,7 @@ final native_types.NativeString Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'PanoramaIconMarkerImpl.toPointer',
+    toNative: 'PanoramaIconMarkerImpl.getNativePtr',
     toPlatform:
         '(val) => PanoramaIconMarkerImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaIconMarker')
@@ -508,26 +451,7 @@ final class PanoramaIconMarkerImpl implements PanoramaIconMarker {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(PanoramaIconMarker? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _PanoramaIconMarker_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _PanoramaIconMarker_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_PanoramaIconMarker_clone')
-        .asFunction(isLeaf: true);
 
 final _PanoramaIconMarker_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -563,7 +487,7 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'PanoramaIconConnectionImpl.toPointer',
+    toNative: 'PanoramaIconConnectionImpl.getNativePtr',
     toPlatform:
         '(val) => PanoramaIconConnectionImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaIconConnection')
@@ -620,26 +544,7 @@ final class PanoramaIconConnectionImpl implements PanoramaIconConnection {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(PanoramaIconConnection? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _PanoramaIconConnection_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _PanoramaIconConnection_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_PanoramaIconConnection_clone')
-        .asFunction(isLeaf: true);
 
 final _PanoramaIconConnection_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -684,7 +589,7 @@ final native_types.NativeString Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'PanoramaArrowConnectionImpl.toPointer',
+    toNative: 'PanoramaArrowConnectionImpl.getNativePtr',
     toPlatform:
         '(val) => PanoramaArrowConnectionImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaArrowConnection')
@@ -746,26 +651,7 @@ final class PanoramaArrowConnectionImpl implements PanoramaArrowConnection {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(PanoramaArrowConnection? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _PanoramaArrowConnection_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _PanoramaArrowConnection_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_PanoramaArrowConnection_clone')
-        .asFunction(isLeaf: true);
 
 final _PanoramaArrowConnection_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -925,7 +811,7 @@ extension PanoramaAngularBoundingBoxImpl on PanoramaAngularBoundingBox {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'PanoramaDescriptionImpl.toPointer',
+    toNative: 'PanoramaDescriptionImpl.getNativePtr',
     toPlatform:
         '(val) => PanoramaDescriptionImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaDescription')
@@ -960,7 +846,7 @@ final class PanoramaDescriptionImpl implements PanoramaDescription {
                 arrowConnections),
             mapkit_geometry_direction.DirectionImpl.toNative(direction),
             mapkit_geometry_span.SpanImpl.toNative(span),
-            mapkit_attribution.AttributionImpl.toPointer(attribution)));
+            mapkit_attribution.AttributionImpl.getNativePtr(attribution)));
 
   @core.override
   late final panoramaId =
@@ -1004,7 +890,7 @@ final class PanoramaDescriptionImpl implements PanoramaDescription {
   late final span = mapkit_geometry_span.SpanImpl.fromNative(
       _PanoramaDescription_get_span(_ptr));
   @core.override
-  late final attribution = mapkit_attribution.AttributionImpl.fromPointer(
+  late final attribution = mapkit_attribution.AttributionImpl.fromOptionalPtr(
       _PanoramaDescription_get_attribution(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
@@ -1039,26 +925,7 @@ final class PanoramaDescriptionImpl implements PanoramaDescription {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(PanoramaDescription? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _PanoramaDescription_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _PanoramaDescription_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_PanoramaDescription_clone')
-        .asFunction(isLeaf: true);
 
 final _PanoramaDescription_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

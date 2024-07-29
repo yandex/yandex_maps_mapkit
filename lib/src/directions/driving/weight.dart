@@ -14,9 +14,16 @@ import 'package:yandex_maps_mapkit/src/mapkit/localized_value.dart'
 part 'weight.containers.dart';
 part 'weight.impl.dart';
 
+/// Quantitative characteristics of any segment of the route.
+
 final class DrivingWeight {
+  /// Time to travel, not considering traffic.
   final mapkit_localized_value.LocalizedValue time;
+
+  /// Time to travel, considering traffic.
   final mapkit_localized_value.LocalizedValue timeWithTraffic;
+
+  /// Distance to travel.
   final mapkit_localized_value.LocalizedValue distance;
 
   const DrivingWeight(this.time, this.timeWithTraffic, this.distance);

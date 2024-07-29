@@ -1,7 +1,7 @@
 part of 'toponym_result_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchToponymResultMetadataImpl.toPointer',
+    toNative: 'SearchToponymResultMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchToponymResultMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchToponymResultMetadata')
@@ -63,17 +63,6 @@ final class SearchToponymResultMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchToponymResultMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchToponymResultMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchToponymResultMetadataFactory
@@ -123,14 +112,6 @@ final native_types.NativeString Function() _SearchToponymResultMetadata_name =
     lib.library
         .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
             'yandex_flutter_search_SearchToponymResultMetadata_name')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchToponymResultMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchToponymResultMetadata_clone')
         .asFunction(isLeaf: true);
 
 final _SearchToponymResultMetadata_free = lib.library

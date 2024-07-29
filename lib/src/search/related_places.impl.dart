@@ -1,7 +1,7 @@
 part of 'related_places.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchPlaceInfoImpl.toPointer',
+    toNative: 'SearchPlaceInfoImpl.getNativePtr',
     toPlatform:
         '(val) => SearchPlaceInfoImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchPlaceInfo')
@@ -95,26 +95,7 @@ final class SearchPlaceInfoImpl implements SearchPlaceInfo {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchPlaceInfo? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchPlaceInfo_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchPlaceInfo_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchPlaceInfo_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchPlaceInfo_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

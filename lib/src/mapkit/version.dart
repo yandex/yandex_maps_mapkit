@@ -18,7 +18,13 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'version.containers.dart';
 part 'version.impl.dart';
 
+/// Dot-separated version string. Alphabetical symbols are ignored
+/// without errors.
+///
+/// Examples of correct versions: "1.2.3", "2.0.0-2", "2014.04.25", "42".
+
 final class Version {
+  /// Version string.
   final core.String str;
 
   const Version({

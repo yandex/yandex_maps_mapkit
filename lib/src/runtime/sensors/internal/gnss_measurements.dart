@@ -21,6 +21,7 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'gnss_measurements.containers.dart';
 part 'gnss_measurements.impl.dart';
 
+/// @nodoc
 abstract final class GnssClock implements ffi.Finalizable {
   factory GnssClock(
           core.int timeNanos,
@@ -90,6 +91,7 @@ abstract final class GnssClock implements ffi.Finalizable {
   }
 }
 
+/// @nodoc
 abstract final class GnssMeasurement implements ffi.Finalizable {
   factory GnssMeasurement(
           core.int constellationType,
@@ -206,6 +208,7 @@ abstract final class GnssMeasurement implements ffi.Finalizable {
   }
 }
 
+/// @nodoc
 abstract final class GnssMeasurementsEvent implements ffi.Finalizable {
   factory GnssMeasurementsEvent(
           GnssClock clock, core.List<GnssMeasurement> measurements) =>
@@ -231,12 +234,12 @@ abstract final class GnssMeasurementsEvent implements ffi.Finalizable {
   }
 }
 
-///
+/// @nodoc
 abstract class GnssMeasurementsEventsNativeListener implements ffi.Finalizable {
   void onGnssMeasurementsEvent(GnssMeasurementsEvent event);
 }
 
-///
+/// @nodoc
 abstract class GnssMeasurementsEventsPlatformProvider {
   void finish();
 }

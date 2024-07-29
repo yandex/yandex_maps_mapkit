@@ -18,6 +18,14 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'address.containers.dart';
 part 'address.impl.dart';
 
+/// Contains structured address, formatted address, postal code and
+/// country code.
+///
+/// Structured address is an ordered list of components (usually
+/// administrative hierarchy). Formatted address is a full address as a
+/// single string. Formatted address generally can't be obtained from
+/// component names. Some components could be ignored (large
+/// administrative region) or absent (office number).
 abstract final class SearchAddress implements ffi.Finalizable {
   factory SearchAddress(
           core.String formattedAddress,
@@ -28,10 +36,22 @@ abstract final class SearchAddress implements ffi.Finalizable {
       SearchAddressImpl(formattedAddress, additionalInfo, postalCode,
           countryCode, components);
 
+  /// Human-readable address.
   core.String get formattedAddress;
+
+  /// Additional address info.
+  ///
   core.String? get additionalInfo;
+
+  /// Postal/Zip code.
+  ///
   core.String? get postalCode;
+
+  /// Country code in ISO 3166-1 alpha-2 format (two-letter country code).
+  ///
   core.String? get countryCode;
+
+  /// Address component list, see [SearchAddressComponent], may be empty.
   core.List<SearchAddressComponent> get components;
 
   @core.override
@@ -56,12 +76,21 @@ abstract final class SearchAddress implements ffi.Finalizable {
   }
 }
 
+/// Single address component.
+///
+/// Component represents a single entry in the administrative hierarchy
+/// of the address.
 abstract final class SearchAddressComponent implements ffi.Finalizable {
   factory SearchAddressComponent(
           core.String name, core.List<SearchAddressComponentKind> kinds) =>
       SearchAddressComponentImpl(name, kinds);
 
+  /// Component name.
   core.String get name;
+
+  /// Component kinds. May contain both general and specific kind, for
+  /// example [SearchAddressComponentKind.Station] and
+  /// [SearchAddressComponentKind.MetroStation].
   core.List<SearchAddressComponentKind> get kinds;
 
   @core.override

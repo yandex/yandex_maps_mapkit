@@ -14,8 +14,13 @@ import 'package:yandex_maps_mapkit/src/mapkit/localized_value.dart'
 part 'weight.containers.dart';
 part 'weight.impl.dart';
 
+/// Quantitative characteristics of a route or route section.
+
 final class BicycleWeight {
+  /// Time to travel.
   final mapkit_localized_value.LocalizedValue time;
+
+  /// Distance to travel.
   final mapkit_localized_value.LocalizedValue distance;
 
   const BicycleWeight(this.time, this.distance);

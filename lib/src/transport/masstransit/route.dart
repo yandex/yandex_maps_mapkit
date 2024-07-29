@@ -59,7 +59,11 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/weight.dart'
 part 'route.containers.dart';
 part 'route.impl.dart';
 
+/// Represents a 'wait until suitable tranport arrives' section of a
+/// route.
+
 final class MasstransitWait {
+  /// Dummy object.
   final core.int dummy;
 
   const MasstransitWait({
@@ -83,13 +87,28 @@ final class MasstransitWait {
   }
 }
 
+/// Constructions that can be found on pedestrian, bicycle paths or on
+/// mass transit transfers.
+
 final class MasstransitConstructionMask {
   final MasstransitConstructionMaskStairs? stairs;
   final MasstransitConstructionMaskPass? pass;
+
+  /// Crossing that is not an underground tunnel or a bridge.
   final core.bool crosswalk;
+
+  /// Edge connecting the route endpoint to the route network.
   final core.bool binding;
+
+  /// Transfer. For example, transfer from one underground line to another
+  /// or transfer from an underground station to an exit from it.
   final core.bool transition;
+
+  /// Horizontal escalator.
   final core.bool travolator;
+
+  /// Air-conditioned place. Can be a covered gallery, a mall or any other
+  /// climate-static edges.
   final core.bool indoor;
 
   const MasstransitConstructionMask({
@@ -148,6 +167,9 @@ enum MasstransitConstructionMaskPass {
   ;
 }
 
+/// Describes part of pedestrian or bicycle path with the same
+/// construction.
+
 final class MasstransitConstructionSegment {
   final transport_masstransit_construction.MasstransitConstructionID
       construction;
@@ -193,6 +215,8 @@ enum MasstransitTrafficTypeID {
   Auto,
   ;
 }
+
+/// Describes part of bicycle or scooter path with the same traffic type.
 
 final class MasstransitTrafficTypeSegment {
   final MasstransitTrafficTypeID trafficType;
@@ -246,8 +270,13 @@ enum MasstransitInclineType {
   ;
 }
 
+/// represents a section of continuous non-trivial gradient
+
 final class MasstransitInclineSection {
+  /// Vague characteristic of this gradient secion
   final MasstransitInclineType type;
+
+  /// A subpolyline of the route where the section is located
   final mapkit_geometry_geometry.Subpolyline subpolyline;
 
   const MasstransitInclineSection(this.type, this.subpolyline);
@@ -269,6 +298,34 @@ final class MasstransitInclineSection {
   }
 }
 
+/// Information of elevation in point
+
+final class MasstransitElevationPoint {
+  /// Elevation levels in meters
+  final core.double elevation;
+
+  const MasstransitElevationPoint({
+    required this.elevation,
+  });
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([elevation]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitElevationPoint other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return elevation == other.elevation;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitElevationPoint(elevation: $elevation)";
+  }
+}
+
+/// Information of elevation gain in loss in a fitness section
 abstract final class MasstransitElevationData implements ffi.Finalizable {
   factory MasstransitElevationData(
           mapkit_localized_value.LocalizedValue totalAscent,
@@ -276,16 +333,30 @@ abstract final class MasstransitElevationData implements ffi.Finalizable {
           mapkit_localized_value.LocalizedValue? steps,
           mapkit_localized_value.LocalizedValue kilocalories,
           core.List<MasstransitInclineSection> inclineSections,
-          core.List<core.double?> elevationSegments) =>
+          core.List<MasstransitElevationPoint> elevationSegments) =>
       MasstransitElevationDataImpl(totalAscent, totalDescent, steps,
           kilocalories, inclineSections, elevationSegments);
 
+  /// Total ascent in meters
   mapkit_localized_value.LocalizedValue get totalAscent;
+
+  /// Total descent in meters
   mapkit_localized_value.LocalizedValue get totalDescent;
+
+  /// The number of steps required to cover the distance for an average
+  /// person
+  ///
   mapkit_localized_value.LocalizedValue? get steps;
+
+  /// The number of kilocalories consumed by an average person to cover the
+  /// distance
   mapkit_localized_value.LocalizedValue get kilocalories;
+
+  /// List of sections with notable incline
   core.List<MasstransitInclineSection> get inclineSections;
-  core.List<core.double?> get elevationSegments;
+
+  /// List of elevation for each point of the section polyline
+  core.List<MasstransitElevationPoint> get elevationSegments;
 
   @core.override
   core.int get hashCode => core.Object.hashAll([
@@ -316,6 +387,8 @@ abstract final class MasstransitElevationData implements ffi.Finalizable {
   }
 }
 
+/// Represent a section where we have to move by ourself (like
+/// pedestrian, or by bicycle and scooter)
 abstract final class MasstransitFitness implements ffi.Finalizable {
   factory MasstransitFitness(
           MasstransitFitnessType type,
@@ -333,13 +406,29 @@ abstract final class MasstransitFitness implements ffi.Finalizable {
           annotations, trafficTypes, elevationData);
 
   MasstransitFitnessType get type;
+
+  /// Compressed information about constructions along the path.
+  /// [MasstransitConstructionSegment.subpolyline] fields of all segments
+  /// cover the entire geometry of corresponding section".
   core.List<MasstransitConstructionSegment> get constructions;
+
+  /// List of restricted entries with their coordinates along the path.
   core.List<transport_masstransit_restricted_entry.MasstransitRestrictedEntry>
       get restrictedEntries;
+
+  /// List of via points on the path. A via point is described by the index
+  /// of the point in the route geometry polyline.
   core.List<mapkit_geometry_geometry.PolylinePosition> get viaPoints;
+
+  /// List of annotations on the path.
   core.List<transport_masstransit_annotation.MasstransitAnnotation>
       get annotations;
+
+  /// List of traffic types on path
   core.List<MasstransitTrafficTypeSegment> get trafficTypes;
+
+  /// Information on elevation gain and loss in a fitness section
+  ///
   MasstransitElevationData? get elevationData;
 
   @core.override
@@ -373,6 +462,7 @@ abstract final class MasstransitFitness implements ffi.Finalizable {
   }
 }
 
+/// The metadata about the mass transit stop.
 abstract final class MasstransitRouteStopMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory MasstransitRouteStopMetadata(
@@ -381,8 +471,15 @@ abstract final class MasstransitRouteStopMetadata
           mapkit_geometry_point.Point? exitPoint) =>
       MasstransitRouteStopMetadataImpl(stop, stopExit, exitPoint);
 
+  /// Route stop information.
   transport_masstransit_common.MasstransitStop get stop;
+
+  /// Underground station exit
+  ///
   transport_masstransit_common.MasstransitStop? get stopExit;
+
+  /// Coordinates of underground station exit
+  ///
   mapkit_geometry_point.Point? get exitPoint;
 
   @core.override
@@ -407,12 +504,18 @@ abstract final class MasstransitRouteStopMetadata
       factory = const _MasstransitRouteStopMetadataFactory();
 }
 
+/// Describes a [transport_masstransit_common.MasstransitStop] on a
+/// [MasstransitRoute].
 abstract final class MasstransitRouteStop implements ffi.Finalizable {
   factory MasstransitRouteStop(MasstransitRouteStopMetadata metadata,
           mapkit_geometry_point.Point position) =>
       MasstransitRouteStopImpl(metadata, position);
 
+  /// General information about a stop on a route and optionally about its
+  /// exit
   MasstransitRouteStopMetadata get metadata;
+
+  /// Coordinates of the stop.
   mapkit_geometry_point.Point get position;
 
   @core.override
@@ -432,6 +535,9 @@ abstract final class MasstransitRouteStop implements ffi.Finalizable {
   }
 }
 
+/// Represents a stop in path which is not a part of any transport trip
+/// but must be visited according travelling. For example, exit from
+/// subway may require transfer on other stop.
 abstract final class MasstransitTransferStop implements ffi.Finalizable {
   factory MasstransitTransferStop(
           MasstransitRouteStop routeStop,
@@ -439,7 +545,10 @@ abstract final class MasstransitTransferStop implements ffi.Finalizable {
               transports) =>
       MasstransitTransferStopImpl(routeStop, transports);
 
+  /// Stop information.
   MasstransitRouteStop get routeStop;
+
+  /// Transports at the stops
   core.List<transport_masstransit_transport.MasstransitTransport>
       get transports;
 
@@ -460,13 +569,20 @@ abstract final class MasstransitTransferStop implements ffi.Finalizable {
   }
 }
 
+/// Represents a transfer to another mass transit line or to another
+/// stop. For example, transfer from one underground line to another.
 abstract final class MasstransitTransfer implements ffi.Finalizable {
   factory MasstransitTransfer(
           core.List<MasstransitConstructionSegment> constructions,
           MasstransitTransferStop transferStop) =>
       MasstransitTransferImpl(constructions, transferStop);
 
+  /// Compressed information about pedestrian constructions along the
+  /// transfer path. [MasstransitConstructionSegment.subpolyline] fields of
+  /// all segments cover the entire geometry of corresponding section".
   core.List<MasstransitConstructionSegment> get constructions;
+
+  /// The stop you need to transfer to
   MasstransitTransferStop get transferStop;
 
   @core.override
@@ -487,11 +603,13 @@ abstract final class MasstransitTransfer implements ffi.Finalizable {
   }
 }
 
+/// Represents a taxi part of route.
 abstract final class MasstransitTaxi implements ffi.Finalizable {
   factory MasstransitTaxi(
           core.List<mapkit_navigation_jam_segment.JamSegment> jamSegments) =>
       MasstransitTaxiImpl(jamSegments);
 
+  /// Traffic conditions on the given part of route.
   core.List<mapkit_navigation_jam_segment.JamSegment> get jamSegments;
 
   @core.override
@@ -511,6 +629,11 @@ abstract final class MasstransitTaxi implements ffi.Finalizable {
   }
 }
 
+/// General information about a section of a route. The
+/// [MasstransitSectionMetadata.data] field describes the type of
+/// section: wait, walk, transfer, or transport, and related data.
+/// Related data can be set for walk and transfer sections. This data is
+/// a vector of construction types of corresponding geometry segments.
 abstract final class MasstransitSectionMetadata implements ffi.Finalizable {
   factory MasstransitSectionMetadata(
           transport_masstransit_weight.MasstransitWeight weight,
@@ -520,10 +643,22 @@ abstract final class MasstransitSectionMetadata implements ffi.Finalizable {
           core.int legIndex) =>
       MasstransitSectionMetadataImpl(weight, data, estimation, legIndex);
 
+  /// Contains the route traveling time, distance of the walking part, and
+  /// the number of transfers.
   transport_masstransit_weight.MasstransitWeight get weight;
+
+  /// Contains information that is specific to a section type: wait, walk,
+  /// transfer, or ride transport.
   MasstransitSectionMetadataSectionData get data;
+
+  /// Arrival and departure time estimations. This field is set only for
+  /// time-dependent routes.
+  ///
   transport_masstransit_travel_estimation.MasstransitTravelEstimation?
       get estimation;
+
+  /// Part of the route polyline for the route leg. A leg is a part of the
+  /// route between two consecutive waypoints.
   core.int get legIndex;
 
   @core.override
@@ -639,12 +774,18 @@ final class MasstransitSectionMetadataSectionData {
   final core.dynamic _value;
 }
 
+/// Route settings that were used by the mass transit router for a
+/// specific route.
 abstract final class MasstransitRouteSettings implements ffi.Finalizable {
   factory MasstransitRouteSettings(core.List<core.String> avoidTypes,
           core.List<core.String> acceptTypes) =>
       MasstransitRouteSettingsImpl(avoidTypes, acceptTypes);
 
+  /// Transport types that the router avoided.
   core.List<core.String> get avoidTypes;
+
+  /// Transport types that were allowed even if they are in the list of
+  /// avoided types.
   core.List<core.String> get acceptTypes;
 
   @core.override
@@ -673,6 +814,8 @@ enum MasstransitComfortTag {
   ;
 }
 
+/// Contains information associated with a route constructed by the mass
+/// transit router.
 abstract final class MasstransitRouteMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory MasstransitRouteMetadata(
@@ -688,12 +831,29 @@ abstract final class MasstransitRouteMetadata
       MasstransitRouteMetadataImpl(
           weight, settings, estimation, wayPoints, routeId, flags, comfortTags);
 
+  /// Contains the route time, distance of the walking part, and the number
+  /// of transfers.
   transport_masstransit_weight.MasstransitWeight get weight;
+
+  /// Route settings that were used by the mass transit router.
+  ///
   MasstransitRouteSettings? get settings;
+
+  /// Arrival and departure time estimations for time-dependent routes.
+  ///
   transport_masstransit_travel_estimation.MasstransitTravelEstimation?
       get estimation;
+
+  /// List of route waypoints. See
+  /// [transport_masstransit_way_point.MasstransitWayPoint] for details
   core.List<transport_masstransit_way_point.MasstransitWayPoint> get wayPoints;
+
+  /// Unique route id.
+  ///
   core.String? get routeId;
+
+  /// Flags which contains route properties
+  ///
   transport_masstransit_flags.MasstransitFlags? get flags;
   core.List<MasstransitComfortTag> get comfortTags;
 
@@ -724,6 +884,11 @@ abstract final class MasstransitRouteMetadata
       const _MasstransitRouteMetadataFactory();
 }
 
+/// Contains information about an individual section of a mass transit
+/// [MasstransitRoute]. The only fields that are always set are
+/// [MasstransitSection.metadata].[MasstransitSectionMetadata.weight],
+/// [MasstransitSection.geometry] and
+/// [MasstransitSection.metadata].[MasstransitSectionMetadata.data].
 abstract final class MasstransitSection implements ffi.Finalizable {
   factory MasstransitSection(
           MasstransitSectionMetadata metadata,
@@ -732,9 +897,22 @@ abstract final class MasstransitSection implements ffi.Finalizable {
           core.List<mapkit_geometry_geometry.Subpolyline> rideLegs) =>
       MasstransitSectionImpl(metadata, geometry, stops, rideLegs);
 
+  /// General information about a section of a route.
   MasstransitSectionMetadata get metadata;
+
+  /// Geometry of the section as a fragment of a [MasstransitRoute]
+  /// polyline.
   mapkit_geometry_geometry.Subpolyline get geometry;
+
+  /// Vector of stops along the route. The first stop in the vector is the
+  /// stop for boarding the transport, and the last stop in the vector is
+  /// the stop for exiting the transport.
   core.List<MasstransitRouteStop> get stops;
+
+  /// Vector of polylines each connecting two consecutive stops. This
+  /// vector is only filled for mass transit ride sections, so this
+  /// geometry represents a part of the mass transit thread geometry
+  /// between two stops.
   core.List<mapkit_geometry_geometry.Subpolyline> get rideLegs;
 
   @core.override

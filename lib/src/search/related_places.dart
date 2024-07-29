@@ -22,6 +22,7 @@ import 'package:yandex_maps_mapkit/src/search/working_hours.dart'
 part 'related_places.containers.dart';
 part 'related_places.impl.dart';
 
+/// Related place information.
 abstract final class SearchPlaceInfo implements ffi.Finalizable {
   factory SearchPlaceInfo(
           core.String name,
@@ -38,16 +39,46 @@ abstract final class SearchPlaceInfo implements ffi.Finalizable {
       SearchPlaceInfoImpl(name, uri, photoUrlTemplate, logId, point, category,
           shortName, rating, workingHours, address, tag);
 
+  /// Place name.
   core.String get name;
+
+  /// Place URI.
+  ///
   core.String? get uri;
+
+  /// Url template for place photo.
+  ///
   core.String? get photoUrlTemplate;
+
+  /// Server-generated log identifier.
+  ///
   core.String? get logId;
+
+  /// Place position.
+  ///
   mapkit_geometry_point.Point? get point;
+
+  /// Place category as a string.
+  ///
   core.String? get category;
+
+  /// Short name for a place.
+  ///
   core.String? get shortName;
+
+  /// Place rating as number in 0 to 10 range.
+  ///
   core.double? get rating;
+
+  /// Open hours for a place.
+  ///
   search_working_hours.SearchWorkingHours? get workingHours;
+
+  /// Formatted address for an organization.
+  ///
   core.String? get address;
+
+  /// Tags
   core.List<core.String> get tag;
 
   @core.override

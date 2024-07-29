@@ -40,6 +40,7 @@ class DrivingTooComplexAvoidedZonesErrorImpl extends runtime_error.ErrorImpl
     return (obj as DrivingTooComplexAvoidedZonesErrorImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _DrivingTooComplexAvoidedZonesError_check(ptr);
   }
@@ -63,6 +64,16 @@ final core.bool Function(
     .library
     .lookup<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_directions_driving_DrivingTooComplexAvoidedZonesError_check')
+    .asFunction(isLeaf: true);
+
+final void Function(
+    ffi.Pointer<ffi.Void>,
+    core
+        .int) _DrivingTooComplexAvoidedZonesError_set = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_directions_driving_DrivingTooComplexAvoidedZonesError_set_')
     .asFunction(isLeaf: true);
 
 final class DrivingOptionsNative extends ffi.Struct {
@@ -308,3 +319,10 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_directions_driving_DrivingRouter_requestRoutesSummary')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _DrivingRouter_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_directions_driving_DrivingRouter_set_')
+    .asFunction(isLeaf: true);

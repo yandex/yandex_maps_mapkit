@@ -16,12 +16,16 @@ import 'package:yandex_maps_mapkit/src/transport/bicycle/weight.dart'
 part 'leg.containers.dart';
 part 'leg.impl.dart';
 
+/// Leg of the route.
 abstract final class BicycleLeg implements ffi.Finalizable {
   factory BicycleLeg(transport_bicycle_weight.BicycleWeight weight,
           mapkit_geometry_geometry.Subpolyline geometry) =>
       BicycleLegImpl(weight, geometry);
 
+  /// Quantitative characteristics of the route leg.
   transport_bicycle_weight.BicycleWeight get weight;
+
+  /// Path of the route polyline for the route leg.
   mapkit_geometry_geometry.Subpolyline get geometry;
 
   @core.override

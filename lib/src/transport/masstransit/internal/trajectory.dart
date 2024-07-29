@@ -18,6 +18,8 @@ import 'package:yandex_maps_mapkit/src/mapkit/base_metadata.dart'
 part 'trajectory.containers.dart';
 part 'trajectory.impl.dart';
 
+/// This struct is here to automatically generate protobuf parsing
+/// functions It is not to be used in platform code
 abstract final class TrajectorySegmentMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory TrajectorySegmentMetadata(core.int time, core.int duration) =>

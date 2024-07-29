@@ -13,7 +13,7 @@ extension SearchFeatureContainerExtension on SearchFeature {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFeatureImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchFeatureImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchFeatureContainerExtension on SearchFeature {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFeatureImpl.toPointer);
+    return vector.toNativeVector(obj, SearchFeatureImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -116,7 +116,7 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFeatureEnumValueImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchFeatureEnumValueImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +144,7 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFeatureEnumValueImpl.toPointer);
+    return vector.toNativeVector(obj, SearchFeatureEnumValueImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -221,7 +221,7 @@ extension SearchFeatureSetContainerExtension on SearchFeatureSet {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFeatureSetImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchFeatureSetImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -248,7 +248,7 @@ extension SearchFeatureSetContainerExtension on SearchFeatureSet {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFeatureSetImpl.toPointer);
+    return vector.toNativeVector(obj, SearchFeatureSetImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -325,7 +325,7 @@ extension SearchFeatureGroupContainerExtension on SearchFeatureGroup {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFeatureGroupImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchFeatureGroupImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -352,7 +352,7 @@ extension SearchFeatureGroupContainerExtension on SearchFeatureGroup {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFeatureGroupImpl.toPointer);
+    return vector.toNativeVector(obj, SearchFeatureGroupImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

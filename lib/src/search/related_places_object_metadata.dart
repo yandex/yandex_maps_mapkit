@@ -20,12 +20,14 @@ import 'package:yandex_maps_mapkit/src/search/related_places.dart'
 part 'related_places_object_metadata.containers.dart';
 part 'related_places_object_metadata.impl.dart';
 
+/// Snippet data to get related places info.
 abstract final class SearchRelatedPlacesObjectMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchRelatedPlacesObjectMetadata(
           core.List<search_related_places.SearchPlaceInfo> similarPlaces) =>
       SearchRelatedPlacesObjectMetadataImpl(similarPlaces);
 
+  /// List of similar places.
   core.List<search_related_places.SearchPlaceInfo> get similarPlaces;
 
   @core.override

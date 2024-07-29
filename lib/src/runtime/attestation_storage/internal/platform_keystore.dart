@@ -20,7 +20,7 @@ import 'package:yandex_maps_mapkit/src/runtime/attestation_storage/internal/atte
 
 part 'platform_keystore.impl.dart';
 
-///
+/// @nodoc
 abstract class PlatformKeystore {
   /// Returns true if there is a generated platform key.
   core.Future<core.bool> hasKey();

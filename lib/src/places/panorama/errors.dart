@@ -17,4 +17,6 @@ part 'errors.impl.dart';
 
 /// The panorama was not found.
 abstract class PanoramaNotFoundError
-    implements runtime_error.Error, ffi.Finalizable {}
+    implements runtime_error.Error, ffi.Finalizable {
+  core.bool isValid();
+}

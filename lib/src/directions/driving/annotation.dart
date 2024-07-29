@@ -22,7 +22,10 @@ import 'package:yandex_maps_mapkit/src/directions/driving/landmark.dart'
 part 'annotation.containers.dart';
 part 'annotation.impl.dart';
 
+/// The length of the U-turn.
+
 final class DrivingUturnMetadata {
+  /// The length of the turn.
   final core.double length;
 
   const DrivingUturnMetadata({
@@ -46,7 +49,10 @@ final class DrivingUturnMetadata {
   }
 }
 
+/// The number of the exit for leaving the roundabout.
+
 final class DrivingLeaveRoundaboutMetadata {
+  /// The exit number.
   final core.int exitNumber;
 
   const DrivingLeaveRoundaboutMetadata({
@@ -70,8 +76,15 @@ final class DrivingLeaveRoundaboutMetadata {
   }
 }
 
+/// Information about an action.
+
 final class DrivingActionMetadata {
+  /// The length of the U-turn.
+  ///
   final DrivingUturnMetadata? uturnMetadata;
+
+  /// The number of the exit for leaving the roundabout.
+  ///
   final DrivingLeaveRoundaboutMetadata? leaveRoundaboutMetadada;
 
   const DrivingActionMetadata({
@@ -114,10 +127,12 @@ enum DrivingAnnotationSchemeID {
   ;
 }
 
+/// The description of the object.
 abstract final class DrivingToponymPhrase implements ffi.Finalizable {
   factory DrivingToponymPhrase(core.String text) =>
       DrivingToponymPhraseImpl(text);
 
+  /// The string containing the description.
   core.String get text;
 
   @core.override
@@ -137,6 +152,7 @@ abstract final class DrivingToponymPhrase implements ffi.Finalizable {
   }
 }
 
+/// The annotation that is displayed on the map.
 abstract final class DrivingAnnotation implements ffi.Finalizable {
   factory DrivingAnnotation(
           directions_driving_action.DrivingAction? action,
@@ -148,11 +164,25 @@ abstract final class DrivingAnnotation implements ffi.Finalizable {
       DrivingAnnotationImpl(action, toponym, descriptionText, actionMetadata,
           landmarks, toponymPhrase);
 
+  /// Driver action.
+  ///
   directions_driving_action.DrivingAction? get action;
+
+  /// The toponym of the location.
+  ///
   core.String? get toponym;
+
+  /// Description text to display.
   core.String get descriptionText;
+
+  /// Action metadata.
   DrivingActionMetadata get actionMetadata;
+
+  /// Significant landmarks.
   core.List<directions_driving_landmark.DrivingLandmark> get landmarks;
+
+  /// The description of the object.
+  ///
   DrivingToponymPhrase? get toponymPhrase;
 
   @core.override

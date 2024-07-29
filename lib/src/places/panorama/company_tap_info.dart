@@ -25,7 +25,12 @@ abstract final class CompanyTapInfo implements ffi.Finalizable {
           core.String permalink, mapkit_screen_types.ScreenPoint screenPoint) =>
       CompanyTapInfoImpl(permalink, screenPoint);
 
+  /// Permalink of the company which icon or text was tapped. The permalink
+  /// may be used to show company info page
   core.String get permalink;
+
+  /// The screen position of the company tapped icon. The screenPoint may
+  /// be useful in positioning company info page
   mapkit_screen_types.ScreenPoint get screenPoint;
 
   @core.override

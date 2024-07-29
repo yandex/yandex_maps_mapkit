@@ -82,6 +82,7 @@ enum DrivingLaneKind {
   ;
 }
 
+/// The lane object.
 abstract final class DrivingLane implements ffi.Finalizable {
   factory DrivingLane(
           DrivingLaneKind laneKind,
@@ -89,8 +90,14 @@ abstract final class DrivingLane implements ffi.Finalizable {
           DrivingLaneDirection? highlightedDirection) =>
       DrivingLaneImpl(laneKind, directions, highlightedDirection);
 
+  /// The type of lane.
   DrivingLaneKind get laneKind;
+
+  /// Lane direction.
   core.List<DrivingLaneDirection> get directions;
+
+  /// Highlighted lane direction.
+  ///
   DrivingLaneDirection? get highlightedDirection;
 
   @core.override
@@ -113,13 +120,20 @@ abstract final class DrivingLane implements ffi.Finalizable {
   }
 }
 
+/// The sign showing a lane.
 abstract final class DrivingLaneSign implements ffi.Finalizable {
   factory DrivingLaneSign(mapkit_geometry_geometry.PolylinePosition position,
           core.bool? annotated, core.List<DrivingLane> lanes) =>
       DrivingLaneSignImpl(position, annotated, lanes);
 
+  /// The position of the sign.
   mapkit_geometry_geometry.PolylinePosition get position;
+
+  /// Determines whether the sign should be annotated.
+  ///
   core.bool? get annotated;
+
+  /// The lane to display the sign in.
   core.List<DrivingLane> get lanes;
 
   @core.override

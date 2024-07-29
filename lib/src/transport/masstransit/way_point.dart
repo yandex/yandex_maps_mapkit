@@ -18,6 +18,9 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/point.dart'
 part 'way_point.containers.dart';
 part 'way_point.impl.dart';
 
+/// A waypoint is the origin, destination or intermediate destination on
+/// the route. For each waypoint, the corresponding selected arrival
+/// point can be stored.
 abstract final class MasstransitWayPoint implements ffi.Finalizable {
   factory MasstransitWayPoint(
           mapkit_geometry_point.Point position,
@@ -27,9 +30,21 @@ abstract final class MasstransitWayPoint implements ffi.Finalizable {
       MasstransitWayPointImpl(
           position, selectedArrivalPoint, selectedDeparturePoint, context);
 
+  /// Coordinates of the original waypoint from the request.
   mapkit_geometry_point.Point get position;
+
+  /// Coordinates of the arrival point that was selected for arrival at the
+  /// waypoint.
+  ///
   mapkit_geometry_point.Point? get selectedArrivalPoint;
+
+  /// Coordinates of the arrival point that was selected for departure from
+  /// the waypoint.
+  ///
   mapkit_geometry_point.Point? get selectedDeparturePoint;
+
+  /// request's context for this point
+  ///
   core.String? get context;
 
   @core.override

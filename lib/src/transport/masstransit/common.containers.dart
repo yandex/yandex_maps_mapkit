@@ -15,7 +15,7 @@ extension MasstransitTransportContourContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, MasstransitTransportContourImpl.toPointer);
+        obj, MasstransitTransportContourImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -45,7 +45,7 @@ extension MasstransitTransportContourContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, MasstransitTransportContourImpl.toPointer);
+        obj, MasstransitTransportContourImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -126,7 +126,7 @@ extension MasstransitStopContainerExtension on MasstransitStop {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitStopImpl.toPointer);
+    return string_map.toNativeMap(obj, MasstransitStopImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -153,7 +153,7 @@ extension MasstransitStopContainerExtension on MasstransitStop {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitStopImpl.toPointer);
+    return vector.toNativeVector(obj, MasstransitStopImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -230,7 +230,7 @@ extension MasstransitLineContainerExtension on MasstransitLine {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitLineImpl.toPointer);
+    return string_map.toNativeMap(obj, MasstransitLineImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -257,7 +257,7 @@ extension MasstransitLineContainerExtension on MasstransitLine {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitLineImpl.toPointer);
+    return vector.toNativeVector(obj, MasstransitLineImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -334,7 +334,7 @@ extension MasstransitThreadContainerExtension on MasstransitThread {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitThreadImpl.toPointer);
+    return string_map.toNativeMap(obj, MasstransitThreadImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -361,7 +361,7 @@ extension MasstransitThreadContainerExtension on MasstransitThread {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitThreadImpl.toPointer);
+    return vector.toNativeVector(obj, MasstransitThreadImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

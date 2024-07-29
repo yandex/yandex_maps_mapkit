@@ -1,7 +1,7 @@
 part of 'section.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'BicycleSectionImpl.toPointer',
+    toNative: 'BicycleSectionImpl.getNativePtr',
     toPlatform: '(val) => BicycleSectionImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleSection')
 final class BicycleSectionImpl implements BicycleSection {
@@ -47,26 +47,7 @@ final class BicycleSectionImpl implements BicycleSection {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(BicycleSection? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _BicycleSection_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _BicycleSection_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleSection_clone')
-        .asFunction(isLeaf: true);
 
 final _BicycleSection_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

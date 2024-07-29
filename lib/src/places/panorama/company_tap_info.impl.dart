@@ -1,7 +1,7 @@
 part of 'company_tap_info.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'CompanyTapInfoImpl.toPointer',
+    toNative: 'CompanyTapInfoImpl.getNativePtr',
     toPlatform: '(val) => CompanyTapInfoImpl.fromPointer(val, needFree: false)',
     platformType: 'CompanyTapInfo')
 final class CompanyTapInfoImpl implements CompanyTapInfo {
@@ -47,26 +47,7 @@ final class CompanyTapInfoImpl implements CompanyTapInfo {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(CompanyTapInfo? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _CompanyTapInfo_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _CompanyTapInfo_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_places_panorama_CompanyTapInfo_clone')
-        .asFunction(isLeaf: true);
 
 final _CompanyTapInfo_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

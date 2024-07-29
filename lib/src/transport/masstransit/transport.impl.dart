@@ -262,7 +262,7 @@ extension MasstransitTransportThreadAlertLastTripImpl
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitBoardingOptionsImpl.toPointer',
+    toNative: 'MasstransitBoardingOptionsImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitBoardingOptionsImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitBoardingOptions')
@@ -312,27 +312,7 @@ final class MasstransitBoardingOptionsImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitBoardingOptions? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _MasstransitBoardingOptions_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _MasstransitBoardingOptions_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_MasstransitBoardingOptions_clone')
-    .asFunction(isLeaf: true);
 
 final _MasstransitBoardingOptions_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -357,7 +337,7 @@ final ffi.Pointer<ffi.Void> Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitBoardingOptionsBoardingAreaImpl.toPointer',
+    toNative: 'MasstransitBoardingOptionsBoardingAreaImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitBoardingOptionsBoardingAreaImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitBoardingOptionsBoardingArea')
@@ -407,30 +387,7 @@ final class MasstransitBoardingOptionsBoardingAreaImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      MasstransitBoardingOptionsBoardingArea? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value =
-        _MasstransitBoardingOptionsBoardingArea_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _MasstransitBoardingOptionsBoardingArea_clone = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_BoardingOptions_MasstransitBoardingOptionsBoardingArea_clone')
-    .asFunction(isLeaf: true);
 
 final _MasstransitBoardingOptionsBoardingArea_free = lib.library.lookup<
         ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -457,7 +414,7 @@ final ffi.Pointer<ffi.Void> Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitTransportImpl.toPointer',
+    toNative: 'MasstransitTransportImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitTransportImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitTransport')
@@ -520,26 +477,7 @@ final class MasstransitTransportImpl implements MasstransitTransport {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitTransport? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _MasstransitTransport_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _MasstransitTransport_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_masstransit_MasstransitTransport_clone')
-        .asFunction(isLeaf: true);
 
 final _MasstransitTransport_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -582,7 +520,7 @@ final ffi.Pointer<ffi.Void> Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitTransportTransportThreadImpl.toPointer',
+    toNative: 'MasstransitTransportTransportThreadImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitTransportTransportThreadImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitTransportTransportThread')
@@ -660,30 +598,7 @@ final class MasstransitTransportTransportThreadImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      MasstransitTransportTransportThread? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value =
-        _MasstransitTransportTransportThread_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _MasstransitTransportTransportThread_clone = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_Transport_MasstransitTransportTransportThread_clone')
-    .asFunction(isLeaf: true);
 
 final _MasstransitTransportTransportThread_free = lib.library.lookup<
         ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

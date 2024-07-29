@@ -1,7 +1,7 @@
 part of 'encyclopedia_object_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchEncyclopediaObjectMetadataImpl.toPointer',
+    toNative: 'SearchEncyclopediaObjectMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchEncyclopediaObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchEncyclopediaObjectMetadata')
@@ -12,7 +12,7 @@ final class SearchEncyclopediaObjectMetadataImpl
       : this.fromNativePtr(_SearchEncyclopediaObjectMetadata_init(
             to_native.toNativePtrString(title),
             to_native.toNativePtrString(description),
-            mapkit_attribution.AttributionImpl.toPointer(attribution)));
+            mapkit_attribution.AttributionImpl.getNativePtr(attribution)));
 
   @core.override
   late final title = to_platform.toPlatformFromPointerString(
@@ -21,7 +21,7 @@ final class SearchEncyclopediaObjectMetadataImpl
   late final description = to_platform.toPlatformFromPointerString(
       _SearchEncyclopediaObjectMetadata_get_description(_ptr));
   @core.override
-  late final attribution = mapkit_attribution.AttributionImpl.fromPointer(
+  late final attribution = mapkit_attribution.AttributionImpl.fromOptionalPtr(
       _SearchEncyclopediaObjectMetadata_get_attribution(_ptr));
 
   @core.override
@@ -62,18 +62,6 @@ final class SearchEncyclopediaObjectMetadataImpl
     }
 
     return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      SearchEncyclopediaObjectMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchEncyclopediaObjectMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
   }
 }
 
@@ -124,14 +112,6 @@ final native_types.NativeString Function()
     _SearchEncyclopediaObjectMetadata_name = lib.library
         .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
             'yandex_flutter_search_SearchEncyclopediaObjectMetadata_name')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchEncyclopediaObjectMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchEncyclopediaObjectMetadata_clone')
         .asFunction(isLeaf: true);
 
 final _SearchEncyclopediaObjectMetadata_free = lib.library

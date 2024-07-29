@@ -24,13 +24,22 @@ import 'package:yandex_maps_mapkit/src/runtime/key_value_pair.dart'
 part 'subtitle.containers.dart';
 part 'subtitle.impl.dart';
 
+/// Separate subtitle of a certain type.
 abstract final class SearchSubtitleItem implements ffi.Finalizable {
   factory SearchSubtitleItem(core.String type, core.String? text,
           core.List<runtime_key_value_pair.KeyValuePair> properties) =>
       SearchSubtitleItemImpl(type, text, properties);
 
+  /// Subtitle type. For example, "exchange".
   core.String get type;
+
+  /// Short summary text. For example, "USD 57.69/57.3".
+  ///
   core.String? get text;
+
+  /// Detailed subtitle info. For example, \[ {"key": "currency", "value":
+  /// "USD"}, {"key": "buy", "value": "57.3"}, {"key": "sell", "value":
+  /// "57.69"} \].
   core.List<runtime_key_value_pair.KeyValuePair> get properties;
 
   @core.override
@@ -52,13 +61,17 @@ abstract final class SearchSubtitleItem implements ffi.Finalizable {
   }
 }
 
+/// Subtitle snippet.
 abstract final class SearchSubtitleMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchSubtitleMetadata(core.List<SearchSubtitleItem> subtitleItems,
           core.List<SearchSubtitleItem> serpSubtitleItems) =>
       SearchSubtitleMetadataImpl(subtitleItems, serpSubtitleItems);
 
+  /// List of subtitles.
   core.List<SearchSubtitleItem> get subtitleItems;
+
+  /// List of subtitles to be displayed in SERP.
   core.List<SearchSubtitleItem> get serpSubtitleItems;
 
   @core.override

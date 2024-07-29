@@ -13,7 +13,7 @@ extension DrivingToponymPhraseContainerExtension on DrivingToponymPhrase {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingToponymPhraseImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingToponymPhraseImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension DrivingToponymPhraseContainerExtension on DrivingToponymPhrase {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingToponymPhraseImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingToponymPhraseImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -118,7 +118,7 @@ extension DrivingAnnotationContainerExtension on DrivingAnnotation {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingAnnotationImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingAnnotationImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -145,7 +145,7 @@ extension DrivingAnnotationContainerExtension on DrivingAnnotation {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingAnnotationImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingAnnotationImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

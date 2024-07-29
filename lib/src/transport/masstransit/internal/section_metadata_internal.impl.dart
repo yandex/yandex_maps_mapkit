@@ -1,7 +1,7 @@
 part of 'section_metadata_internal.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SectionMetadataInternalImpl.toPointer',
+    toNative: 'SectionMetadataInternalImpl.getNativePtr',
     toPlatform:
         '(val) => SectionMetadataInternalImpl.fromPointer(val, needFree: false)',
     platformType: 'SectionMetadataInternal')
@@ -58,17 +58,6 @@ final class SectionMetadataInternalImpl implements SectionMetadataInternal {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SectionMetadataInternal? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SectionMetadataInternal_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SectionMetadataInternalFactory
@@ -120,15 +109,6 @@ final native_types.NativeString Function() _SectionMetadataInternal_name = lib
     .library
     .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
         'yandex_flutter_transport_masstransit_internal_SectionMetadataInternal_name')
-    .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _SectionMetadataInternal_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_internal_SectionMetadataInternal_clone')
     .asFunction(isLeaf: true);
 
 final _SectionMetadataInternal_free = lib.library.lookup<

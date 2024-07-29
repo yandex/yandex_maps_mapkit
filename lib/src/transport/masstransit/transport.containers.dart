@@ -15,7 +15,7 @@ extension MasstransitBoardingOptionsContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, MasstransitBoardingOptionsImpl.toPointer);
+        obj, MasstransitBoardingOptionsImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -44,7 +44,8 @@ extension MasstransitBoardingOptionsContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitBoardingOptionsImpl.toPointer);
+    return vector.toNativeVector(
+        obj, MasstransitBoardingOptionsImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -127,7 +128,7 @@ extension MasstransitBoardingOptionsBoardingAreaContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, MasstransitBoardingOptionsBoardingAreaImpl.toPointer);
+        obj, MasstransitBoardingOptionsBoardingAreaImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -159,7 +160,7 @@ extension MasstransitBoardingOptionsBoardingAreaContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, MasstransitBoardingOptionsBoardingAreaImpl.toPointer);
+        obj, MasstransitBoardingOptionsBoardingAreaImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -245,7 +246,7 @@ extension MasstransitTransportContainerExtension on MasstransitTransport {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitTransportImpl.toPointer);
+    return string_map.toNativeMap(obj, MasstransitTransportImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -273,7 +274,7 @@ extension MasstransitTransportContainerExtension on MasstransitTransport {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitTransportImpl.toPointer);
+    return vector.toNativeVector(obj, MasstransitTransportImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -352,7 +353,7 @@ extension MasstransitTransportTransportThreadContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, MasstransitTransportTransportThreadImpl.toPointer);
+        obj, MasstransitTransportTransportThreadImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -383,7 +384,7 @@ extension MasstransitTransportTransportThreadContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, MasstransitTransportTransportThreadImpl.toPointer);
+        obj, MasstransitTransportTransportThreadImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

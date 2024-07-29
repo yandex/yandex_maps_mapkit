@@ -1,7 +1,7 @@
 part of 'address.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchAddressImpl.toPointer',
+    toNative: 'SearchAddressImpl.getNativePtr',
     toPlatform: '(val) => SearchAddressImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchAddress')
 final class SearchAddressImpl implements SearchAddress {
@@ -65,26 +65,7 @@ final class SearchAddressImpl implements SearchAddress {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchAddress? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchAddress_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchAddress_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchAddress_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchAddress_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -145,7 +126,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchAddressComponentImpl.toPointer',
+    toNative: 'SearchAddressComponentImpl.getNativePtr',
     toPlatform:
         '(val) => SearchAddressComponentImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchAddressComponent')
@@ -197,26 +178,7 @@ final class SearchAddressComponentImpl implements SearchAddressComponent {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchAddressComponent? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchAddressComponent_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchAddressComponent_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_Address_SearchAddressComponent_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchAddressComponent_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

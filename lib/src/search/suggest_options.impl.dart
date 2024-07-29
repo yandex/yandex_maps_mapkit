@@ -44,13 +44,19 @@ final class SuggestOptionsNative extends ffi.Struct {
   external ffi.Pointer<ffi.Void> userPosition;
   @ffi.Bool()
   external core.bool suggestWords;
+  @ffi.Bool()
+  external core.bool strictBounds;
 }
 
-final SuggestOptionsNative Function(core.int, ffi.Pointer<ffi.Void>, core.bool)
+final SuggestOptionsNative Function(
+        core.int, ffi.Pointer<ffi.Void>, core.bool, core.bool)
     _SuggestOptionsNativeInit = lib.library
         .lookup<
             ffi.NativeFunction<
-                SuggestOptionsNative Function(ffi.Int64, ffi.Pointer<ffi.Void>,
+                SuggestOptionsNative Function(
+                    ffi.Int64,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Bool,
                     ffi.Bool)>>('yandex_flutter_search_SuggestOptions_init')
         .asFunction(isLeaf: true);
 
@@ -64,14 +70,16 @@ extension SuggestOptionsImpl on SuggestOptions {
         suggestTypes: SuggestTypeImpl.fromInt(native.suggestTypes),
         userPosition:
             mapkit_geometry_point.PointImpl.fromPointer(native.userPosition),
-        suggestWords: native.suggestWords);
+        suggestWords: native.suggestWords,
+        strictBounds: native.strictBounds);
   }
 
   static SuggestOptionsNative toNative(SuggestOptions obj) {
     return _SuggestOptionsNativeInit(
         SuggestTypeImpl.toInt(obj.suggestTypes),
         mapkit_geometry_point.PointImpl.toPointer(obj.userPosition),
-        obj.suggestWords);
+        obj.suggestWords,
+        obj.strictBounds);
   }
 
   static SuggestOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,

@@ -20,6 +20,8 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/route.dart'
 part 'section_metadata_internal.containers.dart';
 part 'section_metadata_internal.impl.dart';
 
+/// @nodoc
+/// It is not to be used in platform code
 abstract final class SectionMetadataInternal
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SectionMetadataInternal(

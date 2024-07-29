@@ -13,7 +13,7 @@ extension SearchShowtimeContainerExtension on SearchShowtime {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchShowtimeImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchShowtimeImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchShowtimeContainerExtension on SearchShowtime {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchShowtimeImpl.toPointer);
+    return vector.toNativeVector(obj, SearchShowtimeImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -118,7 +118,7 @@ extension SearchShowtimesObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchShowtimesObjectMetadataImpl.toPointer);
+        obj, SearchShowtimesObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -148,7 +148,7 @@ extension SearchShowtimesObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchShowtimesObjectMetadataImpl.toPointer);
+        obj, SearchShowtimesObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

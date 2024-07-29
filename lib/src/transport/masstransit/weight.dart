@@ -14,9 +14,16 @@ import 'package:yandex_maps_mapkit/src/mapkit/localized_value.dart'
 part 'weight.containers.dart';
 part 'weight.impl.dart';
 
+/// Numeric characteristics of a route or a route section.
+
 final class MasstransitWeight {
+  /// Travel time for a route or a route section.
   final mapkit_localized_value.LocalizedValue time;
+
+  /// Distance of the pedestrian part of the route or a route section.
   final mapkit_localized_value.LocalizedValue walkingDistance;
+
+  /// The number of transfers for a route or a route section.
   final core.int transfersCount;
 
   const MasstransitWeight(

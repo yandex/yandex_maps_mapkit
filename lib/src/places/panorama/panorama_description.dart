@@ -34,6 +34,8 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/span.dart'
 part 'panorama_description.containers.dart';
 part 'panorama_description.impl.dart';
 
+/// The image size.
+
 final class PanoramaImageSize {
   final core.int width;
   final core.int height;
@@ -60,11 +62,19 @@ final class PanoramaImageSize {
   }
 }
 
+/// The TileLevel struct.
 abstract final class PanoramaTileLevel implements ffi.Finalizable {
   factory PanoramaTileLevel(core.int level, PanoramaImageSize imageSize) =>
       PanoramaTileLevelImpl(level, imageSize);
 
+  /// level is passed as a parameter to the TileImageFactory or to the
+  /// TileUrlProvider. Each panorama description tile level must have
+  /// unique value.
   core.int get level;
+
+  /// Source image size. The imageSize width must be multiples of the
+  /// tileSize width. The imageSize height must be in range
+  /// \[1..imageSize.width/2\]
   PanoramaImageSize get imageSize;
 
   @core.override
@@ -84,8 +94,13 @@ abstract final class PanoramaTileLevel implements ffi.Finalizable {
   }
 }
 
+/// Position struct
+
 final class PanoramaPosition {
+  /// Longitude and latitude, degrees.
   final mapkit_geometry_point.Point point;
+
+  /// Altitude, meters. Positive is above sea-level
   final core.double altitude;
 
   const PanoramaPosition(
@@ -110,6 +125,7 @@ final class PanoramaPosition {
   }
 }
 
+/// Text marker struct
 abstract final class PanoramaTextMarker implements ffi.Finalizable {
   factory PanoramaTextMarker(
           mapkit_geometry_direction.Direction angularPosition,
@@ -117,8 +133,14 @@ abstract final class PanoramaTextMarker implements ffi.Finalizable {
           core.String fullLabel) =>
       PanoramaTextMarkerImpl(angularPosition, shortLabel, fullLabel);
 
+  /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
+
+  /// The text displayed in short mode. For example, a house name '14b'
   core.String get shortLabel;
+
+  /// The text displayed in full mode. For example, street name + house
+  /// name 'Lesnaya ul. 14b'
   core.String get fullLabel;
 
   @core.override
@@ -141,6 +163,7 @@ abstract final class PanoramaTextMarker implements ffi.Finalizable {
   }
 }
 
+/// Company marker struct
 abstract final class PanoramaCompanyMarker implements ffi.Finalizable {
   factory PanoramaCompanyMarker(
           mapkit_geometry_direction.Direction angularPosition,
@@ -149,9 +172,17 @@ abstract final class PanoramaCompanyMarker implements ffi.Finalizable {
           core.String permalink) =>
       PanoramaCompanyMarkerImpl(angularPosition, label, iconId, permalink);
 
+  /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
+
+  /// Displayed label. For example, a company name 'Sweet market'
   core.String get label;
+
+  /// The company iconId. The iconId is passed as a parameter to the
+  /// IconImageFactory and IconUrlProvider
   core.String get iconId;
+
+  /// Permalink is passed as a parameter to the onCompanyTap method.
   core.String get permalink;
 
   @core.override
@@ -175,13 +206,18 @@ abstract final class PanoramaCompanyMarker implements ffi.Finalizable {
   }
 }
 
+/// Icon marker struct
 abstract final class PanoramaIconMarker implements ffi.Finalizable {
   factory PanoramaIconMarker(
           mapkit_geometry_direction.Direction angularPosition,
           core.String iconId) =>
       PanoramaIconMarkerImpl(angularPosition, iconId);
 
+  /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
+
+  /// The marker iconId. The iconId is passed as a parameter to the
+  /// IconImageFactory and IconUrlProvider
   core.String get iconId;
 
   @core.override
@@ -208,8 +244,15 @@ abstract final class PanoramaIconConnection implements ffi.Finalizable {
           core.String panoramaId) =>
       PanoramaIconConnectionImpl(angularPosition, iconId, panoramaId);
 
+  /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
+
+  /// The connection iconId. The iconId is passed as a parameter to the
+  /// IconImageFactory and IconUrlProvider once iconId is visible
   core.String get iconId;
+
+  /// panoramaId is passed as a parameter to the onPanoramaChangeIntent
+  /// method.
   core.String get panoramaId;
 
   @core.override
@@ -241,9 +284,17 @@ abstract final class PanoramaArrowConnection implements ffi.Finalizable {
       PanoramaArrowConnectionImpl(
           angularPosition, label, arrowStyle, panoramaId);
 
+  /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
+
+  /// label is shown near the arrow
   core.String get label;
+
+  /// Arrow style.
   PanoramaArrowConnectionStyle get arrowStyle;
+
+  /// panoramaId is passed as a parameter to the onPanoramaChangeIntent
+  /// method.
   core.String get panoramaId;
 
   @core.override
@@ -279,6 +330,9 @@ enum PanoramaArrowConnectionStyle {
   Entry,
   ;
 }
+
+/// Angular bbox. Direction + span will be limited between top and bottom
+/// It's recommended to have (right - left) = 360.
 
 final class PanoramaAngularBoundingBox {
   final core.double left;
@@ -343,18 +397,71 @@ abstract final class PanoramaDescription implements ffi.Finalizable {
           span,
           attribution);
 
+  /// panoramaId is passed as a parameter to the TileImageFactory or to the
+  /// TileUrlProvider
   core.String get panoramaId;
+
+  /// Geo position.
+  ///
   PanoramaPosition? get position;
+
+  /// The angularBBox field sets how the tile tilelevels oriented in space.
+  /// Direction + span will be limited between top and bottom The
+  /// recommendation for initializing angular bbox: (right - left) == 360.
+  /// Non 360 degrees panoramas are not supported yet. (top - bottom) <=
+  /// 180 The angular aspect ratio must be the same as any tileLevel aspect
+  /// ratio. (right - left)/(top - bottom) ==
+  /// tileLevel\[i\].width/tileLevel\[i\].height
   PanoramaAngularBoundingBox get angularBBox;
+
+  /// Any tile level imageSize width must be multiple of the tileSize
+  /// width. Only 256x256 and 512x512 tiles are supported.
   PanoramaImageSize get tileSize;
+
+  /// The tileLevels is a set of the TileLevel structs. Tile levels can be
+  /// added in any order. It's recommended to have at least 2 tile levels:
+  /// - low quality zoom. For example 512x200 - high quality zoom. For
+  /// axample 20480x8000
+  ///
+  /// It can be useful to have several tile levels for huge images to save
+  /// network traffic and reduce memory and power consumption. So the final
+  /// tile levels list may look like that: level, width, height 0, 512, 200
+  /// 1, 2048, 800 2, 5120, 2000 6, 10240, 4000 9, 20480, 8000
+  ///
+  /// Player takes into account the view area size and available tile
+  /// levels and downloads the most suitable level.
+  ///
+  /// The tileLevels\[i\] aspect ratio must be the same. At first low
+  /// quality zoom is loaded. Once it's done, the panorama player notifies
+  /// that the panorama is opened and starts loading high quality zoom
+  /// tiles.
   core.List<PanoramaTileLevel> get tileLevels;
+
+  /// Add marker icons to the panorama
   core.List<PanoramaIconMarker> get iconMarkers;
+
+  /// Add marker text to the panorama
   core.List<PanoramaTextMarker> get textMarkers;
+
+  /// Add company icons and labels to the panorama
   core.List<PanoramaCompanyMarker> get companyMarkers;
+
+  /// Add icons with interaction
   core.List<PanoramaIconConnection> get iconConnections;
+
+  /// Add standard player arrow connections
   core.List<PanoramaArrowConnection> get arrowConnections;
+
+  /// Suggest where to look at once panorama is opened. It's just a
+  /// recommendation because it depends on angularBBox and span.
   mapkit_geometry_direction.Direction get direction;
+
+  /// Suggest view area span. It's just a recommendation because it depends
+  /// on angularBBox and direction.
   mapkit_geometry_span.Span get span;
+
+  /// Panorama author information.
+  ///
   mapkit_attribution.Attribution? get attribution;
 
   @core.override

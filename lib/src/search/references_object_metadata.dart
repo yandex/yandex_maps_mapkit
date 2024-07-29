@@ -22,11 +22,15 @@ import 'package:yandex_maps_mapkit/src/mapkit/base_metadata.dart'
 part 'references_object_metadata.containers.dart';
 part 'references_object_metadata.impl.dart';
 
+/// The type of reference.
 abstract final class SearchReferenceType implements ffi.Finalizable {
   factory SearchReferenceType(core.String id, core.String scope) =>
       SearchReferenceTypeImpl(id, scope);
 
+  /// Reference ID.
   core.String get id;
+
+  /// Reference scope.
   core.String get scope;
 
   @core.override
@@ -46,12 +50,14 @@ abstract final class SearchReferenceType implements ffi.Finalizable {
   }
 }
 
+/// Reference metadata information.
 abstract final class SearchReferencesObjectMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchReferencesObjectMetadata(
           core.List<SearchReferenceType> references) =>
       SearchReferencesObjectMetadataImpl(references);
 
+  /// The  list of references.
   core.List<SearchReferenceType> get references;
 
   @core.override

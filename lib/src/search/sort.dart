@@ -40,8 +40,14 @@ enum SearchSortOrigin {
   ;
 }
 
+/// Describes response sort.
+
 final class SearchSort {
+  /// Sorting type.
   final SearchSortType type;
+
+  /// Sort origin (if results are ordered by distance).
+  ///
   final SearchSortOrigin? origin;
 
   const SearchSort(

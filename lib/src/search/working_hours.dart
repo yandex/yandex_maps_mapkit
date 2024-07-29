@@ -20,14 +20,26 @@ import 'package:yandex_maps_mapkit/src/search/availability.dart'
 part 'working_hours.containers.dart';
 part 'working_hours.impl.dart';
 
+/// Describes if an organization is open or closed now.
 abstract final class SearchState implements ffi.Finalizable {
   factory SearchState(core.bool? isOpenNow, core.String? text,
           core.String? shortText, core.List<core.String> tags) =>
       SearchStateImpl(isOpenNow, text, shortText, tags);
 
+  /// Is open right now.
+  ///
   core.bool? get isOpenNow;
+
+  /// Human-readable localized description of current state.
+  ///
   core.String? get text;
+
+  /// Human-readable short localized description of current state.
+  ///
   core.String? get shortText;
+
+  /// One of the following 3 tags: 'break', 'opening_soon', 'closing_soon'.
+  /// Additional tag values may be added eventually.
   core.List<core.String> get tags;
 
   @core.override
@@ -51,6 +63,7 @@ abstract final class SearchState implements ffi.Finalizable {
   }
 }
 
+/// Open hours for an organization.
 abstract final class SearchWorkingHours implements ffi.Finalizable {
   factory SearchWorkingHours(
           core.String text,
@@ -58,8 +71,14 @@ abstract final class SearchWorkingHours implements ffi.Finalizable {
           SearchState? state) =>
       SearchWorkingHoursImpl(text, availabilities, state);
 
+  /// Human-readable localized open hours description.
   core.String get text;
+
+  /// Structured open hours information.
   core.List<search_availability.SearchAvailability> get availabilities;
+
+  /// Current company working status
+  ///
   SearchState? get state;
 
   @core.override

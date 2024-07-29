@@ -18,8 +18,13 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'localized_value.containers.dart';
 part 'localized_value.impl.dart';
 
+/// A value respecting the device locale.
+
 final class LocalizedValue {
+  /// Value in SI units for distance, speed and duration.
   final core.double value;
+
+  /// Localized text. For example: "15 ft" or "42 km".
   final core.String text;
 
   const LocalizedValue({

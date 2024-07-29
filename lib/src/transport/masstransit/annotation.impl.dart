@@ -138,7 +138,7 @@ extension MasstransitToponymImpl on MasstransitToponym {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitAnnotationImpl.toPointer',
+    toNative: 'MasstransitAnnotationImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitAnnotationImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitAnnotation')
@@ -200,26 +200,7 @@ final class MasstransitAnnotationImpl implements MasstransitAnnotation {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitAnnotation? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _MasstransitAnnotation_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _MasstransitAnnotation_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_masstransit_MasstransitAnnotation_clone')
-        .asFunction(isLeaf: true);
 
 final _MasstransitAnnotation_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

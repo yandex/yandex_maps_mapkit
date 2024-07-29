@@ -22,14 +22,44 @@ import 'package:yandex_maps_mapkit/src/search/filter_collection.dart'
 part 'search_options.containers.dart';
 part 'search_options.impl.dart';
 
+/// Struct to fine-tune search request.
+
 final class SearchOptions {
+  /// The search type can be one of the [search_data_types.SearchType]
+  /// values or their bitwise 'OR' combination. If searchType is not
+  /// initialized, it means to search in all the sources.
   final search_data_types.SearchType searchTypes;
+
+  /// Maximum number of search results per page.
+  ///
   final core.int? resultPageSize;
+
+  /// Snippets that will be requested. The value should be one of
+  /// [search_data_types.SearchSnippet], or their bitwise 'OR' combination.
   final search_data_types.SearchSnippet snippets;
+
+  /// The server uses the user position to calculate the distance from the
+  /// user to search results.
+  ///
   final mapkit_geometry_point.Point? userPosition;
+
+  /// String that sets an identifier for the request source.
+  ///
   final core.String? origin;
+
+  /// Adds the geometry to the server response.
   final core.bool geometry;
+
+  /// Force disable correction of spelling mistakes.
   final core.bool disableSpellingCorrection;
+
+  /// Filter set that will be requested. Please note that the full set of
+  /// filters that can be applied can only be obtained after the primary
+  /// request. If you pass an invalid filter to the primary request (for
+  /// example, "pharmacy with swimming pool"), the behavior is undefined.
+  /// That is the search can either ignore an invalid filter or return an
+  /// empty response.
+  ///
   final search_filter_collection.SearchFilterCollection? filters;
 
   const SearchOptions({

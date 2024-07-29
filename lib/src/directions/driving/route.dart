@@ -79,8 +79,13 @@ import 'package:yandex_maps_mapkit/src/mapkit/road_events/event_tag.dart'
 part 'route.containers.dart';
 part 'route.impl.dart';
 
+/// Route summary.
+
 final class DrivingSummary {
+  /// Route "weight".
   final directions_driving_weight.DrivingWeight weight;
+
+  /// Overall route characteristics.
   final directions_driving_flags.DrivingFlags flags;
 
   const DrivingSummary(this.weight, this.flags);
@@ -102,6 +107,7 @@ final class DrivingSummary {
   }
 }
 
+/// Information about section metadata.
 abstract final class DrivingSectionMetadata implements ffi.Finalizable {
   factory DrivingSectionMetadata(
           core.int legIndex,
@@ -111,9 +117,18 @@ abstract final class DrivingSectionMetadata implements ffi.Finalizable {
       DrivingSectionMetadataImpl(
           legIndex, weight, annotation, viaPointPositions);
 
+  /// A leg is a section of the route between two consecutive waypoints.
   core.int get legIndex;
+
+  /// The "weight" of the section.
   directions_driving_weight.DrivingWeight get weight;
+
+  /// Section annotation.
   directions_driving_annotation.DrivingAnnotation get annotation;
+
+  /// Via points (throughpoints) can appear only at nodes of the section's
+  /// geometry. The vector contains the positions of all corresponding
+  /// nodes. These positions should be listed in ascending order.
   core.List<core.int> get viaPointPositions;
 
   @core.override
@@ -137,12 +152,17 @@ abstract final class DrivingSectionMetadata implements ffi.Finalizable {
   }
 }
 
+/// Route point metadata (exists for both waypoints and via points).
 abstract final class DrivingRoutePoint implements ffi.Finalizable {
   factory DrivingRoutePoint(mapkit_geometry_point.Point position,
           mapkit_geometry_point.Point? selectedArrivalPoint) =>
       DrivingRoutePointImpl(position, selectedArrivalPoint);
 
+  /// Position of original route point.
   mapkit_geometry_point.Point get position;
+
+  /// Arrival point selected for routing.
+  ///
   mapkit_geometry_point.Point? get selectedArrivalPoint;
 
   @core.override
@@ -164,6 +184,7 @@ abstract final class DrivingRoutePoint implements ffi.Finalizable {
   }
 }
 
+/// Information about driving route metadata.
 abstract final class DrivingRouteMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory DrivingRouteMetadata(
@@ -173,9 +194,18 @@ abstract final class DrivingRouteMetadata
           core.String? uri) =>
       DrivingRouteMetadataImpl(weight, flags, routePoints, uri);
 
+  /// Route "weight".
   directions_driving_weight.DrivingWeight get weight;
+
+  /// Overall route characteristics.
   directions_driving_flags.DrivingFlags get flags;
+
+  /// Route points. In addition to point coordinates each route point may
+  /// have a selected arrival point
   core.List<DrivingRoutePoint> get routePoints;
+
+  /// Route URI
+  ///
   core.String? get uri;
 
   @core.override
@@ -202,12 +232,16 @@ abstract final class DrivingRouteMetadata
       const _DrivingRouteMetadataFactory();
 }
 
+/// Route section.
 abstract final class DrivingSection implements ffi.Finalizable {
   factory DrivingSection(DrivingSectionMetadata metadata,
           mapkit_geometry_geometry.Subpolyline geometry) =>
       DrivingSectionImpl(metadata, geometry);
 
+  /// Metadata information for the route section.
   DrivingSectionMetadata get metadata;
+
+  /// A polyline of the route section.
   mapkit_geometry_geometry.Subpolyline get geometry;
 
   @core.override
@@ -236,6 +270,7 @@ abstract class DrivingConditionsListener {
   void onConditionsOutdated();
 }
 
+/// Road event.
 abstract final class DrivingEvent implements ffi.Finalizable {
   factory DrivingEvent(
           mapkit_geometry_geometry.PolylinePosition polylinePosition,
@@ -247,11 +282,24 @@ abstract final class DrivingEvent implements ffi.Finalizable {
       DrivingEventImpl(polylinePosition, eventId, descriptionText, tags,
           location, speedLimit);
 
+  /// The position of the polyline.
   mapkit_geometry_geometry.PolylinePosition get polylinePosition;
+
+  /// The unique ID of the event.
   core.String get eventId;
+
+  /// The description of the event.
+  ///
   core.String? get descriptionText;
+
+  /// The types of the road event.
   core.List<mapkit_road_events_event_tag.RoadEventsEventTag> get tags;
+
+  /// The location of the road event.
   mapkit_geometry_point.Point get location;
+
+  /// The speed limit on the road.
+  ///
   core.double? get speedLimit;
 
   @core.override

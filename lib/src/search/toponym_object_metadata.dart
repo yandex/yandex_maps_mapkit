@@ -27,6 +27,7 @@ import 'package:yandex_maps_mapkit/src/search/precision.dart'
 part 'toponym_object_metadata.containers.dart';
 part 'toponym_object_metadata.impl.dart';
 
+/// Additional data for toponym objects.
 abstract final class SearchToponymObjectMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchToponymObjectMetadata(
@@ -38,10 +39,24 @@ abstract final class SearchToponymObjectMetadata
       SearchToponymObjectMetadataImpl(
           address, precision, formerName, balloonPoint, id);
 
+  /// Structured toponym address
   search_address.SearchAddress get address;
+
+  /// Toponym precision.
+  ///
   search_precision.SearchPrecision? get precision;
+
+  /// Former name for toponym if any.
+  ///
   core.String? get formerName;
+
+  /// Point where balloon for the toponym should be shown. Differs for
+  /// direct and reverse search modes: Direct mode -- toponym center.
+  /// Reverse mode -- toponym nearest point to the given coordinates.
   mapkit_geometry_point.Point get balloonPoint;
+
+  /// Persistent toponym id (available for Yandex-owned regions).
+  ///
   core.String? get id;
 
   @core.override

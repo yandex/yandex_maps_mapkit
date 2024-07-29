@@ -17,14 +17,37 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 import 'package:yandex_maps_mapkit/src/mapkit/time.dart' as mapkit_time;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
     as transport_masstransit_common;
+import 'package:yandex_maps_mapkit/src/transport/masstransit/route.dart'
+    as transport_masstransit_route;
 
 part 'transport.containers.dart';
 part 'transport.impl.dart';
 
+/// TransportThreadAlert are important annotations for mass transit ride
+/// sections of routes.
+
 final class MasstransitTransportThreadAlert {
+  /// Standard alert text. Simple clients could use this text to get a
+  /// pre-formatted message. If the client is unable to recognize the known
+  /// structured alert, it should use the text field instead.
   final core.String text;
+
+  /// The value is set if the thread is not operational on that day. Only
+  /// one of the values close, closedUntil and lastTrip is set for an
+  /// alert.
+  ///
   final MasstransitTransportThreadAlertClosed? closed;
+
+  /// The value is set if the thread is not operational until the specified
+  /// time. Only one of the values close, closedUntil and lastTrip is set
+  /// for an alert.
+  ///
   final MasstransitTransportThreadAlertClosedUntil? closedUntil;
+
+  /// The value is set if this trip is the last trip for the thread. Only
+  /// one of the values close, closedUntil and lastTrip is set for an
+  /// alert.
+  ///
   final MasstransitTransportThreadAlertLastTrip? lastTrip;
 
   const MasstransitTransportThreadAlert({
@@ -55,7 +78,11 @@ final class MasstransitTransportThreadAlert {
   }
 }
 
+/// Thread is not operational on that day.
+
 final class MasstransitTransportThreadAlertClosed {
+  /// Dummy field which is used here because IDL does not support structs
+  /// without fields.
   final core.bool dummy;
 
   const MasstransitTransportThreadAlertClosed({
@@ -79,7 +106,10 @@ final class MasstransitTransportThreadAlertClosed {
   }
 }
 
+/// Thread is not operational until specified time.
+
 final class MasstransitTransportThreadAlertClosedUntil {
+  /// Time of the next trip.
   final mapkit_time.Time time;
 
   const MasstransitTransportThreadAlertClosedUntil(this.time);
@@ -102,7 +132,11 @@ final class MasstransitTransportThreadAlertClosedUntil {
   }
 }
 
+/// Last trip for the thread. Allows to get the time it takes to get to
+/// the end of the route.
+
 final class MasstransitTransportThreadAlertLastTrip {
+  /// Time required to finish the trip.
   final mapkit_time.Time time;
 
   const MasstransitTransportThreadAlertLastTrip(this.time);
@@ -125,11 +159,13 @@ final class MasstransitTransportThreadAlertLastTrip {
   }
 }
 
+/// Contains information about underground boarding recommendations.
 abstract final class MasstransitBoardingOptions implements ffi.Finalizable {
   factory MasstransitBoardingOptions(
           core.List<MasstransitBoardingOptionsBoardingArea> area) =>
       MasstransitBoardingOptionsImpl(area);
 
+  /// Vector of recommended areas to board.
   core.List<MasstransitBoardingOptionsBoardingArea> get area;
 
   @core.override
@@ -149,11 +185,14 @@ abstract final class MasstransitBoardingOptions implements ffi.Finalizable {
   }
 }
 
+/// Area recommended for boarding: wagon, sector, etc.
 abstract final class MasstransitBoardingOptionsBoardingArea
     implements ffi.Finalizable {
   factory MasstransitBoardingOptionsBoardingArea(core.String? id) =>
       MasstransitBoardingOptionsBoardingAreaImpl(id);
 
+  /// Machine-readable non-localisable boarding area identifier.
+  ///
   core.String? get id;
 
   @core.override
@@ -174,6 +213,9 @@ abstract final class MasstransitBoardingOptionsBoardingArea
   }
 }
 
+/// Contains information about the mass transit ride section of a
+/// [transport_masstransit_route.MasstransitRoute] for a specific mass
+/// transit [transport_masstransit_common.MasstransitLine].
 abstract final class MasstransitTransport implements ffi.Finalizable {
   factory MasstransitTransport(
           transport_masstransit_common.MasstransitLine line,
@@ -182,8 +224,15 @@ abstract final class MasstransitTransport implements ffi.Finalizable {
               transportContours) =>
       MasstransitTransportImpl(line, transports, transportContours);
 
+  /// Mass transit line.
   transport_masstransit_common.MasstransitLine get line;
+
+  /// Collection of mass transit threads of the specified line suitable for
+  /// the constructed route.
   core.List<MasstransitTransportTransportThread> get transports;
+
+  /// Describes [transport_masstransit_common.MasstransitTransportContour]
+  /// in borders of which this block is located
   core.List<transport_masstransit_common.MasstransitTransportContour>
       get transportContours;
 
@@ -207,6 +256,9 @@ abstract final class MasstransitTransport implements ffi.Finalizable {
   }
 }
 
+/// [transport_masstransit_common.MasstransitThread] specific properties
+/// of a mass transit ride section of a
+/// [transport_masstransit_route.MasstransitRoute].
 abstract final class MasstransitTransportTransportThread
     implements ffi.Finalizable {
   factory MasstransitTransportTransportThread(
@@ -218,10 +270,24 @@ abstract final class MasstransitTransportTransportThread
       MasstransitTransportTransportThreadImpl(thread, isRecommended, alerts,
           alternateDepartureStop, boardingOptions);
 
+  /// Mass transit thread.
   transport_masstransit_common.MasstransitThread get thread;
+
+  /// Indicates that the mass transit router considers this thread the best
+  /// one for the current section of the constucted route.
   core.bool get isRecommended;
+
+  /// Collection of important annotations for the section.
   core.List<MasstransitTransportThreadAlert> get alerts;
+
+  /// If alternateDepartureStop is specified, it specifies the departure
+  /// location for this particular Thread instead of the first Stop of the
+  /// Section.
+  ///
   transport_masstransit_common.MasstransitStop? get alternateDepartureStop;
+
+  /// Recommended underground boarding options for this section.
+  ///
   MasstransitBoardingOptions? get boardingOptions;
 
   @core.override

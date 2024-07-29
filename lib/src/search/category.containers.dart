@@ -13,7 +13,7 @@ extension SearchCategoryContainerExtension on SearchCategory {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchCategoryImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchCategoryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchCategoryContainerExtension on SearchCategory {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchCategoryImpl.toPointer);
+    return vector.toNativeVector(obj, SearchCategoryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

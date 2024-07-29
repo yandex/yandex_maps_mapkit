@@ -20,6 +20,8 @@ abstract class Directions implements ffi.Finalizable {
   /// Creates a manager that builds driving routes.
   directions_driving_driving_router.DrivingRouter createDrivingRouter(
       directions_driving_driving_router.DrivingRouterType type);
+
+  core.bool isValid();
 }
 
 class DirectionsFactory {

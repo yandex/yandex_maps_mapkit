@@ -1,7 +1,7 @@
 part of 'summary.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitSummaryImpl.toPointer',
+    toNative: 'MasstransitSummaryImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitSummaryImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitSummary')
@@ -62,26 +62,7 @@ final class MasstransitSummaryImpl implements MasstransitSummary {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitSummary? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _MasstransitSummary_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _MasstransitSummary_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_masstransit_MasstransitSummary_clone')
-        .asFunction(isLeaf: true);
 
 final _MasstransitSummary_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

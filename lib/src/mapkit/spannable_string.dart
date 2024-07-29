@@ -18,12 +18,16 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'spannable_string.containers.dart';
 part 'spannable_string.impl.dart';
 
+/// A string that supports spans in it.
 abstract final class SpannableString implements ffi.Finalizable {
   factory SpannableString(
           core.String text, core.List<SpannableStringSpan> spans) =>
       SpannableStringImpl(text, spans);
 
+  /// The text of the spannable string.
   core.String get text;
+
+  /// The spans in stored text.
   core.List<SpannableStringSpan> get spans;
 
   @core.override
@@ -43,8 +47,13 @@ abstract final class SpannableString implements ffi.Finalizable {
   }
 }
 
+/// A span of text in the SpannableString.
+
 final class SpannableStringSpan {
+  /// The index of the beginning symbol of the span.
   final core.int begin;
+
+  /// The index of the ending symbol of the span.
   final core.int end;
 
   const SpannableStringSpan({

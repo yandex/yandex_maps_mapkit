@@ -492,6 +492,7 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
     return (obj as PanoramaPlayerImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _PanoramaPlayer_check(ptr);
   }
@@ -1042,3 +1043,10 @@ final void Function(ffi.Pointer<ffi.Void>) _Player_onMemoryWarning = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_places_panorama_PanoramaPlayer_onMemoryWarning')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _PanoramaPlayer_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_places_panorama_PanoramaPlayer_set_')
+    .asFunction(isLeaf: true);

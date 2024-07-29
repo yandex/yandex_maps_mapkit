@@ -13,7 +13,7 @@ extension BicycleSummaryContainerExtension on BicycleSummary {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleSummaryImpl.toPointer);
+    return string_map.toNativeMap(obj, BicycleSummaryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension BicycleSummaryContainerExtension on BicycleSummary {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleSummaryImpl.toPointer);
+    return vector.toNativeVector(obj, BicycleSummaryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

@@ -17,4 +17,6 @@ part 'error.impl.dart';
 
 /// No cache available for offline search for the given request.
 abstract class SearchCacheUnavailableError
-    implements runtime_error.Error, ffi.Finalizable {}
+    implements runtime_error.Error, ffi.Finalizable {
+  core.bool isValid();
+}

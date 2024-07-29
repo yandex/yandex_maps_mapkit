@@ -13,7 +13,7 @@ extension BicycleLegContainerExtension on BicycleLeg {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleLegImpl.toPointer);
+    return string_map.toNativeMap(obj, BicycleLegImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension BicycleLegContainerExtension on BicycleLeg {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleLegImpl.toPointer);
+    return vector.toNativeVector(obj, BicycleLegImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

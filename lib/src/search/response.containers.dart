@@ -13,7 +13,7 @@ extension SearchResponseContainerExtension on SearchResponse {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchResponseImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchResponseImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchResponseContainerExtension on SearchResponse {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchResponseImpl.toPointer);
+    return vector.toNativeVector(obj, SearchResponseImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

@@ -16,4 +16,6 @@ part 'object_event.impl.dart';
 
 /// Base abstract class for an object event. Layers that produce object
 /// event callbacks need to provide derived event classes.
-abstract class ObjectEvent implements ffi.Finalizable {}
+abstract class ObjectEvent implements ffi.Finalizable {
+  core.bool isValid();
+}

@@ -13,7 +13,7 @@ extension DrivingDirectionSignContainerExtension on DrivingDirectionSign {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingDirectionSignImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingDirectionSignImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension DrivingDirectionSignContainerExtension on DrivingDirectionSign {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingDirectionSignImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingDirectionSignImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

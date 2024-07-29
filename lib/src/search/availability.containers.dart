@@ -13,7 +13,7 @@ extension SearchAvailabilityContainerExtension on SearchAvailability {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchAvailabilityImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchAvailabilityImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SearchAvailabilityContainerExtension on SearchAvailability {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchAvailabilityImpl.toPointer);
+    return vector.toNativeVector(obj, SearchAvailabilityImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

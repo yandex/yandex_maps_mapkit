@@ -13,7 +13,7 @@ extension BicycleViaPointContainerExtension on BicycleViaPoint {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleViaPointImpl.toPointer);
+    return string_map.toNativeMap(obj, BicycleViaPointImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension BicycleViaPointContainerExtension on BicycleViaPoint {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleViaPointImpl.toPointer);
+    return vector.toNativeVector(obj, BicycleViaPointImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -117,7 +117,7 @@ extension BicycleWayPointContainerExtension on BicycleWayPoint {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, BicycleWayPointImpl.toPointer);
+    return string_map.toNativeMap(obj, BicycleWayPointImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +144,7 @@ extension BicycleWayPointContainerExtension on BicycleWayPoint {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, BicycleWayPointImpl.toPointer);
+    return vector.toNativeVector(obj, BicycleWayPointImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

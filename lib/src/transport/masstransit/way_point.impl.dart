@@ -1,7 +1,7 @@
 part of 'way_point.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitWayPointImpl.toPointer',
+    toNative: 'MasstransitWayPointImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitWayPointImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitWayPoint')
@@ -63,26 +63,7 @@ final class MasstransitWayPointImpl implements MasstransitWayPoint {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitWayPoint? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _MasstransitWayPoint_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _MasstransitWayPoint_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_masstransit_MasstransitWayPoint_clone')
-        .asFunction(isLeaf: true);
 
 final _MasstransitWayPoint_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

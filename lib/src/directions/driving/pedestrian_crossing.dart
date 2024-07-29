@@ -14,7 +14,10 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
 part 'pedestrian_crossing.containers.dart';
 part 'pedestrian_crossing.impl.dart';
 
+/// A pedestrian crossing object.
+
 final class DrivingPedestrianCrossing {
+  /// The position of pedestrian crossing.
   final mapkit_geometry_geometry.PolylinePosition position;
 
   const DrivingPedestrianCrossing(this.position);

@@ -33,6 +33,7 @@ class MrcPhotoPlayerImpl implements MrcPhotoPlayer, ffi.Finalizable {
     return (obj as MrcPhotoPlayerImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _MrcPhotoPlayer_check(ptr);
   }
@@ -104,3 +105,10 @@ final core.bool Function(ffi.Pointer<ffi.Void>) _MrcPhotoPlayer_moveEnabled =
         .lookup<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_places_mrc_MrcPhotoPlayer_moveEnabled')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _MrcPhotoPlayer_set = lib
+    .library
+    .lookup<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>,
+                ffi.Int64)>>('yandex_flutter_places_mrc_MrcPhotoPlayer_set_')
+    .asFunction(isLeaf: true);

@@ -29,6 +29,8 @@ abstract class Search implements ffi.Finalizable {
   /// objects using a variety of parameters.
   search_search_manager.SearchManager createSearchManager(
       search_search_manager.SearchManagerType searchManagerType);
+
+  core.bool isValid();
 }
 
 class SearchFactory {

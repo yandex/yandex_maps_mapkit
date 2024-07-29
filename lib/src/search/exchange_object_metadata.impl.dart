@@ -1,7 +1,7 @@
 part of 'exchange_object_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchCurrencyExchangeTypeImpl.toPointer',
+    toNative: 'SearchCurrencyExchangeTypeImpl.getNativePtr',
     toPlatform:
         '(val) => SearchCurrencyExchangeTypeImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchCurrencyExchangeType')
@@ -57,26 +57,7 @@ final class SearchCurrencyExchangeTypeImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchCurrencyExchangeType? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchCurrencyExchangeType_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchCurrencyExchangeType_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchCurrencyExchangeType_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchCurrencyExchangeType_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -115,7 +96,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchCurrencyExchangeMetadataImpl.toPointer',
+    toNative: 'SearchCurrencyExchangeMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchCurrencyExchangeMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchCurrencyExchangeMetadata')
@@ -170,17 +151,6 @@ final class SearchCurrencyExchangeMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchCurrencyExchangeMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchCurrencyExchangeMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchCurrencyExchangeMetadataFactory
@@ -230,14 +200,6 @@ final native_types.NativeString Function()
     _SearchCurrencyExchangeMetadata_name = lib.library
         .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
             'yandex_flutter_search_SearchCurrencyExchangeMetadata_name')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchCurrencyExchangeMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchCurrencyExchangeMetadata_clone')
         .asFunction(isLeaf: true);
 
 final _SearchCurrencyExchangeMetadata_free = lib.library

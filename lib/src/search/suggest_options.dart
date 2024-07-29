@@ -58,20 +58,38 @@ final class SuggestType {
   }
 }
 
+/// Struct to fine-tune suggest request.
+
 final class SuggestOptions {
+  /// The suggest type can be one of [SuggestType] values or their bitwise
+  /// 'OR' combination. If suggestType is not initialized, it means to use
+  /// server-defined types.
   final SuggestType suggestTypes;
+
+  /// The server uses the user position to calculate the distance from the
+  /// user to suggest results.
+  ///
   final mapkit_geometry_point.Point? userPosition;
+
+  /// Enable word-by-word suggestion items.
   final core.bool suggestWords;
+
+  /// Strictly limit the output and keep only objects that fall within the
+  /// window. The window is advisory in nature and doesn't impose strict
+  /// restrictions on search results, helping to select the most relevant
+  /// hints.
+  final core.bool strictBounds;
 
   const SuggestOptions({
     this.suggestTypes = SuggestType.Unspecified,
     this.userPosition,
     this.suggestWords = false,
+    this.strictBounds = false,
   });
 
   @core.override
-  core.int get hashCode =>
-      core.Object.hashAll([suggestTypes, userPosition, suggestWords]);
+  core.int get hashCode => core.Object.hashAll(
+      [suggestTypes, userPosition, suggestWords, strictBounds]);
 
   @core.override
   core.bool operator ==(covariant SuggestOptions other) {
@@ -80,11 +98,12 @@ final class SuggestOptions {
     }
     return suggestTypes == other.suggestTypes &&
         userPosition == other.userPosition &&
-        suggestWords == other.suggestWords;
+        suggestWords == other.suggestWords &&
+        strictBounds == other.strictBounds;
   }
 
   @core.override
   core.String toString() {
-    return "SuggestOptions(suggestTypes: $suggestTypes, userPosition: $userPosition, suggestWords: $suggestWords)";
+    return "SuggestOptions(suggestTypes: $suggestTypes, userPosition: $userPosition, suggestWords: $suggestWords, strictBounds: $strictBounds)";
   }
 }

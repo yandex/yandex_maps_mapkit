@@ -39,7 +39,7 @@ extension SearchClosedImpl on SearchClosed {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchPropertiesImpl.toPointer',
+    toNative: 'SearchPropertiesImpl.getNativePtr',
     toPlatform:
         '(val) => SearchPropertiesImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchProperties')
@@ -81,26 +81,7 @@ final class SearchPropertiesImpl implements SearchProperties {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchProperties? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchProperties_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchProperties_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchProperties_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchProperties_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -180,7 +161,7 @@ extension SearchPropertiesItemImpl on SearchPropertiesItem {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessObjectMetadataImpl.toPointer',
+    toNative: 'SearchBusinessObjectMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchBusinessObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessObjectMetadata')
@@ -333,17 +314,6 @@ final class SearchBusinessObjectMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessObjectMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchBusinessObjectMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchBusinessObjectMetadataFactory
@@ -393,14 +363,6 @@ final native_types.NativeString Function() _SearchBusinessObjectMetadata_name =
     lib.library
         .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
             'yandex_flutter_search_SearchBusinessObjectMetadata_name')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessObjectMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessObjectMetadata_clone')
         .asFunction(isLeaf: true);
 
 final _SearchBusinessObjectMetadata_free = lib.library

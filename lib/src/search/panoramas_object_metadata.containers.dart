@@ -15,7 +15,7 @@ extension SearchPanoramasObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchPanoramasObjectMetadataImpl.toPointer);
+        obj, SearchPanoramasObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -45,7 +45,7 @@ extension SearchPanoramasObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchPanoramasObjectMetadataImpl.toPointer);
+        obj, SearchPanoramasObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

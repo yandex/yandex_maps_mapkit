@@ -14,7 +14,8 @@ extension RoadEventsLayerTextStyleContainerExtension
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, RoadEventsLayerTextStyleImpl.toPointer);
+    return string_map.toNativeMap(
+        obj, RoadEventsLayerTextStyleImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -42,7 +43,8 @@ extension RoadEventsLayerTextStyleContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RoadEventsLayerTextStyleImpl.toPointer);
+    return vector.toNativeVector(
+        obj, RoadEventsLayerTextStyleImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

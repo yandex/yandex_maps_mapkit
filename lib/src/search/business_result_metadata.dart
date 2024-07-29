@@ -20,6 +20,7 @@ import 'package:yandex_maps_mapkit/src/search/chain.dart' as search_chain;
 part 'business_result_metadata.containers.dart';
 part 'business_result_metadata.impl.dart';
 
+/// Common info for business search response.
 abstract final class SearchBusinessResultMetadata implements ffi.Finalizable {
   factory SearchBusinessResultMetadata(
           core.List<search_category.SearchCategory> categories,
@@ -31,10 +32,26 @@ abstract final class SearchBusinessResultMetadata implements ffi.Finalizable {
       SearchBusinessResultMetadataImpl(categories, chains, businessFilters,
           importantFilters, pricesCurrencies);
 
+  /// List of categories (also known as rubrics) present in response.
+  /// Non-empty list means that the request was treated as a 'category
+  /// request' by the server (for example requests like "where to eat",
+  /// "cinema", and other).
   core.List<search_category.SearchCategory> get categories;
+
+  /// List of chains present in response. Non-empty list means that the
+  /// request was treaded as 'chain request' (for example "mcdonalds",
+  /// "starbucks", and other).
   core.List<search_chain.SearchChain> get chains;
+
+  /// List of applicable filters.
   core.List<search_business_filter.SearchBusinessFilter> get businessFilters;
+
+  /// Collection of filters that probably are of utmost interest to the
+  /// user.
+  ///
   search_business_filter.SearchFilterSet? get importantFilters;
+
+  /// Relevant currency for the prices
   core.List<core.String> get pricesCurrencies;
 
   @core.override

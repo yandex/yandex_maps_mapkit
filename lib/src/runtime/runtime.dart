@@ -11,7 +11,7 @@ import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
 
 part 'runtime.impl.dart';
 
-///
+/// @nodoc
 class Runtime {
   Runtime._();
 

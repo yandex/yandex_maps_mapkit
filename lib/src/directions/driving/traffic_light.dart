@@ -14,7 +14,10 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
 part 'traffic_light.containers.dart';
 part 'traffic_light.impl.dart';
 
+/// A traffic light object.
+
 final class DrivingTrafficLight {
+  /// The position of the traffic light.
   final mapkit_geometry_geometry.PolylinePosition position;
 
   const DrivingTrafficLight(this.position);

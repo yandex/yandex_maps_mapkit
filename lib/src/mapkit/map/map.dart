@@ -46,6 +46,8 @@ import 'package:yandex_maps_mapkit/src/mapkit/map/input_listener.dart'
     as mapkit_map_input_listener;
 import 'package:yandex_maps_mapkit/src/mapkit/map/map_loaded_listener.dart'
     as mapkit_map_map_loaded_listener;
+import 'package:yandex_maps_mapkit/src/mapkit/map/map_mode.dart'
+    as mapkit_map_map_mode;
 import 'package:yandex_maps_mapkit/src/mapkit/map/map_object_collection.dart'
     as mapkit_map_map_object_collection;
 import 'package:yandex_maps_mapkit/src/mapkit/map/map_type.dart'
@@ -115,6 +117,20 @@ abstract class Map implements ffi.Finalizable {
   ///
   core.int? get poiLimit;
   set poiLimit(core.int? val);
+
+  /// Selects one of predefined map style modes optimized for particular
+  /// use case(transit, driving, etc). Resets json styles set with
+  /// setMapStyle. MapMode.Map by deafult.
+  mapkit_map_map_mode.MapMode get mode;
+  set mode(mapkit_map_map_mode.MapMode val);
+
+  /// Enables hd mode of displayed content
+  core.bool get hdModeEnabled;
+  set hdModeEnabled(core.bool val);
+
+  /// Enables rich textured 3d content on basemap.
+  core.bool get awesomeModelsEnabled;
+  set awesomeModelsEnabled(core.bool val);
 
   /// Calculates the camera position that projects the specified geometry
   /// into the current focusRect, or the full view if the focusRect is not
@@ -264,6 +280,8 @@ abstract class Map implements ffi.Finalizable {
     mapkit_map_tile_data_source_builder.CreateTileDataSource createDataSource, {
     required core.String layerId,
   });
+
+  core.bool isValid();
 }
 
 abstract final class MapCameraCallback {

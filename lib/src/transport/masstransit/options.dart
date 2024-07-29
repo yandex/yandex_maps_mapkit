@@ -16,8 +16,20 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'options.containers.dart';
 part 'options.impl.dart';
 
+/// Desired departure/arrival time settings. Only one the departureTime
+/// and arrivalTime fields should be specified.
+
 final class TimeOptions {
+  /// Desired departure time in UTC for a time-dependent route request. The
+  /// value is specified in milliseconds. This option cannot be used with
+  /// arrivalTime.
+  ///
   final core.DateTime? departureTime;
+
+  /// Desired arrival time in UTC for a time-dependent route request. The
+  /// value is specified in milliseconds. This option cannot be used with
+  /// departureTime.
+  ///
   final core.DateTime? arrivalTime;
 
   const TimeOptions({

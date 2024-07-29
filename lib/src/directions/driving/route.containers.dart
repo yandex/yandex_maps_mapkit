@@ -13,7 +13,7 @@ extension DrivingSectionMetadataContainerExtension on DrivingSectionMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingSectionMetadataImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingSectionMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension DrivingSectionMetadataContainerExtension on DrivingSectionMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingSectionMetadataImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingSectionMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -118,7 +118,7 @@ extension DrivingRoutePointContainerExtension on DrivingRoutePoint {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingRoutePointImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingRoutePointImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -145,7 +145,7 @@ extension DrivingRoutePointContainerExtension on DrivingRoutePoint {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingRoutePointImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingRoutePointImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -222,7 +222,7 @@ extension DrivingRouteMetadataContainerExtension on DrivingRouteMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingRouteMetadataImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingRouteMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -250,7 +250,7 @@ extension DrivingRouteMetadataContainerExtension on DrivingRouteMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingRouteMetadataImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingRouteMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -327,7 +327,7 @@ extension DrivingSectionContainerExtension on DrivingSection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingSectionImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingSectionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -353,7 +353,7 @@ extension DrivingSectionContainerExtension on DrivingSection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingSectionImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingSectionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -430,7 +430,7 @@ extension DrivingEventContainerExtension on DrivingEvent {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, DrivingEventImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingEventImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -456,7 +456,7 @@ extension DrivingEventContainerExtension on DrivingEvent {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, DrivingEventImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingEventImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

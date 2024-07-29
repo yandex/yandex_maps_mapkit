@@ -15,7 +15,7 @@ extension SearchToponymObjectMetadataContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchToponymObjectMetadataImpl.toPointer);
+        obj, SearchToponymObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -45,7 +45,7 @@ extension SearchToponymObjectMetadataContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchToponymObjectMetadataImpl.toPointer);
+        obj, SearchToponymObjectMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

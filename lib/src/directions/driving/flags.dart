@@ -12,24 +12,61 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'flags.containers.dart';
 part 'flags.impl.dart';
 
+/// Overall characteristics of the route.
+
 final class DrivingFlags {
+  /// Route is blocked.
   final core.bool blocked;
+
+  /// Route has ferries on it.
   final core.bool hasFerries;
+
+  /// Route has toll posts, which are always paid.
   final core.bool hasTolls;
+
+  /// Route requires special access.
   final core.bool requiresAccessPass;
+
+  /// Route is made for parking.
   final core.bool forParking;
+
+  /// Route will be blocked soon.
   final core.bool futureBlocked;
+
+  /// Route has a severe traffic jam.
   final core.bool deadJam;
+
+  /// Route was built by using offline data.
   final core.bool builtOffline;
+
+  /// Predicted optimal route.
   final core.bool predicted;
+
+  /// Route has rugged roads on it.
   final core.bool hasRuggedRoads;
+
+  /// Route has ford crossing on it.
   final core.bool hasFordCrossing;
+
+  /// Route has vehicle restrictions on it.
   final core.bool hasVehicleRestrictions;
+
+  /// Route has unpaved roads on it.
   final core.bool hasUnpavedRoads;
+
+  /// Route has poor condition roads on it.
   final core.bool hasInPoorConditionRoads;
+
+  /// Route has railway crossing on it.
   final core.bool hasRailwayCrossing;
+
+  /// Route has checkpoints on it.
   final core.bool hasCheckpoints;
+
+  /// Route was requested with custom departure time.
   final core.bool scheduledDeparture;
+
+  /// Route has conditionally-toll-free toll posts
   final core.bool hasNonTransactionalTolls;
 
   const DrivingFlags({

@@ -13,7 +13,8 @@ extension SectionMetadataInternalContainerExtension on SectionMetadataInternal {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SectionMetadataInternalImpl.toPointer);
+    return string_map.toNativeMap(
+        obj, SectionMetadataInternalImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +42,7 @@ extension SectionMetadataInternalContainerExtension on SectionMetadataInternal {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SectionMetadataInternalImpl.toPointer);
+    return vector.toNativeVector(obj, SectionMetadataInternalImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

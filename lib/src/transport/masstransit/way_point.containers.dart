@@ -13,7 +13,7 @@ extension MasstransitWayPointContainerExtension on MasstransitWayPoint {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitWayPointImpl.toPointer);
+    return string_map.toNativeMap(obj, MasstransitWayPointImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension MasstransitWayPointContainerExtension on MasstransitWayPoint {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitWayPointImpl.toPointer);
+    return vector.toNativeVector(obj, MasstransitWayPointImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

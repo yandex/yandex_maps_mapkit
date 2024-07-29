@@ -18,7 +18,7 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
 part 'mrc_photo_track_player.containers.dart';
 part 'mrc_photo_track_player.impl.dart';
 
-///
+/// @nodoc
 abstract class MrcPhotoTrackPlayer implements ffi.Finalizable {
   /// Current photo ID. Set to null when a track is reset or at reset.
   ///
@@ -53,4 +53,6 @@ abstract class MrcPhotoTrackPlayer implements ffi.Finalizable {
 
   /// Stop photos playback
   void stop();
+
+  core.bool isValid();
 }

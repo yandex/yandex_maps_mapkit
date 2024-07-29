@@ -33,6 +33,7 @@ class DirectionsImpl implements Directions, ffi.Finalizable {
     return (obj as DirectionsImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _Directions_check(ptr);
   }
@@ -71,6 +72,13 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, core.int)
                         ffi.Pointer<ffi.Void>, ffi.Int64)>>(
             'yandex_flutter_directions_Directions_createDrivingRouter')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _Directions_set = lib
+    .library
+    .lookup<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>,
+                ffi.Int64)>>('yandex_flutter_directions_Directions_set_')
+    .asFunction(isLeaf: true);
 
 Directions get _instance {
   return DirectionsImpl.fromNativePtr(_DirectionsFactory_get_instance());

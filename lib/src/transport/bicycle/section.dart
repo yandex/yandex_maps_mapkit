@@ -16,12 +16,16 @@ import 'package:yandex_maps_mapkit/src/transport/bicycle/weight.dart'
 part 'section.containers.dart';
 part 'section.impl.dart';
 
+/// Section of the route.
 abstract final class BicycleSection implements ffi.Finalizable {
   factory BicycleSection(transport_bicycle_weight.BicycleWeight weight,
           mapkit_geometry_geometry.Subpolyline geometry) =>
       BicycleSectionImpl(weight, geometry);
 
+  /// Quantitative characteristics of a route or route section.
   transport_bicycle_weight.BicycleWeight get weight;
+
+  /// Path of the route polyline for this section.
   mapkit_geometry_geometry.Subpolyline get geometry;
 
   @core.override

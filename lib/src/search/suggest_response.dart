@@ -26,6 +26,7 @@ import 'package:yandex_maps_mapkit/src/runtime/key_value_pair.dart'
 part 'suggest_response.containers.dart';
 part 'suggest_response.impl.dart';
 
+/// A single suggested item.
 abstract final class SuggestItem implements ffi.Finalizable {
   factory SuggestItem(
           SuggestItemType type,
@@ -42,7 +43,8 @@ abstract final class SuggestItem implements ffi.Finalizable {
           core.bool isOffline,
           core.bool isWordItem,
           core.List<runtime_key_value_pair.KeyValuePair> properties,
-          mapkit_geometry_point.Point? center) =>
+          mapkit_geometry_point.Point? center,
+          SuggestItemBusinessContext? businessContext) =>
       SuggestItemImpl(
           type,
           title,
@@ -58,23 +60,66 @@ abstract final class SuggestItem implements ffi.Finalizable {
           isOffline,
           isWordItem,
           properties,
-          center);
+          center,
+          businessContext);
 
+  /// Suggested object type.
   SuggestItemType get type;
+
+  /// Short object name.
   mapkit_spannable_string.SpannableString get title;
+
+  /// If type is TOPONYM returns reversed toponym hierarchy, if type is
+  /// BUSINESS returns business address.
+  ///
   mapkit_spannable_string.SpannableString? get subtitle;
+
+  /// Additional free-form data for suggest item. If type is TOPONYM,
+  /// returns toponym kind (house/street/locality/...). If type is
+  /// BUSINESS, returns category class (drugstores/restaurants/...).
   core.List<core.String> get tags;
+
+  /// Text to search for.
   core.String get searchText;
+
+  /// Text to display if searchText is too technical to display.
+  ///
   core.String? get displayText;
+
+  /// Element uri, if applicable.
+  ///
   core.String? get uri;
+
+  /// Optional distance localized value.
+  ///
   mapkit_localized_value.LocalizedValue? get distance;
+
+  /// If the suggested item respects personalization.
   core.bool get isPersonal;
+
+  /// Action to perform on click/tap/enter.
   SuggestItemAction get action;
+
+  /// Id for request logging.
+  ///
   core.String? get logId;
+
+  /// Item is from offline search.
   core.bool get isOffline;
+
+  /// Item is a word suggest item.
   core.bool get isWordItem;
+
+  /// Additional item properties.
   core.List<runtime_key_value_pair.KeyValuePair> get properties;
+
+  /// Position of object.
+  ///
   mapkit_geometry_point.Point? get center;
+
+  /// Detailed subtype of the Business type
+  ///
+  SuggestItemBusinessContext? get businessContext;
 
   @core.override
   core.int get hashCode => core.Object.hashAll([
@@ -92,7 +137,8 @@ abstract final class SuggestItem implements ffi.Finalizable {
         isOffline,
         isWordItem,
         properties,
-        center
+        center,
+        businessContext
       ]);
 
   @core.override
@@ -114,12 +160,13 @@ abstract final class SuggestItem implements ffi.Finalizable {
         isOffline == other.isOffline &&
         isWordItem == other.isWordItem &&
         properties == other.properties &&
-        center == other.center;
+        center == other.center &&
+        businessContext == other.businessContext;
   }
 
   @core.override
   core.String toString() {
-    return "SuggestItem(type: $type, title: $title, subtitle: $subtitle, tags: $tags, searchText: $searchText, displayText: $displayText, uri: $uri, distance: $distance, isPersonal: $isPersonal, action: $action, logId: $logId, isOffline: $isOffline, isWordItem: $isWordItem, properties: $properties, center: $center)";
+    return "SuggestItem(type: $type, title: $title, subtitle: $subtitle, tags: $tags, searchText: $searchText, displayText: $displayText, uri: $uri, distance: $distance, isPersonal: $isPersonal, action: $action, logId: $logId, isOffline: $isOffline, isWordItem: $isWordItem, properties: $properties, center: $center, businessContext: $businessContext)";
   }
 }
 
@@ -149,10 +196,21 @@ enum SuggestItemAction {
   ;
 }
 
+/// More detailed info about type=Business response
+enum SuggestItemBusinessContext {
+  BusinessContextUnknown,
+  BusinessContextOrg1,
+  BusinessContextRubric,
+  BusinessContextChain,
+  ;
+}
+
+/// A suggest response
 abstract final class SuggestResponse implements ffi.Finalizable {
   factory SuggestResponse(core.List<SuggestItem> items) =>
       SuggestResponseImpl(items);
 
+  /// Suggest items.
   core.List<SuggestItem> get items;
 
   @core.override

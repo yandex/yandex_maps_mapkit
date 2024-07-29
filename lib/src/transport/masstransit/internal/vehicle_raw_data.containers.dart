@@ -13,7 +13,7 @@ extension VehicleRawDataContainerExtension on VehicleRawData {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, VehicleRawDataImpl.toPointer);
+    return string_map.toNativeMap(obj, VehicleRawDataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension VehicleRawDataContainerExtension on VehicleRawData {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, VehicleRawDataImpl.toPointer);
+    return vector.toNativeVector(obj, VehicleRawDataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

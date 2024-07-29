@@ -35,8 +35,13 @@ enum LogoVerticalAlignment {
   ;
 }
 
+/// Logo alignment class.
+
 final class LogoAlignment {
+  /// Defines horizontal alignment.
   final LogoHorizontalAlignment horizontalAlignment;
+
+  /// Defines vertical alignment.
   final LogoVerticalAlignment verticalAlignment;
 
   const LogoAlignment(this.horizontalAlignment, this.verticalAlignment);

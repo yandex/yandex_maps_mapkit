@@ -1,7 +1,7 @@
 part of 'references_object_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchReferenceTypeImpl.toPointer',
+    toNative: 'SearchReferenceTypeImpl.getNativePtr',
     toPlatform:
         '(val) => SearchReferenceTypeImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchReferenceType')
@@ -49,26 +49,7 @@ final class SearchReferenceTypeImpl implements SearchReferenceType {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchReferenceType? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchReferenceType_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchReferenceType_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchReferenceType_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchReferenceType_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -100,7 +81,7 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchReferencesObjectMetadataImpl.toPointer',
+    toNative: 'SearchReferencesObjectMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchReferencesObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchReferencesObjectMetadata')
@@ -153,17 +134,6 @@ final class SearchReferencesObjectMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchReferencesObjectMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchReferencesObjectMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchReferencesObjectMetadataFactory
@@ -213,14 +183,6 @@ final native_types.NativeString Function()
     _SearchReferencesObjectMetadata_name = lib.library
         .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
             'yandex_flutter_search_SearchReferencesObjectMetadata_name')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchReferencesObjectMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchReferencesObjectMetadata_clone')
         .asFunction(isLeaf: true);
 
 final _SearchReferencesObjectMetadata_free = lib.library

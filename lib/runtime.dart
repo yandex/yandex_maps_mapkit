@@ -3,7 +3,6 @@ export 'package:yandex_maps_mapkit/src/runtime/error_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/runtime_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/local_error_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/vulkan_launcher/vulkan_launcher_export.dart';
-export 'package:yandex_maps_mapkit/src/runtime/sensors/sensors_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/sensors/internal/gnss_measurements_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/connectivity/connectivity_status_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/network/errors_export.dart';

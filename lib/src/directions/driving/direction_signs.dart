@@ -110,7 +110,10 @@ enum DrivingDirectionSignDirection {
 }
 
 final class DrivingDirectionSignStyle {
+  /// Text color in RGB format
   final ui.Color textColor;
+
+  /// Background color in RGB format
   final ui.Color bgColor;
 
   const DrivingDirectionSignStyle(this.textColor, this.bgColor);
@@ -313,6 +316,7 @@ final class DrivingDirectionSignItem {
   final core.dynamic _value;
 }
 
+/// The sign showing named directions.
 abstract final class DrivingDirectionSign implements ffi.Finalizable {
   factory DrivingDirectionSign(
           mapkit_geometry_geometry.PolylinePosition position,
@@ -320,6 +324,7 @@ abstract final class DrivingDirectionSign implements ffi.Finalizable {
           core.List<DrivingDirectionSignItem> items) =>
       DrivingDirectionSignImpl(position, direction, items);
 
+  /// The position of the sign.
   mapkit_geometry_geometry.PolylinePosition get position;
   DrivingDirectionSignDirection? get direction;
   core.List<DrivingDirectionSignItem> get items;

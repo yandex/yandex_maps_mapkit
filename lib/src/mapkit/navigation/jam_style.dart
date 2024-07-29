@@ -21,8 +21,13 @@ import 'package:yandex_maps_mapkit/src/mapkit/navigation/jam_segment.dart'
 part 'jam_style.containers.dart';
 part 'jam_style.impl.dart';
 
+/// Color for specific level of traffic intensity.
+
 final class JamTypeColor {
+  /// The type of the traffic jam.
   final mapkit_navigation_jam_segment.JamType jamType;
+
+  /// Traffic jam color.
   final ui.Color jamColor;
 
   const JamTypeColor(this.jamType, this.jamColor);
@@ -44,9 +49,11 @@ final class JamTypeColor {
   }
 }
 
+/// The style that is used to display traffic intensity.
 abstract final class JamStyle implements ffi.Finalizable {
   factory JamStyle(core.List<JamTypeColor> colors) => JamStyleImpl(colors);
 
+  /// Collection of colors for traffic intensity.
   core.List<JamTypeColor> get colors;
 
   @core.override

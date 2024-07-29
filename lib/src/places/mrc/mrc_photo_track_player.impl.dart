@@ -34,6 +34,7 @@ class MrcPhotoTrackPlayerImpl implements MrcPhotoTrackPlayer, ffi.Finalizable {
     return (obj as MrcPhotoTrackPlayerImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _MrcPhotoTrackPlayer_check(ptr);
   }
@@ -154,3 +155,10 @@ final void Function(ffi.Pointer<ffi.Void>) _MrcPhotoTrackPlayer_stop = lib
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_places_mrc_MrcPhotoTrackPlayer_stop')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _MrcPhotoTrackPlayer_set =
+    lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+            'yandex_flutter_places_mrc_MrcPhotoTrackPlayer_set_')
+        .asFunction(isLeaf: true);

@@ -23,13 +23,22 @@ import 'package:yandex_maps_mapkit/src/mapkit/money.dart' as mapkit_money;
 part 'exchange_object_metadata.containers.dart';
 part 'exchange_object_metadata.impl.dart';
 
+/// Single currency exchange prices.
 abstract final class SearchCurrencyExchangeType implements ffi.Finalizable {
   factory SearchCurrencyExchangeType(core.String? name,
           mapkit_money.TaxiMoney? buy, mapkit_money.TaxiMoney? sell) =>
       SearchCurrencyExchangeTypeImpl(name, buy, sell);
 
+  /// ISO-4217 currency name, for example "USD" or "RUB" or "EUR".
+  ///
   core.String? get name;
+
+  /// Buy rate.
+  ///
   mapkit_money.TaxiMoney? get buy;
+
+  /// Sell rate.
+  ///
   mapkit_money.TaxiMoney? get sell;
 
   @core.override
@@ -49,12 +58,14 @@ abstract final class SearchCurrencyExchangeType implements ffi.Finalizable {
   }
 }
 
+/// Currency exchange snippet.
 abstract final class SearchCurrencyExchangeMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchCurrencyExchangeMetadata(
           core.List<SearchCurrencyExchangeType> currencies) =>
       SearchCurrencyExchangeMetadataImpl(currencies);
 
+  /// Available currency exchange rates.
   core.List<SearchCurrencyExchangeType> get currencies;
 
   @core.override

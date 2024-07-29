@@ -1,7 +1,7 @@
 part of 'business_result_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessResultMetadataImpl.toPointer',
+    toNative: 'SearchBusinessResultMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchBusinessResultMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessResultMetadata')
@@ -77,26 +77,7 @@ final class SearchBusinessResultMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchBusinessResultMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchBusinessResultMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessResultMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessResultMetadata_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchBusinessResultMetadata_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

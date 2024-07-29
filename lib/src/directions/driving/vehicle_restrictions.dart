@@ -19,15 +19,46 @@ part 'vehicle_restrictions.containers.dart';
 part 'vehicle_restrictions.impl.dart';
 
 final class DrivingVehicleRestriction {
+  /// Actual weight limit, tons. See Driving Rules sign 3.11.
+  ///
   final core.double? weightLimit;
+
+  /// Axle load weight limit, tons. See Driving Rules sign 3.12.
+  ///
   final core.double? axleWeightLimit;
+
+  /// Maximal allowed weight limit, tons. See Driving Rules sign 3.4, table
+  /// 8.11.
+  ///
   final core.double? maxWeightLimit;
+
+  /// Height limit, meters. See Driving Rules sign 3.13.
+  ///
   final core.double? heightLimit;
+
+  /// Width limit, meters. See Driving Rules sign 3.14.
+  ///
   final core.double? widthLimit;
+
+  /// Length limit, meters. See Driving Rules sign 3.15.
+  ///
   final core.double? lengthLimit;
+
+  /// Payload limit, tons.
+  ///
   final core.double? payloadLimit;
+
+  /// Minimal allowed engine ecological class. See Driving Rules sign 5.35
+  /// and 5.36.
+  ///
   final core.int? minEcoClass;
+
+  /// Trailer is not allowed. See Driving Rules sign 3.7.
+  ///
   final core.bool? trailerNotAllowed;
+
+  /// Legal or physical limitation.
+  ///
   final core.bool? legal;
 
   const DrivingVehicleRestriction({

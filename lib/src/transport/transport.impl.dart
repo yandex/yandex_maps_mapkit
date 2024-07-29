@@ -33,6 +33,7 @@ class TransportImpl implements Transport, ffi.Finalizable {
     return (obj as TransportImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _Transport_check(ptr);
   }
@@ -132,6 +133,13 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_transport_Transport_createScooterRouter')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _Transport_set = lib
+    .library
+    .lookup<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>,
+                ffi.Int64)>>('yandex_flutter_transport_Transport_set_')
+    .asFunction(isLeaf: true);
 
 Transport get _instance {
   return TransportImpl.fromNativePtr(_TransportFactory_get_instance());

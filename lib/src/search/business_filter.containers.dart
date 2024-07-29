@@ -13,7 +13,7 @@ extension SearchBusinessFilterContainerExtension on SearchBusinessFilter {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchBusinessFilterImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchBusinessFilterImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -41,7 +41,7 @@ extension SearchBusinessFilterContainerExtension on SearchBusinessFilter {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchBusinessFilterImpl.toPointer);
+    return vector.toNativeVector(obj, SearchBusinessFilterImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -120,7 +120,7 @@ extension SearchBusinessFilterEnumValueContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, SearchBusinessFilterEnumValueImpl.toPointer);
+        obj, SearchBusinessFilterEnumValueImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -150,7 +150,7 @@ extension SearchBusinessFilterEnumValueContainerExtension
     }
 
     return vector.toNativeVector(
-        obj, SearchBusinessFilterEnumValueImpl.toPointer);
+        obj, SearchBusinessFilterEnumValueImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -232,7 +232,7 @@ extension SearchFilterSetContainerExtension on SearchFilterSet {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFilterSetImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchFilterSetImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -259,7 +259,7 @@ extension SearchFilterSetContainerExtension on SearchFilterSet {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFilterSetImpl.toPointer);
+    return vector.toNativeVector(obj, SearchFilterSetImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

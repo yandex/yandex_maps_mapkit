@@ -16,9 +16,24 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'availability.containers.dart';
 part 'availability.impl.dart';
 
+/// The time interval used to compose availability info.
+///
+/// Can describe two kinds of intervals: 1. 24-hour interval
+/// (`isTwentyFourHours` is true, `from` and `to` are not used). 2.
+/// Smaller time interval (`isTwentyFourHours` is false, `from` and `to`
+/// are set to the begin and end of the interval)
+
 final class SearchTimeRange {
+  /// All day (24 hours) time range marker.
+  ///
   final core.bool? isTwentyFourHours;
+
+  /// Interval start (seconds from midnight).
+  ///
   final core.int? from;
+
+  /// Interval end (seconds from midnight).
+  ///
   final core.int? to;
 
   const SearchTimeRange({
@@ -113,12 +128,23 @@ final class SearchDayGroup {
   }
 }
 
+/// A single value of availability information.
+///
+/// Allows to describe business schedule for a group of days. For
+/// example, an organization open on weekdays from 9 AM to 6 PM with a
+/// lunch break from 1 PM to 2 PM can be described as a single
+/// `Availability` with `days` equal to `DayGroup::Weekdays` and two time
+/// ranges (9:00-13:00, 14:00-18:00). More complicated schedules will
+/// require multiple `Availabilities`.
 abstract final class SearchAvailability implements ffi.Finalizable {
   factory SearchAvailability(
           SearchDayGroup days, core.List<SearchTimeRange> timeRanges) =>
       SearchAvailabilityImpl(days, timeRanges);
 
+  /// Days where time ranges are applicable
   SearchDayGroup get days;
+
+  /// Ranges for open hours
   core.List<SearchTimeRange> get timeRanges;
 
   @core.override

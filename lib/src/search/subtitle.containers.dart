@@ -13,7 +13,7 @@ extension SearchSubtitleItemContainerExtension on SearchSubtitleItem {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchSubtitleItemImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchSubtitleItemImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension SearchSubtitleItemContainerExtension on SearchSubtitleItem {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchSubtitleItemImpl.toPointer);
+    return vector.toNativeVector(obj, SearchSubtitleItemImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -117,7 +117,7 @@ extension SearchSubtitleMetadataContainerExtension on SearchSubtitleMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchSubtitleMetadataImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchSubtitleMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -145,7 +145,7 @@ extension SearchSubtitleMetadataContainerExtension on SearchSubtitleMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchSubtitleMetadataImpl.toPointer);
+    return vector.toNativeVector(obj, SearchSubtitleMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

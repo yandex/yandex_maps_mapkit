@@ -191,6 +191,7 @@ class RoadEventsLayerImpl implements RoadEventsLayer, ffi.Finalizable {
     return (obj as RoadEventsLayerImpl).ptr;
   }
 
+  @core.override
   core.bool isValid() {
     return _RoadEventsLayer_check(ptr);
   }
@@ -285,3 +286,10 @@ final void Function(
                 ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64, ffi.Bool)>>(
         'yandex_flutter_mapkit_road_events_layer_RoadEventsLayer_setRoadEventVisibleOnRoute')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _RoadEventsLayer_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_mapkit_road_events_layer_RoadEventsLayer_set_')
+    .asFunction(isLeaf: true);

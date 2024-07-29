@@ -1,7 +1,7 @@
 part of 'restricted_entry.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'BicycleRestrictedEntryImpl.toPointer',
+    toNative: 'BicycleRestrictedEntryImpl.getNativePtr',
     toPlatform:
         '(val) => BicycleRestrictedEntryImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleRestrictedEntry')
@@ -47,26 +47,7 @@ final class BicycleRestrictedEntryImpl implements BicycleRestrictedEntry {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(BicycleRestrictedEntry? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _BicycleRestrictedEntry_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _BicycleRestrictedEntry_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_transport_bicycle_BicycleRestrictedEntry_clone')
-        .asFunction(isLeaf: true);
 
 final _BicycleRestrictedEntry_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

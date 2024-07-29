@@ -1,7 +1,7 @@
 part of 'vehicle_raw_data.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'VehicleRawDataImpl.toPointer',
+    toNative: 'VehicleRawDataImpl.getNativePtr',
     toPlatform: '(val) => VehicleRawDataImpl.fromPointer(val, needFree: false)',
     platformType: 'VehicleRawData')
 final class VehicleRawDataImpl implements VehicleRawData {
@@ -55,17 +55,6 @@ final class VehicleRawDataImpl implements VehicleRawData {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(VehicleRawData? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _VehicleRawData_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _VehicleRawDataFactory
@@ -114,15 +103,6 @@ final ffi.Pointer<ffi.Void> Function(
 final native_types.NativeString Function() _VehicleRawData_name = lib.library
     .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
         'yandex_flutter_transport_masstransit_internal_VehicleRawData_name')
-    .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _VehicleRawData_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_internal_VehicleRawData_clone')
     .asFunction(isLeaf: true);
 
 final _VehicleRawData_free = lib.library

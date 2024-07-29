@@ -27,14 +27,6 @@ abstract class DataSourceLayer implements ffi.Finalizable {
   core.bool get active;
   set active(core.bool val);
 
-  /// TODO: should be removed when
-  /// https://st.yandex-team.ru/MAPSMOBCORE-16640 is done
-  ///
-  /// Invalidates data source and reloads all tiles. Must not be called if
-  /// DataSource does not support versioning: LayerOptions.versionSupport =
-  /// false;
-  void invalidate(core.String version);
-
   /// Clears all cached tiles and starts new requests for tiles that are
   /// displayed.
   void clear();
@@ -67,10 +59,14 @@ abstract class DataSourceLayer implements ffi.Finalizable {
   void remove();
 
   /// Sets data source listener. Use it to invalidate data source.
+  /// Temporary solution until https://st.yandex-team.ru/MAPSMOBCORE-20531
+  /// is done
   ///
   /// The class does not retain the object in the 'dataSourceListener' parameter.
   /// It is your responsibility to maintain a strong reference to
   /// the target object while it is attached to a class.
   void setDataSourceListener(
       mapkit_layers_data_source.DataSourceListener? dataSourceListener);
+
+  core.bool isValid();
 }

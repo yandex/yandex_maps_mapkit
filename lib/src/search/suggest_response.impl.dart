@@ -1,7 +1,7 @@
 part of 'suggest_response.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SuggestItemImpl.toPointer',
+    toNative: 'SuggestItemImpl.getNativePtr',
     toPlatform: '(val) => SuggestItemImpl.fromPointer(val, needFree: false)',
     platformType: 'SuggestItem')
 final class SuggestItemImpl implements SuggestItem {
@@ -20,7 +20,8 @@ final class SuggestItemImpl implements SuggestItem {
       core.bool isOffline,
       core.bool isWordItem,
       core.List<runtime_key_value_pair.KeyValuePair> properties,
-      mapkit_geometry_point.Point? center)
+      mapkit_geometry_point.Point? center,
+      SuggestItemBusinessContext? businessContext)
       : this.fromNativePtr(_SuggestItem_init(
             SuggestItemTypeImpl.toInt(type),
             mapkit_spannable_string.SpannableStringImpl.getNativePtr(title),
@@ -37,7 +38,8 @@ final class SuggestItemImpl implements SuggestItem {
             isWordItem,
             runtime_key_value_pair.KeyValuePairContainerExtension
                 .toNativeVector(properties),
-            mapkit_geometry_point.PointImpl.toPointer(center)));
+            mapkit_geometry_point.PointImpl.toPointer(center),
+            SuggestItemBusinessContextImpl.toPointer(businessContext)));
 
   @core.override
   late final type = SuggestItemTypeImpl.fromInt(_SuggestItem_get_type(_ptr));
@@ -81,6 +83,9 @@ final class SuggestItemImpl implements SuggestItem {
   @core.override
   late final center = mapkit_geometry_point.PointImpl.fromPointer(
       _SuggestItem_get_center(_ptr));
+  @core.override
+  late final businessContext = SuggestItemBusinessContextImpl.fromPointer(
+      _SuggestItem_get_businessContext(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SuggestItem_free.cast());
@@ -111,27 +116,7 @@ final class SuggestItemImpl implements SuggestItem {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SuggestItem? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SuggestItem_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _SuggestItem_clone =
-    lib
-        .library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SuggestItem_clone')
-        .asFunction(isLeaf: true);
 
 final _SuggestItem_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -152,6 +137,7 @@ final ffi.Pointer<ffi.Void> Function(
         core.bool,
         core.bool,
         ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>) _SuggestItem_init =
     lib.library
         .lookup<
@@ -170,6 +156,7 @@ final ffi.Pointer<ffi.Void> Function(
                         ffi.Pointer<ffi.Void>,
                         ffi.Bool,
                         ffi.Bool,
+                        ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SuggestItem_init')
@@ -270,6 +257,13 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SuggestItem_get_center')
         .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _SuggestItem_get_businessContext = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SuggestItem_get_businessContext')
+        .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
     toNative: 'SuggestItemTypeImpl.toPointer',
@@ -350,7 +344,46 @@ extension SuggestItemActionImpl on SuggestItemAction {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'SuggestResponseImpl.toPointer',
+    toNative: 'SuggestItemBusinessContextImpl.toPointer',
+    toPlatform:
+        '(val) => SuggestItemBusinessContextImpl.fromPointer(val, needFree: false)',
+    platformType: 'SuggestItemBusinessContext')
+extension SuggestItemBusinessContextImpl on SuggestItemBusinessContext {
+  static core.int toInt(SuggestItemBusinessContext e) {
+    return e.index;
+  }
+
+  static SuggestItemBusinessContext fromInt(core.int val) {
+    return SuggestItemBusinessContext.values[val];
+  }
+
+  static SuggestItemBusinessContext? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = fromInt(ptr.cast<ffi.Int64>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(SuggestItemBusinessContext? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<ffi.Int64>();
+    result.value = toInt(val);
+
+    return result.cast();
+  }
+}
+
+@bindings_annotations.ContainerData(
+    toNative: 'SuggestResponseImpl.getNativePtr',
     toPlatform:
         '(val) => SuggestResponseImpl.fromPointer(val, needFree: false)',
     platformType: 'SuggestResponse')
@@ -392,26 +425,7 @@ final class SuggestResponseImpl implements SuggestResponse {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SuggestResponse? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SuggestResponse_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SuggestResponse_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SuggestResponse_clone')
-        .asFunction(isLeaf: true);
 
 final _SuggestResponse_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

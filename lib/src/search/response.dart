@@ -16,6 +16,7 @@ import 'package:yandex_maps_mapkit/src/search/search_metadata.dart'
 part 'response.containers.dart';
 part 'response.impl.dart';
 
+/// Top level structure for search response.
 abstract final class SearchResponse implements ffi.Finalizable {
   factory SearchResponse(
           search_search_metadata.SearchMetadata metadata,
@@ -23,8 +24,13 @@ abstract final class SearchResponse implements ffi.Finalizable {
           core.bool isOffline) =>
       SearchResponseImpl(metadata, collection, isOffline);
 
+  /// Extended response information.
   search_search_metadata.SearchMetadata get metadata;
+
+  /// List of objects (organizations, toponyms) in search response.
   mapkit_geo_object_collection.GeoObjectCollection get collection;
+
+  /// Flag describing if this response was built offline.
   core.bool get isOffline;
 
   @core.override

@@ -12,8 +12,14 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'flags.containers.dart';
 part 'flags.impl.dart';
 
+/// Indicates whether the suggested route has one or more of the
+/// specified properties.
+
 final class BicycleFlags {
+  /// Indicates whether the suggested route requires an access pass.
   final core.bool requiresAccessPass;
+
+  /// Indicates whether the suggested route includes automotive roads.
   final core.bool hasAutoRoad;
 
   const BicycleFlags({

@@ -60,7 +60,7 @@ extension DrivingSummaryImpl on DrivingSummary {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingSectionMetadataImpl.toPointer',
+    toNative: 'DrivingSectionMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => DrivingSectionMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingSectionMetadata')
@@ -122,26 +122,7 @@ final class DrivingSectionMetadataImpl implements DrivingSectionMetadata {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingSectionMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingSectionMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingSectionMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingSectionMetadata_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingSectionMetadata_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -197,7 +178,7 @@ final ffi.Pointer<ffi.Void> Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingRoutePointImpl.toPointer',
+    toNative: 'DrivingRoutePointImpl.getNativePtr',
     toPlatform:
         '(val) => DrivingRoutePointImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingRoutePoint')
@@ -244,26 +225,7 @@ final class DrivingRoutePointImpl implements DrivingRoutePoint {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingRoutePoint? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingRoutePoint_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingRoutePoint_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingRoutePoint_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingRoutePoint_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -299,7 +261,7 @@ final ffi.Pointer<ffi.Void> Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingRouteMetadataImpl.toPointer',
+    toNative: 'DrivingRouteMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => DrivingRouteMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingRouteMetadata')
@@ -364,17 +326,6 @@ final class DrivingRouteMetadataImpl implements DrivingRouteMetadata {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingRouteMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingRouteMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _DrivingRouteMetadataFactory
@@ -425,14 +376,6 @@ final native_types.NativeString Function() _DrivingRouteMetadata_name = lib
     .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
         'yandex_flutter_directions_driving_DrivingRouteMetadata_name')
     .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingRouteMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingRouteMetadata_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingRouteMetadata_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -489,7 +432,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingSectionImpl.toPointer',
+    toNative: 'DrivingSectionImpl.getNativePtr',
     toPlatform: '(val) => DrivingSectionImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingSection')
 final class DrivingSectionImpl implements DrivingSection {
@@ -535,26 +478,7 @@ final class DrivingSectionImpl implements DrivingSection {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingSection? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingSection_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingSection_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingSection_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingSection_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -697,7 +621,7 @@ void _DrivingConditionsListener_onConditionsOutdated(
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingEventImpl.toPointer',
+    toNative: 'DrivingEventImpl.getNativePtr',
     toPlatform: '(val) => DrivingEventImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingEvent')
 final class DrivingEventImpl implements DrivingEvent {
@@ -768,26 +692,7 @@ final class DrivingEventImpl implements DrivingEvent {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingEvent? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingEvent_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingEvent_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingEvent_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingEvent_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -1438,3 +1343,10 @@ final void Function(ffi.Pointer<ffi.Void>) _Route_requestConditionsUpdate = lib
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_directions_driving_DrivingRoute_requestConditionsUpdate')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _DrivingRoute_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_directions_driving_DrivingRoute_set_')
+    .asFunction(isLeaf: true);

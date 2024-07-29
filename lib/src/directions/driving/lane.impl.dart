@@ -79,7 +79,7 @@ extension DrivingLaneKindImpl on DrivingLaneKind {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingLaneImpl.toPointer',
+    toNative: 'DrivingLaneImpl.getNativePtr',
     toPlatform: '(val) => DrivingLaneImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingLane')
 final class DrivingLaneImpl implements DrivingLane {
@@ -132,27 +132,7 @@ final class DrivingLaneImpl implements DrivingLane {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingLane? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingLane_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _DrivingLane_clone =
-    lib
-        .library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingLane_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingLane_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -190,7 +170,7 @@ final ffi.Pointer<ffi.Void> Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'DrivingLaneSignImpl.toPointer',
+    toNative: 'DrivingLaneSignImpl.getNativePtr',
     toPlatform:
         '(val) => DrivingLaneSignImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingLaneSign')
@@ -242,26 +222,7 @@ final class DrivingLaneSignImpl implements DrivingLaneSign {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingLaneSign? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _DrivingLaneSign_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingLaneSign_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingLaneSign_clone')
-        .asFunction(isLeaf: true);
 
 final _DrivingLaneSign_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

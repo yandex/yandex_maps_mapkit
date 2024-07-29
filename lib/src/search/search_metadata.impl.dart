@@ -1,7 +1,7 @@
 part of 'search_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchMetadataImpl.toPointer',
+    toNative: 'SearchMetadataImpl.getNativePtr',
     toPlatform: '(val) => SearchMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchMetadata')
 final class SearchMetadataImpl implements SearchMetadata {
@@ -108,17 +108,6 @@ final class SearchMetadataImpl implements SearchMetadata {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchMetadataFactory
@@ -166,14 +155,6 @@ final native_types.NativeString Function() _SearchMetadata_name = lib.library
     .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
         'yandex_flutter_search_SearchMetadata_name')
     .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchMetadata_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchMetadata_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

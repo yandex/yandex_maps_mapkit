@@ -13,7 +13,7 @@ extension SearchFuelTypeContainerExtension on SearchFuelType {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFuelTypeImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchFuelTypeImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchFuelTypeContainerExtension on SearchFuelType {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFuelTypeImpl.toPointer);
+    return vector.toNativeVector(obj, SearchFuelTypeImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -116,7 +116,7 @@ extension SearchFuelMetadataContainerExtension on SearchFuelMetadata {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchFuelMetadataImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchFuelMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -143,7 +143,7 @@ extension SearchFuelMetadataContainerExtension on SearchFuelMetadata {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchFuelMetadataImpl.toPointer);
+    return vector.toNativeVector(obj, SearchFuelMetadataImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

@@ -37,6 +37,8 @@ import 'package:yandex_maps_mapkit/src/transport/bicycle/weight.dart'
 part 'route.containers.dart';
 part 'route.impl.dart';
 
+/// Describes part of bicycle path with the same construction.
+
 final class BicycleConstructionSegment {
   final transport_bicycle_construction.BicycleConstructionID construction;
   final mapkit_geometry_geometry.Subpolyline subpolyline;
@@ -60,6 +62,8 @@ final class BicycleConstructionSegment {
     return "BicycleConstructionSegment(construction: $construction, subpolyline: $subpolyline)";
   }
 }
+
+/// Describes part of bicycle path with the same traffic type.
 
 final class BicycleTrafficTypeSegment {
   final transport_bicycle_traffic_type.BicycleTrafficTypeID trafficType;

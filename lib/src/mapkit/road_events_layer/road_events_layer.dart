@@ -92,4 +92,6 @@ abstract class RoadEventsLayer implements ffi.Finalizable {
     mapkit_road_events_event_tag.RoadEventsEventTag tag, {
     required core.bool on,
   });
+
+  core.bool isValid();
 }

@@ -16,10 +16,13 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/point.dart'
 part 'intermediate_points.containers.dart';
 part 'intermediate_points.impl.dart';
 
+/// Via points (throughpoints) are key points on the route geometry that
+/// the route passes through. Via points are taken from the request.
 abstract final class BicycleViaPoint implements ffi.Finalizable {
   factory BicycleViaPoint(mapkit_geometry_geometry.PolylinePosition position) =>
       BicycleViaPointImpl(position);
 
+  /// Via point position on the route geometry.
   mapkit_geometry_geometry.PolylinePosition get position;
 
   @core.override
@@ -39,12 +42,19 @@ abstract final class BicycleViaPoint implements ffi.Finalizable {
   }
 }
 
+/// A waypoint is the origin, destination or intermediate destination on
+/// the route. For each way point, the corresponding selected arrival
+/// point can be stored.
 abstract final class BicycleWayPoint implements ffi.Finalizable {
   factory BicycleWayPoint(mapkit_geometry_point.Point position,
           mapkit_geometry_point.Point? selectedArrivalPoint) =>
       BicycleWayPointImpl(position, selectedArrivalPoint);
 
+  /// Coordinates of the original waypoint from the request.
   mapkit_geometry_point.Point get position;
+
+  /// Coordinates of the selected arrival point.
+  ///
   mapkit_geometry_point.Point? get selectedArrivalPoint;
 
   @core.override

@@ -1,7 +1,7 @@
 part of 'speaker.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'LocalizedPhraseImpl.toPointer',
+    toNative: 'LocalizedPhraseImpl.getNativePtr',
     toPlatform:
         '(val) => LocalizedPhraseImpl.fromPointer(val, needFree: false)',
     platformType: 'LocalizedPhrase')
@@ -58,26 +58,7 @@ final class LocalizedPhraseImpl implements LocalizedPhrase {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(LocalizedPhrase? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _LocalizedPhrase_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _LocalizedPhrase_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_mapkit_annotations_LocalizedPhrase_clone')
-        .asFunction(isLeaf: true);
 
 final _LocalizedPhrase_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

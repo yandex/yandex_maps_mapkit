@@ -18,6 +18,7 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'filter_collection.containers.dart';
 part 'filter_collection.impl.dart';
 
+/// Filters for search request. Use builder to setup this class.
 abstract final class SearchFilterCollection implements ffi.Finalizable {
   factory SearchFilterCollection(
           core.List<core.String> booleanFilters,
@@ -27,9 +28,16 @@ abstract final class SearchFilterCollection implements ffi.Finalizable {
       SearchFilterCollectionImpl(
           booleanFilters, enumFilters, rangeFilters, dateFilters);
 
+  /// List of boolean filter ids to be set.
   core.List<core.String> get booleanFilters;
+
+  /// Mapping of enum filter ids to list of enum value ids.
   core.Map<core.String, core.List<core.String>> get enumFilters;
+
+  /// Mapping of range filter ids to number range.
   core.Map<core.String, SearchFilterCollectionNumberRange> get rangeFilters;
+
+  /// Mapping of date filter ids to date range.
   core.Map<core.String, SearchFilterCollectionDateRange> get dateFilters;
 
   @core.override
@@ -53,8 +61,13 @@ abstract final class SearchFilterCollection implements ffi.Finalizable {
   }
 }
 
+/// Number range. Used for range filter.
+
 final class SearchFilterCollectionNumberRange {
+  /// Lower range limit.
   final core.double from;
+
+  /// Upper range limit.
   final core.double to;
 
   const SearchFilterCollectionNumberRange({
@@ -79,8 +92,13 @@ final class SearchFilterCollectionNumberRange {
   }
 }
 
+/// Date range. Dates are encoded as strings in YYYYMMDD format.
+
 final class SearchFilterCollectionDateRange {
+  /// Lower range limit.
   final core.String from;
+
+  /// Upper range limit.
   final core.String to;
 
   const SearchFilterCollectionDateRange({

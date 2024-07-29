@@ -1,7 +1,7 @@
 part of 'subtitle.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchSubtitleItemImpl.toPointer',
+    toNative: 'SearchSubtitleItemImpl.getNativePtr',
     toPlatform:
         '(val) => SearchSubtitleItemImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchSubtitleItem')
@@ -57,26 +57,7 @@ final class SearchSubtitleItemImpl implements SearchSubtitleItem {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchSubtitleItem? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchSubtitleItem_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchSubtitleItem_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchSubtitleItem_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchSubtitleItem_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -115,7 +96,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchSubtitleMetadataImpl.toPointer',
+    toNative: 'SearchSubtitleMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchSubtitleMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchSubtitleMetadata')
@@ -172,17 +153,6 @@ final class SearchSubtitleMetadataImpl implements SearchSubtitleMetadata {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchSubtitleMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchSubtitleMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchSubtitleMetadataFactory
@@ -233,14 +203,6 @@ final native_types.NativeString Function() _SearchSubtitleMetadata_name = lib
     .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
         'yandex_flutter_search_SearchSubtitleMetadata_name')
     .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchSubtitleMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchSubtitleMetadata_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchSubtitleMetadata_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

@@ -16,12 +16,18 @@ import 'package:yandex_maps_mapkit/src/transport/bicycle/weight.dart'
 part 'summary.containers.dart';
 part 'summary.impl.dart';
 
+/// Contains brief information associated with a route constructed by the
+/// mass transit router.
 abstract final class BicycleSummary implements ffi.Finalizable {
   factory BicycleSummary(transport_bicycle_weight.BicycleWeight weight,
           transport_bicycle_flags.BicycleFlags? flags) =>
       BicycleSummaryImpl(weight, flags);
 
+  /// Quantitative characteristics of the route.
   transport_bicycle_weight.BicycleWeight get weight;
+
+  /// Specific properties of the route.
+  ///
   transport_bicycle_flags.BicycleFlags? get flags;
 
   @core.override

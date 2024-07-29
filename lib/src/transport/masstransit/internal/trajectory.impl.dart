@@ -1,7 +1,7 @@
 part of 'trajectory.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'TrajectorySegmentMetadataImpl.toPointer',
+    toNative: 'TrajectorySegmentMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => TrajectorySegmentMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'TrajectorySegmentMetadata')
@@ -49,17 +49,6 @@ final class TrajectorySegmentMetadataImpl implements TrajectorySegmentMetadata {
     }
 
     return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(TrajectorySegmentMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _TrajectorySegmentMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
   }
 }
 
@@ -112,15 +101,6 @@ final native_types.NativeString Function() _TrajectorySegmentMetadata_name = lib
     .library
     .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
         'yandex_flutter_transport_masstransit_internal_TrajectorySegmentMetadata_name')
-    .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _TrajectorySegmentMetadata_clone = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_internal_TrajectorySegmentMetadata_clone')
     .asFunction(isLeaf: true);
 
 final _TrajectorySegmentMetadata_free = lib.library.lookup<

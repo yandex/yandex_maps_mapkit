@@ -1,7 +1,7 @@
 part of 'business_photo_object_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessPhotoObjectMetadataImpl.toPointer',
+    toNative: 'SearchBusinessPhotoObjectMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchBusinessPhotoObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessPhotoObjectMetadata')
@@ -60,18 +60,6 @@ final class SearchBusinessPhotoObjectMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      SearchBusinessPhotoObjectMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchBusinessPhotoObjectMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchBusinessPhotoObjectMetadataFactory
@@ -123,14 +111,6 @@ final native_types.NativeString Function()
             'yandex_flutter_search_SearchBusinessPhotoObjectMetadata_name')
         .asFunction(isLeaf: true);
 
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchBusinessPhotoObjectMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchBusinessPhotoObjectMetadata_clone')
-        .asFunction(isLeaf: true);
-
 final _SearchBusinessPhotoObjectMetadata_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
         'yandex_flutter_search_SearchBusinessPhotoObjectMetadata_free');
@@ -160,7 +140,7 @@ final ffi.Pointer<ffi.Void> Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessPhotoObjectMetadataPhotoImpl.toPointer',
+    toNative: 'SearchBusinessPhotoObjectMetadataPhotoImpl.getNativePtr',
     toPlatform:
         '(val) => SearchBusinessPhotoObjectMetadataPhotoImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessPhotoObjectMetadataPhoto')
@@ -218,30 +198,7 @@ final class SearchBusinessPhotoObjectMetadataPhotoImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      SearchBusinessPhotoObjectMetadataPhoto? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value =
-        _SearchBusinessPhotoObjectMetadataPhoto_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _SearchBusinessPhotoObjectMetadataPhoto_clone = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessPhotoObjectMetadata_SearchBusinessPhotoObjectMetadataPhoto_clone')
-    .asFunction(isLeaf: true);
 
 final _SearchBusinessPhotoObjectMetadataPhoto_free = lib.library.lookup<
         ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -279,7 +236,8 @@ final ffi.Pointer<ffi.Void> Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.toPointer',
+    toNative:
+        'SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.getNativePtr',
     toPlatform:
         '(val) => SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessPhotoObjectMetadataPhotoPhotoLink')
@@ -338,30 +296,7 @@ final class SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      SearchBusinessPhotoObjectMetadataPhotoPhotoLink? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchBusinessPhotoObjectMetadataPhotoPhotoLink_clone(
-        getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(
-    ffi.Pointer<
-        ffi.Void>) _SearchBusinessPhotoObjectMetadataPhotoPhotoLink_clone = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_search_BusinessPhotoObjectMetadata_Photo_SearchBusinessPhotoObjectMetadataPhotoPhotoLink_clone')
-    .asFunction(isLeaf: true);
 
 final _SearchBusinessPhotoObjectMetadataPhotoPhotoLink_free = lib.library.lookup<
         ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

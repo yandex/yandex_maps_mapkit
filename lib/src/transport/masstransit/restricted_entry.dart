@@ -12,10 +12,12 @@ import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 part 'restricted_entry.containers.dart';
 part 'restricted_entry.impl.dart';
 
+/// Defines a point on a pedestrian path.
 abstract final class MasstransitRestrictedEntry implements ffi.Finalizable {
   factory MasstransitRestrictedEntry(core.int position) =>
       MasstransitRestrictedEntryImpl(position);
 
+  /// Index of the point in the section geometry.
   core.int get position;
 
   @core.override
@@ -35,11 +37,13 @@ abstract final class MasstransitRestrictedEntry implements ffi.Finalizable {
   }
 }
 
+/// Defines a vector of points on a pedestrian path.
 abstract final class RestrictedEntriesContainer implements ffi.Finalizable {
   factory RestrictedEntriesContainer(
           core.List<MasstransitRestrictedEntry> entries) =>
       RestrictedEntriesContainerImpl(entries);
 
+  /// Vector of points on a pedestrian path.
   core.List<MasstransitRestrictedEntry> get entries;
 
   @core.override

@@ -33,6 +33,7 @@ import 'package:yandex_maps_mapkit/src/search/toponym_result_metadata.dart'
 part 'search_metadata.containers.dart';
 part 'search_metadata.impl.dart';
 
+/// Additional info for search response;
 abstract final class SearchMetadata extends mapkit_base_metadata.BaseMetadata
     implements ffi.Finalizable {
   factory SearchMetadata(
@@ -64,19 +65,49 @@ abstract final class SearchMetadata extends mapkit_base_metadata.BaseMetadata
           correctedRequestText,
           requestBoundingBox);
 
+  /// Approximate number of found objects.
   core.int get found;
+
+  /// Display type.
   search_display_type.SearchDisplayType get displayType;
+
+  /// Bounding box of the response as a whole.
+  ///
   mapkit_geometry_geometry.BoundingBox? get boundingBox;
+
+  /// Server-chosen sorting.
+  ///
   search_sort.SearchSort? get sort;
+
+  /// Geocoder response to the toponym part of the query.
+  ///
   mapkit_geo_object.GeoObject? get toponym;
+
+  /// Additional info for the response from toponym search.
+  ///
   search_toponym_result_metadata.SearchToponymResultMetadata?
       get toponymResultMetadata;
+
+  /// Additional info for the response from organization search.
+  ///
   search_business_result_metadata.SearchBusinessResultMetadata?
       get businessResultMetadata;
+
+  /// Server-generated request ID.
   core.String get reqid;
+
+  /// Server-generated request context.
   core.String get context;
+
+  /// Initial request text.
   core.String get requestText;
+
+  /// Initial request text with correction of spelling mistakes.
+  ///
   core.String? get correctedRequestText;
+
+  /// Initial request bounding box.
+  ///
   mapkit_geometry_geometry.BoundingBox? get requestBoundingBox;
 
   @core.override

@@ -18,6 +18,8 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
 part 'toll_post.containers.dart';
 part 'toll_post.impl.dart';
 
+/// A toll post object.
+
 final class DrivingTollPost {
   final mapkit_geometry_geometry.PolylinePosition position;
   final core.int? id;

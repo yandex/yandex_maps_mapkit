@@ -1,7 +1,7 @@
 part of 'related_places_object_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchRelatedPlacesObjectMetadataImpl.toPointer',
+    toNative: 'SearchRelatedPlacesObjectMetadataImpl.getNativePtr',
     toPlatform:
         '(val) => SearchRelatedPlacesObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchRelatedPlacesObjectMetadata')
@@ -57,18 +57,6 @@ final class SearchRelatedPlacesObjectMetadataImpl
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      SearchRelatedPlacesObjectMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchRelatedPlacesObjectMetadata_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
 
 class _SearchRelatedPlacesObjectMetadataFactory
@@ -118,14 +106,6 @@ final native_types.NativeString Function()
     _SearchRelatedPlacesObjectMetadata_name = lib.library
         .lookup<ffi.NativeFunction<native_types.NativeString Function()>>(
             'yandex_flutter_search_SearchRelatedPlacesObjectMetadata_name')
-        .asFunction(isLeaf: true);
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchRelatedPlacesObjectMetadata_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchRelatedPlacesObjectMetadata_clone')
         .asFunction(isLeaf: true);
 
 final _SearchRelatedPlacesObjectMetadata_free = lib.library

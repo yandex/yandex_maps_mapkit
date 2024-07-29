@@ -14,7 +14,10 @@ import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
 part 'checkpoint.containers.dart';
 part 'checkpoint.impl.dart';
 
+/// A checkpoint object.
+
 final class DrivingCheckpoint {
+  /// The position of the checkpoint.
   final mapkit_geometry_geometry.PolylinePosition position;
 
   const DrivingCheckpoint(this.position);

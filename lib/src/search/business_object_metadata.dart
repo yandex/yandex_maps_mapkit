@@ -47,10 +47,12 @@ enum SearchClosed {
   ;
 }
 
+/// Generic key-value property storage.
 abstract final class SearchProperties implements ffi.Finalizable {
   factory SearchProperties(core.List<SearchPropertiesItem> items) =>
       SearchPropertiesImpl(items);
 
+  /// Property list.
   core.List<SearchPropertiesItem> get items;
 
   @core.override
@@ -70,8 +72,13 @@ abstract final class SearchProperties implements ffi.Finalizable {
   }
 }
 
+/// Single property item.
+
 final class SearchPropertiesItem {
+  /// Item key.
   final core.String key;
+
+  /// Item value.
   final core.String value;
 
   const SearchPropertiesItem({
@@ -96,6 +103,7 @@ final class SearchPropertiesItem {
   }
 }
 
+/// Extended information about company.
 abstract final class SearchBusinessObjectMetadata
     extends mapkit_base_metadata.BaseMetadata implements ffi.Finalizable {
   factory SearchBusinessObjectMetadata(
@@ -139,24 +147,72 @@ abstract final class SearchBusinessObjectMetadata
           featureGroups,
           indoorLevel);
 
+  /// Permanent company id.
   core.String get oid;
+
+  /// Company name.
   core.String get name;
+
+  /// Company address.
   search_address.SearchAddress get address;
+
+  /// List of categories associated with the company.
   core.List<search_category.SearchCategory> get categories;
+
+  /// List of phone numbers for the company.
   core.List<search_phone.SearchPhone> get phones;
+
+  /// Open hours for the company.
+  ///
   search_working_hours.SearchWorkingHours? get workingHours;
+
+  /// Address precision for the company.
+  ///
   search_precision.SearchPrecision? get precision;
+
+  /// List of features for the company.
   core.List<search_feature.SearchFeature> get features;
+
+  /// Collection of features that probably are of utmost interest to the
+  /// user.
+  ///
   search_feature.SearchFeatureSet? get importantFeatures;
+
+  /// List of links for the company.
   core.List<search_link.SearchLink> get links;
+
+  /// Optional distance to the company from geometry provided in request.
+  ///
   mapkit_localized_value.LocalizedValue? get distance;
+
+  /// List of chains associated with the company.
   core.List<search_chain.SearchChain> get chains;
+
+  /// Company status, present if it is closed.
+  ///
   SearchClosed? get closed;
+
+  /// If true, company information is not reliable.
+  ///
   core.bool? get unreliable;
+
+  /// Technical field for SEO (transliterated and simplified company name).
+  ///
   core.String? get seoname;
+
+  /// Short company name.
+  ///
   core.String? get shortName;
+
+  /// Additional company properties.
+  ///
   SearchProperties? get properties;
+
+  /// List of feature groups for the company.
   core.List<search_feature.SearchFeatureGroup> get featureGroups;
+
+  /// Indoor level id (obsolete).
+  ///
   core.String? get indoorLevel;
 
   @core.override

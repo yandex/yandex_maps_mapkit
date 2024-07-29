@@ -1,7 +1,7 @@
 part of 'route_point_object_metadata.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchEntranceImpl.toPointer',
+    toNative: 'SearchEntranceImpl.getNativePtr',
     toPlatform: '(val) => SearchEntranceImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchEntrance')
 final class SearchEntranceImpl implements SearchEntrance {
@@ -51,26 +51,7 @@ final class SearchEntranceImpl implements SearchEntrance {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchEntrance? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchEntrance_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchEntrance_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchEntrance_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchEntrance_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -112,7 +93,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchParkingAttributesImpl.toPointer',
+    toNative: 'SearchParkingAttributesImpl.getNativePtr',
     toPlatform:
         '(val) => SearchParkingAttributesImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchParkingAttributes')
@@ -166,26 +147,7 @@ final class SearchParkingAttributesImpl implements SearchParkingAttributes {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchParkingAttributes? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchParkingAttributes_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchParkingAttributes_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchParkingAttributes_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchParkingAttributes_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

@@ -40,6 +40,9 @@ enum MasstransitLandmarkID {
 
 final class MasstransitToponym {
   final core.String? toponym;
+
+  /// Toponym in accusative case with preposition
+  ///
   final core.String? accusativeToponym;
 
   const MasstransitToponym({
@@ -65,6 +68,8 @@ final class MasstransitToponym {
   }
 }
 
+/// Contains info about actions on part of route. Either `action` or
+/// `landmark` should be non-empty.
 abstract final class MasstransitAnnotation implements ffi.Finalizable {
   factory MasstransitAnnotation(
           mapkit_geometry_geometry.PolylinePosition position,
@@ -73,9 +78,19 @@ abstract final class MasstransitAnnotation implements ffi.Finalizable {
           MasstransitToponym? toponym) =>
       MasstransitAnnotationImpl(position, action, landmark, toponym);
 
+  /// Position of annotation on part of route
   mapkit_geometry_geometry.PolylinePosition get position;
+
+  /// Action
+  ///
   MasstransitActionID? get action;
+
+  /// Landmark
+  ///
   MasstransitLandmarkID? get landmark;
+
+  /// The toponym of the location.
+  ///
   MasstransitToponym? get toponym;
 
   @core.override

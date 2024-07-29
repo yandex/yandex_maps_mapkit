@@ -13,7 +13,7 @@ extension SearchStateContainerExtension on SearchState {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchStateImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchStateImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -39,7 +39,7 @@ extension SearchStateContainerExtension on SearchState {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchStateImpl.toPointer);
+    return vector.toNativeVector(obj, SearchStateImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -116,7 +116,7 @@ extension SearchWorkingHoursContainerExtension on SearchWorkingHours {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, SearchWorkingHoursImpl.toPointer);
+    return string_map.toNativeMap(obj, SearchWorkingHoursImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -143,7 +143,7 @@ extension SearchWorkingHoursContainerExtension on SearchWorkingHours {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, SearchWorkingHoursImpl.toPointer);
+    return vector.toNativeVector(obj, SearchWorkingHoursImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

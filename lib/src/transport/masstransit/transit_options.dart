@@ -55,8 +55,16 @@ final class FilterVehicleTypes {
   }
 }
 
+/// User-defined options, like time options and filter options.
+
 final class TransitOptions {
+  /// Transport types that the router will avoid. The value should be one
+  /// of [FilterVehicleTypes], or their bitwise 'OR' combination.
   final FilterVehicleTypes avoid;
+
+  /// Desired departure/arrival time settings. Empty
+  /// [transport_masstransit_options.TimeOptions] for requests that are not
+  /// time-dependent.
   final transport_masstransit_options.TimeOptions timeOptions;
 
   const TransitOptions(

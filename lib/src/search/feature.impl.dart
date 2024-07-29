@@ -1,7 +1,7 @@
 part of 'feature.dart';
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchFeatureImpl.toPointer',
+    toNative: 'SearchFeatureImpl.getNativePtr',
     toPlatform: '(val) => SearchFeatureImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFeature')
 final class SearchFeatureImpl implements SearchFeature {
@@ -67,26 +67,7 @@ final class SearchFeatureImpl implements SearchFeature {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchFeature? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFeature_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFeature_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFeature_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchFeature_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -157,7 +138,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchFeatureEnumValueImpl.toPointer',
+    toNative: 'SearchFeatureEnumValueImpl.getNativePtr',
     toPlatform:
         '(val) => SearchFeatureEnumValueImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFeatureEnumValue')
@@ -215,26 +196,7 @@ final class SearchFeatureEnumValueImpl implements SearchFeatureEnumValue {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchFeatureEnumValue? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFeatureEnumValue_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFeatureEnumValue_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_Feature_SearchFeatureEnumValue_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchFeatureEnumValue_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -446,7 +408,7 @@ final SearchFeatureVariantValueNative Function(
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchFeatureSetImpl.toPointer',
+    toNative: 'SearchFeatureSetImpl.getNativePtr',
     toPlatform:
         '(val) => SearchFeatureSetImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFeatureSet')
@@ -487,26 +449,7 @@ final class SearchFeatureSetImpl implements SearchFeatureSet {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchFeatureSet? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFeatureSet_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFeatureSet_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFeatureSet_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchFeatureSet_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
@@ -529,7 +472,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
-    toNative: 'SearchFeatureGroupImpl.toPointer',
+    toNative: 'SearchFeatureGroupImpl.getNativePtr',
     toPlatform:
         '(val) => SearchFeatureGroupImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFeatureGroup')
@@ -578,26 +521,7 @@ final class SearchFeatureGroupImpl implements SearchFeatureGroup {
 
     return result;
   }
-
-  static ffi.Pointer<ffi.Void> toPointer(SearchFeatureGroup? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Pointer<ffi.Void>>();
-    result.value = _SearchFeatureGroup_clone(getNativePtr(val));
-
-    return result.cast<ffi.Void>();
-  }
 }
-
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _SearchFeatureGroup_clone = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchFeatureGroup_clone')
-        .asFunction(isLeaf: true);
 
 final _SearchFeatureGroup_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(

@@ -13,7 +13,7 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaTileLevelImpl.toPointer);
+    return string_map.toNativeMap(obj, PanoramaTileLevelImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -40,7 +40,7 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaTileLevelImpl.toPointer);
+    return vector.toNativeVector(obj, PanoramaTileLevelImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -117,7 +117,7 @@ extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaTextMarkerImpl.toPointer);
+    return string_map.toNativeMap(obj, PanoramaTextMarkerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -144,7 +144,7 @@ extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaTextMarkerImpl.toPointer);
+    return vector.toNativeVector(obj, PanoramaTextMarkerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -221,7 +221,7 @@ extension PanoramaCompanyMarkerContainerExtension on PanoramaCompanyMarker {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaCompanyMarkerImpl.toPointer);
+    return string_map.toNativeMap(obj, PanoramaCompanyMarkerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -249,7 +249,7 @@ extension PanoramaCompanyMarkerContainerExtension on PanoramaCompanyMarker {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaCompanyMarkerImpl.toPointer);
+    return vector.toNativeVector(obj, PanoramaCompanyMarkerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -326,7 +326,7 @@ extension PanoramaIconMarkerContainerExtension on PanoramaIconMarker {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaIconMarkerImpl.toPointer);
+    return string_map.toNativeMap(obj, PanoramaIconMarkerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -353,7 +353,7 @@ extension PanoramaIconMarkerContainerExtension on PanoramaIconMarker {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaIconMarkerImpl.toPointer);
+    return vector.toNativeVector(obj, PanoramaIconMarkerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -430,7 +430,7 @@ extension PanoramaIconConnectionContainerExtension on PanoramaIconConnection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaIconConnectionImpl.toPointer);
+    return string_map.toNativeMap(obj, PanoramaIconConnectionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -458,7 +458,7 @@ extension PanoramaIconConnectionContainerExtension on PanoramaIconConnection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaIconConnectionImpl.toPointer);
+    return vector.toNativeVector(obj, PanoramaIconConnectionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -535,7 +535,8 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaArrowConnectionImpl.toPointer);
+    return string_map.toNativeMap(
+        obj, PanoramaArrowConnectionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -563,7 +564,7 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaArrowConnectionImpl.toPointer);
+    return vector.toNativeVector(obj, PanoramaArrowConnectionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -640,7 +641,7 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, PanoramaDescriptionImpl.toPointer);
+    return string_map.toNativeMap(obj, PanoramaDescriptionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -668,7 +669,7 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, PanoramaDescriptionImpl.toPointer);
+    return vector.toNativeVector(obj, PanoramaDescriptionImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(

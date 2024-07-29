@@ -61,6 +61,13 @@ final void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
                         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingSession_retry')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int) _DrivingSession_set = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+        'yandex_flutter_directions_driving_DrivingSession_set_')
+    .asFunction(isLeaf: true);
 
 final class DrivingSessionRouteListenerImpl
     implements DrivingSessionRouteListener {
@@ -231,6 +238,13 @@ final void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
                         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingSummarySession_retry')
         .asFunction();
+final void Function(ffi.Pointer<ffi.Void>, core.int)
+    _DrivingSummarySession_set = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
+            'yandex_flutter_directions_driving_DrivingSummarySession_set_')
+        .asFunction(isLeaf: true);
 
 final class DrivingSummarySessionSummaryListenerImpl
     implements DrivingSummarySessionSummaryListener {

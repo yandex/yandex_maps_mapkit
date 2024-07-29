@@ -16,13 +16,18 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
 part 'thread.containers.dart';
 part 'thread.impl.dart';
 
+/// Describes a [transport_masstransit_common.MasstransitStop] on a
+/// [transport_masstransit_common.MasstransitThread].
 abstract final class MasstransitThreadStop implements ffi.Finalizable {
   factory MasstransitThreadStop(
           transport_masstransit_common.MasstransitStop stop,
           mapkit_geometry_point.Point position) =>
       MasstransitThreadStopImpl(stop, position);
 
+  /// Stop on a thread.
   transport_masstransit_common.MasstransitStop get stop;
+
+  /// Coordinates of the thread stop.
   mapkit_geometry_point.Point get position;
 
   @core.override

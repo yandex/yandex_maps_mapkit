@@ -35,4 +35,6 @@ abstract class AdjustedClock implements ffi.Finalizable {
   /// Notifies AdjustedClock when the application pauses and goes to the
   /// background.
   void pause();
+
+  core.bool isValid();
 }

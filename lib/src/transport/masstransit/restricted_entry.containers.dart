@@ -15,7 +15,7 @@ extension MasstransitRestrictedEntryContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, MasstransitRestrictedEntryImpl.toPointer);
+        obj, MasstransitRestrictedEntryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -44,7 +44,8 @@ extension MasstransitRestrictedEntryContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitRestrictedEntryImpl.toPointer);
+    return vector.toNativeVector(
+        obj, MasstransitRestrictedEntryImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
@@ -127,7 +128,7 @@ extension RestrictedEntriesContainerContainerExtension
     }
 
     return string_map.toNativeMap(
-        obj, RestrictedEntriesContainerImpl.toPointer);
+        obj, RestrictedEntriesContainerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
@@ -156,7 +157,8 @@ extension RestrictedEntriesContainerContainerExtension
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, RestrictedEntriesContainerImpl.toPointer);
+    return vector.toNativeVector(
+        obj, RestrictedEntriesContainerImpl.getNativePtr);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
