@@ -16,4 +16,4 @@ The map that you create using MapKit will stay current to show new construction,
 
 ## Documentation
 
-You can find more information about MapKit in our documentation: https://yandex.ru/dev/mapkit/doc/en/ 
+You can find more information about MapKit in our documentation: https://yandex.ru/dev/mapkit/doc/en/
