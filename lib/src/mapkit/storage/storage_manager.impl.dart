@@ -53,6 +53,7 @@ class StorageManagerImpl implements StorageManager, ffi.Finalizable {
         ptr,
         mapkit_storage_storage_error_listener.StorageErrorListenerImpl
             .getNativePtr(errorListener));
+    exception.checkCallResult();
   }
 
   void removeStorageErrorListener(
@@ -62,16 +63,19 @@ class StorageManagerImpl implements StorageManager, ffi.Finalizable {
         ptr,
         mapkit_storage_storage_error_listener.StorageErrorListenerImpl
             .getNativePtr(errorListener));
+    exception.checkCallResult();
   }
 
   void computeSize(StorageManagerSizeListener callback) {
     _StorageManager_computeSize(
         ptr, StorageManagerSizeListenerImpl.getNativePtr(callback));
+    exception.checkCallResult();
   }
 
   void clear(StorageManagerClearListener callback) {
     _StorageManager_clear(
         ptr, StorageManagerClearListenerImpl.getNativePtr(callback));
+    exception.checkCallResult();
   }
 
   void setMaxTileStorageSize(
@@ -83,16 +87,19 @@ class StorageManagerImpl implements StorageManager, ffi.Finalizable {
       limit,
       StorageManagerSizeListenerImpl.getNativePtr(callback),
     );
+    exception.checkCallResult();
   }
 
   void resetMaxTileStorageSize(StorageManagerSizeListener callback) {
     _StorageManager_resetMaxTileStorageSize(
         ptr, StorageManagerSizeListenerImpl.getNativePtr(callback));
+    exception.checkCallResult();
   }
 
   void maxTileStorageSize(StorageManagerSizeListener callback) {
     _StorageManager_maxTileStorageSize(
         ptr, StorageManagerSizeListenerImpl.getNativePtr(callback));
+    exception.checkCallResult();
   }
 }
 

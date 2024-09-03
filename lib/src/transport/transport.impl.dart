@@ -48,37 +48,52 @@ class TransportImpl implements Transport, ffi.Finalizable {
 
   @core.override
   transport_time_adjusted_clock.AdjustedClock get adjustedClock {
-    return transport_time_adjusted_clock.AdjustedClockImpl.fromNativePtr(
-        _Transport_get_adjustedClock(ptr));
+    final result =
+        transport_time_adjusted_clock.AdjustedClockImpl.fromNativePtr(
+            _Transport_get_adjustedClock(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   transport_bicycle_bicycle_router.BicycleRouter createBicycleRouter() {
-    return transport_bicycle_bicycle_router.BicycleRouterImpl.fromNativePtr(
-        _Transport_createBicycleRouter(ptr));
+    final result =
+        transport_bicycle_bicycle_router.BicycleRouterImpl.fromNativePtr(
+            _Transport_createBicycleRouter(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   transport_masstransit_masstransit_router.MasstransitRouter
       createMasstransitRouter() {
-    return transport_masstransit_masstransit_router.MasstransitRouterImpl
-        .fromNativePtr(_Transport_createMasstransitRouter(ptr));
+    final result =
+        transport_masstransit_masstransit_router.MasstransitRouterImpl
+            .fromNativePtr(_Transport_createMasstransitRouter(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   transport_masstransit_pedestrian_router.PedestrianRouter
       createPedestrianRouter() {
-    return transport_masstransit_pedestrian_router.PedestrianRouterImpl
+    final result = transport_masstransit_pedestrian_router.PedestrianRouterImpl
         .fromNativePtr(_Transport_createPedestrianRouter(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   transport_masstransit_bicycle_router_v2.BicycleRouterV2
       createBicycleRouterV2() {
-    return transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
+    final result = transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
         .fromNativePtr(_Transport_createBicycleRouterV2(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   transport_masstransit_bicycle_router_v2.BicycleRouterV2
       createScooterRouter() {
-    return transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
+    final result = transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
         .fromNativePtr(_Transport_createScooterRouter(ptr));
+    exception.checkCallResult();
+    return result;
   }
 }
 

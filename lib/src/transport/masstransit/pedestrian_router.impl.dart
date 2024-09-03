@@ -41,8 +41,9 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
     required core.List<mapkit_request_point.RequestPoint> points,
     required core.bool avoidSteep,
   }) {
-    return transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
-        _PedestrianRouter_requestRoutes(
+    final result =
+        transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
+            _PedestrianRouter_requestRoutes(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
@@ -51,6 +52,7 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
       transport_masstransit_session.RouteHandlerImpl.getNativePtr(
           routeListener),
     ));
+    return result;
   }
 
   transport_masstransit_session.MasstransitSummarySession requestRoutesSummary(
@@ -59,7 +61,7 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
     required core.List<mapkit_request_point.RequestPoint> points,
     required core.bool avoidSteep,
   }) {
-    return transport_masstransit_session.MasstransitSummarySessionImpl
+    final result = transport_masstransit_session.MasstransitSummarySessionImpl
         .fromNativePtr(_PedestrianRouter_requestRoutesSummary(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
@@ -69,6 +71,7 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
       transport_masstransit_session.SummaryHandlerImpl.getNativePtr(
           summaryListener),
     ));
+    return result;
   }
 
   transport_masstransit_session.MasstransitSummarySession
@@ -79,7 +82,7 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
     required core.List<mapkit_request_point.RequestPoint> to,
     required core.bool avoidSteep,
   }) {
-    return transport_masstransit_session.MasstransitSummarySessionImpl
+    final result = transport_masstransit_session.MasstransitSummarySessionImpl
         .fromNativePtr(_PedestrianRouter_requestRoutesSummaryFromPoint(
       ptr,
       mapkit_request_point.RequestPointImpl.getNativePtr(from),
@@ -89,6 +92,7 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
       transport_masstransit_session.SummaryHandlerImpl.getNativePtr(
           summaryListener),
     ));
+    return result;
   }
 
   transport_masstransit_session.MasstransitSession resolveUri(
@@ -96,20 +100,24 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
     transport_masstransit_session.RouteHandler routeListener, {
     required core.String uri,
   }) {
-    return transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
-        _PedestrianRouter_resolveUri(
+    final result =
+        transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
+            _PedestrianRouter_resolveUri(
       ptr,
       to_native.toNativeString(uri),
       transport_masstransit_options.TimeOptionsImpl.toNative(timeOptions),
       transport_masstransit_session.RouteHandlerImpl.getNativePtr(
           routeListener),
     ));
+    return result;
   }
 
   transport_masstransit_serializer.MasstransitRouteSerializer
       routeSerializer() {
-    return transport_masstransit_serializer.MasstransitRouteSerializerImpl
-        .fromNativePtr(_PedestrianRouter_routeSerializer(ptr));
+    final result =
+        transport_masstransit_serializer.MasstransitRouteSerializerImpl
+            .fromNativePtr(_PedestrianRouter_routeSerializer(ptr));
+    return result;
   }
 }
 

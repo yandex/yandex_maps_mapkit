@@ -47,45 +47,59 @@ class PlacesImpl implements Places, ffi.Finalizable {
   }
 
   places_panorama_service.PanoramaService createPanoramaService() {
-    return places_panorama_service.PanoramaServiceImpl.fromNativePtr(
+    final result = places_panorama_service.PanoramaServiceImpl.fromNativePtr(
         _Places_createPanoramaService(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   places_panorama_panorama_layer.PanoramaLayer createPanoramaLayer(
       mapkit_map_map_window.MapWindow mapWindow) {
-    return places_panorama_panorama_layer.PanoramaLayerImpl.fromNativePtr(
-        _Places_createPanoramaLayer(
-            ptr, mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow)));
+    final result =
+        places_panorama_panorama_layer.PanoramaLayerImpl.fromNativePtr(
+            _Places_createPanoramaLayer(ptr,
+                mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow)));
+    exception.checkCallResult();
+    return result;
   }
 
   places_panorama_player.PanoramaPlayer createPanoramaPlayer(
       platform_view.PlatformView platformView) {
-    return places_panorama_player.PanoramaPlayerImpl.fromNativePtr(
+    final result = places_panorama_player.PanoramaPlayerImpl.fromNativePtr(
         _Places_createPanoramaPlayer(
             ptr, to_native.toNativePlatformView(platformView)));
+    exception.checkCallResult();
+    return result;
   }
 
   places_panorama_player.PanoramaPlayer createPanoramaPlayerWithScale(
     platform_view.PlatformView platformView, {
     required core.double scaleFactor,
   }) {
-    return places_panorama_player.PanoramaPlayerImpl.fromNativePtr(
+    final result = places_panorama_player.PanoramaPlayerImpl.fromNativePtr(
         _Places_createPanoramaPlayerWithScale(
             ptr, to_native.toNativePlatformView(platformView), scaleFactor));
+    exception.checkCallResult();
+    return result;
   }
 
   places_mrc_mrc_photo_player.MrcPhotoPlayer createMrcPhotoPlayer(
       platform_view.PlatformView platformView) {
-    return places_mrc_mrc_photo_player.MrcPhotoPlayerImpl.fromNativePtr(
+    final result = places_mrc_mrc_photo_player.MrcPhotoPlayerImpl.fromNativePtr(
         _Places_createMrcPhotoPlayer(
             ptr, to_native.toNativePlatformView(platformView)));
+    exception.checkCallResult();
+    return result;
   }
 
   places_mrc_mrc_photo_track_player.MrcPhotoTrackPlayer
       createMrcPhotoTrackPlayer(platform_view.PlatformView platformView) {
-    return places_mrc_mrc_photo_track_player.MrcPhotoTrackPlayerImpl
-        .fromNativePtr(_Places_createMrcPhotoTrackPlayer(
-            ptr, to_native.toNativePlatformView(platformView)));
+    final result =
+        places_mrc_mrc_photo_track_player.MrcPhotoTrackPlayerImpl.fromNativePtr(
+            _Places_createMrcPhotoTrackPlayer(
+                ptr, to_native.toNativePlatformView(platformView)));
+    exception.checkCallResult();
+    return result;
   }
 }
 

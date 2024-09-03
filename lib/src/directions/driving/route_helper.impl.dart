@@ -274,18 +274,21 @@ extension ManeuverStyleImpl on ManeuverStyle {
 }
 
 mapkit_navigation_jam_style.JamStyle _createDefaultJamStyle() {
-  return mapkit_navigation_jam_style.JamStyleImpl.fromNativePtr(
+  final result = mapkit_navigation_jam_style.JamStyleImpl.fromNativePtr(
       _RouteHelper_createDefaultJamStyle());
+  return result;
 }
 
 mapkit_navigation_jam_style.JamStyle _createDisabledJamStyle() {
-  return mapkit_navigation_jam_style.JamStyleImpl.fromNativePtr(
+  final result = mapkit_navigation_jam_style.JamStyleImpl.fromNativePtr(
       _RouteHelper_createDisabledJamStyle());
+  return result;
 }
 
 ManeuverStyle _createDefaultManeuverStyle() {
-  return ManeuverStyleImpl.fromNative(
-      _RouteHelper_createDefaultManeuverStyle());
+  final result =
+      ManeuverStyleImpl.fromNative(_RouteHelper_createDefaultManeuverStyle());
+  return result;
 }
 
 void _updatePolyline(

@@ -207,19 +207,23 @@ class RoadEventsLayerImpl implements RoadEventsLayer, ffi.Finalizable {
   void addListener(RoadEventsLayerListener layerListener) {
     _RoadEventsLayer_addListener(
         ptr, RoadEventsLayerListenerImpl.getNativePtr(layerListener));
+    exception.checkCallResult();
   }
 
   void removeListener(RoadEventsLayerListener layerListener) {
     _RoadEventsLayer_removeListener(
         ptr, RoadEventsLayerListenerImpl.getNativePtr(layerListener));
+    exception.checkCallResult();
   }
 
   void selectRoadEvent(core.String eventId) {
     _RoadEventsLayer_selectRoadEvent(ptr, to_native.toNativeString(eventId));
+    exception.checkCallResult();
   }
 
   void deselectRoadEvent() {
     _RoadEventsLayer_deselectRoadEvent(ptr);
+    exception.checkCallResult();
   }
 
   void setRoadEventVisibleOnRoute(
@@ -228,6 +232,7 @@ class RoadEventsLayerImpl implements RoadEventsLayer, ffi.Finalizable {
   }) {
     _RoadEventsLayer_setRoadEventVisibleOnRoute(ptr,
         mapkit_road_events_event_tag.RoadEventsEventTagImpl.toInt(tag), on);
+    exception.checkCallResult();
   }
 }
 

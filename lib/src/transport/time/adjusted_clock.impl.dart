@@ -47,15 +47,19 @@ class AdjustedClockImpl implements AdjustedClock, ffi.Finalizable {
   }
 
   core.DateTime now() {
-    return to_platform.toPlatformAbsTimestamp(_AdjustedClock_now(ptr));
+    final result = to_platform.toPlatformAbsTimestamp(_AdjustedClock_now(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   void resume() {
     _AdjustedClock_resume(ptr);
+    exception.checkCallResult();
   }
 
   void pause() {
     _AdjustedClock_pause(ptr);
+    exception.checkCallResult();
   }
 }
 

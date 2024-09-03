@@ -48,11 +48,14 @@ class DirectionsImpl implements Directions, ffi.Finalizable {
 
   directions_driving_driving_router.DrivingRouter createDrivingRouter(
       directions_driving_driving_router.DrivingRouterType type) {
-    return directions_driving_driving_router.DrivingRouterImpl.fromNativePtr(
-        _Directions_createDrivingRouter(
-            ptr,
-            directions_driving_driving_router.DrivingRouterTypeImpl.toInt(
-                type)));
+    final result =
+        directions_driving_driving_router.DrivingRouterImpl.fromNativePtr(
+            _Directions_createDrivingRouter(
+                ptr,
+                directions_driving_driving_router.DrivingRouterTypeImpl.toInt(
+                    type)));
+    exception.checkCallResult();
+    return result;
   }
 }
 

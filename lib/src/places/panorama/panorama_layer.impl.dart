@@ -48,10 +48,12 @@ class PanoramaLayerImpl implements PanoramaLayer, ffi.Finalizable {
 
   void setStreetPanoramaVisible(core.bool on) {
     _PanoramaLayer_setStreetPanoramaVisible(ptr, on);
+    exception.checkCallResult();
   }
 
   void setAirshipPanoramaVisible(core.bool on) {
     _PanoramaLayer_setAirshipPanoramaVisible(ptr, on);
+    exception.checkCallResult();
   }
 }
 

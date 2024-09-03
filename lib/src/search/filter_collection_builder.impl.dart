@@ -76,8 +76,10 @@ class SearchFilterCollectionBuilderImpl
   }
 
   search_filter_collection.SearchFilterCollection build() {
-    return search_filter_collection.SearchFilterCollectionImpl.fromNativePtr(
-        _FilterCollectionBuilder_build(ptr));
+    final result =
+        search_filter_collection.SearchFilterCollectionImpl.fromNativePtr(
+            _FilterCollectionBuilder_build(ptr));
+    return result;
   }
 }
 
@@ -144,8 +146,9 @@ final void Function(ffi.Pointer<ffi.Void>, core.int)
         .asFunction(isLeaf: true);
 
 SearchFilterCollectionBuilder _createFilterCollectionBuilder() {
-  return SearchFilterCollectionBuilderImpl.fromNativePtr(
+  final result = SearchFilterCollectionBuilderImpl.fromNativePtr(
       _FilterCollectionUtils_createFilterCollectionBuilder());
+  return result;
 }
 
 final ffi.Pointer<ffi.Void> Function()

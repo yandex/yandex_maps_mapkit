@@ -273,61 +273,78 @@ class RoadEventsLayerRoadEventStyleImpl
 
   @core.override
   core.int get zoomMin {
-    return _RoadEventStyle_get_zoomMin(ptr);
+    final result = _RoadEventStyle_get_zoomMin(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   set zoomMin(core.int val) {
     _RoadEventStyle_set_zoomMin(ptr, val);
+    exception.checkCallResult();
   }
 
   @core.override
   math.Point<core.double> get iconAnchor {
-    return to_platform.toPlatformPoint(_RoadEventStyle_get_iconAnchor(ptr));
+    final result =
+        to_platform.toPlatformPoint(_RoadEventStyle_get_iconAnchor(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   set iconAnchor(math.Point<core.double> val) {
     _RoadEventStyle_set_iconAnchor(ptr, to_native.toNativePoint(val));
+    exception.checkCallResult();
   }
 
   @core.override
   core.List<math.Point<core.double>> get zoomScaleFunction {
-    return to_platform
-        .toVectorPoint(_RoadEventStyle_get_zoomScaleFunction(ptr));
+    final result =
+        to_platform.toVectorPoint(_RoadEventStyle_get_zoomScaleFunction(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   set zoomScaleFunction(core.List<math.Point<core.double>> val) {
     _RoadEventStyle_set_zoomScaleFunction(
         ptr, to_native.toNativeVectorPoint(val));
+    exception.checkCallResult();
   }
 
   @core.override
   RoadEventsLayerTextStyle? get captionStyle {
-    return RoadEventsLayerTextStyleImpl.fromOptionalPtr(
+    final result = RoadEventsLayerTextStyleImpl.fromOptionalPtr(
         _RoadEventStyle_get_captionStyle(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   set captionStyle(RoadEventsLayerTextStyle? val) {
     _RoadEventStyle_set_captionStyle(
         ptr, RoadEventsLayerTextStyleImpl.getNativePtr(val));
+    exception.checkCallResult();
   }
 
   @core.override
   math.Point<core.double> get pulsationCenter {
-    return to_platform
-        .toPlatformPoint(_RoadEventStyle_get_pulsationCenter(ptr));
+    final result =
+        to_platform.toPlatformPoint(_RoadEventStyle_get_pulsationCenter(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   set pulsationCenter(math.Point<core.double> val) {
     _RoadEventStyle_set_pulsationCenter(ptr, to_native.toNativePoint(val));
+    exception.checkCallResult();
   }
 
   void setIconImage(image_provider.ImageProvider image) {
     _RoadEventStyle_setIconImage(ptr, to_native.toNativeImageProvider(image));
+    exception.checkCallResult();
   }
 }
 
@@ -506,37 +523,50 @@ class RoadEventsLayerRoadEventStylingPropertiesImpl
 
   @core.override
   core.List<mapkit_road_events_event_tag.RoadEventsEventTag> get tags {
-    return mapkit_road_events_event_tag.RoadEventsEventTagContainerExtension
-        .toPlatformVector(_RoadEventStylingProperties_get_tags(ptr));
+    final result =
+        mapkit_road_events_event_tag.RoadEventsEventTagContainerExtension
+            .toPlatformVector(_RoadEventStylingProperties_get_tags(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   core.bool get inFuture {
-    return _RoadEventStylingProperties_get_inFuture(ptr);
+    final result = _RoadEventStylingProperties_get_inFuture(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   core.bool get onRoute {
-    return _RoadEventStylingProperties_get_onRoute(ptr);
+    final result = _RoadEventStylingProperties_get_onRoute(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   core.bool get selected {
-    return _RoadEventStylingProperties_get_selected(ptr);
+    final result = _RoadEventStylingProperties_get_selected(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   core.bool get userEvent {
-    return _RoadEventStylingProperties_get_userEvent(ptr);
+    final result = _RoadEventStylingProperties_get_userEvent(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   core.bool hasSignificanceGreaterOrEqual(
       mapkit_road_events_layer_significance.RoadEventSignificance
           significance) {
-    return _RoadEventStylingProperties_hasSignificanceGreaterOrEqual(
+    final result = _RoadEventStylingProperties_hasSignificanceGreaterOrEqual(
         ptr,
         mapkit_road_events_layer_significance.RoadEventSignificanceImpl.toInt(
             significance));
+    exception.checkCallResult();
+    return result;
   }
 }
 

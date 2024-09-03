@@ -40,14 +40,19 @@ class MasstransitRouteSerializerImpl
 
   typed_data.ByteBuffer save(
       transport_masstransit_route.MasstransitRoute route) {
-    return to_platform.toPlatformBytes(_MasstransitRouteSerializer_save(ptr,
+    final result = to_platform.toPlatformBytes(_MasstransitRouteSerializer_save(
+        ptr,
         transport_masstransit_route.MasstransitRouteImpl.getNativePtr(route)));
+    return result;
   }
 
   transport_masstransit_route.MasstransitRoute? load(
       typed_data.ByteBuffer data) {
-    return transport_masstransit_route.MasstransitRouteImpl.fromOptionalPtr(
-        _MasstransitRouteSerializer_load(ptr, to_native.toNativeBytes(data)));
+    final result =
+        transport_masstransit_route.MasstransitRouteImpl.fromOptionalPtr(
+            _MasstransitRouteSerializer_load(
+                ptr, to_native.toNativeBytes(data)));
+    return result;
   }
 }
 

@@ -2322,40 +2322,49 @@ class MasstransitRouteImpl implements MasstransitRoute, ffi.Finalizable {
 
   @core.override
   MasstransitRouteMetadata get metadata {
-    return MasstransitRouteMetadataImpl.fromNativePtr(_Route_get_metadata(ptr));
+    final result =
+        MasstransitRouteMetadataImpl.fromNativePtr(_Route_get_metadata(ptr));
+    return result;
   }
 
   @core.override
   core.List<transport_masstransit_way_point.MasstransitWayPoint> get wayPoints {
-    return transport_masstransit_way_point.MasstransitWayPointContainerExtension
-        .toPlatformVector(_Route_get_wayPoints(ptr));
+    final result =
+        transport_masstransit_way_point.MasstransitWayPointContainerExtension
+            .toPlatformVector(_Route_get_wayPoints(ptr));
+    return result;
   }
 
   @core.override
   core.List<MasstransitSection> get sections {
-    return MasstransitSectionContainerExtension.toPlatformVector(
+    final result = MasstransitSectionContainerExtension.toPlatformVector(
         _Route_get_sections(ptr));
+    return result;
   }
 
   @core.override
   mapkit_geometry_geometry.Polyline get geometry {
-    return mapkit_geometry_geometry.PolylineImpl.fromNativePtr(
+    final result = mapkit_geometry_geometry.PolylineImpl.fromNativePtr(
         _Route_get_geometry(ptr));
+    return result;
   }
 
   @core.override
   mapkit_uri_uri_object_metadata.UriObjectMetadata get uriMetadata {
-    return mapkit_uri_uri_object_metadata.UriObjectMetadataImpl.fromNativePtr(
-        _Route_get_uriMetadata(ptr));
+    final result =
+        mapkit_uri_uri_object_metadata.UriObjectMetadataImpl.fromNativePtr(
+            _Route_get_uriMetadata(ptr));
+    return result;
   }
 
   core.double distanceBetweenPolylinePositions(
       mapkit_geometry_geometry.PolylinePosition from,
       mapkit_geometry_geometry.PolylinePosition to) {
-    return _Route_distanceBetweenPolylinePositions(
+    final result = _Route_distanceBetweenPolylinePositions(
         ptr,
         mapkit_geometry_geometry.PolylinePositionImpl.toNative(from),
         mapkit_geometry_geometry.PolylinePositionImpl.toNative(to));
+    return result;
   }
 }
 

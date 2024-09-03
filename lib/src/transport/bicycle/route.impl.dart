@@ -165,79 +165,95 @@ class BicycleRouteImpl implements BicycleRoute, ffi.Finalizable {
 
   @core.override
   transport_bicycle_weight.BicycleWeight get weight {
-    return transport_bicycle_weight.BicycleWeightImpl.fromNative(
+    final result = transport_bicycle_weight.BicycleWeightImpl.fromNative(
         _Route_get_weight(ptr));
+    return result;
   }
 
   @core.override
   core.List<transport_bicycle_section.BicycleSection> get sections {
-    return transport_bicycle_section.BicycleSectionContainerExtension
+    final result = transport_bicycle_section.BicycleSectionContainerExtension
         .toPlatformVector(_Route_get_sections(ptr));
+    return result;
   }
 
   @core.override
   core.List<transport_bicycle_leg.BicycleLeg> get legs {
-    return transport_bicycle_leg.BicycleLegContainerExtension.toPlatformVector(
-        _Route_get_legs(ptr));
+    final result =
+        transport_bicycle_leg.BicycleLegContainerExtension.toPlatformVector(
+            _Route_get_legs(ptr));
+    return result;
   }
 
   @core.override
   mapkit_geometry_geometry.Polyline get geometry {
-    return mapkit_geometry_geometry.PolylineImpl.fromNativePtr(
+    final result = mapkit_geometry_geometry.PolylineImpl.fromNativePtr(
         _Route_get_geometry(ptr));
+    return result;
   }
 
   @core.override
   transport_bicycle_flags.BicycleFlags? get flags {
-    return transport_bicycle_flags.BicycleFlagsImpl.fromPointer(
+    final result = transport_bicycle_flags.BicycleFlagsImpl.fromPointer(
         _Route_get_flags(ptr));
+    return result;
   }
 
   @core.override
   core.List<BicycleConstructionSegment> get constructions {
-    return BicycleConstructionSegmentContainerExtension.toPlatformVector(
-        _Route_get_constructions(ptr));
+    final result =
+        BicycleConstructionSegmentContainerExtension.toPlatformVector(
+            _Route_get_constructions(ptr));
+    return result;
   }
 
   @core.override
   core.List<BicycleTrafficTypeSegment> get trafficTypes {
-    return BicycleTrafficTypeSegmentContainerExtension.toPlatformVector(
+    final result = BicycleTrafficTypeSegmentContainerExtension.toPlatformVector(
         _Route_get_trafficTypes(ptr));
+    return result;
   }
 
   @core.override
   core.List<transport_bicycle_restricted_entry.BicycleRestrictedEntry>
       get restrictedEntries {
-    return transport_bicycle_restricted_entry
+    final result = transport_bicycle_restricted_entry
             .BicycleRestrictedEntryContainerExtension
         .toPlatformVector(_Route_get_restrictedEntries(ptr));
+    return result;
   }
 
   @core.override
   core.List<transport_bicycle_intermediate_points.BicycleViaPoint>
       get viaPoints {
-    return transport_bicycle_intermediate_points
-            .BicycleViaPointContainerExtension
-        .toPlatformVector(_Route_get_viaPoints(ptr));
+    final result =
+        transport_bicycle_intermediate_points.BicycleViaPointContainerExtension
+            .toPlatformVector(_Route_get_viaPoints(ptr));
+    return result;
   }
 
   @core.override
   core.List<transport_bicycle_intermediate_points.BicycleWayPoint>
       get wayPoints {
-    return transport_bicycle_intermediate_points
-            .BicycleWayPointContainerExtension
-        .toPlatformVector(_Route_get_wayPoints(ptr));
+    final result =
+        transport_bicycle_intermediate_points.BicycleWayPointContainerExtension
+            .toPlatformVector(_Route_get_wayPoints(ptr));
+    return result;
   }
 
   @core.override
   mapkit_uri_uri_object_metadata.UriObjectMetadata get uriMetadata {
-    return mapkit_uri_uri_object_metadata.UriObjectMetadataImpl.fromNativePtr(
-        _Route_get_uriMetadata(ptr));
+    final result =
+        mapkit_uri_uri_object_metadata.UriObjectMetadataImpl.fromNativePtr(
+            _Route_get_uriMetadata(ptr));
+    return result;
   }
 
   @core.override
   core.String? get routeId {
-    return to_platform.toPlatformFromPointerString(_Route_get_routeId(ptr));
+    final result =
+        to_platform.toPlatformFromPointerString(_Route_get_routeId(ptr));
+    return result;
   }
 }
 

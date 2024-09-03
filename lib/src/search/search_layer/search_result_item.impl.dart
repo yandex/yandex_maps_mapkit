@@ -37,51 +37,63 @@ class SearchResultItemImpl implements SearchResultItem, ffi.Finalizable {
 
   @core.override
   core.String get id {
-    return to_platform.toPlatformString(_SearchResultItem_get_id(ptr));
+    final result = to_platform.toPlatformString(_SearchResultItem_get_id(ptr));
+    return result;
   }
 
   @core.override
   core.String get name {
-    return to_platform.toPlatformString(_SearchResultItem_get_name(ptr));
+    final result =
+        to_platform.toPlatformString(_SearchResultItem_get_name(ptr));
+    return result;
   }
 
   @core.override
   core.String? get categoryClass {
-    return to_platform
+    final result = to_platform
         .toPlatformFromPointerString(_SearchResultItem_get_categoryClass(ptr));
+    return result;
   }
 
   @core.override
   mapkit_geo_object.GeoObject get geoObject {
-    return mapkit_geo_object.GeoObjectImpl.fromNativePtr(
+    final result = mapkit_geo_object.GeoObjectImpl.fromNativePtr(
         _SearchResultItem_get_geoObject(ptr));
+    return result;
   }
 
   @core.override
   mapkit_geometry_point.Point get point {
-    return mapkit_geometry_point.PointImpl.fromNative(
+    final result = mapkit_geometry_point.PointImpl.fromNative(
         _SearchResultItem_get_point(ptr));
+    return result;
   }
 
   core.bool hasDetails() {
-    return _SearchResultItem_hasDetails(ptr);
+    final result = _SearchResultItem_hasDetails(ptr);
+    return result;
   }
 
   core.List<search_subtitle.SearchSubtitleItem> details() {
-    return search_subtitle.SearchSubtitleItemContainerExtension
-        .toPlatformVector(_SearchResultItem_details(ptr));
+    final result =
+        search_subtitle.SearchSubtitleItemContainerExtension.toPlatformVector(
+            _SearchResultItem_details(ptr));
+    return result;
   }
 
   core.bool isCollection() {
-    return _SearchResultItem_isCollection(ptr);
+    final result = _SearchResultItem_isCollection(ptr);
+    return result;
   }
 
   core.bool isClosed() {
-    return _SearchResultItem_isClosed(ptr);
+    final result = _SearchResultItem_isClosed(ptr);
+    return result;
   }
 
   core.bool isOffline() {
-    return _SearchResultItem_isOffline(ptr);
+    final result = _SearchResultItem_isOffline(ptr);
+    return result;
   }
 }
 

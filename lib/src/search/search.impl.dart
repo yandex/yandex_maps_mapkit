@@ -48,18 +48,23 @@ class SearchImpl implements Search, ffi.Finalizable {
 
   search_search_layer_search_layer.SearchLayer createSearchLayer(
       mapkit_map_map_window.MapWindow mapWindow) {
-    return search_search_layer_search_layer.SearchLayerImpl.fromNativePtr(
-        _Search_createSearchLayer(
-            ptr, mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow)));
+    final result =
+        search_search_layer_search_layer.SearchLayerImpl.fromNativePtr(
+            _Search_createSearchLayer(ptr,
+                mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow)));
+    exception.checkCallResult();
+    return result;
   }
 
   search_search_manager.SearchManager createSearchManager(
       search_search_manager.SearchManagerType searchManagerType) {
-    return search_search_manager.SearchManagerImpl.fromNativePtr(
+    final result = search_search_manager.SearchManagerImpl.fromNativePtr(
         _Search_createSearchManager(
             ptr,
             search_search_manager.SearchManagerTypeImpl.toInt(
                 searchManagerType)));
+    exception.checkCallResult();
+    return result;
   }
 }
 

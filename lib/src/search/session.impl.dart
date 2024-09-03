@@ -45,7 +45,8 @@ class SearchSessionImpl implements SearchSession, ffi.Finalizable {
   }
 
   core.bool hasNextPage() {
-    return _Session_hasNextPage(ptr);
+    final result = _Session_hasNextPage(ptr);
+    return result;
   }
 
   void fetchNextPage(SearchSessionSearchListener searchListener) {

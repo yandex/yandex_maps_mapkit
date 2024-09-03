@@ -49,44 +49,56 @@ class MrcPhotoTrackPlayerImpl implements MrcPhotoTrackPlayer, ffi.Finalizable {
 
   @core.override
   core.String? get photoId {
-    return to_platform
+    final result = to_platform
         .toPlatformFromPointerString(_MrcPhotoTrackPlayer_get_photoId(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   mapkit_geometry_geometry.PolylinePosition? get position {
-    return mapkit_geometry_geometry.PolylinePositionImpl.fromPointer(
+    final result = mapkit_geometry_geometry.PolylinePositionImpl.fromPointer(
         _MrcPhotoTrackPlayer_get_position(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   core.bool get isPlaying {
-    return _MrcPhotoTrackPlayer_get_isPlaying(ptr);
+    final result = _MrcPhotoTrackPlayer_get_isPlaying(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   void openPhotoAt(mapkit_geometry_geometry.PolylinePosition position) {
     _MrcPhotoTrackPlayer_openPhotoAt(
         ptr, mapkit_geometry_geometry.PolylinePositionImpl.toNative(position));
+    exception.checkCallResult();
   }
 
   void reset() {
     _MrcPhotoTrackPlayer_reset(ptr);
+    exception.checkCallResult();
   }
 
   void enableMove() {
     _MrcPhotoTrackPlayer_enableMove(ptr);
+    exception.checkCallResult();
   }
 
   void disableMove() {
     _MrcPhotoTrackPlayer_disableMove(ptr);
+    exception.checkCallResult();
   }
 
   void play() {
     _MrcPhotoTrackPlayer_play(ptr);
+    exception.checkCallResult();
   }
 
   void stop() {
     _MrcPhotoTrackPlayer_stop(ptr);
+    exception.checkCallResult();
   }
 }
 

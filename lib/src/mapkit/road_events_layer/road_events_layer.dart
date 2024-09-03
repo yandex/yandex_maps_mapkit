@@ -6,6 +6,8 @@ import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:yandex_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
 import 'package:yandex_maps_mapkit/src/bindings/common/dispatcher.dart'
     as nativeBinding;
 import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
@@ -93,5 +95,6 @@ abstract class RoadEventsLayer implements ffi.Finalizable {
     required core.bool on,
   });
 
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }

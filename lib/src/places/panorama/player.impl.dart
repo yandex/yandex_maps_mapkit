@@ -507,11 +507,15 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
 
   @core.override
   mapkit_logo_logo.Logo get logo {
-    return mapkit_logo_logo.LogoImpl.fromNativePtr(_Player_get_logo(ptr));
+    final result =
+        mapkit_logo_logo.LogoImpl.fromNativePtr(_Player_get_logo(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   void openPanorama(core.String panoramaId) {
     _Player_openPanorama(ptr, to_native.toNativeString(panoramaId));
+    exception.checkCallResult();
   }
 
   void openUserPanoramaWithLocalDataSource(
@@ -534,6 +538,7 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
         places_panorama_panorama_description
                 .PanoramaUserPanoramaEventListenerImpl
             .getNativePtr(userPanoramaEventListener));
+    exception.checkCallResult();
   }
 
   void openUserPanoramaWithNetworkDataSource(
@@ -556,119 +561,157 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
         places_panorama_panorama_description
                 .PanoramaUserPanoramaEventListenerImpl
             .getNativePtr(userPanoramaEventListener));
+    exception.checkCallResult();
   }
 
   core.String panoramaId() {
-    return to_platform.toPlatformString(_Player_panoramaId(ptr));
+    final result = to_platform.toPlatformString(_Player_panoramaId(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   mapkit_geometry_point.Point position() {
-    return mapkit_geometry_point.PointImpl.fromNative(_Player_position(ptr));
+    final result =
+        mapkit_geometry_point.PointImpl.fromNative(_Player_position(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   void lookAt(mapkit_geometry_point.Point position) {
     _Player_lookAt(ptr, mapkit_geometry_point.PointImpl.toNative(position));
+    exception.checkCallResult();
   }
 
   mapkit_geometry_direction.Direction direction() {
-    return mapkit_geometry_direction.DirectionImpl.fromNative(
+    final result = mapkit_geometry_direction.DirectionImpl.fromNative(
         _Player_direction(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   void setDirection(mapkit_geometry_direction.Direction direction) {
     _Player_setDirection(
         ptr, mapkit_geometry_direction.DirectionImpl.toNative(direction));
+    exception.checkCallResult();
   }
 
   mapkit_geometry_span.Span span() {
-    return mapkit_geometry_span.SpanImpl.fromNative(_Player_span(ptr));
+    final result = mapkit_geometry_span.SpanImpl.fromNative(_Player_span(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   void setSpan(mapkit_geometry_span.Span span) {
     _Player_setSpan(ptr, mapkit_geometry_span.SpanImpl.toNative(span));
+    exception.checkCallResult();
   }
 
   void reset() {
     _Player_reset(ptr);
+    exception.checkCallResult();
   }
 
   core.List<places_panorama_historical_panorama.HistoricalPanorama>
       historicalPanoramas() {
-    return places_panorama_historical_panorama
-            .HistoricalPanoramaContainerExtension
-        .toPlatformVector(_Player_historicalPanoramas(ptr));
+    final result =
+        places_panorama_historical_panorama.HistoricalPanoramaContainerExtension
+            .toPlatformVector(_Player_historicalPanoramas(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   void enableZoom() {
     _Player_enableZoom(ptr);
+    exception.checkCallResult();
   }
 
   void disableZoom() {
     _Player_disableZoom(ptr);
+    exception.checkCallResult();
   }
 
   core.bool zoomEnabled() {
-    return _Player_zoomEnabled(ptr);
+    final result = _Player_zoomEnabled(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   void enableMove() {
     _Player_enableMove(ptr);
+    exception.checkCallResult();
   }
 
   void disableMove() {
     _Player_disableMove(ptr);
+    exception.checkCallResult();
   }
 
   core.bool moveEnabled() {
-    return _Player_moveEnabled(ptr);
+    final result = _Player_moveEnabled(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   void enableRotation() {
     _Player_enableRotation(ptr);
+    exception.checkCallResult();
   }
 
   void disableRotation() {
     _Player_disableRotation(ptr);
+    exception.checkCallResult();
   }
 
   core.bool rotationEnabled() {
-    return _Player_rotationEnabled(ptr);
+    final result = _Player_rotationEnabled(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   void enableMarkers() {
     _Player_enableMarkers(ptr);
+    exception.checkCallResult();
   }
 
   void disableMarkers() {
     _Player_disableMarkers(ptr);
+    exception.checkCallResult();
   }
 
   core.bool markersEnabled() {
-    return _Player_markersEnabled(ptr);
+    final result = _Player_markersEnabled(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   void enableCompanies() {
     _Player_enableCompanies(ptr);
+    exception.checkCallResult();
   }
 
   void disableCompanies() {
     _Player_disableCompanies(ptr);
+    exception.checkCallResult();
   }
 
   core.bool companiesEnabled() {
-    return _Player_companiesEnabled(ptr);
+    final result = _Player_companiesEnabled(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   void addPanoramaChangeListener(
       PanoramaChangeListener panoramaChangeListener) {
     _Player_addPanoramaChangeListener(
         ptr, PanoramaChangeListenerImpl.getNativePtr(panoramaChangeListener));
+    exception.checkCallResult();
   }
 
   void removePanoramaChangeListener(
       PanoramaChangeListener panoramaChangeListener) {
     _Player_removePanoramaChangeListener(
         ptr, PanoramaChangeListenerImpl.getNativePtr(panoramaChangeListener));
+    exception.checkCallResult();
   }
 
   void addDirectionChangeListener(
@@ -677,6 +720,7 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
         ptr,
         PanoramaDirectionChangeListenerImpl.getNativePtr(
             directionChangeListener));
+    exception.checkCallResult();
   }
 
   void removeDirectionChangeListener(
@@ -685,52 +729,64 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
         ptr,
         PanoramaDirectionChangeListenerImpl.getNativePtr(
             directionChangeListener));
+    exception.checkCallResult();
   }
 
   void addSpanChangeListener(PanoramaSpanChangeListener spanChangeListener) {
     _Player_addSpanChangeListener(
         ptr, PanoramaSpanChangeListenerImpl.getNativePtr(spanChangeListener));
+    exception.checkCallResult();
   }
 
   void removeSpanChangeListener(PanoramaSpanChangeListener spanChangeListener) {
     _Player_removeSpanChangeListener(
         ptr, PanoramaSpanChangeListenerImpl.getNativePtr(spanChangeListener));
+    exception.checkCallResult();
   }
 
   void addCompanyTapListener(PanoramaCompanyTapListener companyTapListener) {
     _Player_addCompanyTapListener(
         ptr, PanoramaCompanyTapListenerImpl.getNativePtr(companyTapListener));
+    exception.checkCallResult();
   }
 
   void removeCompanyTapListener(PanoramaCompanyTapListener companyTapListener) {
     _Player_removeCompanyTapListener(
         ptr, PanoramaCompanyTapListenerImpl.getNativePtr(companyTapListener));
+    exception.checkCallResult();
   }
 
   void addErrorListener(PanoramaErrorListener errorListener) {
     _Player_addErrorListener(
         ptr, PanoramaErrorListenerImpl.getNativePtr(errorListener));
+    exception.checkCallResult();
   }
 
   void removeErrorListener(PanoramaErrorListener errorListener) {
     _Player_removeErrorListener(
         ptr, PanoramaErrorListenerImpl.getNativePtr(errorListener));
+    exception.checkCallResult();
   }
 
   void enableLoadingWheel() {
     _Player_enableLoadingWheel(ptr);
+    exception.checkCallResult();
   }
 
   void disableLoadingWheel() {
     _Player_disableLoadingWheel(ptr);
+    exception.checkCallResult();
   }
 
   core.bool loadingWheelEnabled() {
-    return _Player_loadingWheelEnabled(ptr);
+    final result = _Player_loadingWheelEnabled(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   void onMemoryWarning() {
     _Player_onMemoryWarning(ptr);
+    exception.checkCallResult();
   }
 }
 

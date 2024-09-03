@@ -5,6 +5,8 @@ import 'dart:core' as core;
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:yandex_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
@@ -18,5 +20,6 @@ part 'error.impl.dart';
 /// This error is returned if the location is not available.
 abstract class LocationUnavailableError
     implements runtime_error.Error, ffi.Finalizable {
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }

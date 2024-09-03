@@ -5,6 +5,10 @@ import 'dart:core' as core;
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:yandex_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
+import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
+    as exception;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
@@ -40,5 +44,6 @@ abstract class Cluster implements ffi.Finalizable {
   void removeClusterTapListener(
       mapkit_map_cluster_tap_listener.ClusterTapListener clusterTapListener);
 
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }

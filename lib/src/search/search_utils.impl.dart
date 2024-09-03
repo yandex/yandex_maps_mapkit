@@ -1,8 +1,9 @@
 part of 'search_utils.dart';
 
 core.String _makeBusinessUri(core.String oid) {
-  return to_platform.toPlatformString(
+  final result = to_platform.toPlatformString(
       _SearchUtils_makeBusinessUri(to_native.toNativeString(oid)));
+  return result;
 }
 
 final native_types.NativeString Function(native_types.NativeString)

@@ -80,7 +80,8 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     required core.String text,
   }) {
-    return search_session.SearchSessionImpl.fromNativePtr(_SearchManager_submit(
+    final result =
+        search_session.SearchSessionImpl.fromNativePtr(_SearchManager_submit(
       ptr,
       to_native.toNativeString(text),
       mapkit_geometry_geometry.GeometryImpl.toNative(geometry),
@@ -88,6 +89,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
     ));
+    return result;
   }
 
   search_session.SearchSession submitAlongPolyline(
@@ -97,7 +99,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     required core.String text,
   }) {
-    return search_session.SearchSessionImpl.fromNativePtr(
+    final result = search_session.SearchSessionImpl.fromNativePtr(
         _SearchManager_submitAlongPolyline(
       ptr,
       to_native.toNativeString(text),
@@ -107,6 +109,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
     ));
+    return result;
   }
 
   search_session.SearchSession submitPoint(
@@ -115,7 +118,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     core.int? zoom,
   }) {
-    return search_session.SearchSessionImpl.fromNativePtr(
+    final result = search_session.SearchSessionImpl.fromNativePtr(
         _SearchManager_submitPoint(
       ptr,
       mapkit_geometry_point.PointImpl.toNative(point),
@@ -124,6 +127,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
     ));
+    return result;
   }
 
   search_session.SearchSession resolveURI(
@@ -131,7 +135,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     required core.String uri,
   }) {
-    return search_session.SearchSessionImpl.fromNativePtr(
+    final result = search_session.SearchSessionImpl.fromNativePtr(
         _SearchManager_resolveURI(
       ptr,
       to_native.toNativeString(uri),
@@ -139,6 +143,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
     ));
+    return result;
   }
 
   search_session.SearchSession searchByURI(
@@ -146,7 +151,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     required core.String uri,
   }) {
-    return search_session.SearchSessionImpl.fromNativePtr(
+    final result = search_session.SearchSessionImpl.fromNativePtr(
         _SearchManager_searchByURI(
       ptr,
       to_native.toNativeString(uri),
@@ -154,11 +159,14 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
     ));
+    return result;
   }
 
   search_suggest_session.SearchSuggestSession createSuggestSession() {
-    return search_suggest_session.SearchSuggestSessionImpl.fromNativePtr(
-        _SearchManager_createSuggestSession(ptr));
+    final result =
+        search_suggest_session.SearchSuggestSessionImpl.fromNativePtr(
+            _SearchManager_createSuggestSession(ptr));
+    return result;
   }
 }
 

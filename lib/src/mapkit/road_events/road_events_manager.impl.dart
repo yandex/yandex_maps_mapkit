@@ -222,13 +222,14 @@ class RoadEventsManagerImpl implements RoadEventsManager, ffi.Finalizable {
     RoadEventsEventInfoSessionEventInfoListener eventInfoListener, {
     required core.String eventId,
   }) {
-    return RoadEventsEventInfoSessionImpl.fromNativePtr(
+    final result = RoadEventsEventInfoSessionImpl.fromNativePtr(
         _RoadEventsManager_requestEventInfo(
       ptr,
       to_native.toNativeString(eventId),
       RoadEventsEventInfoSessionEventInfoListenerImpl.getNativePtr(
           eventInfoListener),
     ));
+    return result;
   }
 }
 

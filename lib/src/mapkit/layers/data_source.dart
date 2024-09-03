@@ -6,6 +6,8 @@ import 'dart:typed_data' as typed_data;
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:yandex_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
 import 'package:yandex_maps_mapkit/src/bindings/common/dispatcher.dart'
     as nativeBinding;
 import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
@@ -30,6 +32,8 @@ part 'data_source.impl.dart';
 abstract class BaseDataSource implements ffi.Finalizable {
   /// Stores id of data source.
   core.String get id;
+
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 
@@ -39,6 +43,7 @@ abstract class TileDataSource implements BaseDataSource, ffi.Finalizable {
   /// false;
   void invalidate(core.String version);
 
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 
@@ -48,6 +53,7 @@ abstract class DataSource implements BaseDataSource, ffi.Finalizable {
   /// otherwise, it will affect the responsiveness of UI and map.
   void setData(typed_data.ByteBuffer data);
 
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 

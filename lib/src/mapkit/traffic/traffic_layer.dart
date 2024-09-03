@@ -5,6 +5,10 @@ import 'dart:core' as core;
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:yandex_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
+import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
+    as exception;
 import 'package:yandex_maps_mapkit/src/bindings/common/native_types.dart'
     as native_types;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
@@ -61,5 +65,6 @@ abstract class TrafficLayer implements ffi.Finalizable {
   void removeTrafficListener(
       mapkit_traffic_traffic_listener.TrafficListener trafficListener);
 
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }

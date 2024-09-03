@@ -48,12 +48,16 @@ class OfflineCacheManagerImpl implements OfflineCacheManager, ffi.Finalizable {
   }
 
   core.List<mapkit_offline_cache_region.OfflineCacheRegion> regions() {
-    return mapkit_offline_cache_region.OfflineCacheRegionContainerExtension
-        .toPlatformVector(_OfflineCacheManager_regions(ptr));
+    final result =
+        mapkit_offline_cache_region.OfflineCacheRegionContainerExtension
+            .toPlatformVector(_OfflineCacheManager_regions(ptr));
+    exception.checkCallResult();
+    return result;
   }
 
   void allowUseCellularNetwork(core.bool useCellular) {
     _OfflineCacheManager_allowUseCellularNetwork(ptr, useCellular);
+    exception.checkCallResult();
   }
 
   void addRegionListUpdatesListener(
@@ -65,6 +69,7 @@ class OfflineCacheManagerImpl implements OfflineCacheManager, ffi.Finalizable {
         mapkit_offline_cache_region_list_updates_listener
                 .OfflineMapRegionListUpdatesListenerImpl
             .getNativePtr(regionListUpdatesListener));
+    exception.checkCallResult();
   }
 
   void removeRegionListUpdatesListener(
@@ -76,16 +81,19 @@ class OfflineCacheManagerImpl implements OfflineCacheManager, ffi.Finalizable {
         mapkit_offline_cache_region_list_updates_listener
                 .OfflineMapRegionListUpdatesListenerImpl
             .getNativePtr(regionListUpdatesListener));
+    exception.checkCallResult();
   }
 
   void addErrorListener(OfflineCacheManagerErrorListener errorListener) {
     _OfflineCacheManager_addErrorListener(
         ptr, OfflineCacheManagerErrorListenerImpl.getNativePtr(errorListener));
+    exception.checkCallResult();
   }
 
   void removeErrorListener(OfflineCacheManagerErrorListener errorListener) {
     _OfflineCacheManager_removeErrorListener(
         ptr, OfflineCacheManagerErrorListenerImpl.getNativePtr(errorListener));
+    exception.checkCallResult();
   }
 
   void addRegionListener(
@@ -95,6 +103,7 @@ class OfflineCacheManagerImpl implements OfflineCacheManager, ffi.Finalizable {
         ptr,
         mapkit_offline_cache_region_listener.OfflineCacheRegionListenerImpl
             .getNativePtr(regionListener));
+    exception.checkCallResult();
   }
 
   void removeRegionListener(
@@ -104,60 +113,80 @@ class OfflineCacheManagerImpl implements OfflineCacheManager, ffi.Finalizable {
         ptr,
         mapkit_offline_cache_region_listener.OfflineCacheRegionListenerImpl
             .getNativePtr(regionListener));
+    exception.checkCallResult();
   }
 
   core.List<core.String> getCities(core.int regionId) {
-    return to_platform
+    final result = to_platform
         .toVectorString(_OfflineCacheManager_getCities(ptr, regionId));
+    exception.checkCallResult();
+    return result;
   }
 
   mapkit_offline_cache_region_state.OfflineCacheRegionState getState(
       core.int regionId) {
-    return mapkit_offline_cache_region_state.OfflineCacheRegionStateImpl
-        .fromInt(_OfflineCacheManager_getState(ptr, regionId));
+    final result =
+        mapkit_offline_cache_region_state.OfflineCacheRegionStateImpl.fromInt(
+            _OfflineCacheManager_getState(ptr, regionId));
+    exception.checkCallResult();
+    return result;
   }
 
   core.DateTime? getDownloadedReleaseTime(core.int regionId) {
-    return to_platform.toPlatformFromPointerAbsTimestamp(
+    final result = to_platform.toPlatformFromPointerAbsTimestamp(
         _OfflineCacheManager_getDownloadedReleaseTime(ptr, regionId));
+    exception.checkCallResult();
+    return result;
   }
 
   core.double getProgress(core.int regionId) {
-    return _OfflineCacheManager_getProgress(ptr, regionId);
+    final result = _OfflineCacheManager_getProgress(ptr, regionId);
+    exception.checkCallResult();
+    return result;
   }
 
   void startDownload(core.int regionId) {
     _OfflineCacheManager_startDownload(ptr, regionId);
+    exception.checkCallResult();
   }
 
   void stopDownload(core.int regionId) {
     _OfflineCacheManager_stopDownload(ptr, regionId);
+    exception.checkCallResult();
   }
 
   void pauseDownload(core.int regionId) {
     _OfflineCacheManager_pauseDownload(ptr, regionId);
+    exception.checkCallResult();
   }
 
   void drop(core.int regionId) {
     _OfflineCacheManager_drop(ptr, regionId);
+    exception.checkCallResult();
   }
 
   core.bool mayBeOutOfAvailableSpace(core.int regionId) {
-    return _OfflineCacheManager_mayBeOutOfAvailableSpace(ptr, regionId);
+    final result = _OfflineCacheManager_mayBeOutOfAvailableSpace(ptr, regionId);
+    exception.checkCallResult();
+    return result;
   }
 
   core.bool isLegacyPath(core.int regionId) {
-    return _OfflineCacheManager_isLegacyPath(ptr, regionId);
+    final result = _OfflineCacheManager_isLegacyPath(ptr, regionId);
+    exception.checkCallResult();
+    return result;
   }
 
   void computeCacheSize(OfflineCacheManagerSizeListener callback) {
     _OfflineCacheManager_computeCacheSize(
         ptr, OfflineCacheManagerSizeListenerImpl.getNativePtr(callback));
+    exception.checkCallResult();
   }
 
   void requestPath(OfflineCacheManagerPathGetterListener callback) {
     _OfflineCacheManager_requestPath(
         ptr, OfflineCacheManagerPathGetterListenerImpl.getNativePtr(callback));
+    exception.checkCallResult();
   }
 
   void moveData(
@@ -171,6 +200,7 @@ class OfflineCacheManagerImpl implements OfflineCacheManager, ffi.Finalizable {
       mapkit_offline_cache_data_move_listener.OfflineCacheDataMoveListenerImpl
           .getNativePtr(dataMoveListener),
     );
+    exception.checkCallResult();
   }
 
   void setCachePath(
@@ -183,15 +213,18 @@ class OfflineCacheManagerImpl implements OfflineCacheManager, ffi.Finalizable {
       OfflineCacheManagerPathSetterListenerImpl.getNativePtr(
           pathSetterListener),
     );
+    exception.checkCallResult();
   }
 
   void enableAutoUpdate(core.bool enable) {
     _OfflineCacheManager_enableAutoUpdate(ptr, enable);
+    exception.checkCallResult();
   }
 
   void clear(OfflineCacheManagerClearListener callback) {
     _OfflineCacheManager_clear(
         ptr, OfflineCacheManagerClearListenerImpl.getNativePtr(callback));
+    exception.checkCallResult();
   }
 }
 
