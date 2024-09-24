@@ -33,23 +33,22 @@ abstract class MasstransitRouter implements ffi.Finalizable {
   /// [points] Route points (See [mapkit_request_point.RequestPoint] for
   /// details). Currently only two points are supported (start and finish)
   /// [transitOptions] Additional parameters for building routes.
-  /// [avoidSteep] If true, router will try avoid steep (in height meaning)
-  /// routes.
+  /// [routeOptions] Options for route personalization.
   /// [routeListener] Listener to retrieve a list of MasstransitRoute
   /// objects.
   transport_masstransit_session.MasstransitSession requestRoutes(
     transport_masstransit_transit_options.TransitOptions transitOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.RouteHandler routeListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-    required core.bool avoidSteep,
   });
 
   /// Submits a request to fetch a brief summary of a mass transit route.
   transport_masstransit_session.MasstransitSummarySession requestRoutesSummary(
     transport_masstransit_transit_options.TransitOptions transitOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.SummaryHandler summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-    required core.bool avoidSteep,
   });
 
   /// Submits a request to retrieve detailed information on a mass transit

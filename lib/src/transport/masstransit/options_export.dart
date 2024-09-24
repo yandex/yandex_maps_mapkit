@@ -1,2 +1,8 @@
 export 'package:yandex_maps_mapkit/src/transport/masstransit/options.dart'
-    hide TimeOptionsImpl, TimeOptionsContainerExtension;
+    hide
+        RouteOptionsContainerExtension,
+        RouteOptionsNative,
+        TimeOptionsImpl,
+        FitnessOptionsNative,
+        FitnessOptionsContainerExtension,
+        TimeOptionsContainerExtension;

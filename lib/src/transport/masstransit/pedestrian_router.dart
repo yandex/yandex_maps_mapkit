@@ -33,15 +33,14 @@ abstract class PedestrianRouter implements ffi.Finalizable {
   /// [timeOptions] Desired departure/arrival time settings. Empty
   /// [transport_masstransit_options.TimeOptions] for requests that are not
   /// time-dependent.
-  /// [avoidSteep] If true, router will try avoid steep (in height meaning)
-  /// routes.
+  /// [routeOptions] Options for route personalization.
   /// [routeListener] Listener to retrieve a list of MasstransitRoute
   /// objects.
   transport_masstransit_session.MasstransitSession requestRoutes(
     transport_masstransit_options.TimeOptions timeOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.RouteHandler routeListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-    required core.bool avoidSteep,
   });
 
   /// Submits a request to fetch a brief summary of a pedestrian route.
@@ -51,14 +50,13 @@ abstract class PedestrianRouter implements ffi.Finalizable {
   /// [timeOptions] Desired departure/arrival time settings. Empty
   /// [transport_masstransit_options.TimeOptions] for requests that are not
   /// time-dependent.
-  /// [avoidSteep] If true, router will try avoid steep (in height meaning)
-  /// routes.
+  /// [routeOptions] Options for route personalization.
   /// [summaryListener] Listener to retrieve a list of summaries.
   transport_masstransit_session.MasstransitSummarySession requestRoutesSummary(
     transport_masstransit_options.TimeOptions timeOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.SummaryHandler summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-    required core.bool avoidSteep,
   });
 
   /// Submits a request to fetch a brief summary of the pedestrian routes
@@ -70,16 +68,15 @@ abstract class PedestrianRouter implements ffi.Finalizable {
   /// [timeOptions] Desired departure/arrival time settings. Empty
   /// [transport_masstransit_options.TimeOptions] for requests that are not
   /// time-dependent.
-  /// [avoidSteep] If true, router will try avoid steep (in height meaning)
-  /// routes.
+  /// [routeOptions] Options for route personalization.
   /// [summaryListener] Listener to retrieve a list of summaries.
   transport_masstransit_session.MasstransitSummarySession
       requestRoutesSummaryFromPoint(
     mapkit_request_point.RequestPoint from,
     transport_masstransit_options.TimeOptions timeOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.SummaryHandler summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> to,
-    required core.bool avoidSteep,
   });
 
   /// Submits a request to retrieve detailed information on the pedestrian

@@ -158,8 +158,7 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(
                         ffi.Pointer<
-                            ffi
-                            .NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
+                            ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
             'yandex_flutter_places_panorama_PanoramaDirectionChangeListener_new')
         .asFunction(isLeaf: true);
 
@@ -337,16 +336,14 @@ final void Function(
     .asFunction(isLeaf: true);
 
 final ffi.Pointer<ffi.Void> Function(
-        ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)
-    _PanoramaCompanyTapListener_new = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        ffi.Pointer<
-                            ffi
-                            .NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
-            'yandex_flutter_places_panorama_PanoramaCompanyTapListener_new')
-        .asFunction(isLeaf: true);
+    ffi.Pointer<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>)>>) _PanoramaCompanyTapListener_new = lib
+    .library
+    .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
+        'yandex_flutter_places_panorama_PanoramaCompanyTapListener_new')
+    .asFunction(isLeaf: true);
 
 final _PanoramaCompanyTapListener_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
@@ -429,16 +426,14 @@ final void Function(ffi.Pointer<ffi.Void>, core.int, core.int)
         .asFunction(isLeaf: true);
 
 final ffi.Pointer<ffi.Void> Function(
-        ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)
-    _PanoramaErrorListener_new = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        ffi.Pointer<
-                            ffi
-                            .NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
-            'yandex_flutter_places_panorama_PanoramaErrorListener_new')
-        .asFunction(isLeaf: true);
+    ffi.Pointer<
+        ffi.NativeFunction<
+            ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>)>>) _PanoramaErrorListener_new = lib
+    .library
+    .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
+        'yandex_flutter_places_panorama_PanoramaErrorListener_new')
+    .asFunction(isLeaf: true);
 
 final _PanoramaErrorListener_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
@@ -507,10 +502,9 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
 
   @core.override
   mapkit_logo_logo.Logo get logo {
-    final result =
-        mapkit_logo_logo.LogoImpl.fromNativePtr(_Player_get_logo(ptr));
+    final result = _Player_get_logo(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_logo_logo.LogoImpl.fromNativePtr(result);
   }
 
   void openPanorama(core.String panoramaId) {
@@ -565,16 +559,15 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
   }
 
   core.String panoramaId() {
-    final result = to_platform.toPlatformString(_Player_panoramaId(ptr));
+    final result = _Player_panoramaId(ptr);
     exception.checkCallResult();
-    return result;
+    return to_platform.toPlatformString(result);
   }
 
   mapkit_geometry_point.Point position() {
-    final result =
-        mapkit_geometry_point.PointImpl.fromNative(_Player_position(ptr));
+    final result = _Player_position(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_geometry_point.PointImpl.fromNative(result);
   }
 
   void lookAt(mapkit_geometry_point.Point position) {
@@ -583,10 +576,9 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
   }
 
   mapkit_geometry_direction.Direction direction() {
-    final result = mapkit_geometry_direction.DirectionImpl.fromNative(
-        _Player_direction(ptr));
+    final result = _Player_direction(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_geometry_direction.DirectionImpl.fromNative(result);
   }
 
   void setDirection(mapkit_geometry_direction.Direction direction) {
@@ -596,9 +588,9 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
   }
 
   mapkit_geometry_span.Span span() {
-    final result = mapkit_geometry_span.SpanImpl.fromNative(_Player_span(ptr));
+    final result = _Player_span(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_geometry_span.SpanImpl.fromNative(result);
   }
 
   void setSpan(mapkit_geometry_span.Span span) {
@@ -613,11 +605,10 @@ class PanoramaPlayerImpl implements PanoramaPlayer, ffi.Finalizable {
 
   core.List<places_panorama_historical_panorama.HistoricalPanorama>
       historicalPanoramas() {
-    final result =
-        places_panorama_historical_panorama.HistoricalPanoramaContainerExtension
-            .toPlatformVector(_Player_historicalPanoramas(ptr));
+    final result = _Player_historicalPanoramas(ptr);
     exception.checkCallResult();
-    return result;
+    return places_panorama_historical_panorama
+        .HistoricalPanoramaContainerExtension.toPlatformVector(result);
   }
 
   void enableZoom() {

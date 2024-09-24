@@ -49,18 +49,16 @@ class MrcPhotoTrackPlayerImpl implements MrcPhotoTrackPlayer, ffi.Finalizable {
 
   @core.override
   core.String? get photoId {
-    final result = to_platform
-        .toPlatformFromPointerString(_MrcPhotoTrackPlayer_get_photoId(ptr));
+    final result = _MrcPhotoTrackPlayer_get_photoId(ptr);
     exception.checkCallResult();
-    return result;
+    return to_platform.toPlatformFromPointerString(result);
   }
 
   @core.override
   mapkit_geometry_geometry.PolylinePosition? get position {
-    final result = mapkit_geometry_geometry.PolylinePositionImpl.fromPointer(
-        _MrcPhotoTrackPlayer_get_position(ptr));
+    final result = _MrcPhotoTrackPlayer_get_position(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_geometry_geometry.PolylinePositionImpl.fromPointer(result);
   }
 
   @core.override

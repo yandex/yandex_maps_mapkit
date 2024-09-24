@@ -66,15 +66,14 @@ class InternalDefaultStyleProviderImpl
         highlightMode, {
     required core.bool isNightMode,
   }) {
-    final result = mapkit_road_events_layer_style_provider
-            .RoadEventsLayerHighlightCircleStyleImpl
-        .fromPointer(_DefaultStyleProvider_provideHighlightCircleStyle(
+    final result = _DefaultStyleProvider_provideHighlightCircleStyle(
       ptr,
       isNightMode,
       mapkit_road_events_layer_style_provider.RoadEventsLayerHighlightModeImpl
           .toInt(highlightMode),
-    ));
-    return result;
+    );
+    return mapkit_road_events_layer_style_provider
+        .RoadEventsLayerHighlightCircleStyleImpl.fromPointer(result);
   }
 }
 
@@ -115,9 +114,8 @@ final void Function(ffi.Pointer<ffi.Void>, core.int)
         .asFunction(isLeaf: true);
 
 InternalDefaultStyleProvider _createDefaultStyleProvider() {
-  final result = InternalDefaultStyleProviderImpl.fromNativePtr(
-      _DefaultStyleProviderFactory_createDefaultStyleProvider());
-  return result;
+  final result = _DefaultStyleProviderFactory_createDefaultStyleProvider();
+  return InternalDefaultStyleProviderImpl.fromNativePtr(result);
 }
 
 final ffi.Pointer<ffi.Void> Function()

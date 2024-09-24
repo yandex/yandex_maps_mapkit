@@ -57,3 +57,103 @@ extension TimeOptionsImpl on TimeOptions {
     return result.cast();
   }
 }
+
+final class FitnessOptionsNative extends ffi.Struct {
+  @ffi.Bool()
+  external core.bool avoidSteep;
+}
+
+final FitnessOptionsNative Function(core.bool) _FitnessOptionsNativeInit = lib
+    .library
+    .lookup<ffi.NativeFunction<FitnessOptionsNative Function(ffi.Bool)>>(
+        'yandex_flutter_transport_masstransit_FitnessOptions_init')
+    .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'FitnessOptionsImpl.toPointer',
+    toPlatform: '(val) => FitnessOptionsImpl.fromPointer(val, needFree: false)',
+    platformType: 'FitnessOptions')
+extension FitnessOptionsImpl on FitnessOptions {
+  static FitnessOptions fromNative(FitnessOptionsNative native) {
+    return FitnessOptions(avoidSteep: native.avoidSteep);
+  }
+
+  static FitnessOptionsNative toNative(FitnessOptions obj) {
+    return _FitnessOptionsNativeInit(obj.avoidSteep);
+  }
+
+  static FitnessOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result =
+        FitnessOptionsImpl.fromNative(ptr.cast<FitnessOptionsNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(FitnessOptions? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+    final result = malloc.call<FitnessOptionsNative>();
+    result.ref = toNative(val);
+
+    return result.cast();
+  }
+}
+
+final class RouteOptionsNative extends ffi.Struct {
+  external FitnessOptionsNative fitnessOptions;
+}
+
+final RouteOptionsNative Function(FitnessOptionsNative)
+    _RouteOptionsNativeInit = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    RouteOptionsNative Function(FitnessOptionsNative)>>(
+            'yandex_flutter_transport_masstransit_RouteOptions_init')
+        .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'RouteOptionsImpl.toPointer',
+    toPlatform: '(val) => RouteOptionsImpl.fromPointer(val, needFree: false)',
+    platformType: 'RouteOptions')
+extension RouteOptionsImpl on RouteOptions {
+  static RouteOptions fromNative(RouteOptionsNative native) {
+    return RouteOptions(FitnessOptionsImpl.fromNative(native.fitnessOptions));
+  }
+
+  static RouteOptionsNative toNative(RouteOptions obj) {
+    return _RouteOptionsNativeInit(
+        FitnessOptionsImpl.toNative(obj.fitnessOptions));
+  }
+
+  static RouteOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result =
+        RouteOptionsImpl.fromNative(ptr.cast<RouteOptionsNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(RouteOptions? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+    final result = malloc.call<RouteOptionsNative>();
+    result.ref = toNative(val);
+
+    return result.cast();
+  }
+}

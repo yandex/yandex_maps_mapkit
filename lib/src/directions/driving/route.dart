@@ -35,8 +35,12 @@ import 'package:yandex_maps_mapkit/src/directions/driving/flags.dart'
     as directions_driving_flags;
 import 'package:yandex_maps_mapkit/src/directions/driving/ford_crossing.dart'
     as directions_driving_ford_crossing;
+import 'package:yandex_maps_mapkit/src/directions/driving/highway.dart'
+    as directions_driving_highway;
 import 'package:yandex_maps_mapkit/src/directions/driving/lane.dart'
     as directions_driving_lane;
+import 'package:yandex_maps_mapkit/src/directions/driving/non_avoided_features.dart'
+    as directions_driving_non_avoided_features;
 import 'package:yandex_maps_mapkit/src/directions/driving/pedestrian_crossing.dart'
     as directions_driving_pedestrian_crossing;
 import 'package:yandex_maps_mapkit/src/directions/driving/railway_crossing.dart'
@@ -53,12 +57,16 @@ import 'package:yandex_maps_mapkit/src/directions/driving/toll_road.dart'
     as directions_driving_toll_road;
 import 'package:yandex_maps_mapkit/src/directions/driving/traffic_light.dart'
     as directions_driving_traffic_light;
+import 'package:yandex_maps_mapkit/src/directions/driving/tunnel.dart'
+    as directions_driving_tunnel;
 import 'package:yandex_maps_mapkit/src/directions/driving/vehicle_options.dart'
     as directions_driving_vehicle_options;
 import 'package:yandex_maps_mapkit/src/directions/driving/vehicle_restrictions.dart'
     as directions_driving_vehicle_restrictions;
 import 'package:yandex_maps_mapkit/src/directions/driving/weight.dart'
     as directions_driving_weight;
+import 'package:yandex_maps_mapkit/src/directions/driving/zone_crossing.dart'
+    as directions_driving_zone_crossing;
 import 'package:yandex_maps_mapkit/src/mapkit/annotations/annotation_lang.dart'
     as mapkit_annotations_annotation_lang;
 import 'package:yandex_maps_mapkit/src/mapkit/base_metadata.dart'
@@ -88,22 +96,29 @@ final class DrivingSummary {
   /// Overall route characteristics.
   final directions_driving_flags.DrivingFlags flags;
 
-  const DrivingSummary(this.weight, this.flags);
+  /// Route features that cannot be avoided
+  final directions_driving_non_avoided_features.DrivingNonAvoidedFeatures
+      nonAvoidedFeatures;
+
+  const DrivingSummary(this.weight, this.flags, this.nonAvoidedFeatures);
 
   @core.override
-  core.int get hashCode => core.Object.hashAll([weight, flags]);
+  core.int get hashCode =>
+      core.Object.hashAll([weight, flags, nonAvoidedFeatures]);
 
   @core.override
   core.bool operator ==(covariant DrivingSummary other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return weight == other.weight && flags == other.flags;
+    return weight == other.weight &&
+        flags == other.flags &&
+        nonAvoidedFeatures == other.nonAvoidedFeatures;
   }
 
   @core.override
   core.String toString() {
-    return "DrivingSummary(weight: $weight, flags: $flags)";
+    return "DrivingSummary(weight: $weight, flags: $flags, nonAvoidedFeatures: $nonAvoidedFeatures)";
   }
 }
 
@@ -191,8 +206,11 @@ abstract final class DrivingRouteMetadata
           directions_driving_weight.DrivingWeight weight,
           directions_driving_flags.DrivingFlags flags,
           core.List<DrivingRoutePoint> routePoints,
-          core.String? uri) =>
-      DrivingRouteMetadataImpl(weight, flags, routePoints, uri);
+          core.String? uri,
+          directions_driving_non_avoided_features.DrivingNonAvoidedFeatures?
+              nonAvoidedFeatures) =>
+      DrivingRouteMetadataImpl(
+          weight, flags, routePoints, uri, nonAvoidedFeatures);
 
   /// Route "weight".
   directions_driving_weight.DrivingWeight get weight;
@@ -208,9 +226,14 @@ abstract final class DrivingRouteMetadata
   ///
   core.String? get uri;
 
+  /// Route features that cannot be avoided
+  ///
+  directions_driving_non_avoided_features.DrivingNonAvoidedFeatures?
+      get nonAvoidedFeatures;
+
   @core.override
-  core.int get hashCode =>
-      core.Object.hashAll([weight, flags, routePoints, uri]);
+  core.int get hashCode => core.Object.hashAll(
+      [weight, flags, routePoints, uri, nonAvoidedFeatures]);
 
   @core.override
   core.bool operator ==(covariant DrivingRouteMetadata other) {
@@ -220,12 +243,13 @@ abstract final class DrivingRouteMetadata
     return weight == other.weight &&
         flags == other.flags &&
         routePoints == other.routePoints &&
-        uri == other.uri;
+        uri == other.uri &&
+        nonAvoidedFeatures == other.nonAvoidedFeatures;
   }
 
   @core.override
   core.String toString() {
-    return "DrivingRouteMetadata(weight: $weight, flags: $flags, routePoints: $routePoints, uri: $uri)";
+    return "DrivingRouteMetadata(weight: $weight, flags: $flags, routePoints: $routePoints, uri: $uri, nonAvoidedFeatures: $nonAvoidedFeatures)";
   }
 
   static final struct_factory.StructFactory<DrivingRouteMetadata> factory =
@@ -298,7 +322,7 @@ abstract final class DrivingEvent implements ffi.Finalizable {
   /// The location of the road event.
   mapkit_geometry_point.Point get location;
 
-  /// The speed limit on the road.
+  /// The speed limit on the road. Valid only for cameras.
   ///
   core.double? get speedLimit;
 
@@ -392,6 +416,10 @@ abstract class DrivingRoute implements ffi.Finalizable {
   core.List<directions_driving_ford_crossing.DrivingFordCrossing>
       get fordCrossings;
   core.List<directions_driving_ferry.DrivingFerry> get ferries;
+  core.List<directions_driving_highway.DrivingHighway> get highways;
+  core.List<directions_driving_tunnel.DrivingTunnel> get tunnels;
+  core.List<directions_driving_zone_crossing.DrivingZoneCrossing>
+      get zoneCrossings;
 
   /// Route vehicle restrictions.
   core.List<

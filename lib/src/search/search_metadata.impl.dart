@@ -161,36 +161,35 @@ final _SearchMetadata_free = lib.library
         'yandex_flutter_search_SearchMetadata_free');
 
 final ffi.Pointer<ffi.Void> Function(
-        core.int,
-        core.int,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        native_types.NativeString,
-        native_types.NativeString,
-        native_types.NativeString,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>) _SearchMetadata_init =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        ffi.Int,
-                        ffi.Int64,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        native_types.NativeString,
-                        native_types.NativeString,
-                        native_types.NativeString,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchMetadata_init')
-        .asFunction(isLeaf: true);
+    core.int,
+    core.int,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    native_types.NativeString,
+    native_types.NativeString,
+    native_types.NativeString,
+    ffi.Pointer<ffi.Void>,
+    ffi
+        .Pointer<ffi.Void>) _SearchMetadata_init = lib.library
+    .lookup<
+        ffi.NativeFunction<
+            ffi.Pointer<ffi.Void> Function(
+                ffi.Int,
+                ffi.Int64,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>,
+                native_types.NativeString,
+                native_types.NativeString,
+                native_types.NativeString,
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>)>>('yandex_flutter_search_SearchMetadata_init')
+    .asFunction(isLeaf: true);
 
 final core.int Function(ffi.Pointer<ffi.Void>) _SearchMetadata_get_found = lib
     .library

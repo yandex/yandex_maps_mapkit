@@ -39,8 +39,6 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/annotation.dart'
     as transport_masstransit_annotation;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
     as transport_masstransit_common;
-import 'package:yandex_maps_mapkit/src/transport/masstransit/construction.dart'
-    as transport_masstransit_construction;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/flags.dart'
     as transport_masstransit_flags;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/masstransit_router.dart'
@@ -87,12 +85,52 @@ final class MasstransitWait {
   }
 }
 
+/// Stairs direction of moving relative to the route.
+enum MasstransitStairs {
+  Unknown,
+  Up,
+  Down,
+  ;
+}
+
+enum MasstransitPass {
+  /// Underground crossing.
+  Under,
+
+  /// Overground crossing, such as a bridge.
+  Over,
+  ;
+}
+
+/// Travolator direction of moving relative to the route.
+enum MasstransitTravolator {
+  Unknown,
+  Up,
+  Down,
+  ;
+}
+
+/// Escalator direction of moving relative to the route.
+enum MasstransitEscalator {
+  Unknown,
+  Up,
+  Down,
+  ;
+}
+
+/// Elevator direction of moving relative to the route.
+enum MasstransitElevator {
+  Up,
+  Down,
+  ;
+}
+
 /// Constructions that can be found on pedestrian, bicycle paths or on
 /// mass transit transfers.
 
 final class MasstransitConstructionMask {
-  final MasstransitConstructionMaskStairs? stairs;
-  final MasstransitConstructionMaskPass? pass;
+  final MasstransitStairs? stairs;
+  final MasstransitPass? pass;
 
   /// Crossing that is not an underground tunnel or a bridge.
   final core.bool crosswalk;
@@ -104,12 +142,15 @@ final class MasstransitConstructionMask {
   /// or transfer from an underground station to an exit from it.
   final core.bool transition;
 
-  /// Horizontal escalator.
-  final core.bool travolator;
+  /// Tunnel that is not a crossing.
+  final core.bool tunnel;
+  final MasstransitTravolator? travolator;
 
   /// Air-conditioned place. Can be a covered gallery, a mall or any other
   /// climate-static edges.
   final core.bool indoor;
+  final MasstransitEscalator? escalator;
+  final MasstransitElevator? elevator;
 
   const MasstransitConstructionMask({
     this.stairs,
@@ -117,13 +158,26 @@ final class MasstransitConstructionMask {
     required this.crosswalk,
     required this.binding,
     required this.transition,
-    required this.travolator,
+    required this.tunnel,
+    this.travolator,
     required this.indoor,
+    this.escalator,
+    this.elevator,
   });
 
   @core.override
-  core.int get hashCode => core.Object.hashAll(
-      [stairs, pass, crosswalk, binding, transition, travolator, indoor]);
+  core.int get hashCode => core.Object.hashAll([
+        stairs,
+        pass,
+        crosswalk,
+        binding,
+        transition,
+        tunnel,
+        travolator,
+        indoor,
+        escalator,
+        elevator
+      ]);
 
   @core.override
   core.bool operator ==(covariant MasstransitConstructionMask other) {
@@ -135,67 +189,43 @@ final class MasstransitConstructionMask {
         crosswalk == other.crosswalk &&
         binding == other.binding &&
         transition == other.transition &&
+        tunnel == other.tunnel &&
         travolator == other.travolator &&
-        indoor == other.indoor;
+        indoor == other.indoor &&
+        escalator == other.escalator &&
+        elevator == other.elevator;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitConstructionMask(stairs: $stairs, pass: $pass, crosswalk: $crosswalk, binding: $binding, transition: $transition, travolator: $travolator, indoor: $indoor)";
+    return "MasstransitConstructionMask(stairs: $stairs, pass: $pass, crosswalk: $crosswalk, binding: $binding, transition: $transition, tunnel: $tunnel, travolator: $travolator, indoor: $indoor, escalator: $escalator, elevator: $elevator)";
   }
-}
-
-enum MasstransitConstructionMaskStairs {
-  /// Stairway with no information whether stairs go up or down along a
-  /// pedestrian path.
-  Unknown,
-
-  /// Stairway with stairs going up along a pedestrian path.
-  Up,
-
-  /// Stairway with stairs going down along a pedestrian path.
-  Down,
-  ;
-}
-
-enum MasstransitConstructionMaskPass {
-  /// Underground crossing.
-  Under,
-
-  /// Overground crossing, such as a bridge.
-  Over,
-  ;
 }
 
 /// Describes part of pedestrian or bicycle path with the same
 /// construction.
 
 final class MasstransitConstructionSegment {
-  final transport_masstransit_construction.MasstransitConstructionID
-      construction;
   final mapkit_geometry_geometry.Subpolyline subpolyline;
   final MasstransitConstructionMask constructionMask;
 
-  const MasstransitConstructionSegment(
-      this.construction, this.subpolyline, this.constructionMask);
+  const MasstransitConstructionSegment(this.subpolyline, this.constructionMask);
 
   @core.override
-  core.int get hashCode =>
-      core.Object.hashAll([construction, subpolyline, constructionMask]);
+  core.int get hashCode => core.Object.hashAll([subpolyline, constructionMask]);
 
   @core.override
   core.bool operator ==(covariant MasstransitConstructionSegment other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return construction == other.construction &&
-        subpolyline == other.subpolyline &&
+    return subpolyline == other.subpolyline &&
         constructionMask == other.constructionMask;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitConstructionSegment(construction: $construction, subpolyline: $subpolyline, constructionMask: $constructionMask)";
+    return "MasstransitConstructionSegment(subpolyline: $subpolyline, constructionMask: $constructionMask)";
   }
 }
 

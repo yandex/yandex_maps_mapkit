@@ -1,23 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sensors.dart';
+part of 'tunnel.dart';
 
 // **************************************************************************
 // ContainerGenerator
 // **************************************************************************
 
-extension LocationActivityTypeContainerExtension on LocationActivityType {
+extension DrivingTunnelContainerExtension on DrivingTunnel {
   static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, LocationActivityType?>? obj) {
+      core.Map<core.String, DrivingTunnel?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, LocationActivityTypeImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingTunnelImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<LocationActivityType?>?>? obj) {
+      core.Map<core.String, core.List<DrivingTunnel?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -26,8 +26,7 @@ extension LocationActivityTypeContainerExtension on LocationActivityType {
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, LocationActivityType?>?>?
-          obj) {
+      core.Map<core.String, core.Map<core.String, DrivingTunnel?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -35,17 +34,16 @@ extension LocationActivityTypeContainerExtension on LocationActivityType {
     return string_map.toNativeMap(obj, toNativeMap);
   }
 
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<LocationActivityType?>? obj) {
+  static ffi.Pointer<ffi.Void> toNativeVector(core.List<DrivingTunnel?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, LocationActivityTypeImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingTunnelImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<LocationActivityType?>?>? obj) {
+      core.List<core.List<DrivingTunnel?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -54,7 +52,7 @@ extension LocationActivityTypeContainerExtension on LocationActivityType {
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, LocationActivityType?>?>? obj) {
+      core.List<core.Map<core.String, DrivingTunnel?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -62,14 +60,14 @@ extension LocationActivityTypeContainerExtension on LocationActivityType {
     return vector.toNativeVector(obj, toNativeMap);
   }
 
-  static string_map.StringMap<LocationActivityType> toPlatformMap(
+  static string_map.StringMap<DrivingTunnel> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(ptr,
-        (val) => LocationActivityTypeImpl.fromPointer(val, needFree: false));
+    return string_map.StringMap(
+        ptr, (val) => DrivingTunnelImpl.fromPointer(val, needFree: false));
   }
 
-  static string_map.StringMap<vector.Vector<LocationActivityType>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
+  static string_map.StringMap<vector.Vector<DrivingTunnel>> toPlatformMapVector(
+      ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
         (val) => val == ffi.nullptr
@@ -77,7 +75,7 @@ extension LocationActivityTypeContainerExtension on LocationActivityType {
             : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static string_map.StringMap<string_map.StringMap<LocationActivityType>>
+  static string_map.StringMap<string_map.StringMap<DrivingTunnel>>
       toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
@@ -86,14 +84,14 @@ extension LocationActivityTypeContainerExtension on LocationActivityType {
             : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static vector.Vector<LocationActivityType> toPlatformVector(
+  static vector.Vector<DrivingTunnel> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
-        (val) => LocationActivityTypeImpl.fromPointer(val, needFree: false));
+    return vector.Vector(
+        ptr, (val) => DrivingTunnelImpl.fromPointer(val, needFree: false));
   }
 
-  static vector.Vector<vector.Vector<LocationActivityType>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+  static vector.Vector<vector.Vector<DrivingTunnel>> toPlatformVectorVector(
+      ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -101,7 +99,7 @@ extension LocationActivityTypeContainerExtension on LocationActivityType {
             : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static vector.Vector<string_map.StringMap<LocationActivityType>>
+  static vector.Vector<string_map.StringMap<DrivingTunnel>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,

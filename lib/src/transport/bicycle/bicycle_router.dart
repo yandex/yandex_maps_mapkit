@@ -24,10 +24,12 @@ part 'bicycle_router.impl.dart';
 enum BicycleVehicleType {
   Bicycle,
   Scooter,
+  ElectricBike,
   ;
 }
 
 /// Provides methods for submitting bicycle routing requests.
+@core.Deprecated('use masstransit.BicycleRouterV2 instead')
 abstract class BicycleRouter implements ffi.Finalizable {
   /// Submits a request to find a bicycle route.
   ///

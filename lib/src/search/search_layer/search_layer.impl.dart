@@ -84,8 +84,7 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>,
         ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)
     _SearchResultListener_new = lib.library
-        .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Int64)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>>(
-            'yandex_flutter_search_search_layer_SearchResultListener_new')
+        .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Int64)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>)>>('yandex_flutter_search_search_layer_SearchResultListener_new')
         .asFunction(isLeaf: true);
 
 final _SearchResultListener_free = lib.library
@@ -385,18 +384,16 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
 
   core.List<search_search_layer_search_result_item.SearchResultItem>
       getSearchResultsList() {
-    final result = search_search_layer_search_result_item
-            .SearchResultItemContainerExtension
-        .toPlatformVector(_SearchLayer_getSearchResultsList(ptr));
+    final result = _SearchLayer_getSearchResultsList(ptr);
     exception.checkCallResult();
-    return result;
+    return search_search_layer_search_result_item
+        .SearchResultItemContainerExtension.toPlatformVector(result);
   }
 
   search_search_metadata.SearchMetadata? searchMetadata() {
-    final result = search_search_metadata.SearchMetadataImpl.fromOptionalPtr(
-        _SearchLayer_searchMetadata(ptr));
+    final result = _SearchLayer_searchMetadata(ptr);
     exception.checkCallResult();
-    return result;
+    return search_search_metadata.SearchMetadataImpl.fromOptionalPtr(result);
   }
 
   void setSearchManager(search_search_manager.SearchManager searchManager) {
@@ -484,10 +481,9 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
   }
 
   core.String? selectedPlacemarkId() {
-    final result = to_platform
-        .toPlatformFromPointerString(_SearchLayer_selectedPlacemarkId(ptr));
+    final result = _SearchLayer_selectedPlacemarkId(ptr);
     exception.checkCallResult();
-    return result;
+    return to_platform.toPlatformFromPointerString(result);
   }
 
   void deselectPlacemark() {
@@ -549,7 +545,8 @@ final void Function(ffi.Pointer<ffi.Void>, core.bool) _SearchLayer_set_visible =
     lib
         .library
         .lookup<
-                ffi.NativeFunction<
+                ffi
+                .NativeFunction<
                     ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>>(
             'yandex_flutter_search_search_layer_SearchLayer_set_visible')
         .asFunction();

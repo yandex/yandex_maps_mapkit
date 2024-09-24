@@ -286,10 +286,9 @@ class RoadEventsLayerRoadEventStyleImpl
 
   @core.override
   math.Point<core.double> get iconAnchor {
-    final result =
-        to_platform.toPlatformPoint(_RoadEventStyle_get_iconAnchor(ptr));
+    final result = _RoadEventStyle_get_iconAnchor(ptr);
     exception.checkCallResult();
-    return result;
+    return to_platform.toPlatformPoint(result);
   }
 
   @core.override
@@ -300,10 +299,9 @@ class RoadEventsLayerRoadEventStyleImpl
 
   @core.override
   core.List<math.Point<core.double>> get zoomScaleFunction {
-    final result =
-        to_platform.toVectorPoint(_RoadEventStyle_get_zoomScaleFunction(ptr));
+    final result = _RoadEventStyle_get_zoomScaleFunction(ptr);
     exception.checkCallResult();
-    return result;
+    return to_platform.toVectorPoint(result);
   }
 
   @core.override
@@ -315,10 +313,9 @@ class RoadEventsLayerRoadEventStyleImpl
 
   @core.override
   RoadEventsLayerTextStyle? get captionStyle {
-    final result = RoadEventsLayerTextStyleImpl.fromOptionalPtr(
-        _RoadEventStyle_get_captionStyle(ptr));
+    final result = _RoadEventStyle_get_captionStyle(ptr);
     exception.checkCallResult();
-    return result;
+    return RoadEventsLayerTextStyleImpl.fromOptionalPtr(result);
   }
 
   @core.override
@@ -330,10 +327,9 @@ class RoadEventsLayerRoadEventStyleImpl
 
   @core.override
   math.Point<core.double> get pulsationCenter {
-    final result =
-        to_platform.toPlatformPoint(_RoadEventStyle_get_pulsationCenter(ptr));
+    final result = _RoadEventStyle_get_pulsationCenter(ptr);
     exception.checkCallResult();
-    return result;
+    return to_platform.toPlatformPoint(result);
   }
 
   @core.override
@@ -523,11 +519,10 @@ class RoadEventsLayerRoadEventStylingPropertiesImpl
 
   @core.override
   core.List<mapkit_road_events_event_tag.RoadEventsEventTag> get tags {
-    final result =
-        mapkit_road_events_event_tag.RoadEventsEventTagContainerExtension
-            .toPlatformVector(_RoadEventStylingProperties_get_tags(ptr));
+    final result = _RoadEventStylingProperties_get_tags(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_road_events_event_tag.RoadEventsEventTagContainerExtension
+        .toPlatformVector(result);
   }
 
   @core.override

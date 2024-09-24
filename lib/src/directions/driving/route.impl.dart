@@ -3,17 +3,22 @@ part of 'route.dart';
 final class DrivingSummaryNative extends ffi.Struct {
   external directions_driving_weight.DrivingWeightNative weight;
   external directions_driving_flags.DrivingFlagsNative flags;
+  external directions_driving_non_avoided_features
+      .DrivingNonAvoidedFeaturesNative nonAvoidedFeatures;
 }
 
 final DrivingSummaryNative Function(
         directions_driving_weight.DrivingWeightNative,
-        directions_driving_flags.DrivingFlagsNative) _DrivingSummaryNativeInit =
-    lib.library
+        directions_driving_flags.DrivingFlagsNative,
+        directions_driving_non_avoided_features.DrivingNonAvoidedFeaturesNative)
+    _DrivingSummaryNativeInit = lib.library
         .lookup<
                 ffi.NativeFunction<
                     DrivingSummaryNative Function(
                         directions_driving_weight.DrivingWeightNative,
-                        directions_driving_flags.DrivingFlagsNative)>>(
+                        directions_driving_flags.DrivingFlagsNative,
+                        directions_driving_non_avoided_features
+                            .DrivingNonAvoidedFeaturesNative)>>(
             'yandex_flutter_directions_driving_DrivingSummary_init')
         .asFunction(isLeaf: true);
 
@@ -25,13 +30,17 @@ extension DrivingSummaryImpl on DrivingSummary {
   static DrivingSummary fromNative(DrivingSummaryNative native) {
     return DrivingSummary(
         directions_driving_weight.DrivingWeightImpl.fromNative(native.weight),
-        directions_driving_flags.DrivingFlagsImpl.fromNative(native.flags));
+        directions_driving_flags.DrivingFlagsImpl.fromNative(native.flags),
+        directions_driving_non_avoided_features.DrivingNonAvoidedFeaturesImpl
+            .fromNative(native.nonAvoidedFeatures));
   }
 
   static DrivingSummaryNative toNative(DrivingSummary obj) {
     return _DrivingSummaryNativeInit(
         directions_driving_weight.DrivingWeightImpl.toNative(obj.weight),
-        directions_driving_flags.DrivingFlagsImpl.toNative(obj.flags));
+        directions_driving_flags.DrivingFlagsImpl.toNative(obj.flags),
+        directions_driving_non_avoided_features.DrivingNonAvoidedFeaturesImpl
+            .toNative(obj.nonAvoidedFeatures));
   }
 
   static DrivingSummary? fromPointer(ffi.Pointer<ffi.Void> ptr,
@@ -270,12 +279,16 @@ final class DrivingRouteMetadataImpl implements DrivingRouteMetadata {
       directions_driving_weight.DrivingWeight weight,
       directions_driving_flags.DrivingFlags flags,
       core.List<DrivingRoutePoint> routePoints,
-      core.String? uri)
+      core.String? uri,
+      directions_driving_non_avoided_features.DrivingNonAvoidedFeatures?
+          nonAvoidedFeatures)
       : this.fromNativePtr(_DrivingRouteMetadata_init(
             directions_driving_weight.DrivingWeightImpl.toNative(weight),
             directions_driving_flags.DrivingFlagsImpl.toNative(flags),
             DrivingRoutePointContainerExtension.toNativeVector(routePoints),
-            to_native.toNativePtrString(uri)));
+            to_native.toNativePtrString(uri),
+            directions_driving_non_avoided_features
+                .DrivingNonAvoidedFeaturesImpl.toPointer(nonAvoidedFeatures)));
 
   @core.override
   late final weight = directions_driving_weight.DrivingWeightImpl.fromNative(
@@ -289,6 +302,10 @@ final class DrivingRouteMetadataImpl implements DrivingRouteMetadata {
   @core.override
   late final uri = to_platform
       .toPlatformFromPointerString(_DrivingRouteMetadata_get_uri(_ptr));
+  @core.override
+  late final nonAvoidedFeatures =
+      directions_driving_non_avoided_features.DrivingNonAvoidedFeaturesImpl
+          .fromPointer(_DrivingRouteMetadata_get_nonAvoidedFeatures(_ptr));
 
   @core.override
   final _DrivingRouteMetadataFactory runtimeFactory =
@@ -385,6 +402,7 @@ final ffi.Pointer<ffi.Void> Function(
         directions_driving_weight.DrivingWeightNative,
         directions_driving_flags.DrivingFlagsNative,
         ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>) _DrivingRouteMetadata_init =
     lib.library
         .lookup<
@@ -392,6 +410,7 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void> Function(
                         directions_driving_weight.DrivingWeightNative,
                         directions_driving_flags.DrivingFlagsNative,
+                        ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingRouteMetadata_init')
@@ -430,6 +449,15 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingRouteMetadata_get_uri')
         .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _DrivingRouteMetadata_get_nonAvoidedFeatures = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_directions_driving_DrivingRouteMetadata_get_nonAvoidedFeatures')
+    .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
     toNative: 'DrivingSectionImpl.getNativePtr',
@@ -802,210 +830,213 @@ class DrivingRouteImpl implements DrivingRoute, ffi.Finalizable {
 
   @core.override
   core.String get routeId {
-    final result = to_platform.toPlatformString(_Route_get_routeId(ptr));
-    return result;
+    final result = _Route_get_routeId(ptr);
+    return to_platform.toPlatformString(result);
   }
 
   @core.override
   DrivingRouteMetadata get metadata {
-    final result =
-        DrivingRouteMetadataImpl.fromNativePtr(_Route_get_metadata(ptr));
-    return result;
+    final result = _Route_get_metadata(ptr);
+    return DrivingRouteMetadataImpl.fromNativePtr(result);
   }
 
   @core.override
   core.List<DrivingSection> get sections {
-    final result = DrivingSectionContainerExtension.toPlatformVector(
-        _Route_get_sections(ptr));
-    return result;
+    final result = _Route_get_sections(ptr);
+    return DrivingSectionContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   mapkit_geometry_geometry.Polyline get geometry {
-    final result = mapkit_geometry_geometry.PolylineImpl.fromNativePtr(
-        _Route_get_geometry(ptr));
-    return result;
+    final result = _Route_get_geometry(ptr);
+    return mapkit_geometry_geometry.PolylineImpl.fromNativePtr(result);
   }
 
   @core.override
   core.List<mapkit_navigation_jam_segment.JamSegment> get jamSegments {
-    final result = mapkit_navigation_jam_segment.JamSegmentContainerExtension
-        .toPlatformVector(_Route_get_jamSegments(ptr));
-    return result;
+    final result = _Route_get_jamSegments(ptr);
+    return mapkit_navigation_jam_segment.JamSegmentContainerExtension
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<DrivingEvent> get events {
-    final result =
-        DrivingEventContainerExtension.toPlatformVector(_Route_get_events(ptr));
-    return result;
+    final result = _Route_get_events(ptr);
+    return DrivingEventContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<core.double?> get speedLimits {
-    final result = to_platform.toVectorFloat(_Route_get_speedLimits(ptr));
-    return result;
+    final result = _Route_get_speedLimits(ptr);
+    return to_platform.toVectorFloat(result);
   }
 
   @core.override
   directions_driving_vehicle_options.DrivingVehicleOptions get vehicleOptions {
-    final result =
-        directions_driving_vehicle_options.DrivingVehicleOptionsImpl.fromNative(
-            _Route_get_vehicleOptions(ptr));
-    return result;
+    final result = _Route_get_vehicleOptions(ptr);
+    return directions_driving_vehicle_options.DrivingVehicleOptionsImpl
+        .fromNative(result);
   }
 
   @core.override
   core.List<directions_driving_lane.DrivingLaneSign> get laneSigns {
-    final result = directions_driving_lane.DrivingLaneSignContainerExtension
-        .toPlatformVector(_Route_get_laneSigns(ptr));
-    return result;
+    final result = _Route_get_laneSigns(ptr);
+    return directions_driving_lane.DrivingLaneSignContainerExtension
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_direction_signs.DrivingDirectionSign>
       get directionSigns {
-    final result = directions_driving_direction_signs
-            .DrivingDirectionSignContainerExtension
-        .toPlatformVector(_Route_get_directionSigns(ptr));
-    return result;
+    final result = _Route_get_directionSigns(ptr);
+    return directions_driving_direction_signs
+        .DrivingDirectionSignContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_restricted_entry.DrivingRestrictedEntry>
       get restrictedEntries {
-    final result = directions_driving_restricted_entry
-            .DrivingRestrictedEntryContainerExtension
-        .toPlatformVector(_Route_get_restrictedEntries(ptr));
-    return result;
+    final result = _Route_get_restrictedEntries(ptr);
+    return directions_driving_restricted_entry
+        .DrivingRestrictedEntryContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_traffic_light.DrivingTrafficLight>
       get trafficLights {
-    final result =
-        directions_driving_traffic_light.DrivingTrafficLightContainerExtension
-            .toPlatformVector(_Route_get_trafficLights(ptr));
-    return result;
+    final result = _Route_get_trafficLights(ptr);
+    return directions_driving_traffic_light
+        .DrivingTrafficLightContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_restricted_turn.DrivingRestrictedTurn>
       get restrictedTurns {
-    final result = directions_driving_restricted_turn
-            .DrivingRestrictedTurnContainerExtension
-        .toPlatformVector(_Route_get_restrictedTurns(ptr));
-    return result;
+    final result = _Route_get_restrictedTurns(ptr);
+    return directions_driving_restricted_turn
+        .DrivingRestrictedTurnContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_railway_crossing.DrivingRailwayCrossing>
       get railwayCrossings {
-    final result = directions_driving_railway_crossing
-            .DrivingRailwayCrossingContainerExtension
-        .toPlatformVector(_Route_get_railwayCrossings(ptr));
-    return result;
+    final result = _Route_get_railwayCrossings(ptr);
+    return directions_driving_railway_crossing
+        .DrivingRailwayCrossingContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_pedestrian_crossing.DrivingPedestrianCrossing>
       get pedestrianCrossings {
-    final result = directions_driving_pedestrian_crossing
-            .DrivingPedestrianCrossingContainerExtension
-        .toPlatformVector(_Route_get_pedestrianCrossings(ptr));
-    return result;
+    final result = _Route_get_pedestrianCrossings(ptr);
+    return directions_driving_pedestrian_crossing
+        .DrivingPedestrianCrossingContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_speed_bump.DrivingSpeedBump> get speedBumps {
-    final result =
-        directions_driving_speed_bump.DrivingSpeedBumpContainerExtension
-            .toPlatformVector(_Route_get_speedBumps(ptr));
-    return result;
+    final result = _Route_get_speedBumps(ptr);
+    return directions_driving_speed_bump.DrivingSpeedBumpContainerExtension
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_checkpoint.DrivingCheckpoint> get checkpoints {
-    final result =
-        directions_driving_checkpoint.DrivingCheckpointContainerExtension
-            .toPlatformVector(_Route_get_checkpoints(ptr));
-    return result;
+    final result = _Route_get_checkpoints(ptr);
+    return directions_driving_checkpoint.DrivingCheckpointContainerExtension
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_rugged_road.DrivingRuggedRoad> get ruggedRoads {
-    final result =
-        directions_driving_rugged_road.DrivingRuggedRoadContainerExtension
-            .toPlatformVector(_Route_get_ruggedRoads(ptr));
-    return result;
+    final result = _Route_get_ruggedRoads(ptr);
+    return directions_driving_rugged_road.DrivingRuggedRoadContainerExtension
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_toll_road.DrivingTollRoad> get tollRoads {
-    final result =
-        directions_driving_toll_road.DrivingTollRoadContainerExtension
-            .toPlatformVector(_Route_get_tollRoads(ptr));
-    return result;
+    final result = _Route_get_tollRoads(ptr);
+    return directions_driving_toll_road.DrivingTollRoadContainerExtension
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_ford_crossing.DrivingFordCrossing>
       get fordCrossings {
-    final result =
-        directions_driving_ford_crossing.DrivingFordCrossingContainerExtension
-            .toPlatformVector(_Route_get_fordCrossings(ptr));
-    return result;
+    final result = _Route_get_fordCrossings(ptr);
+    return directions_driving_ford_crossing
+        .DrivingFordCrossingContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<directions_driving_ferry.DrivingFerry> get ferries {
-    final result = directions_driving_ferry.DrivingFerryContainerExtension
-        .toPlatformVector(_Route_get_ferries(ptr));
-    return result;
+    final result = _Route_get_ferries(ptr);
+    return directions_driving_ferry.DrivingFerryContainerExtension
+        .toPlatformVector(result);
+  }
+
+  @core.override
+  core.List<directions_driving_highway.DrivingHighway> get highways {
+    final result = _Route_get_highways(ptr);
+    return directions_driving_highway.DrivingHighwayContainerExtension
+        .toPlatformVector(result);
+  }
+
+  @core.override
+  core.List<directions_driving_tunnel.DrivingTunnel> get tunnels {
+    final result = _Route_get_tunnels(ptr);
+    return directions_driving_tunnel.DrivingTunnelContainerExtension
+        .toPlatformVector(result);
+  }
+
+  @core.override
+  core.List<directions_driving_zone_crossing.DrivingZoneCrossing>
+      get zoneCrossings {
+    final result = _Route_get_zoneCrossings(ptr);
+    return directions_driving_zone_crossing
+        .DrivingZoneCrossingContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<
           directions_driving_vehicle_restrictions.DrivingRoadVehicleRestriction>
       get roadVehicleRestrictions {
-    final result = directions_driving_vehicle_restrictions
+    final result = _Route_get_roadVehicleRestrictions(ptr);
+    return directions_driving_vehicle_restrictions
             .DrivingRoadVehicleRestrictionContainerExtension
-        .toPlatformVector(_Route_get_roadVehicleRestrictions(ptr));
-    return result;
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<
       directions_driving_vehicle_restrictions
       .DrivingManoeuvreVehicleRestriction> get manoeuvreVehicleRestrictions {
-    final result = directions_driving_vehicle_restrictions
+    final result = _Route_get_manoeuvreVehicleRestrictions(ptr);
+    return directions_driving_vehicle_restrictions
             .DrivingManoeuvreVehicleRestrictionContainerExtension
-        .toPlatformVector(_Route_get_manoeuvreVehicleRestrictions(ptr));
-    return result;
+        .toPlatformVector(result);
   }
 
   @core.override
   mapkit_annotations_annotation_lang.AnnotationLanguage?
       get annotationLanguage {
-    final result =
-        mapkit_annotations_annotation_lang.AnnotationLanguageImpl.fromPointer(
-            _Route_get_annotationLanguage(ptr));
-    return result;
+    final result = _Route_get_annotationLanguage(ptr);
+    return mapkit_annotations_annotation_lang.AnnotationLanguageImpl
+        .fromPointer(result);
   }
 
   @core.override
   core.List<mapkit_request_point.RequestPoint>? get requestPoints {
-    final result =
-        mapkit_request_point.RequestPointContainerExtension.toPlatformVector(
-            _Route_get_requestPoints(ptr));
-    return result;
+    final result = _Route_get_requestPoints(ptr);
+    return mapkit_request_point.RequestPointContainerExtension.toPlatformVector(
+        result);
   }
 
   @core.override
   mapkit_geometry_geometry.PolylinePosition get position {
-    final result = mapkit_geometry_geometry.PolylinePositionImpl.fromNative(
-        _Route_get_position(ptr));
-    return result;
+    final result = _Route_get_position(ptr);
+    return mapkit_geometry_geometry.PolylinePositionImpl.fromNative(result);
   }
 
   @core.override
@@ -1016,10 +1047,9 @@ class DrivingRouteImpl implements DrivingRoute, ffi.Finalizable {
 
   @core.override
   mapkit_navigation_route_position.RoutePosition get routePosition {
-    final result =
-        mapkit_navigation_route_position.RoutePositionImpl.fromNativePtr(
-            _Route_get_routePosition(ptr));
-    return result;
+    final result = _Route_get_routePosition(ptr);
+    return mapkit_navigation_route_position.RoutePositionImpl.fromNativePtr(
+        result);
   }
 
   @core.override
@@ -1041,9 +1071,9 @@ class DrivingRouteImpl implements DrivingRoute, ffi.Finalizable {
 
   @core.override
   core.List<mapkit_geometry_geometry.PolylinePosition> get wayPoints {
-    final result = mapkit_geometry_geometry.PolylinePositionContainerExtension
-        .toPlatformVector(_Route_get_wayPoints(ptr));
-    return result;
+    final result = _Route_get_wayPoints(ptr);
+    return mapkit_geometry_geometry.PolylinePositionContainerExtension
+        .toPlatformVector(result);
   }
 
   void addConditionsListener(DrivingConditionsListener conditionsListener) {
@@ -1063,9 +1093,9 @@ class DrivingRouteImpl implements DrivingRoute, ffi.Finalizable {
 
   DrivingRouteMetadata metadataAt(
       mapkit_geometry_geometry.PolylinePosition position) {
-    final result = DrivingRouteMetadataImpl.fromNativePtr(_Route_metadataAt(
-        ptr, mapkit_geometry_geometry.PolylinePositionImpl.toNative(position)));
-    return result;
+    final result = _Route_metadataAt(
+        ptr, mapkit_geometry_geometry.PolylinePositionImpl.toNative(position));
+    return DrivingRouteMetadataImpl.fromNativePtr(result);
   }
 
   void requestConditionsUpdate() {
@@ -1248,9 +1278,36 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _Route_get_ferries =
     lib
         .library
         .lookup<
-                ffi.NativeFunction<
+                ffi
+                .NativeFunction<
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingRoute_get_ferries')
+        .asFunction();
+
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _Route_get_highways = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_directions_driving_DrivingRoute_get_highways')
+        .asFunction();
+
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _Route_get_tunnels =
+    lib
+        .library
+        .lookup<
+                ffi
+                .NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_directions_driving_DrivingRoute_get_tunnels')
+        .asFunction();
+
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _Route_get_zoneCrossings = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_directions_driving_DrivingRoute_get_zoneCrossings')
         .asFunction();
 
 final ffi.Pointer<ffi.Void> Function(

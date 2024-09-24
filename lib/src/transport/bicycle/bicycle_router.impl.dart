@@ -79,16 +79,15 @@ class BicycleRouterImpl implements BicycleRouter, ffi.Finalizable {
     transport_bicycle_session.BicycleSessionRouteListener routeListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
   }) {
-    final result = transport_bicycle_session.BicycleSessionImpl.fromNativePtr(
-        _BicycleRouter_requestRoutes(
+    final result = _BicycleRouter_requestRoutes(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
       BicycleVehicleTypeImpl.toInt(type),
       transport_bicycle_session.BicycleSessionRouteListenerImpl.getNativePtr(
           routeListener),
-    ));
-    return result;
+    );
+    return transport_bicycle_session.BicycleSessionImpl.fromNativePtr(result);
   }
 
   transport_bicycle_session.BicycleSummarySession requestRoutesSummary(
@@ -97,31 +96,29 @@ class BicycleRouterImpl implements BicycleRouter, ffi.Finalizable {
         summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
   }) {
-    final result =
-        transport_bicycle_session.BicycleSummarySessionImpl.fromNativePtr(
-            _BicycleRouter_requestRoutesSummary(
+    final result = _BicycleRouter_requestRoutesSummary(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
       BicycleVehicleTypeImpl.toInt(type),
       transport_bicycle_session.BicycleSummarySessionSummaryListenerImpl
           .getNativePtr(summaryListener),
-    ));
-    return result;
+    );
+    return transport_bicycle_session.BicycleSummarySessionImpl.fromNativePtr(
+        result);
   }
 
   transport_bicycle_session.BicycleSession resolveUri(
     transport_bicycle_session.BicycleSessionRouteListener routeListener, {
     required core.String uri,
   }) {
-    final result = transport_bicycle_session.BicycleSessionImpl.fromNativePtr(
-        _BicycleRouter_resolveUri(
+    final result = _BicycleRouter_resolveUri(
       ptr,
       to_native.toNativeString(uri),
       transport_bicycle_session.BicycleSessionRouteListenerImpl.getNativePtr(
           routeListener),
-    ));
-    return result;
+    );
+    return transport_bicycle_session.BicycleSessionImpl.fromNativePtr(result);
   }
 }
 

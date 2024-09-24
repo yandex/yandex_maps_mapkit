@@ -55,6 +55,11 @@ abstract class Transport implements ffi.Finalizable {
   /// destination points.
   transport_masstransit_bicycle_router_v2.BicycleRouterV2 createScooterRouter();
 
+  /// Creates a manager that builds electric bike routes using the origin
+  /// and destination points.
+  transport_masstransit_bicycle_router_v2.BicycleRouterV2
+      createElectricBikeRouter();
+
   /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }

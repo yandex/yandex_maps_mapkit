@@ -48,10 +48,9 @@ class MrcPhotoPlayerImpl implements MrcPhotoPlayer, ffi.Finalizable {
 
   @core.override
   core.String? get photoId {
-    final result = to_platform
-        .toPlatformFromPointerString(_MrcPhotoPlayer_get_photoId(ptr));
+    final result = _MrcPhotoPlayer_get_photoId(ptr);
     exception.checkCallResult();
-    return result;
+    return to_platform.toPlatformFromPointerString(result);
   }
 
   void reset() {

@@ -37,9 +37,15 @@ final class DrivingFlagsNative extends ffi.Struct {
   external core.bool scheduledDeparture;
   @ffi.Bool()
   external core.bool hasNonTransactionalTolls;
+  @ffi.Bool()
+  external core.bool hasTunnels;
+  @ffi.Bool()
+  external core.bool hasHighways;
 }
 
 final DrivingFlagsNative Function(
+    core.bool,
+    core.bool,
     core.bool,
     core.bool,
     core.bool,
@@ -62,6 +68,8 @@ final DrivingFlagsNative Function(
     .lookup<
         ffi.NativeFunction<
             DrivingFlagsNative Function(
+                ffi.Bool,
+                ffi.Bool,
                 ffi.Bool,
                 ffi.Bool,
                 ffi.Bool,
@@ -106,7 +114,9 @@ extension DrivingFlagsImpl on DrivingFlags {
         hasRailwayCrossing: native.hasRailwayCrossing,
         hasCheckpoints: native.hasCheckpoints,
         scheduledDeparture: native.scheduledDeparture,
-        hasNonTransactionalTolls: native.hasNonTransactionalTolls);
+        hasNonTransactionalTolls: native.hasNonTransactionalTolls,
+        hasTunnels: native.hasTunnels,
+        hasHighways: native.hasHighways);
   }
 
   static DrivingFlagsNative toNative(DrivingFlags obj) {
@@ -128,7 +138,9 @@ extension DrivingFlagsImpl on DrivingFlags {
         obj.hasRailwayCrossing,
         obj.hasCheckpoints,
         obj.scheduledDeparture,
-        obj.hasNonTransactionalTolls);
+        obj.hasNonTransactionalTolls,
+        obj.hasTunnels,
+        obj.hasHighways);
   }
 
   static DrivingFlags? fromPointer(ffi.Pointer<ffi.Void> ptr,

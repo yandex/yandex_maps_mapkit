@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'construction.dart';
+part of 'non_avoided_features.dart';
 
 // **************************************************************************
 // ContainerGenerator
 // **************************************************************************
 
-extension MasstransitConstructionIDContainerExtension
-    on MasstransitConstructionID {
+extension DrivingNonAvoidedFeaturesContainerExtension
+    on DrivingNonAvoidedFeatures {
   static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, MasstransitConstructionID?>? obj) {
+      core.Map<core.String, DrivingNonAvoidedFeatures?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, MasstransitConstructionIDImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingNonAvoidedFeaturesImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<MasstransitConstructionID?>?>? obj) {
+      core.Map<core.String, core.List<DrivingNonAvoidedFeatures?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -27,7 +27,7 @@ extension MasstransitConstructionIDContainerExtension
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, MasstransitConstructionID?>?>?
+      core.Map<core.String, core.Map<core.String, DrivingNonAvoidedFeatures?>?>?
           obj) {
     if (obj == null) {
       return ffi.nullptr;
@@ -37,16 +37,16 @@ extension MasstransitConstructionIDContainerExtension
   }
 
   static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<MasstransitConstructionID?>? obj) {
+      core.List<DrivingNonAvoidedFeatures?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, MasstransitConstructionIDImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingNonAvoidedFeaturesImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<MasstransitConstructionID?>?>? obj) {
+      core.List<core.List<DrivingNonAvoidedFeatures?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -55,7 +55,7 @@ extension MasstransitConstructionIDContainerExtension
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, MasstransitConstructionID?>?>? obj) {
+      core.List<core.Map<core.String, DrivingNonAvoidedFeatures?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -63,15 +63,15 @@ extension MasstransitConstructionIDContainerExtension
     return vector.toNativeVector(obj, toNativeMap);
   }
 
-  static string_map.StringMap<MasstransitConstructionID> toPlatformMap(
+  static string_map.StringMap<DrivingNonAvoidedFeatures> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
         (val) =>
-            MasstransitConstructionIDImpl.fromPointer(val, needFree: false));
+            DrivingNonAvoidedFeaturesImpl.fromPointer(val, needFree: false));
   }
 
-  static string_map.StringMap<vector.Vector<MasstransitConstructionID>>
+  static string_map.StringMap<vector.Vector<DrivingNonAvoidedFeatures>>
       toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
@@ -80,7 +80,7 @@ extension MasstransitConstructionIDContainerExtension
             : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static string_map.StringMap<string_map.StringMap<MasstransitConstructionID>>
+  static string_map.StringMap<string_map.StringMap<DrivingNonAvoidedFeatures>>
       toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
@@ -89,15 +89,15 @@ extension MasstransitConstructionIDContainerExtension
             : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static vector.Vector<MasstransitConstructionID> toPlatformVector(
+  static vector.Vector<DrivingNonAvoidedFeatures> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) =>
-            MasstransitConstructionIDImpl.fromPointer(val, needFree: false));
+            DrivingNonAvoidedFeaturesImpl.fromPointer(val, needFree: false));
   }
 
-  static vector.Vector<vector.Vector<MasstransitConstructionID>>
+  static vector.Vector<vector.Vector<DrivingNonAvoidedFeatures>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
@@ -106,7 +106,7 @@ extension MasstransitConstructionIDContainerExtension
             : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static vector.Vector<string_map.StringMap<MasstransitConstructionID>>
+  static vector.Vector<string_map.StringMap<DrivingNonAvoidedFeatures>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,

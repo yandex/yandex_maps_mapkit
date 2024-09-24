@@ -48,10 +48,10 @@ class MapObjectImpl implements MapObject, ffi.Finalizable {
 
   @core.override
   mapkit_map_base_map_object_collection.BaseMapObjectCollection get parent {
-    final result = mapkit_map_base_map_object_collection
-        .BaseMapObjectCollectionImpl.fromNativePtr(_MapObject_get_parent(ptr));
+    final result = _MapObject_get_parent(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_map_base_map_object_collection.BaseMapObjectCollectionImpl
+        .fromNativePtr(result);
   }
 
   @core.override
@@ -212,7 +212,8 @@ final void Function(ffi.Pointer<ffi.Void>, core.bool) _MapObject_set_draggable =
     lib
         .library
         .lookup<
-                ffi.NativeFunction<
+                ffi
+                .NativeFunction<
                     ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>>(
             'yandex_flutter_mapkit_map_MapObject_set_draggable')
         .asFunction();

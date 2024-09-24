@@ -37,62 +37,61 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
 
   transport_masstransit_session.MasstransitSession requestRoutes(
     transport_masstransit_options.TimeOptions timeOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.RouteHandler routeListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-    required core.bool avoidSteep,
   }) {
-    final result =
-        transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
-            _PedestrianRouter_requestRoutes(
+    final result = _PedestrianRouter_requestRoutes(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
       transport_masstransit_options.TimeOptionsImpl.toNative(timeOptions),
-      avoidSteep,
+      transport_masstransit_options.RouteOptionsImpl.toNative(routeOptions),
       transport_masstransit_session.RouteHandlerImpl.getNativePtr(
           routeListener),
-    ));
-    return result;
+    );
+    return transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
+        result);
   }
 
   transport_masstransit_session.MasstransitSummarySession requestRoutesSummary(
     transport_masstransit_options.TimeOptions timeOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.SummaryHandler summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-    required core.bool avoidSteep,
   }) {
-    final result = transport_masstransit_session.MasstransitSummarySessionImpl
-        .fromNativePtr(_PedestrianRouter_requestRoutesSummary(
+    final result = _PedestrianRouter_requestRoutesSummary(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
       transport_masstransit_options.TimeOptionsImpl.toNative(timeOptions),
-      avoidSteep,
+      transport_masstransit_options.RouteOptionsImpl.toNative(routeOptions),
       transport_masstransit_session.SummaryHandlerImpl.getNativePtr(
           summaryListener),
-    ));
-    return result;
+    );
+    return transport_masstransit_session.MasstransitSummarySessionImpl
+        .fromNativePtr(result);
   }
 
   transport_masstransit_session.MasstransitSummarySession
       requestRoutesSummaryFromPoint(
     mapkit_request_point.RequestPoint from,
     transport_masstransit_options.TimeOptions timeOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.SummaryHandler summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> to,
-    required core.bool avoidSteep,
   }) {
-    final result = transport_masstransit_session.MasstransitSummarySessionImpl
-        .fromNativePtr(_PedestrianRouter_requestRoutesSummaryFromPoint(
+    final result = _PedestrianRouter_requestRoutesSummaryFromPoint(
       ptr,
       mapkit_request_point.RequestPointImpl.getNativePtr(from),
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(to),
       transport_masstransit_options.TimeOptionsImpl.toNative(timeOptions),
-      avoidSteep,
+      transport_masstransit_options.RouteOptionsImpl.toNative(routeOptions),
       transport_masstransit_session.SummaryHandlerImpl.getNativePtr(
           summaryListener),
-    ));
-    return result;
+    );
+    return transport_masstransit_session.MasstransitSummarySessionImpl
+        .fromNativePtr(result);
   }
 
   transport_masstransit_session.MasstransitSession resolveUri(
@@ -100,24 +99,22 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
     transport_masstransit_session.RouteHandler routeListener, {
     required core.String uri,
   }) {
-    final result =
-        transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
-            _PedestrianRouter_resolveUri(
+    final result = _PedestrianRouter_resolveUri(
       ptr,
       to_native.toNativeString(uri),
       transport_masstransit_options.TimeOptionsImpl.toNative(timeOptions),
       transport_masstransit_session.RouteHandlerImpl.getNativePtr(
           routeListener),
-    ));
-    return result;
+    );
+    return transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
+        result);
   }
 
   transport_masstransit_serializer.MasstransitRouteSerializer
       routeSerializer() {
-    final result =
-        transport_masstransit_serializer.MasstransitRouteSerializerImpl
-            .fromNativePtr(_PedestrianRouter_routeSerializer(ptr));
-    return result;
+    final result = _PedestrianRouter_routeSerializer(ptr);
+    return transport_masstransit_serializer.MasstransitRouteSerializerImpl
+        .fromNativePtr(result);
   }
 }
 
@@ -129,7 +126,7 @@ final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
     transport_masstransit_options.TimeOptionsNative,
-    core.bool,
+    transport_masstransit_options.RouteOptionsNative,
     ffi
         .Pointer<ffi.Void>) _PedestrianRouter_requestRoutes = lib.library
     .lookup<
@@ -138,7 +135,7 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     transport_masstransit_options.TimeOptionsNative,
-                    ffi.Bool,
+                    transport_masstransit_options.RouteOptionsNative,
                     ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_PedestrianRouter_requestRoutes')
     .asFunction();
@@ -146,7 +143,7 @@ final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
     transport_masstransit_options.TimeOptionsNative,
-    core.bool,
+    transport_masstransit_options.RouteOptionsNative,
     ffi
         .Pointer<ffi.Void>) _PedestrianRouter_requestRoutesSummary = lib.library
     .lookup<
@@ -155,7 +152,7 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     transport_masstransit_options.TimeOptionsNative,
-                    ffi.Bool,
+                    transport_masstransit_options.RouteOptionsNative,
                     ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_PedestrianRouter_requestRoutesSummary')
     .asFunction();
@@ -164,7 +161,7 @@ final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
     transport_masstransit_options.TimeOptionsNative,
-    core.bool,
+    transport_masstransit_options.RouteOptionsNative,
     ffi
         .Pointer<ffi.Void>) _PedestrianRouter_requestRoutesSummaryFromPoint = lib
     .library
@@ -175,7 +172,7 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     transport_masstransit_options.TimeOptionsNative,
-                    ffi.Bool,
+                    transport_masstransit_options.RouteOptionsNative,
                     ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_PedestrianRouter_requestRoutesSummaryFromPoint')
     .asFunction();

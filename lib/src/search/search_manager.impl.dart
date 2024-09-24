@@ -80,16 +80,15 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     required core.String text,
   }) {
-    final result =
-        search_session.SearchSessionImpl.fromNativePtr(_SearchManager_submit(
+    final result = _SearchManager_submit(
       ptr,
       to_native.toNativeString(text),
       mapkit_geometry_geometry.GeometryImpl.toNative(geometry),
       search_search_options.SearchOptionsImpl.toNative(searchOptions),
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
-    ));
-    return result;
+    );
+    return search_session.SearchSessionImpl.fromNativePtr(result);
   }
 
   search_session.SearchSession submitAlongPolyline(
@@ -99,8 +98,7 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     required core.String text,
   }) {
-    final result = search_session.SearchSessionImpl.fromNativePtr(
-        _SearchManager_submitAlongPolyline(
+    final result = _SearchManager_submitAlongPolyline(
       ptr,
       to_native.toNativeString(text),
       mapkit_geometry_geometry.PolylineImpl.getNativePtr(polyline),
@@ -108,8 +106,8 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
       search_search_options.SearchOptionsImpl.toNative(searchOptions),
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
-    ));
-    return result;
+    );
+    return search_session.SearchSessionImpl.fromNativePtr(result);
   }
 
   search_session.SearchSession submitPoint(
@@ -118,16 +116,15 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     core.int? zoom,
   }) {
-    final result = search_session.SearchSessionImpl.fromNativePtr(
-        _SearchManager_submitPoint(
+    final result = _SearchManager_submitPoint(
       ptr,
       mapkit_geometry_point.PointImpl.toNative(point),
       to_native.toNativePtrInt(zoom),
       search_search_options.SearchOptionsImpl.toNative(searchOptions),
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
-    ));
-    return result;
+    );
+    return search_session.SearchSessionImpl.fromNativePtr(result);
   }
 
   search_session.SearchSession resolveURI(
@@ -135,15 +132,14 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     required core.String uri,
   }) {
-    final result = search_session.SearchSessionImpl.fromNativePtr(
-        _SearchManager_resolveURI(
+    final result = _SearchManager_resolveURI(
       ptr,
       to_native.toNativeString(uri),
       search_search_options.SearchOptionsImpl.toNative(searchOptions),
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
-    ));
-    return result;
+    );
+    return search_session.SearchSessionImpl.fromNativePtr(result);
   }
 
   search_session.SearchSession searchByURI(
@@ -151,22 +147,20 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     search_session.SearchSessionSearchListener searchListener, {
     required core.String uri,
   }) {
-    final result = search_session.SearchSessionImpl.fromNativePtr(
-        _SearchManager_searchByURI(
+    final result = _SearchManager_searchByURI(
       ptr,
       to_native.toNativeString(uri),
       search_search_options.SearchOptionsImpl.toNative(searchOptions),
       search_session.SearchSessionSearchListenerImpl.getNativePtr(
           searchListener),
-    ));
-    return result;
+    );
+    return search_session.SearchSessionImpl.fromNativePtr(result);
   }
 
   search_suggest_session.SearchSuggestSession createSuggestSession() {
-    final result =
-        search_suggest_session.SearchSuggestSessionImpl.fromNativePtr(
-            _SearchManager_createSuggestSession(ptr));
-    return result;
+    final result = _SearchManager_createSuggestSession(ptr);
+    return search_suggest_session.SearchSuggestSessionImpl.fromNativePtr(
+        result);
   }
 }
 

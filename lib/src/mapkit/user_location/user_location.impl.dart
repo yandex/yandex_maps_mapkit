@@ -48,26 +48,23 @@ class UserLocationViewImpl implements UserLocationView, ffi.Finalizable {
 
   @core.override
   mapkit_map_placemark.PlacemarkMapObject get arrow {
-    final result = mapkit_map_placemark.PlacemarkMapObjectImpl.fromNativePtr(
-        _UserLocationView_get_arrow(ptr));
+    final result = _UserLocationView_get_arrow(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_map_placemark.PlacemarkMapObjectImpl.fromNativePtr(result);
   }
 
   @core.override
   mapkit_map_placemark.PlacemarkMapObject get pin {
-    final result = mapkit_map_placemark.PlacemarkMapObjectImpl.fromNativePtr(
-        _UserLocationView_get_pin(ptr));
+    final result = _UserLocationView_get_pin(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_map_placemark.PlacemarkMapObjectImpl.fromNativePtr(result);
   }
 
   @core.override
   mapkit_map_circle.CircleMapObject get accuracyCircle {
-    final result = mapkit_map_circle.CircleMapObjectImpl.fromNativePtr(
-        _UserLocationView_get_accuracyCircle(ptr));
+    final result = _UserLocationView_get_accuracyCircle(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_map_circle.CircleMapObjectImpl.fromNativePtr(result);
   }
 }
 
@@ -243,10 +240,9 @@ class UserLocationIconChangedImpl extends mapkit_layers_object_event
 
   @core.override
   UserLocationIconType get iconType {
-    final result = UserLocationIconTypeImpl.fromInt(
-        _UserLocationIconChanged_get_iconType(ptr));
+    final result = _UserLocationIconChanged_get_iconType(ptr);
     exception.checkCallResult();
-    return result;
+    return UserLocationIconTypeImpl.fromInt(result);
   }
 }
 
@@ -327,10 +323,9 @@ class UserLocationAnchorChangedImpl extends mapkit_layers_object_event
 
   @core.override
   UserLocationAnchorType get anchorType {
-    final result = UserLocationAnchorTypeImpl.fromInt(
-        _UserLocationAnchorChanged_get_anchorType(ptr));
+    final result = _UserLocationAnchorChanged_get_anchorType(ptr);
     exception.checkCallResult();
-    return result;
+    return UserLocationAnchorTypeImpl.fromInt(result);
   }
 }
 
@@ -437,11 +432,12 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<
             ffi.NativeFunction<
                 ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>,
-        ffi.Pointer<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>,
-        ffi.Pointer<
-            ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)
+        ffi
+            .Pointer<
+                ffi.NativeFunction<
+                    ffi.Void Function(
+                        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>,
+        ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)
     _UserLocationObjectListener_new = lib.library
         .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
             'yandex_flutter_mapkit_user_location_UserLocationObjectListener_new')
@@ -694,10 +690,9 @@ class UserLocationLayerImpl implements UserLocationLayer, ffi.Finalizable {
   }
 
   mapkit_map_camera_position.CameraPosition? cameraPosition() {
-    final result = mapkit_map_camera_position.CameraPositionImpl.fromPointer(
-        _UserLocationLayer_cameraPosition(ptr));
+    final result = _UserLocationLayer_cameraPosition(ptr);
     exception.checkCallResult();
-    return result;
+    return mapkit_map_camera_position.CameraPositionImpl.fromPointer(result);
   }
 
   void setSource(

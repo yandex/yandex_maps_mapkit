@@ -54,3 +54,52 @@ final class TimeOptions {
     return "TimeOptions(departureTime: $departureTime, arrivalTime: $arrivalTime)";
   }
 }
+
+final class FitnessOptions {
+  /// If true, router will try avoid steep (in height meaning) routes.
+  final core.bool avoidSteep;
+
+  const FitnessOptions({
+    this.avoidSteep = false,
+  });
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([avoidSteep]);
+
+  @core.override
+  core.bool operator ==(covariant FitnessOptions other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return avoidSteep == other.avoidSteep;
+  }
+
+  @core.override
+  core.String toString() {
+    return "FitnessOptions(avoidSteep: $avoidSteep)";
+  }
+}
+
+/// Settings for router, which help personalize or optimize routes
+
+final class RouteOptions {
+  final FitnessOptions fitnessOptions;
+
+  const RouteOptions(this.fitnessOptions);
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([fitnessOptions]);
+
+  @core.override
+  core.bool operator ==(covariant RouteOptions other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return fitnessOptions == other.fitnessOptions;
+  }
+
+  @core.override
+  core.String toString() {
+    return "RouteOptions(fitnessOptions: $fitnessOptions)";
+  }
+}

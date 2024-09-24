@@ -11,11 +11,11 @@ void _setRoadEventsStyleProvider(
 mapkit_road_events_layer_road_events_layer.RoadEventsLayer
     _createRouteRoadEventsLayerWithPresetStyleProvider(
         mapkit_map_map_window.MapWindow mapWindow) {
-  final result = mapkit_road_events_layer_road_events_layer.RoadEventsLayerImpl
-      .fromNativePtr(
-          _FlutterRoadEventsLayerFactory_createRouteRoadEventsLayerWithPresetStyleProvider(
-              mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow)));
-  return result;
+  final result =
+      _FlutterRoadEventsLayerFactory_createRouteRoadEventsLayerWithPresetStyleProvider(
+          mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow));
+  return mapkit_road_events_layer_road_events_layer.RoadEventsLayerImpl
+      .fromNativePtr(result);
 }
 
 final void Function(

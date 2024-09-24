@@ -1,23 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_data.dart';
+part of 'zone_crossing.dart';
 
 // **************************************************************************
 // ContainerGenerator
 // **************************************************************************
 
-extension UserDataContainerExtension on UserData {
+extension DrivingZoneCrossingContainerExtension on DrivingZoneCrossing {
   static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, UserData?>? obj) {
+      core.Map<core.String, DrivingZoneCrossing?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
 
-    return string_map.toNativeMap(obj, UserDataImpl.toPointer);
+    return string_map.toNativeMap(obj, DrivingZoneCrossingImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String, core.List<UserData?>?>? obj) {
+      core.Map<core.String, core.List<DrivingZoneCrossing?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -26,7 +26,8 @@ extension UserDataContainerExtension on UserData {
   }
 
   static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<core.String, core.Map<core.String, UserData?>?>? obj) {
+      core.Map<core.String, core.Map<core.String, DrivingZoneCrossing?>?>?
+          obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -34,16 +35,17 @@ extension UserDataContainerExtension on UserData {
     return string_map.toNativeMap(obj, toNativeMap);
   }
 
-  static ffi.Pointer<ffi.Void> toNativeVector(core.List<UserData?>? obj) {
+  static ffi.Pointer<ffi.Void> toNativeVector(
+      core.List<DrivingZoneCrossing?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
 
-    return vector.toNativeVector(obj, UserDataImpl.toPointer);
+    return vector.toNativeVector(obj, DrivingZoneCrossingImpl.toPointer);
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<UserData?>?>? obj) {
+      core.List<core.List<DrivingZoneCrossing?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -52,7 +54,7 @@ extension UserDataContainerExtension on UserData {
   }
 
   static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<core.Map<core.String, UserData?>?>? obj) {
+      core.List<core.Map<core.String, DrivingZoneCrossing?>?>? obj) {
     if (obj == null) {
       return ffi.nullptr;
     }
@@ -60,14 +62,14 @@ extension UserDataContainerExtension on UserData {
     return vector.toNativeVector(obj, toNativeMap);
   }
 
-  static string_map.StringMap<UserData> toPlatformMap(
+  static string_map.StringMap<DrivingZoneCrossing> toPlatformMap(
       ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr, (val) => UserDataImpl.fromPointer(val, needFree: false));
+    return string_map.StringMap(ptr,
+        (val) => DrivingZoneCrossingImpl.fromPointer(val, needFree: false));
   }
 
-  static string_map.StringMap<vector.Vector<UserData>> toPlatformMapVector(
-      ffi.Pointer<ffi.Void> ptr) {
+  static string_map.StringMap<vector.Vector<DrivingZoneCrossing>>
+      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
         (val) => val == ffi.nullptr
@@ -75,7 +77,7 @@ extension UserDataContainerExtension on UserData {
             : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static string_map.StringMap<string_map.StringMap<UserData>>
+  static string_map.StringMap<string_map.StringMap<DrivingZoneCrossing>>
       toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
     return string_map.StringMap(
         ptr,
@@ -84,13 +86,14 @@ extension UserDataContainerExtension on UserData {
             : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static vector.Vector<UserData> toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr, (val) => UserDataImpl.fromPointer(val, needFree: false));
+  static vector.Vector<DrivingZoneCrossing> toPlatformVector(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
+        (val) => DrivingZoneCrossingImpl.fromPointer(val, needFree: false));
   }
 
-  static vector.Vector<vector.Vector<UserData>> toPlatformVectorVector(
-      ffi.Pointer<ffi.Void> ptr) {
+  static vector.Vector<vector.Vector<DrivingZoneCrossing>>
+      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -98,7 +101,7 @@ extension UserDataContainerExtension on UserData {
             : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
-  static vector.Vector<string_map.StringMap<UserData>>
+  static vector.Vector<string_map.StringMap<DrivingZoneCrossing>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,

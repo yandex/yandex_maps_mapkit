@@ -37,36 +37,32 @@ class SearchResultItemImpl implements SearchResultItem, ffi.Finalizable {
 
   @core.override
   core.String get id {
-    final result = to_platform.toPlatformString(_SearchResultItem_get_id(ptr));
-    return result;
+    final result = _SearchResultItem_get_id(ptr);
+    return to_platform.toPlatformString(result);
   }
 
   @core.override
   core.String get name {
-    final result =
-        to_platform.toPlatformString(_SearchResultItem_get_name(ptr));
-    return result;
+    final result = _SearchResultItem_get_name(ptr);
+    return to_platform.toPlatformString(result);
   }
 
   @core.override
   core.String? get categoryClass {
-    final result = to_platform
-        .toPlatformFromPointerString(_SearchResultItem_get_categoryClass(ptr));
-    return result;
+    final result = _SearchResultItem_get_categoryClass(ptr);
+    return to_platform.toPlatformFromPointerString(result);
   }
 
   @core.override
   mapkit_geo_object.GeoObject get geoObject {
-    final result = mapkit_geo_object.GeoObjectImpl.fromNativePtr(
-        _SearchResultItem_get_geoObject(ptr));
-    return result;
+    final result = _SearchResultItem_get_geoObject(ptr);
+    return mapkit_geo_object.GeoObjectImpl.fromNativePtr(result);
   }
 
   @core.override
   mapkit_geometry_point.Point get point {
-    final result = mapkit_geometry_point.PointImpl.fromNative(
-        _SearchResultItem_get_point(ptr));
-    return result;
+    final result = _SearchResultItem_get_point(ptr);
+    return mapkit_geometry_point.PointImpl.fromNative(result);
   }
 
   core.bool hasDetails() {
@@ -75,10 +71,9 @@ class SearchResultItemImpl implements SearchResultItem, ffi.Finalizable {
   }
 
   core.List<search_subtitle.SearchSubtitleItem> details() {
-    final result =
-        search_subtitle.SearchSubtitleItemContainerExtension.toPlatformVector(
-            _SearchResultItem_details(ptr));
-    return result;
+    final result = _SearchResultItem_details(ptr);
+    return search_subtitle.SearchSubtitleItemContainerExtension
+        .toPlatformVector(result);
   }
 
   core.bool isCollection() {

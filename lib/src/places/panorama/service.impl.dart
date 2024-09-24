@@ -37,12 +37,11 @@ class PanoramaServiceImpl implements PanoramaService, ffi.Finalizable {
 
   PanoramaServiceSearchSession findNearest(mapkit_geometry_point.Point position,
       PanoramaServiceSearchListener searchListener) {
-    final result = PanoramaServiceSearchSessionImpl.fromNativePtr(
-        _PanoramaService_findNearest(
-            ptr,
-            mapkit_geometry_point.PointImpl.toNative(position),
-            PanoramaServiceSearchListenerImpl.getNativePtr(searchListener)));
-    return result;
+    final result = _PanoramaService_findNearest(
+        ptr,
+        mapkit_geometry_point.PointImpl.toNative(position),
+        PanoramaServiceSearchListenerImpl.getNativePtr(searchListener));
+    return PanoramaServiceSearchSessionImpl.fromNativePtr(result);
   }
 }
 

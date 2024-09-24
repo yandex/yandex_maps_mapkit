@@ -24,6 +24,8 @@ import 'package:yandex_maps_mapkit/src/bindings/common/weak_interface_wrapper.da
     as weak_interface_wrapper;
 import 'package:yandex_maps_mapkit/src/bindings/weak_map/weak_map.dart'
     as weak_map;
+import 'package:yandex_maps_mapkit/src/mapkit/geometry/point.dart'
+    as mapkit_geometry_point;
 import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/data_move_listener.dart'
     as mapkit_offline_cache_data_move_listener;
 import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/region.dart'
@@ -34,6 +36,8 @@ import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/region_listener.dart
     as mapkit_offline_cache_region_listener;
 import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/region_state.dart'
     as mapkit_offline_cache_region_state;
+import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/regions_at_point_listener.dart'
+    as mapkit_offline_cache_regions_at_point_listener;
 import 'package:yandex_maps_mapkit/src/runtime/error.dart' as runtime_error;
 import 'package:yandex_maps_mapkit/src/runtime/local_error.dart'
     as runtime_local_error;
@@ -169,6 +173,13 @@ abstract class OfflineCacheManager implements ffi.Finalizable {
   /// Erases all data for downloads and regions and wipes the cache. Forces
   /// reloading the list from the remote source
   void clear(OfflineCacheManagerClearListener callback);
+
+  /// Provides ids of regions containing specified point. Some of the
+  /// returned regions may not be available in current regions list.
+  void requestRegionsAtPoint(
+      mapkit_geometry_point.Point point,
+      mapkit_offline_cache_regions_at_point_listener.RegionsAtPointListener
+          callback);
 
   /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();

@@ -1143,8 +1143,7 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(
                         ffi.Pointer<
-                            ffi
-                            .NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, native_types.NativeString)>>)>>(
+                            ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, native_types.NativeString)>>)>>(
             'yandex_flutter_places_panorama_PanoramaUserPanoramaEventListener_new')
         .asFunction(isLeaf: true);
 
@@ -1368,9 +1367,7 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.Pointer<ffi.Void>,
                 native_types.NativeString,
                 ffi.Double)>>) _PanoramaIconImageFactory_new = lib.library
-    .lookup<
-            ffi
-            .NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Double)>>)>>(
+    .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Double)>>)>>(
         'yandex_flutter_places_panorama_PanoramaIconImageFactory_new')
     .asFunction(isLeaf: true);
 
@@ -1492,9 +1489,7 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.Uint32,
                 ffi.Uint32,
                 ffi.Uint32)>>) _PanoramaTileUrlProvider_new = lib.library
-    .lookup<
-            ffi
-            .NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<native_types.NativeString Function(ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Uint32, ffi.Uint32, ffi.Uint32)>>)>>(
+    .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<native_types.NativeString Function(ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Uint32, ffi.Uint32, ffi.Uint32)>>)>>(
         'yandex_flutter_places_panorama_PanoramaTileUrlProvider_new')
     .asFunction(isLeaf: true);
 
@@ -1602,9 +1597,7 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.Pointer<ffi.Void>,
                 native_types.NativeString,
                 ffi.Double)>>) _PanoramaIconUrlProvider_new = lib.library
-    .lookup<
-            ffi
-            .NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<native_types.NativeString Function(ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Double)>>)>>(
+    .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<native_types.NativeString Function(ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Double)>>)>>(
         'yandex_flutter_places_panorama_PanoramaIconUrlProvider_new')
     .asFunction(isLeaf: true);
 

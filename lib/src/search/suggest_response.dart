@@ -36,6 +36,7 @@ abstract final class SuggestItem implements ffi.Finalizable {
           core.String searchText,
           core.String? displayText,
           core.String? uri,
+          core.String? link,
           mapkit_localized_value.LocalizedValue? distance,
           core.bool isPersonal,
           SuggestItemAction action,
@@ -53,6 +54,7 @@ abstract final class SuggestItem implements ffi.Finalizable {
           searchText,
           displayText,
           uri,
+          link,
           distance,
           isPersonal,
           action,
@@ -89,6 +91,10 @@ abstract final class SuggestItem implements ffi.Finalizable {
   /// Element uri, if applicable.
   ///
   core.String? get uri;
+
+  /// Element link, if applicable.
+  ///
+  core.String? get link;
 
   /// Optional distance localized value.
   ///
@@ -130,6 +136,7 @@ abstract final class SuggestItem implements ffi.Finalizable {
         searchText,
         displayText,
         uri,
+        link,
         distance,
         isPersonal,
         action,
@@ -153,6 +160,7 @@ abstract final class SuggestItem implements ffi.Finalizable {
         searchText == other.searchText &&
         displayText == other.displayText &&
         uri == other.uri &&
+        link == other.link &&
         distance == other.distance &&
         isPersonal == other.isPersonal &&
         action == other.action &&
@@ -166,7 +174,7 @@ abstract final class SuggestItem implements ffi.Finalizable {
 
   @core.override
   core.String toString() {
-    return "SuggestItem(type: $type, title: $title, subtitle: $subtitle, tags: $tags, searchText: $searchText, displayText: $displayText, uri: $uri, distance: $distance, isPersonal: $isPersonal, action: $action, logId: $logId, isOffline: $isOffline, isWordItem: $isWordItem, properties: $properties, center: $center, businessContext: $businessContext)";
+    return "SuggestItem(type: $type, title: $title, subtitle: $subtitle, tags: $tags, searchText: $searchText, displayText: $displayText, uri: $uri, link: $link, distance: $distance, isPersonal: $isPersonal, action: $action, logId: $logId, isOffline: $isOffline, isWordItem: $isWordItem, properties: $properties, center: $center, businessContext: $businessContext)";
   }
 }
 
@@ -183,6 +191,9 @@ enum SuggestItemType {
 
   /// Public transport route number or transit-related keyword.
   Transit,
+
+  /// Web link or deep link
+  Link,
   ;
 }
 
@@ -193,6 +204,9 @@ enum SuggestItemAction {
 
   /// Substitute query by `text` for further editing.
   Substitute,
+
+  /// Exit suggest session and open link
+  FollowLink,
   ;
 }
 

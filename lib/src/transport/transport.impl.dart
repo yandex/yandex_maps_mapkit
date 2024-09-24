@@ -48,52 +48,57 @@ class TransportImpl implements Transport, ffi.Finalizable {
 
   @core.override
   transport_time_adjusted_clock.AdjustedClock get adjustedClock {
-    final result =
-        transport_time_adjusted_clock.AdjustedClockImpl.fromNativePtr(
-            _Transport_get_adjustedClock(ptr));
+    final result = _Transport_get_adjustedClock(ptr);
     exception.checkCallResult();
-    return result;
+    return transport_time_adjusted_clock.AdjustedClockImpl.fromNativePtr(
+        result);
   }
 
   transport_bicycle_bicycle_router.BicycleRouter createBicycleRouter() {
-    final result =
-        transport_bicycle_bicycle_router.BicycleRouterImpl.fromNativePtr(
-            _Transport_createBicycleRouter(ptr));
+    final result = _Transport_createBicycleRouter(ptr);
     exception.checkCallResult();
-    return result;
+    return transport_bicycle_bicycle_router.BicycleRouterImpl.fromNativePtr(
+        result);
   }
 
   transport_masstransit_masstransit_router.MasstransitRouter
       createMasstransitRouter() {
-    final result =
-        transport_masstransit_masstransit_router.MasstransitRouterImpl
-            .fromNativePtr(_Transport_createMasstransitRouter(ptr));
+    final result = _Transport_createMasstransitRouter(ptr);
     exception.checkCallResult();
-    return result;
+    return transport_masstransit_masstransit_router.MasstransitRouterImpl
+        .fromNativePtr(result);
   }
 
   transport_masstransit_pedestrian_router.PedestrianRouter
       createPedestrianRouter() {
-    final result = transport_masstransit_pedestrian_router.PedestrianRouterImpl
-        .fromNativePtr(_Transport_createPedestrianRouter(ptr));
+    final result = _Transport_createPedestrianRouter(ptr);
     exception.checkCallResult();
-    return result;
+    return transport_masstransit_pedestrian_router.PedestrianRouterImpl
+        .fromNativePtr(result);
   }
 
   transport_masstransit_bicycle_router_v2.BicycleRouterV2
       createBicycleRouterV2() {
-    final result = transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
-        .fromNativePtr(_Transport_createBicycleRouterV2(ptr));
+    final result = _Transport_createBicycleRouterV2(ptr);
     exception.checkCallResult();
-    return result;
+    return transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
+        .fromNativePtr(result);
   }
 
   transport_masstransit_bicycle_router_v2.BicycleRouterV2
       createScooterRouter() {
-    final result = transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
-        .fromNativePtr(_Transport_createScooterRouter(ptr));
+    final result = _Transport_createScooterRouter(ptr);
     exception.checkCallResult();
-    return result;
+    return transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
+        .fromNativePtr(result);
+  }
+
+  transport_masstransit_bicycle_router_v2.BicycleRouterV2
+      createElectricBikeRouter() {
+    final result = _Transport_createElectricBikeRouter(ptr);
+    exception.checkCallResult();
+    return transport_masstransit_bicycle_router_v2.BicycleRouterV2Impl
+        .fromNativePtr(result);
   }
 }
 
@@ -147,6 +152,13 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_transport_Transport_createScooterRouter')
+        .asFunction();
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _Transport_createElectricBikeRouter = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_transport_Transport_createElectricBikeRouter')
         .asFunction();
 final void Function(ffi.Pointer<ffi.Void>, core.int) _Transport_set = lib
     .library

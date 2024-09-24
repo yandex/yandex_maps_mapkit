@@ -50,6 +50,201 @@ extension MasstransitWaitImpl on MasstransitWait {
   }
 }
 
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitStairsImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitStairsImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitStairs')
+extension MasstransitStairsImpl on MasstransitStairs {
+  static core.int toInt(MasstransitStairs e) {
+    return e.index;
+  }
+
+  static MasstransitStairs fromInt(core.int val) {
+    return MasstransitStairs.values[val];
+  }
+
+  static MasstransitStairs? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = fromInt(ptr.cast<ffi.Int64>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitStairs? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<ffi.Int64>();
+    result.value = toInt(val);
+
+    return result.cast();
+  }
+}
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitPassImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitPassImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitPass')
+extension MasstransitPassImpl on MasstransitPass {
+  static core.int toInt(MasstransitPass e) {
+    return e.index;
+  }
+
+  static MasstransitPass fromInt(core.int val) {
+    return MasstransitPass.values[val];
+  }
+
+  static MasstransitPass? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = fromInt(ptr.cast<ffi.Int64>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitPass? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<ffi.Int64>();
+    result.value = toInt(val);
+
+    return result.cast();
+  }
+}
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitTravolatorImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitTravolatorImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitTravolator')
+extension MasstransitTravolatorImpl on MasstransitTravolator {
+  static core.int toInt(MasstransitTravolator e) {
+    return e.index;
+  }
+
+  static MasstransitTravolator fromInt(core.int val) {
+    return MasstransitTravolator.values[val];
+  }
+
+  static MasstransitTravolator? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = fromInt(ptr.cast<ffi.Int64>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitTravolator? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<ffi.Int64>();
+    result.value = toInt(val);
+
+    return result.cast();
+  }
+}
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitEscalatorImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitEscalatorImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitEscalator')
+extension MasstransitEscalatorImpl on MasstransitEscalator {
+  static core.int toInt(MasstransitEscalator e) {
+    return e.index;
+  }
+
+  static MasstransitEscalator fromInt(core.int val) {
+    return MasstransitEscalator.values[val];
+  }
+
+  static MasstransitEscalator? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = fromInt(ptr.cast<ffi.Int64>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitEscalator? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<ffi.Int64>();
+    result.value = toInt(val);
+
+    return result.cast();
+  }
+}
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitElevatorImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitElevatorImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitElevator')
+extension MasstransitElevatorImpl on MasstransitElevator {
+  static core.int toInt(MasstransitElevator e) {
+    return e.index;
+  }
+
+  static MasstransitElevator fromInt(core.int val) {
+    return MasstransitElevator.values[val];
+  }
+
+  static MasstransitElevator? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = fromInt(ptr.cast<ffi.Int64>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitElevator? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<ffi.Int64>();
+    result.value = toInt(val);
+
+    return result.cast();
+  }
+}
+
 final class MasstransitConstructionMaskNative extends ffi.Struct {
   external ffi.Pointer<ffi.Void> stairs;
   external ffi.Pointer<ffi.Void> pass;
@@ -60,9 +255,12 @@ final class MasstransitConstructionMaskNative extends ffi.Struct {
   @ffi.Bool()
   external core.bool transition;
   @ffi.Bool()
-  external core.bool travolator;
+  external core.bool tunnel;
+  external ffi.Pointer<ffi.Void> travolator;
   @ffi.Bool()
   external core.bool indoor;
+  external ffi.Pointer<ffi.Void> escalator;
+  external ffi.Pointer<ffi.Void> elevator;
 }
 
 final MasstransitConstructionMaskNative Function(
@@ -72,8 +270,11 @@ final MasstransitConstructionMaskNative Function(
     core.bool,
     core.bool,
     core.bool,
-    core
-        .bool) _MasstransitConstructionMaskNativeInit = lib.library
+    ffi.Pointer<ffi.Void>,
+    core.bool,
+    ffi.Pointer<ffi.Void>,
+    ffi
+        .Pointer<ffi.Void>) _MasstransitConstructionMaskNativeInit = lib.library
     .lookup<
             ffi.NativeFunction<
                 MasstransitConstructionMaskNative Function(
@@ -83,7 +284,10 @@ final MasstransitConstructionMaskNative Function(
                     ffi.Bool,
                     ffi.Bool,
                     ffi.Bool,
-                    ffi.Bool)>>(
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Bool,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitConstructionMask_init')
     .asFunction(isLeaf: true);
 
@@ -96,26 +300,31 @@ extension MasstransitConstructionMaskImpl on MasstransitConstructionMask {
   static MasstransitConstructionMask fromNative(
       MasstransitConstructionMaskNative native) {
     return MasstransitConstructionMask(
-        stairs:
-            MasstransitConstructionMaskStairsImpl.fromPointer(native.stairs),
-        pass: MasstransitConstructionMaskPassImpl.fromPointer(native.pass),
+        stairs: MasstransitStairsImpl.fromPointer(native.stairs),
+        pass: MasstransitPassImpl.fromPointer(native.pass),
         crosswalk: native.crosswalk,
         binding: native.binding,
         transition: native.transition,
-        travolator: native.travolator,
-        indoor: native.indoor);
+        tunnel: native.tunnel,
+        travolator: MasstransitTravolatorImpl.fromPointer(native.travolator),
+        indoor: native.indoor,
+        escalator: MasstransitEscalatorImpl.fromPointer(native.escalator),
+        elevator: MasstransitElevatorImpl.fromPointer(native.elevator));
   }
 
   static MasstransitConstructionMaskNative toNative(
       MasstransitConstructionMask obj) {
     return _MasstransitConstructionMaskNativeInit(
-        MasstransitConstructionMaskStairsImpl.toPointer(obj.stairs),
-        MasstransitConstructionMaskPassImpl.toPointer(obj.pass),
+        MasstransitStairsImpl.toPointer(obj.stairs),
+        MasstransitPassImpl.toPointer(obj.pass),
         obj.crosswalk,
         obj.binding,
         obj.transition,
-        obj.travolator,
-        obj.indoor);
+        obj.tunnel,
+        MasstransitTravolatorImpl.toPointer(obj.travolator),
+        obj.indoor,
+        MasstransitEscalatorImpl.toPointer(obj.escalator),
+        MasstransitElevatorImpl.toPointer(obj.elevator));
   }
 
   static MasstransitConstructionMask? fromPointer(ffi.Pointer<ffi.Void> ptr,
@@ -143,104 +352,18 @@ extension MasstransitConstructionMaskImpl on MasstransitConstructionMask {
   }
 }
 
-@bindings_annotations.ContainerData(
-    toNative: 'MasstransitConstructionMaskStairsImpl.toPointer',
-    toPlatform:
-        '(val) => MasstransitConstructionMaskStairsImpl.fromPointer(val, needFree: false)',
-    platformType: 'MasstransitConstructionMaskStairs')
-extension MasstransitConstructionMaskStairsImpl
-    on MasstransitConstructionMaskStairs {
-  static core.int toInt(MasstransitConstructionMaskStairs e) {
-    return e.index;
-  }
-
-  static MasstransitConstructionMaskStairs fromInt(core.int val) {
-    return MasstransitConstructionMaskStairs.values[val];
-  }
-
-  static MasstransitConstructionMaskStairs? fromPointer(
-      ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr == ffi.nullptr) {
-      return null;
-    }
-    final result = fromInt(ptr.cast<ffi.Int64>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      MasstransitConstructionMaskStairs? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Int64>();
-    result.value = toInt(val);
-
-    return result.cast();
-  }
-}
-
-@bindings_annotations.ContainerData(
-    toNative: 'MasstransitConstructionMaskPassImpl.toPointer',
-    toPlatform:
-        '(val) => MasstransitConstructionMaskPassImpl.fromPointer(val, needFree: false)',
-    platformType: 'MasstransitConstructionMaskPass')
-extension MasstransitConstructionMaskPassImpl
-    on MasstransitConstructionMaskPass {
-  static core.int toInt(MasstransitConstructionMaskPass e) {
-    return e.index;
-  }
-
-  static MasstransitConstructionMaskPass fromInt(core.int val) {
-    return MasstransitConstructionMaskPass.values[val];
-  }
-
-  static MasstransitConstructionMaskPass? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr == ffi.nullptr) {
-      return null;
-    }
-    final result = fromInt(ptr.cast<ffi.Int64>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitConstructionMaskPass? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Int64>();
-    result.value = toInt(val);
-
-    return result.cast();
-  }
-}
-
 final class MasstransitConstructionSegmentNative extends ffi.Struct {
-  @ffi.Int64()
-  external core.int construction;
   external mapkit_geometry_geometry.SubpolylineNative subpolyline;
   external MasstransitConstructionMaskNative constructionMask;
 }
 
 final MasstransitConstructionSegmentNative Function(
-        core.int,
         mapkit_geometry_geometry.SubpolylineNative,
         MasstransitConstructionMaskNative)
     _MasstransitConstructionSegmentNativeInit = lib.library
         .lookup<
                 ffi.NativeFunction<
                     MasstransitConstructionSegmentNative Function(
-                        ffi.Int64,
                         mapkit_geometry_geometry.SubpolylineNative,
                         MasstransitConstructionMaskNative)>>(
             'yandex_flutter_transport_masstransit_MasstransitConstructionSegment_init')
@@ -255,8 +378,6 @@ extension MasstransitConstructionSegmentImpl on MasstransitConstructionSegment {
   static MasstransitConstructionSegment fromNative(
       MasstransitConstructionSegmentNative native) {
     return MasstransitConstructionSegment(
-        transport_masstransit_construction.MasstransitConstructionIDImpl
-            .fromInt(native.construction),
         mapkit_geometry_geometry.SubpolylineImpl.fromNative(native.subpolyline),
         MasstransitConstructionMaskImpl.fromNative(native.constructionMask));
   }
@@ -264,8 +385,6 @@ extension MasstransitConstructionSegmentImpl on MasstransitConstructionSegment {
   static MasstransitConstructionSegmentNative toNative(
       MasstransitConstructionSegment obj) {
     return _MasstransitConstructionSegmentNativeInit(
-        transport_masstransit_construction.MasstransitConstructionIDImpl.toInt(
-            obj.construction),
         mapkit_geometry_geometry.SubpolylineImpl.toNative(obj.subpolyline),
         MasstransitConstructionMaskImpl.toNative(obj.constructionMask));
   }
@@ -2244,10 +2363,10 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)
     _MasstransitRouteJamsListener_new = lib.library
         .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
-            'yandex_flutter_transport_masstransit_MasstransitRouteJamsListener_new')
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(
+                    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>,
+                    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>('yandex_flutter_transport_masstransit_MasstransitRouteJamsListener_new')
         .asFunction(isLeaf: true);
 
 final _MasstransitRouteJamsListener_free = lib.library.lookup<
@@ -2322,39 +2441,34 @@ class MasstransitRouteImpl implements MasstransitRoute, ffi.Finalizable {
 
   @core.override
   MasstransitRouteMetadata get metadata {
-    final result =
-        MasstransitRouteMetadataImpl.fromNativePtr(_Route_get_metadata(ptr));
-    return result;
+    final result = _Route_get_metadata(ptr);
+    return MasstransitRouteMetadataImpl.fromNativePtr(result);
   }
 
   @core.override
   core.List<transport_masstransit_way_point.MasstransitWayPoint> get wayPoints {
-    final result =
-        transport_masstransit_way_point.MasstransitWayPointContainerExtension
-            .toPlatformVector(_Route_get_wayPoints(ptr));
-    return result;
+    final result = _Route_get_wayPoints(ptr);
+    return transport_masstransit_way_point.MasstransitWayPointContainerExtension
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<MasstransitSection> get sections {
-    final result = MasstransitSectionContainerExtension.toPlatformVector(
-        _Route_get_sections(ptr));
-    return result;
+    final result = _Route_get_sections(ptr);
+    return MasstransitSectionContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   mapkit_geometry_geometry.Polyline get geometry {
-    final result = mapkit_geometry_geometry.PolylineImpl.fromNativePtr(
-        _Route_get_geometry(ptr));
-    return result;
+    final result = _Route_get_geometry(ptr);
+    return mapkit_geometry_geometry.PolylineImpl.fromNativePtr(result);
   }
 
   @core.override
   mapkit_uri_uri_object_metadata.UriObjectMetadata get uriMetadata {
-    final result =
-        mapkit_uri_uri_object_metadata.UriObjectMetadataImpl.fromNativePtr(
-            _Route_get_uriMetadata(ptr));
-    return result;
+    final result = _Route_get_uriMetadata(ptr);
+    return mapkit_uri_uri_object_metadata.UriObjectMetadataImpl.fromNativePtr(
+        result);
   }
 
   core.double distanceBetweenPolylinePositions(
