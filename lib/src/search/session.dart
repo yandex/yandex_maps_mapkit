@@ -42,8 +42,8 @@ abstract class SearchSession implements ffi.Finalizable {
   core.bool hasNextPage();
 
   /// Request the next page of search results. Ignored if the current
-  /// request isn't ready. Will throw if called when
-  /// [SearchSession.hasNextPage] is false.
+  /// request isn't ready. Will throw if called when {\@link
+  /// search.Session#hasNextPage()} is false.
   ///
   /// [searchListener] Listener to handle search result.
   void fetchNextPage(SearchSessionSearchListener searchListener);

@@ -24,13 +24,6 @@ abstract class InternalDefaultStyleProvider implements ffi.Finalizable {
     required core.bool isNightMode,
     required core.double scaleFactor,
   });
-
-  mapkit_road_events_layer_style_provider.RoadEventsLayerHighlightCircleStyle?
-      provideHighlightCircleStyle(
-    mapkit_road_events_layer_style_provider.RoadEventsLayerHighlightMode
-        highlightMode, {
-    required core.bool isNightMode,
-  });
 }
 
 class InternalDefaultStyleProviderFactory {

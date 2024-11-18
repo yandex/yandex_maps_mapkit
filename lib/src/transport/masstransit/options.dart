@@ -59,24 +59,28 @@ final class FitnessOptions {
   /// If true, router will try avoid steep (in height meaning) routes.
   final core.bool avoidSteep;
 
+  /// If true, router will try avoid stairs.
+  final core.bool avoidStairs;
+
   const FitnessOptions({
     this.avoidSteep = false,
+    this.avoidStairs = false,
   });
 
   @core.override
-  core.int get hashCode => core.Object.hashAll([avoidSteep]);
+  core.int get hashCode => core.Object.hashAll([avoidSteep, avoidStairs]);
 
   @core.override
   core.bool operator ==(covariant FitnessOptions other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return avoidSteep == other.avoidSteep;
+    return avoidSteep == other.avoidSteep && avoidStairs == other.avoidStairs;
   }
 
   @core.override
   core.String toString() {
-    return "FitnessOptions(avoidSteep: $avoidSteep)";
+    return "FitnessOptions(avoidSteep: $avoidSteep, avoidStairs: $avoidStairs)";
   }
 }
 

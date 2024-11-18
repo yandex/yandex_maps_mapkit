@@ -61,11 +61,17 @@ extension TimeOptionsImpl on TimeOptions {
 final class FitnessOptionsNative extends ffi.Struct {
   @ffi.Bool()
   external core.bool avoidSteep;
+  @ffi.Bool()
+  external core.bool avoidStairs;
 }
 
-final FitnessOptionsNative Function(core.bool) _FitnessOptionsNativeInit = lib
-    .library
-    .lookup<ffi.NativeFunction<FitnessOptionsNative Function(ffi.Bool)>>(
+final FitnessOptionsNative Function(
+    core.bool,
+    core
+        .bool) _FitnessOptionsNativeInit = lib.library
+    .lookup<
+            ffi
+            .NativeFunction<FitnessOptionsNative Function(ffi.Bool, ffi.Bool)>>(
         'yandex_flutter_transport_masstransit_FitnessOptions_init')
     .asFunction(isLeaf: true);
 
@@ -75,11 +81,12 @@ final FitnessOptionsNative Function(core.bool) _FitnessOptionsNativeInit = lib
     platformType: 'FitnessOptions')
 extension FitnessOptionsImpl on FitnessOptions {
   static FitnessOptions fromNative(FitnessOptionsNative native) {
-    return FitnessOptions(avoidSteep: native.avoidSteep);
+    return FitnessOptions(
+        avoidSteep: native.avoidSteep, avoidStairs: native.avoidStairs);
   }
 
   static FitnessOptionsNative toNative(FitnessOptions obj) {
-    return _FitnessOptionsNativeInit(obj.avoidSteep);
+    return _FitnessOptionsNativeInit(obj.avoidSteep, obj.avoidStairs);
   }
 
   static FitnessOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,

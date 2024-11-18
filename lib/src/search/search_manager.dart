@@ -77,9 +77,9 @@ abstract class SearchManager implements ffi.Finalizable {
   /// given polyline inside the given window.
   ///
   /// [text] User query.
-  /// [polyline] Polyline to search near;
-  /// [search_session.SearchSession.setSortByDistance] is assumed on the
-  /// first request.
+  /// [polyline] Polyline to search near; {\@link
+  /// search.Session#setSortByDistance(const mapkit.geometry.Geometry)} is
+  /// assumed on the first request.
   /// [geometry] Geometry to search near; supported types: point, bounding
   /// box, polyline and polygon. Polygon is expected to be a search window:
   /// 4 points in outer ring (or 5 if the last point is equal to first) and

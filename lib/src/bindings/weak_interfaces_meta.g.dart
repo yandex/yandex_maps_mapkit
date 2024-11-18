@@ -1,240 +1,176 @@
 import 'package:yandex_maps_mapkit/src/directions/directions.dart'
-    as src_directions_directions;
+    as directions;
 import 'package:yandex_maps_mapkit/src/directions/driving/driving_router.dart'
-    as src_directions_driving_driving_router;
-import 'package:yandex_maps_mapkit/src/runtime/error.dart' as src_runtime_error;
-import 'package:yandex_maps_mapkit/src/runtime/network/errors.dart'
-    as src_runtime_network_errors;
-import 'package:yandex_maps_mapkit/src/runtime/local_error.dart'
-    as src_runtime_local_error;
-import 'package:yandex_maps_mapkit/src/runtime/i18n/i18n_manager.dart'
-    as src_runtime_i18n_i18n_manager;
-import 'package:yandex_maps_mapkit/src/places/panorama/player.dart'
-    as src_places_panorama_player;
-import 'package:yandex_maps_mapkit/src/places/panorama/panorama_layer.dart'
-    as src_places_panorama_panorama_layer;
-import 'package:yandex_maps_mapkit/src/places/panorama/errors.dart'
-    as src_places_panorama_errors;
-import 'package:yandex_maps_mapkit/src/places/mrc/mrc_photo_player.dart'
-    as src_places_mrc_mrc_photo_player;
-import 'package:yandex_maps_mapkit/src/places/mrc/mrc_photo_track_player.dart'
-    as src_places_mrc_mrc_photo_track_player;
-import 'package:yandex_maps_mapkit/src/places/places.dart' as src_places_places;
-import 'package:yandex_maps_mapkit/src/transport/time/adjusted_clock.dart'
-    as src_transport_time_adjusted_clock;
-import 'package:yandex_maps_mapkit/src/transport/transport.dart'
-    as src_transport_transport;
-import 'package:yandex_maps_mapkit/src/mapkit/logo/logo.dart'
-    as src_mapkit_logo_logo;
-import 'package:yandex_maps_mapkit/src/mapkit/traffic/traffic_layer.dart'
-    as src_mapkit_traffic_traffic_layer;
-import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/offline_cache_manager.dart'
-    as src_mapkit_offline_cache_offline_cache_manager;
-import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/errors.dart'
-    as src_mapkit_offline_cache_errors;
+    as directions;
 import 'package:yandex_maps_mapkit/src/mapkit/geometry/geo/projection.dart'
-    as src_mapkit_geometry_geo_projection;
-import 'package:yandex_maps_mapkit/src/mapkit/layers/object_event.dart'
-    as src_mapkit_layers_object_event;
-import 'package:yandex_maps_mapkit/src/mapkit/layers/layer.dart'
-    as src_mapkit_layers_layer;
-import 'package:yandex_maps_mapkit/src/mapkit/layers/data_source_layer.dart'
-    as src_mapkit_layers_data_source_layer;
-import 'package:yandex_maps_mapkit/src/mapkit/layers/geo_object_tap_event.dart'
-    as src_mapkit_layers_geo_object_tap_event;
+    as mapkit;
 import 'package:yandex_maps_mapkit/src/mapkit/layers/data_source.dart'
-    as src_mapkit_layers_data_source;
-import 'package:yandex_maps_mapkit/src/mapkit/user_location/user_location.dart'
-    as src_mapkit_user_location_user_location;
-import 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/road_events_layer.dart'
-    as src_mapkit_road_events_layer_road_events_layer;
-import 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/style_provider.dart'
-    as src_mapkit_road_events_layer_style_provider;
-import 'package:yandex_maps_mapkit/src/mapkit/location/error.dart'
-    as src_mapkit_location_error;
-import 'package:yandex_maps_mapkit/src/mapkit/storage/storage_manager.dart'
-    as src_mapkit_storage_storage_manager;
-import 'package:yandex_maps_mapkit/src/mapkit/map/placemarks_styler.dart'
-    as src_mapkit_map_placemarks_styler;
-import 'package:yandex_maps_mapkit/src/mapkit/map/arrow.dart'
-    as src_mapkit_map_arrow;
-import 'package:yandex_maps_mapkit/src/mapkit/map/composite_icon.dart'
-    as src_mapkit_map_composite_icon;
-import 'package:yandex_maps_mapkit/src/mapkit/map/map_object_collection.dart'
-    as src_mapkit_map_map_object_collection;
-import 'package:yandex_maps_mapkit/src/mapkit/map/circle.dart'
-    as src_mapkit_map_circle;
-import 'package:yandex_maps_mapkit/src/mapkit/map/map.dart'
-    as src_mapkit_map_map;
-import 'package:yandex_maps_mapkit/src/mapkit/map/clusterized_placemark_collection.dart'
-    as src_mapkit_map_clusterized_placemark_collection;
-import 'package:yandex_maps_mapkit/src/mapkit/map/model.dart'
-    as src_mapkit_map_model;
-import 'package:yandex_maps_mapkit/src/mapkit/map/placemark.dart'
-    as src_mapkit_map_placemark;
-import 'package:yandex_maps_mapkit/src/mapkit/map/map_window.dart'
-    as src_mapkit_map_map_window;
-import 'package:yandex_maps_mapkit/src/mapkit/map/map_object.dart'
-    as src_mapkit_map_map_object;
-import 'package:yandex_maps_mapkit/src/mapkit/map/placemark_animation.dart'
-    as src_mapkit_map_placemark_animation;
-import 'package:yandex_maps_mapkit/src/mapkit/map/camera_bounds.dart'
-    as src_mapkit_map_camera_bounds;
-import 'package:yandex_maps_mapkit/src/mapkit/map/cluster.dart'
-    as src_mapkit_map_cluster;
-import 'package:yandex_maps_mapkit/src/mapkit/map/polygon.dart'
-    as src_mapkit_map_polygon;
-import 'package:yandex_maps_mapkit/src/mapkit/map/tile_data_source_builder.dart'
-    as src_mapkit_map_tile_data_source_builder;
-import 'package:yandex_maps_mapkit/src/mapkit/map/polyline.dart'
-    as src_mapkit_map_polyline;
-import 'package:yandex_maps_mapkit/src/mapkit/map/base_map_object_collection.dart'
-    as src_mapkit_map_base_map_object_collection;
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/layers/data_source_layer.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/layers/geo_object_tap_event.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/layers/layer.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/layers/object_event.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/location/error.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/logo/logo.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/arrow.dart' as mapkit;
 import 'package:yandex_maps_mapkit/src/mapkit/map/base_data_source_builder.dart'
-    as src_mapkit_map_base_data_source_builder;
-import 'package:yandex_maps_mapkit/src/mapkit/mapkit.dart' as src_mapkit_mapkit;
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/base_map_object_collection.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/camera_bounds.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/circle.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/cluster.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/clusterized_placemark_collection.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/composite_icon.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/map.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/map_object.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/map_object_collection.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/map_window.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/model.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/placemark.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/placemark_animation.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/placemarks_styler.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/polygon.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/polyline.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/map/tile_data_source_builder.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/mapkit.dart' as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/errors.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/offline_cache_manager.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/style_provider.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/storage/storage_manager.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/traffic/traffic_layer.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/mapkit/user_location/user_location.dart'
+    as mapkit;
+import 'package:yandex_maps_mapkit/src/places/mrc/mrc_photo_player.dart'
+    as places;
+import 'package:yandex_maps_mapkit/src/places/mrc/mrc_photo_track_player.dart'
+    as places;
+import 'package:yandex_maps_mapkit/src/places/panorama/errors.dart' as places;
+import 'package:yandex_maps_mapkit/src/places/panorama/panorama_layer.dart'
+    as places;
+import 'package:yandex_maps_mapkit/src/places/panorama/player.dart' as places;
+import 'package:yandex_maps_mapkit/src/places/places.dart' as places;
+import 'package:yandex_maps_mapkit/src/runtime/error.dart' as runtime;
+import 'package:yandex_maps_mapkit/src/runtime/i18n/i18n_manager.dart'
+    as runtime;
+import 'package:yandex_maps_mapkit/src/runtime/local_error.dart' as runtime;
+import 'package:yandex_maps_mapkit/src/runtime/network/errors.dart' as runtime;
+import 'package:yandex_maps_mapkit/src/search/error.dart' as search;
+import 'package:yandex_maps_mapkit/src/search/search.dart' as search;
 import 'package:yandex_maps_mapkit/src/search/search_layer/search_layer.dart'
-    as src_search_search_layer_search_layer;
-import 'package:yandex_maps_mapkit/src/search/error.dart' as src_search_error;
-import 'package:yandex_maps_mapkit/src/search/search.dart' as src_search_search;
+    as search;
+import 'package:yandex_maps_mapkit/src/transport/time/adjusted_clock.dart'
+    as transport;
+import 'package:yandex_maps_mapkit/src/transport/transport.dart' as transport;
 
 const weakInterfacesMeta = {
-  'directions.Directions':
-      src_directions_directions.DirectionsImpl.fromNativePtrImpl,
+  'directions.Directions': directions.DirectionsImpl.fromNativePtrImpl,
   'directions.driving.TooComplexAvoidedZonesError':
-      src_directions_driving_driving_router
-          .DrivingTooComplexAvoidedZonesErrorImpl.fromNativePtrImpl,
-  'runtime.Error': src_runtime_error.ErrorImpl.fromNativePtrImpl,
-  'runtime.network.RemoteError':
-      src_runtime_network_errors.RemoteErrorImpl.fromNativePtrImpl,
-  'runtime.network.BadRequestError':
-      src_runtime_network_errors.BadRequestErrorImpl.fromNativePtrImpl,
-  'runtime.network.NotFoundError':
-      src_runtime_network_errors.NotFoundErrorImpl.fromNativePtrImpl,
-  'runtime.network.RequestEntityTooLargeError': src_runtime_network_errors
-      .RequestEntityTooLargeErrorImpl.fromNativePtrImpl,
-  'runtime.network.ForbiddenError':
-      src_runtime_network_errors.ForbiddenErrorImpl.fromNativePtrImpl,
-  'runtime.network.UnauthorizedError':
-      src_runtime_network_errors.UnauthorizedErrorImpl.fromNativePtrImpl,
-  'runtime.network.NetworkError':
-      src_runtime_network_errors.NetworkErrorImpl.fromNativePtrImpl,
-  'runtime.LocalError':
-      src_runtime_local_error.LocalErrorImpl.fromNativePtrImpl,
-  'runtime.DiskFullError':
-      src_runtime_local_error.DiskFullErrorImpl.fromNativePtrImpl,
-  'runtime.DiskCorruptError':
-      src_runtime_local_error.DiskCorruptErrorImpl.fromNativePtrImpl,
-  'runtime.DiskWriteAccessError':
-      src_runtime_local_error.DiskWriteAccessErrorImpl.fromNativePtrImpl,
-  'runtime.i18n.I18nManager':
-      src_runtime_i18n_i18n_manager.I18nManagerImpl.fromNativePtrImpl,
-  'places.panorama.Player':
-      src_places_panorama_player.PanoramaPlayerImpl.fromNativePtrImpl,
-  'places.panorama.PanoramaLayer':
-      src_places_panorama_panorama_layer.PanoramaLayerImpl.fromNativePtrImpl,
-  'places.panorama.NotFoundError':
-      src_places_panorama_errors.PanoramaNotFoundErrorImpl.fromNativePtrImpl,
-  'places.mrc.MrcPhotoPlayer':
-      src_places_mrc_mrc_photo_player.MrcPhotoPlayerImpl.fromNativePtrImpl,
-  'places.mrc.MrcPhotoTrackPlayer': src_places_mrc_mrc_photo_track_player
-      .MrcPhotoTrackPlayerImpl.fromNativePtrImpl,
-  'places.Places': src_places_places.PlacesImpl.fromNativePtrImpl,
-  'transport.time.AdjustedClock':
-      src_transport_time_adjusted_clock.AdjustedClockImpl.fromNativePtrImpl,
-  'transport.Transport':
-      src_transport_transport.TransportImpl.fromNativePtrImpl,
-  'mapkit.logo.Logo': src_mapkit_logo_logo.LogoImpl.fromNativePtrImpl,
-  'mapkit.traffic.TrafficLayer':
-      src_mapkit_traffic_traffic_layer.TrafficLayerImpl.fromNativePtrImpl,
-  'mapkit.offline_cache.OfflineCacheManager':
-      src_mapkit_offline_cache_offline_cache_manager
-          .OfflineCacheManagerImpl.fromNativePtrImpl,
-  'mapkit.offline_cache.CachePathUnavailable': src_mapkit_offline_cache_errors
-      .CachePathUnavailableImpl.fromNativePtrImpl,
-  'mapkit.geometry.geo.Projection':
-      src_mapkit_geometry_geo_projection.ProjectionImpl.fromNativePtrImpl,
-  'mapkit.layers.ObjectEvent':
-      src_mapkit_layers_object_event.ObjectEventImpl.fromNativePtrImpl,
-  'mapkit.layers.Layer': src_mapkit_layers_layer.LayerImpl.fromNativePtrImpl,
-  'mapkit.layers.DataSourceLayer':
-      src_mapkit_layers_data_source_layer.DataSourceLayerImpl.fromNativePtrImpl,
-  'mapkit.layers.GeoObjectTapEvent': src_mapkit_layers_geo_object_tap_event
-      .GeoObjectTapEventImpl.fromNativePtrImpl,
-  'mapkit.layers.BaseDataSource':
-      src_mapkit_layers_data_source.BaseDataSourceImpl.fromNativePtrImpl,
-  'mapkit.layers.TileDataSource':
-      src_mapkit_layers_data_source.TileDataSourceImpl.fromNativePtrImpl,
-  'mapkit.layers.DataSource':
-      src_mapkit_layers_data_source.DataSourceImpl.fromNativePtrImpl,
-  'mapkit.user_location.UserLocationView':
-      src_mapkit_user_location_user_location
-          .UserLocationViewImpl.fromNativePtrImpl,
-  'mapkit.user_location.UserLocationIconChanged':
-      src_mapkit_user_location_user_location
-          .UserLocationIconChangedImpl.fromNativePtrImpl,
-  'mapkit.user_location.UserLocationAnchorChanged':
-      src_mapkit_user_location_user_location
-          .UserLocationAnchorChangedImpl.fromNativePtrImpl,
-  'mapkit.user_location.UserLocationLayer':
-      src_mapkit_user_location_user_location
-          .UserLocationLayerImpl.fromNativePtrImpl,
-  'mapkit.road_events_layer.RoadEventsLayer':
-      src_mapkit_road_events_layer_road_events_layer
-          .RoadEventsLayerImpl.fromNativePtrImpl,
-  'mapkit.road_events_layer.RoadEventStyle':
-      src_mapkit_road_events_layer_style_provider
-          .RoadEventsLayerRoadEventStyleImpl.fromNativePtrImpl,
-  'mapkit.road_events_layer.RoadEventStylingProperties':
-      src_mapkit_road_events_layer_style_provider
-          .RoadEventsLayerRoadEventStylingPropertiesImpl.fromNativePtrImpl,
+      directions.DrivingTooComplexAvoidedZonesErrorImpl.fromNativePtrImpl,
+  'mapkit.MapKit': mapkit.MapKitImpl.fromNativePtrImpl,
+  'mapkit.geometry.geo.Projection': mapkit.ProjectionImpl.fromNativePtrImpl,
+  'mapkit.layers.BaseDataSource': mapkit.BaseDataSourceImpl.fromNativePtrImpl,
+  'mapkit.layers.DataSource': mapkit.DataSourceImpl.fromNativePtrImpl,
+  'mapkit.layers.DataSourceLayer': mapkit.DataSourceLayerImpl.fromNativePtrImpl,
+  'mapkit.layers.GeoObjectTapEvent':
+      mapkit.GeoObjectTapEventImpl.fromNativePtrImpl,
+  'mapkit.layers.Layer': mapkit.LayerImpl.fromNativePtrImpl,
+  'mapkit.layers.ObjectEvent': mapkit.ObjectEventImpl.fromNativePtrImpl,
+  'mapkit.layers.TileDataSource': mapkit.TileDataSourceImpl.fromNativePtrImpl,
   'mapkit.location.LocationUnavailableError':
-      src_mapkit_location_error.LocationUnavailableErrorImpl.fromNativePtrImpl,
-  'mapkit.storage.StorageManager':
-      src_mapkit_storage_storage_manager.StorageManagerImpl.fromNativePtrImpl,
-  'mapkit.map.PlacemarksStyler':
-      src_mapkit_map_placemarks_styler.PlacemarksStylerImpl.fromNativePtrImpl,
-  'mapkit.map.Arrow': src_mapkit_map_arrow.ArrowImpl.fromNativePtrImpl,
-  'mapkit.map.CompositeIcon':
-      src_mapkit_map_composite_icon.CompositeIconImpl.fromNativePtrImpl,
-  'mapkit.map.MapObjectCollection': src_mapkit_map_map_object_collection
-      .MapObjectCollectionImpl.fromNativePtrImpl,
-  'mapkit.map.CircleMapObject':
-      src_mapkit_map_circle.CircleMapObjectImpl.fromNativePtrImpl,
-  'mapkit.map.Map': src_mapkit_map_map.MapImpl.fromNativePtrImpl,
-  'mapkit.map.ClusterizedPlacemarkCollection':
-      src_mapkit_map_clusterized_placemark_collection
-          .ClusterizedPlacemarkCollectionImpl.fromNativePtrImpl,
-  'mapkit.map.Model': src_mapkit_map_model.ModelImpl.fromNativePtrImpl,
-  'mapkit.map.PlacemarkMapObject':
-      src_mapkit_map_placemark.PlacemarkMapObjectImpl.fromNativePtrImpl,
-  'mapkit.map.MapWindow':
-      src_mapkit_map_map_window.MapWindowImpl.fromNativePtrImpl,
-  'mapkit.map.MapObject':
-      src_mapkit_map_map_object.MapObjectImpl.fromNativePtrImpl,
-  'mapkit.map.PlacemarkAnimation': src_mapkit_map_placemark_animation
-      .PlacemarkAnimationImpl.fromNativePtrImpl,
-  'mapkit.map.CameraBounds':
-      src_mapkit_map_camera_bounds.CameraBoundsImpl.fromNativePtrImpl,
-  'mapkit.map.Cluster': src_mapkit_map_cluster.ClusterImpl.fromNativePtrImpl,
-  'mapkit.map.PolygonMapObject':
-      src_mapkit_map_polygon.PolygonMapObjectImpl.fromNativePtrImpl,
-  'mapkit.map.BaseTileDataSourceBuilder':
-      src_mapkit_map_tile_data_source_builder
-          .BaseTileDataSourceBuilderImpl.fromNativePtrImpl,
-  'mapkit.map.TileDataSourceBuilder': src_mapkit_map_tile_data_source_builder
-      .TileDataSourceBuilderImpl.fromNativePtrImpl,
-  'mapkit.map.PolylineMapObject':
-      src_mapkit_map_polyline.PolylineMapObjectImpl.fromNativePtrImpl,
+      mapkit.LocationUnavailableErrorImpl.fromNativePtrImpl,
+  'mapkit.logo.Logo': mapkit.LogoImpl.fromNativePtrImpl,
+  'mapkit.map.Arrow': mapkit.ArrowImpl.fromNativePtrImpl,
+  'mapkit.map.BaseDataSourceBuilder':
+      mapkit.BaseDataSourceBuilderImpl.fromNativePtrImpl,
   'mapkit.map.BaseMapObjectCollection':
-      src_mapkit_map_base_map_object_collection
-          .BaseMapObjectCollectionImpl.fromNativePtrImpl,
-  'mapkit.map.BaseDataSourceBuilder': src_mapkit_map_base_data_source_builder
-      .BaseDataSourceBuilderImpl.fromNativePtrImpl,
-  'mapkit.MapKit': src_mapkit_mapkit.MapKitImpl.fromNativePtrImpl,
-  'search.search_layer.SearchLayer':
-      src_search_search_layer_search_layer.SearchLayerImpl.fromNativePtrImpl,
+      mapkit.BaseMapObjectCollectionImpl.fromNativePtrImpl,
+  'mapkit.map.BaseTileDataSourceBuilder':
+      mapkit.BaseTileDataSourceBuilderImpl.fromNativePtrImpl,
+  'mapkit.map.CameraBounds': mapkit.CameraBoundsImpl.fromNativePtrImpl,
+  'mapkit.map.CircleMapObject': mapkit.CircleMapObjectImpl.fromNativePtrImpl,
+  'mapkit.map.Cluster': mapkit.ClusterImpl.fromNativePtrImpl,
+  'mapkit.map.ClusterizedPlacemarkCollection':
+      mapkit.ClusterizedPlacemarkCollectionImpl.fromNativePtrImpl,
+  'mapkit.map.CompositeIcon': mapkit.CompositeIconImpl.fromNativePtrImpl,
+  'mapkit.map.Map': mapkit.MapImpl.fromNativePtrImpl,
+  'mapkit.map.MapObject': mapkit.MapObjectImpl.fromNativePtrImpl,
+  'mapkit.map.MapObjectCollection':
+      mapkit.MapObjectCollectionImpl.fromNativePtrImpl,
+  'mapkit.map.MapWindow': mapkit.MapWindowImpl.fromNativePtrImpl,
+  'mapkit.map.Model': mapkit.ModelImpl.fromNativePtrImpl,
+  'mapkit.map.PlacemarkAnimation':
+      mapkit.PlacemarkAnimationImpl.fromNativePtrImpl,
+  'mapkit.map.PlacemarkMapObject':
+      mapkit.PlacemarkMapObjectImpl.fromNativePtrImpl,
+  'mapkit.map.PlacemarksStyler': mapkit.PlacemarksStylerImpl.fromNativePtrImpl,
+  'mapkit.map.PolygonMapObject': mapkit.PolygonMapObjectImpl.fromNativePtrImpl,
+  'mapkit.map.PolylineMapObject':
+      mapkit.PolylineMapObjectImpl.fromNativePtrImpl,
+  'mapkit.map.TileDataSourceBuilder':
+      mapkit.TileDataSourceBuilderImpl.fromNativePtrImpl,
+  'mapkit.offline_cache.CachePathUnavailable':
+      mapkit.CachePathUnavailableImpl.fromNativePtrImpl,
+  'mapkit.offline_cache.OfflineCacheManager':
+      mapkit.OfflineCacheManagerImpl.fromNativePtrImpl,
+  'mapkit.road_events_layer.RoadEventStyle':
+      mapkit.RoadEventsLayerRoadEventStyleImpl.fromNativePtrImpl,
+  'mapkit.road_events_layer.RoadEventStylingProperties':
+      mapkit.RoadEventsLayerRoadEventStylingPropertiesImpl.fromNativePtrImpl,
+  'mapkit.storage.StorageManager': mapkit.StorageManagerImpl.fromNativePtrImpl,
+  'mapkit.traffic.TrafficLayer': mapkit.TrafficLayerImpl.fromNativePtrImpl,
+  'mapkit.user_location.UserLocationAnchorChanged':
+      mapkit.UserLocationAnchorChangedImpl.fromNativePtrImpl,
+  'mapkit.user_location.UserLocationIconChanged':
+      mapkit.UserLocationIconChangedImpl.fromNativePtrImpl,
+  'mapkit.user_location.UserLocationLayer':
+      mapkit.UserLocationLayerImpl.fromNativePtrImpl,
+  'mapkit.user_location.UserLocationView':
+      mapkit.UserLocationViewImpl.fromNativePtrImpl,
+  'places.Places': places.PlacesImpl.fromNativePtrImpl,
+  'places.mrc.MrcPhotoPlayer': places.MrcPhotoPlayerImpl.fromNativePtrImpl,
+  'places.mrc.MrcPhotoTrackPlayer':
+      places.MrcPhotoTrackPlayerImpl.fromNativePtrImpl,
+  'places.panorama.NotFoundError':
+      places.PanoramaNotFoundErrorImpl.fromNativePtrImpl,
+  'places.panorama.PanoramaLayer': places.PanoramaLayerImpl.fromNativePtrImpl,
+  'places.panorama.Player': places.PanoramaPlayerImpl.fromNativePtrImpl,
+  'runtime.DiskCorruptError': runtime.DiskCorruptErrorImpl.fromNativePtrImpl,
+  'runtime.DiskFullError': runtime.DiskFullErrorImpl.fromNativePtrImpl,
+  'runtime.DiskWriteAccessError':
+      runtime.DiskWriteAccessErrorImpl.fromNativePtrImpl,
+  'runtime.Error': runtime.ErrorImpl.fromNativePtrImpl,
+  'runtime.LocalError': runtime.LocalErrorImpl.fromNativePtrImpl,
+  'runtime.i18n.I18nManager': runtime.I18nManagerImpl.fromNativePtrImpl,
+  'runtime.network.BadRequestError':
+      runtime.BadRequestErrorImpl.fromNativePtrImpl,
+  'runtime.network.ForbiddenError':
+      runtime.ForbiddenErrorImpl.fromNativePtrImpl,
+  'runtime.network.NetworkError': runtime.NetworkErrorImpl.fromNativePtrImpl,
+  'runtime.network.NotFoundError': runtime.NotFoundErrorImpl.fromNativePtrImpl,
+  'runtime.network.RemoteError': runtime.RemoteErrorImpl.fromNativePtrImpl,
+  'runtime.network.RequestEntityTooLargeError':
+      runtime.RequestEntityTooLargeErrorImpl.fromNativePtrImpl,
+  'runtime.network.UnauthorizedError':
+      runtime.UnauthorizedErrorImpl.fromNativePtrImpl,
   'search.CacheUnavailableError':
-      src_search_error.SearchCacheUnavailableErrorImpl.fromNativePtrImpl,
-  'search.Search': src_search_search.SearchImpl.fromNativePtrImpl,
+      search.SearchCacheUnavailableErrorImpl.fromNativePtrImpl,
+  'search.Search': search.SearchImpl.fromNativePtrImpl,
+  'search.search_layer.SearchLayer': search.SearchLayerImpl.fromNativePtrImpl,
+  'transport.Transport': transport.TransportImpl.fromNativePtrImpl,
+  'transport.time.AdjustedClock': transport.AdjustedClockImpl.fromNativePtrImpl,
 };

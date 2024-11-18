@@ -36,10 +36,6 @@ import 'package:yandex_maps_mapkit/src/mapkit/offline_cache/offline_cache_manage
     as mapkit_offline_cache_offline_cache_manager;
 import 'package:yandex_maps_mapkit/src/mapkit/road_events/road_events_manager.dart'
     as mapkit_road_events_road_events_manager;
-import 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/road_events_layer.dart'
-    as mapkit_road_events_layer_road_events_layer;
-import 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/style_provider.dart'
-    as mapkit_road_events_layer_style_provider;
 import 'package:yandex_maps_mapkit/src/mapkit/storage/storage_manager.dart'
     as mapkit_storage_storage_manager;
 import 'package:yandex_maps_mapkit/src/mapkit/traffic/traffic_layer.dart'
@@ -148,21 +144,6 @@ abstract class MapKit implements ffi.Finalizable {
   /// Creates a manager that allows to interact with road events.
   mapkit_road_events_road_events_manager.RoadEventsManager
       createRoadEventsManager();
-
-  /// Creates the road events layer that will draw road events on the
-  /// route.
-  ///
-  /// The class maintains a strong reference to the object in
-  /// the 'styleProvider' parameter until it (the class) is invalidated.
-  ///
-  /// [mapWindow] Map window to attach road events layer
-  /// [styleProvider] Provides icons and styles for road events depending
-  /// on their properties
-  mapkit_road_events_layer_road_events_layer.RoadEventsLayer
-      createRouteRoadEventsLayer(
-          mapkit_map_map_window.MapWindow mapWindow,
-          mapkit_road_events_layer_style_provider.RoadEventsLayerStyleProvider
-              styleProvider);
 
   /// Create layer with the user location icon.
   mapkit_user_location_user_location.UserLocationLayer createUserLocationLayer(

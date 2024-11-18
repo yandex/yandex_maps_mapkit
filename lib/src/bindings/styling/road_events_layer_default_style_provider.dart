@@ -7,12 +7,6 @@ class RoadEventsLayerDefaultStyleProvider
       InternalDefaultStyleProviderFactory.createDefaultStyleProvider();
 
   @override
-  RoadEventsLayerHighlightCircleStyle? provideHighlightCircleStyle(
-          bool isNightMode, RoadEventsLayerHighlightMode highlightMode) =>
-      _defaultStyleProvider.provideHighlightCircleStyle(highlightMode,
-          isNightMode: isNightMode);
-
-  @override
   bool provideStyle(
           RoadEventsLayerRoadEventStylingProperties roadEventStylingProperties,
           bool isNightMode,

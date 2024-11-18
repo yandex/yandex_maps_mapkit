@@ -8,16 +8,6 @@ void _setRoadEventsStyleProvider(
           .getNativePtr(styleProvider));
 }
 
-mapkit_road_events_layer_road_events_layer.RoadEventsLayer
-    _createRouteRoadEventsLayerWithPresetStyleProvider(
-        mapkit_map_map_window.MapWindow mapWindow) {
-  final result =
-      _FlutterRoadEventsLayerFactory_createRouteRoadEventsLayerWithPresetStyleProvider(
-          mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow));
-  return mapkit_road_events_layer_road_events_layer.RoadEventsLayerImpl
-      .fromNativePtr(result);
-}
-
 final void Function(
     ffi.Pointer<
         ffi
@@ -26,11 +16,3 @@ final void Function(
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_mapkit_FlutterRoadEventsLayerFactory_setRoadEventsStyleProvider')
     .asFunction();
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _FlutterRoadEventsLayerFactory_createRouteRoadEventsLayerWithPresetStyleProvider =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_mapkit_FlutterRoadEventsLayerFactory_createRouteRoadEventsLayerWithPresetStyleProvider')
-        .asFunction();

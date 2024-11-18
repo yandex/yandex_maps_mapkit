@@ -34,7 +34,6 @@ export 'package:yandex_maps_mapkit/src/mapkit/layers/layer_loaded_listener_expor
 export 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/significance_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/style_provider_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/road_event_export.dart';
-export 'package:yandex_maps_mapkit/src/mapkit/road_events_layer/road_events_layer_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/images/image_url_provider_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/images/image_data_descriptor_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/location/location_view_source_export.dart';
@@ -46,6 +45,7 @@ export 'package:yandex_maps_mapkit/src/mapkit/location/location_listener_export.
 export 'package:yandex_maps_mapkit/src/mapkit/location/location_manager_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/location/view_area_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/location/location_status_export.dart';
+export 'package:yandex_maps_mapkit/src/mapkit/location/purpose_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/location/location_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/road_events/event_tag_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/road_events/road_events_manager_export.dart';
@@ -80,7 +80,6 @@ export 'package:yandex_maps_mapkit/src/mapkit/map/geo_object_tags_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/tile_data_source_builder_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/model_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/map_export.dart';
-export 'package:yandex_maps_mapkit/src/mapkit/map/data_provider_with_id_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/gesture_focus_point_mode_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/geo_object_selection_metadata_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/camera_update_reason_export.dart';

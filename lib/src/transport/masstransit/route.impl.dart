@@ -51,20 +51,20 @@ extension MasstransitWaitImpl on MasstransitWait {
 }
 
 @bindings_annotations.ContainerData(
-    toNative: 'MasstransitStairsImpl.toPointer',
+    toNative: 'MasstransitStairsDirectionImpl.toPointer',
     toPlatform:
-        '(val) => MasstransitStairsImpl.fromPointer(val, needFree: false)',
-    platformType: 'MasstransitStairs')
-extension MasstransitStairsImpl on MasstransitStairs {
-  static core.int toInt(MasstransitStairs e) {
+        '(val) => MasstransitStairsDirectionImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitStairsDirection')
+extension MasstransitStairsDirectionImpl on MasstransitStairsDirection {
+  static core.int toInt(MasstransitStairsDirection e) {
     return e.index;
   }
 
-  static MasstransitStairs fromInt(core.int val) {
-    return MasstransitStairs.values[val];
+  static MasstransitStairsDirection fromInt(core.int val) {
+    return MasstransitStairsDirection.values[val];
   }
 
-  static MasstransitStairs? fromPointer(ffi.Pointer<ffi.Void> ptr,
+  static MasstransitStairsDirection? fromPointer(ffi.Pointer<ffi.Void> ptr,
       {core.bool needFree = true}) {
     if (ptr == ffi.nullptr) {
       return null;
@@ -77,13 +77,131 @@ extension MasstransitStairsImpl on MasstransitStairs {
     return result;
   }
 
-  static ffi.Pointer<ffi.Void> toPointer(MasstransitStairs? val) {
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitStairsDirection? val) {
     if (val == null) {
       return ffi.nullptr;
     }
 
     final result = malloc.call<ffi.Int64>();
     result.value = toInt(val);
+
+    return result.cast();
+  }
+}
+
+final class MasstransitStairsNative extends ffi.Struct {
+  @ffi.Int64()
+  external core.int direction;
+  @ffi.Bool()
+  external core.bool hasRamp;
+}
+
+final MasstransitStairsNative Function(core.int, core.bool)
+    _MasstransitStairsNativeInit = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    MasstransitStairsNative Function(ffi.Int64, ffi.Bool)>>(
+            'yandex_flutter_transport_masstransit_MasstransitStairs_init')
+        .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitStairsImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitStairsImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitStairs')
+extension MasstransitStairsImpl on MasstransitStairs {
+  static MasstransitStairs fromNative(MasstransitStairsNative native) {
+    return MasstransitStairs(
+        MasstransitStairsDirectionImpl.fromInt(native.direction),
+        hasRamp: native.hasRamp);
+  }
+
+  static MasstransitStairsNative toNative(MasstransitStairs obj) {
+    return _MasstransitStairsNativeInit(
+        MasstransitStairsDirectionImpl.toInt(obj.direction), obj.hasRamp);
+  }
+
+  static MasstransitStairs? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitStairsImpl.fromNative(
+        ptr.cast<MasstransitStairsNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitStairs? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+    final result = malloc.call<MasstransitStairsNative>();
+    result.ref = toNative(val);
+
+    return result.cast();
+  }
+}
+
+final class MasstransitStairsSummaryNative extends ffi.Struct {
+  @ffi.Uint32()
+  external core.int numberOfStairs;
+  @ffi.Uint32()
+  external core.int numberOfStairsWithRamp;
+}
+
+final MasstransitStairsSummaryNative Function(
+    core.int,
+    core
+        .int) _MasstransitStairsSummaryNativeInit = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                MasstransitStairsSummaryNative Function(
+                    ffi.Uint32, ffi.Uint32)>>(
+        'yandex_flutter_transport_masstransit_MasstransitStairsSummary_init')
+    .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitStairsSummaryImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitStairsSummaryImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitStairsSummary')
+extension MasstransitStairsSummaryImpl on MasstransitStairsSummary {
+  static MasstransitStairsSummary fromNative(
+      MasstransitStairsSummaryNative native) {
+    return MasstransitStairsSummary(
+        numberOfStairs: native.numberOfStairs,
+        numberOfStairsWithRamp: native.numberOfStairsWithRamp);
+  }
+
+  static MasstransitStairsSummaryNative toNative(MasstransitStairsSummary obj) {
+    return _MasstransitStairsSummaryNativeInit(
+        obj.numberOfStairs, obj.numberOfStairsWithRamp);
+  }
+
+  static MasstransitStairsSummary? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitStairsSummaryImpl.fromNative(
+        ptr.cast<MasstransitStairsSummaryNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitStairsSummary? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+    final result = malloc.call<MasstransitStairsSummaryNative>();
+    result.ref = toNative(val);
 
     return result.cast();
   }
@@ -1953,7 +2071,8 @@ final class MasstransitRouteMetadataImpl implements MasstransitRouteMetadata {
       core.List<transport_masstransit_way_point.MasstransitWayPoint> wayPoints,
       core.String? routeId,
       transport_masstransit_flags.MasstransitFlags? flags,
-      core.List<MasstransitComfortTag> comfortTags)
+      core.List<MasstransitComfortTag> comfortTags,
+      MasstransitStairsSummary stairsSummary)
       : this.fromNativePtr(_MasstransitRouteMetadata_init(
             transport_masstransit_weight.MasstransitWeightImpl.toNative(weight),
             MasstransitRouteSettingsImpl.getNativePtr(settings),
@@ -1964,8 +2083,8 @@ final class MasstransitRouteMetadataImpl implements MasstransitRouteMetadata {
                 .toNativeVector(wayPoints),
             to_native.toNativePtrString(routeId),
             transport_masstransit_flags.MasstransitFlagsImpl.toPointer(flags),
-            MasstransitComfortTagContainerExtension.toNativeVector(
-                comfortTags)));
+            MasstransitComfortTagContainerExtension.toNativeVector(comfortTags),
+            MasstransitStairsSummaryImpl.toNative(stairsSummary)));
 
   @core.override
   late final weight =
@@ -1993,6 +2112,9 @@ final class MasstransitRouteMetadataImpl implements MasstransitRouteMetadata {
   late final comfortTags =
       MasstransitComfortTagContainerExtension.toPlatformVector(
           _MasstransitRouteMetadata_get_comfortTags(_ptr));
+  @core.override
+  late final stairsSummary = MasstransitStairsSummaryImpl.fromNative(
+      _MasstransitRouteMetadata_get_stairsSummary(_ptr));
 
   @core.override
   final _MasstransitRouteMetadataFactory runtimeFactory =
@@ -2088,26 +2210,28 @@ final _MasstransitRouteMetadata_free = lib.library
         'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_free');
 
 final ffi.Pointer<ffi.Void> Function(
-    transport_masstransit_weight.MasstransitWeightNative,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi
-        .Pointer<ffi.Void>) _MasstransitRouteMetadata_init = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(
-                    transport_masstransit_weight.MasstransitWeightNative,
-                    ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_init')
-    .asFunction(isLeaf: true);
+        transport_masstransit_weight.MasstransitWeightNative,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        MasstransitStairsSummaryNative) _MasstransitRouteMetadata_init =
+    lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        transport_masstransit_weight.MasstransitWeightNative,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        MasstransitStairsSummaryNative)>>(
+            'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_init')
+        .asFunction(isLeaf: true);
 
 final transport_masstransit_weight.MasstransitWeightNative Function(
     ffi
@@ -2168,6 +2292,16 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_get_comfortTags')
+    .asFunction(isLeaf: true);
+final MasstransitStairsSummaryNative Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRouteMetadata_get_stairsSummary = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                MasstransitStairsSummaryNative Function(
+                    ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_get_stairsSummary')
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(

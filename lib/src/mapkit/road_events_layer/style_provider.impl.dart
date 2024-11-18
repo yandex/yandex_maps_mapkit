@@ -96,130 +96,6 @@ final ffi.Pointer<ffi.Void> Function(
         'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerTextStyle_get_outlineColor')
     .asFunction(isLeaf: true);
 
-final class RoadEventsLayerHighlightCircleStyleNative extends ffi.Struct {
-  external native_types.NativeColor strokeColor;
-  @ffi.Float()
-  external core.double strokeWidth;
-  external native_types.NativeColor fillColor;
-  @ffi.Float()
-  external core.double maximumRadius;
-  external native_types.NativeInterval animationDuration;
-}
-
-final RoadEventsLayerHighlightCircleStyleNative Function(
-  native_types.NativeColor,
-  core.double,
-  native_types.NativeColor,
-  core.double,
-  native_types.NativeInterval,
-) _RoadEventsLayerHighlightCircleStyleNativeInit = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                RoadEventsLayerHighlightCircleStyleNative Function(
-                  native_types.NativeColor,
-                  ffi.Float,
-                  native_types.NativeColor,
-                  ffi.Float,
-                  native_types.NativeInterval,
-                )>>(
-        'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerHighlightCircleStyle_init')
-    .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'RoadEventsLayerHighlightCircleStyleImpl.toPointer',
-    toPlatform:
-        '(val) => RoadEventsLayerHighlightCircleStyleImpl.fromPointer(val, needFree: false)',
-    platformType: 'RoadEventsLayerHighlightCircleStyle')
-extension RoadEventsLayerHighlightCircleStyleImpl
-    on RoadEventsLayerHighlightCircleStyle {
-  static RoadEventsLayerHighlightCircleStyle fromNative(
-      RoadEventsLayerHighlightCircleStyleNative native) {
-    return RoadEventsLayerHighlightCircleStyle(
-      to_platform.toPlatformColor(native.strokeColor),
-      strokeWidth: native.strokeWidth,
-      to_platform.toPlatformColor(native.fillColor),
-      maximumRadius: native.maximumRadius,
-      to_platform.toPlatformTimeInterval(native.animationDuration),
-    );
-  }
-
-  static RoadEventsLayerHighlightCircleStyleNative toNative(
-      RoadEventsLayerHighlightCircleStyle obj) {
-    return _RoadEventsLayerHighlightCircleStyleNativeInit(
-      to_native.toNativeColor(obj.strokeColor),
-      obj.strokeWidth,
-      to_native.toNativeColor(obj.fillColor),
-      obj.maximumRadius,
-      to_native.toNativeTimeInterval(obj.animationDuration),
-    );
-  }
-
-  static RoadEventsLayerHighlightCircleStyle? fromPointer(
-      ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr == ffi.nullptr) {
-      return null;
-    }
-    final result = RoadEventsLayerHighlightCircleStyleImpl.fromNative(
-        ptr.cast<RoadEventsLayerHighlightCircleStyleNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(
-      RoadEventsLayerHighlightCircleStyle? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<RoadEventsLayerHighlightCircleStyleNative>();
-    result.ref = toNative(val);
-
-    return result.cast();
-  }
-}
-
-@bindings_annotations.ContainerData(
-    toNative: 'RoadEventsLayerHighlightModeImpl.toPointer',
-    toPlatform:
-        '(val) => RoadEventsLayerHighlightModeImpl.fromPointer(val, needFree: false)',
-    platformType: 'RoadEventsLayerHighlightMode')
-extension RoadEventsLayerHighlightModeImpl on RoadEventsLayerHighlightMode {
-  static core.int toInt(RoadEventsLayerHighlightMode e) {
-    return e.index;
-  }
-
-  static RoadEventsLayerHighlightMode fromInt(core.int val) {
-    return RoadEventsLayerHighlightMode.values[val];
-  }
-
-  static RoadEventsLayerHighlightMode? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr == ffi.nullptr) {
-      return null;
-    }
-    final result = fromInt(ptr.cast<ffi.Int64>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(RoadEventsLayerHighlightMode? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Int64>();
-    result.value = toInt(val);
-
-    return result.cast();
-  }
-}
-
 @bindings_annotations.WeakInterface('mapkit.road_events_layer.RoadEventStyle')
 @bindings_annotations.ContainerData(
     toNative: 'RoadEventsLayerRoadEventStyleImpl.getNativePtr',
@@ -325,19 +201,6 @@ class RoadEventsLayerRoadEventStyleImpl
     exception.checkCallResult();
   }
 
-  @core.override
-  math.Point<core.double> get pulsationCenter {
-    final result = _RoadEventStyle_get_pulsationCenter(ptr);
-    exception.checkCallResult();
-    return to_platform.toPlatformPoint(result);
-  }
-
-  @core.override
-  set pulsationCenter(math.Point<core.double> val) {
-    _RoadEventStyle_set_pulsationCenter(ptr, to_native.toNativePoint(val));
-    exception.checkCallResult();
-  }
-
   void setIconImage(image_provider.ImageProvider image) {
     _RoadEventStyle_setIconImage(ptr, to_native.toNativeImageProvider(image));
     exception.checkCallResult();
@@ -424,25 +287,6 @@ final void Function(
                 ffi.Void Function(
                     ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerRoadEventStyle_set_captionStyle')
-    .asFunction();
-
-final native_types.NativePoint Function(
-    ffi
-        .Pointer<ffi.Void>) _RoadEventStyle_get_pulsationCenter = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                native_types.NativePoint Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerRoadEventStyle_get_pulsationCenter')
-    .asFunction();
-final void Function(
-    ffi.Pointer<ffi.Void>,
-    native_types
-        .NativePoint) _RoadEventStyle_set_pulsationCenter = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Void Function(
-                    ffi.Pointer<ffi.Void>, native_types.NativePoint)>>(
-        'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerRoadEventStyle_set_pulsationCenter')
     .asFunction();
 
 final void Function(
@@ -665,21 +509,14 @@ extension RoadEventsLayerStyleProviderImpl on RoadEventsLayerStyleProvider {
 
   static ffi.Pointer<ffi.Void> _newNativeObject(
       RoadEventsLayerStyleProvider obj) {
-    final ptr = _RoadEventsLayerStyleProvider_new(
-        ffi.Pointer.fromFunction<
-            ffi.Bool Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Pointer<ffi.Void>,
-              ffi.Bool,
-              ffi.Float,
-              ffi.Pointer<ffi.Void>,
-            )>(_RoadEventsLayerStyleProvider_provideStyle, false),
-        ffi.Pointer.fromFunction<
-            ffi.Pointer<ffi.Void> Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Bool,
-              ffi.Int64,
-            )>(_RoadEventsLayerStyleProvider_provideHighlightCircleStyle));
+    final ptr = _RoadEventsLayerStyleProvider_new(ffi.Pointer.fromFunction<
+        ffi.Bool Function(
+          ffi.Pointer<ffi.Void>,
+          ffi.Pointer<ffi.Void>,
+          ffi.Bool,
+          ffi.Float,
+          ffi.Pointer<ffi.Void>,
+        )>(_RoadEventsLayerStyleProvider_provideStyle, false));
     _pointerToListener[ptr] = obj;
     _listenerToPointer[obj] = ptr;
     _RoadEventsLayerStyleProvidersetSendPort(
@@ -723,13 +560,6 @@ final ffi.Pointer<ffi.Void> Function(
               ffi.Bool,
               ffi.Float,
               ffi.Pointer<ffi.Void>,
-            )>>,
-    ffi.Pointer<
-        ffi.NativeFunction<
-            ffi.Pointer<ffi.Void> Function(
-              ffi.Pointer<ffi.Void>,
-              ffi.Bool,
-              ffi.Int64,
             )>>) _RoadEventsLayerStyleProvider_new = lib.library
     .lookup<
             ffi.NativeFunction<
@@ -742,13 +572,6 @@ final ffi.Pointer<ffi.Void> Function(
                               ffi.Bool,
                               ffi.Float,
                               ffi.Pointer<ffi.Void>,
-                            )>>,
-                    ffi.Pointer<
-                        ffi.NativeFunction<
-                            ffi.Pointer<ffi.Void> Function(
-                              ffi.Pointer<ffi.Void>,
-                              ffi.Bool,
-                              ffi.Int64,
                             )>>)>>(
         'yandex_flutter_mapkit_road_events_layer_RoadEventsLayerStyleProvider_new')
     .asFunction(isLeaf: true);
@@ -785,28 +608,6 @@ core.bool _RoadEventsLayerStyleProvider_provideStyle(
       scaleFactor,
       RoadEventsLayerRoadEventStyleImpl.fromNativePtr(style),
     );
-  } catch (e, stack) {
-    exception.nativeAssert(
-        'Unhandled exception $e from native call listener\n$stack');
-    rethrow;
-  }
-}
-
-ffi.Pointer<ffi.Void> _RoadEventsLayerStyleProvider_provideHighlightCircleStyle(
-  ffi.Pointer<ffi.Void> _ptr,
-  core.bool isNightMode,
-  core.int highlightMode,
-) {
-  final listener = RoadEventsLayerStyleProviderImpl._pointerToListener[_ptr];
-  if (listener == null) {
-    throw core.Exception();
-  }
-  try {
-    return RoadEventsLayerHighlightCircleStyleImpl.toPointer(
-        listener.provideHighlightCircleStyle(
-      isNightMode,
-      RoadEventsLayerHighlightModeImpl.fromInt(highlightMode),
-    ));
   } catch (e, stack) {
     exception.nativeAssert(
         'Unhandled exception $e from native call listener\n$stack');

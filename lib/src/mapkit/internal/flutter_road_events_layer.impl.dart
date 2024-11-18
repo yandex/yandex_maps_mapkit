@@ -59,22 +59,6 @@ class InternalDefaultStyleProviderImpl
     );
     return result;
   }
-
-  mapkit_road_events_layer_style_provider.RoadEventsLayerHighlightCircleStyle?
-      provideHighlightCircleStyle(
-    mapkit_road_events_layer_style_provider.RoadEventsLayerHighlightMode
-        highlightMode, {
-    required core.bool isNightMode,
-  }) {
-    final result = _DefaultStyleProvider_provideHighlightCircleStyle(
-      ptr,
-      isNightMode,
-      mapkit_road_events_layer_style_provider.RoadEventsLayerHighlightModeImpl
-          .toInt(highlightMode),
-    );
-    return mapkit_road_events_layer_style_provider
-        .RoadEventsLayerHighlightCircleStyleImpl.fromPointer(result);
-  }
 }
 
 final _InternalDefaultStyleProvider_free = lib.library
@@ -93,17 +77,6 @@ final core.bool Function(
                 ffi.Bool Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
                     ffi.Bool, ffi.Float, ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_mapkit_internal_InternalDefaultStyleProvider_provideStyle')
-    .asFunction();
-final ffi.Pointer<ffi.Void> Function(
-    ffi.Pointer<ffi.Void>,
-    core.bool,
-    core
-        .int) _DefaultStyleProvider_provideHighlightCircleStyle = lib.library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(
-                    ffi.Pointer<ffi.Void>, ffi.Bool, ffi.Int64)>>(
-        'yandex_flutter_mapkit_internal_InternalDefaultStyleProvider_provideHighlightCircleStyle')
     .asFunction();
 final void Function(ffi.Pointer<ffi.Void>, core.int)
     _InternalDefaultStyleProvider_set = lib.library

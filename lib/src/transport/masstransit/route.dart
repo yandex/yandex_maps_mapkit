@@ -86,11 +86,74 @@ final class MasstransitWait {
 }
 
 /// Stairs direction of moving relative to the route.
-enum MasstransitStairs {
+enum MasstransitStairsDirection {
   Unknown,
   Up,
   Down,
   ;
+}
+
+/// Represents stairs objects along the route
+
+final class MasstransitStairs {
+  final MasstransitStairsDirection direction;
+
+  /// Does stairs have a ramp
+  final core.bool hasRamp;
+
+  const MasstransitStairs(
+    this.direction, {
+    required this.hasRamp,
+  });
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([direction, hasRamp]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitStairs other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return direction == other.direction && hasRamp == other.hasRamp;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitStairs(direction: $direction, hasRamp: $hasRamp)";
+  }
+}
+
+/// Represents summary info about stairs along the route
+
+final class MasstransitStairsSummary {
+  /// Number of stairs along the route.
+  final core.int numberOfStairs;
+
+  /// Number of stairs with ramps along the route.
+  final core.int numberOfStairsWithRamp;
+
+  const MasstransitStairsSummary({
+    required this.numberOfStairs,
+    required this.numberOfStairsWithRamp,
+  });
+
+  @core.override
+  core.int get hashCode =>
+      core.Object.hashAll([numberOfStairs, numberOfStairsWithRamp]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitStairsSummary other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return numberOfStairs == other.numberOfStairs &&
+        numberOfStairsWithRamp == other.numberOfStairsWithRamp;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitStairsSummary(numberOfStairs: $numberOfStairs, numberOfStairsWithRamp: $numberOfStairsWithRamp)";
+  }
 }
 
 enum MasstransitPass {
@@ -857,9 +920,10 @@ abstract final class MasstransitRouteMetadata
               wayPoints,
           core.String? routeId,
           transport_masstransit_flags.MasstransitFlags? flags,
-          core.List<MasstransitComfortTag> comfortTags) =>
-      MasstransitRouteMetadataImpl(
-          weight, settings, estimation, wayPoints, routeId, flags, comfortTags);
+          core.List<MasstransitComfortTag> comfortTags,
+          MasstransitStairsSummary stairsSummary) =>
+      MasstransitRouteMetadataImpl(weight, settings, estimation, wayPoints,
+          routeId, flags, comfortTags, stairsSummary);
 
   /// Contains the route time, distance of the walking part, and the number
   /// of transfers.
@@ -886,10 +950,19 @@ abstract final class MasstransitRouteMetadata
   ///
   transport_masstransit_flags.MasstransitFlags? get flags;
   core.List<MasstransitComfortTag> get comfortTags;
+  MasstransitStairsSummary get stairsSummary;
 
   @core.override
-  core.int get hashCode => core.Object.hashAll(
-      [weight, settings, estimation, wayPoints, routeId, flags, comfortTags]);
+  core.int get hashCode => core.Object.hashAll([
+        weight,
+        settings,
+        estimation,
+        wayPoints,
+        routeId,
+        flags,
+        comfortTags,
+        stairsSummary
+      ]);
 
   @core.override
   core.bool operator ==(covariant MasstransitRouteMetadata other) {
@@ -902,12 +975,13 @@ abstract final class MasstransitRouteMetadata
         wayPoints == other.wayPoints &&
         routeId == other.routeId &&
         flags == other.flags &&
-        comfortTags == other.comfortTags;
+        comfortTags == other.comfortTags &&
+        stairsSummary == other.stairsSummary;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitRouteMetadata(weight: $weight, settings: $settings, estimation: $estimation, wayPoints: $wayPoints, routeId: $routeId, flags: $flags, comfortTags: $comfortTags)";
+    return "MasstransitRouteMetadata(weight: $weight, settings: $settings, estimation: $estimation, wayPoints: $wayPoints, routeId: $routeId, flags: $flags, comfortTags: $comfortTags, stairsSummary: $stairsSummary)";
   }
 
   static final struct_factory.StructFactory<MasstransitRouteMetadata> factory =

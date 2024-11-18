@@ -171,21 +171,6 @@ class MapKitImpl implements MapKit, ffi.Finalizable {
         .fromNativePtr(result);
   }
 
-  mapkit_road_events_layer_road_events_layer.RoadEventsLayer
-      createRouteRoadEventsLayer(
-          mapkit_map_map_window.MapWindow mapWindow,
-          mapkit_road_events_layer_style_provider.RoadEventsLayerStyleProvider
-              styleProvider) {
-    final result = _MapKit_createRouteRoadEventsLayer(
-        ptr,
-        mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow),
-        mapkit_road_events_layer_style_provider.RoadEventsLayerStyleProviderImpl
-            .getNativePtr(styleProvider));
-    exception.checkCallResult();
-    return mapkit_road_events_layer_road_events_layer.RoadEventsLayerImpl
-        .fromNativePtr(result);
-  }
-
   mapkit_user_location_user_location.UserLocationLayer createUserLocationLayer(
       mapkit_map_map_window.MapWindow mapWindow) {
     final result = _MapKit_createUserLocationLayer(
@@ -328,15 +313,6 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_mapkit_MapKit_createRoadEventsManager')
-        .asFunction();
-final ffi.Pointer<ffi.Void> Function(
-        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
-    _MapKit_createRouteRoadEventsLayer = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_mapkit_MapKit_createRouteRoadEventsLayer')
         .asFunction();
 final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)

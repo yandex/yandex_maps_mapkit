@@ -1,6 +1,7 @@
 export 'package:yandex_maps_mapkit/src/runtime/key_value_pair_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/error_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/runtime_export.dart';
+export 'package:yandex_maps_mapkit/src/runtime/data_provider_with_id_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/local_error_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/vulkan_launcher/vulkan_launcher_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/sensors/internal/gnss_measurements_export.dart';
@@ -12,6 +13,7 @@ export 'package:yandex_maps_mapkit/src/runtime/attestation_storage/internal/plat
 export 'package:yandex_maps_mapkit/src/runtime/graphics_state/graphics_view_state_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/view/gpu_info_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/view/graphics_api_type_export.dart';
+export 'package:yandex_maps_mapkit/src/runtime/view/surface_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/attestation/ec_public_key_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/i18n/i18n_manager_export.dart';
 export 'package:yandex_maps_mapkit/src/runtime/i18n/prefs_export.dart';

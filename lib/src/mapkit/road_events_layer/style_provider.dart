@@ -69,62 +69,6 @@ abstract final class RoadEventsLayerTextStyle implements ffi.Finalizable {
   }
 }
 
-final class RoadEventsLayerHighlightCircleStyle {
-  final ui.Color strokeColor;
-
-  /// Sets the stroke width in units. The size of a unit is equal to the
-  /// size of a pixel at the current zoom level when the camera position's
-  /// tilt is equal to 0 and the scale factor is equal to 1.
-  final core.double strokeWidth;
-  final ui.Color fillColor;
-
-  /// Sets the maximum circle radius in units.
-  final core.double maximumRadius;
-
-  /// Sets the time it takes for the circle to reach its maximum size.
-  final core.Duration animationDuration;
-
-  const RoadEventsLayerHighlightCircleStyle(
-    this.strokeColor,
-    this.fillColor,
-    this.animationDuration, {
-    required this.strokeWidth,
-    required this.maximumRadius,
-  });
-
-  @core.override
-  core.int get hashCode => core.Object.hashAll([
-        strokeColor,
-        strokeWidth,
-        fillColor,
-        maximumRadius,
-        animationDuration,
-      ]);
-
-  @core.override
-  core.bool operator ==(covariant RoadEventsLayerHighlightCircleStyle other) {
-    if (core.identical(this, other)) {
-      return true;
-    }
-    return strokeColor == other.strokeColor &&
-        strokeWidth == other.strokeWidth &&
-        fillColor == other.fillColor &&
-        maximumRadius == other.maximumRadius &&
-        animationDuration == other.animationDuration;
-  }
-
-  @core.override
-  core.String toString() {
-    return "RoadEventsLayerHighlightCircleStyle(strokeColor: $strokeColor, strokeWidth: $strokeWidth, fillColor: $fillColor, maximumRadius: $maximumRadius, animationDuration: $animationDuration, )";
-  }
-}
-
-enum RoadEventsLayerHighlightMode {
-  SoftPulsation,
-  HardPulsation,
-  ;
-}
-
 abstract class RoadEventsLayerRoadEventStyle implements ffi.Finalizable {
   /// Road event is visible only if current camera zoom is greater or equal
   /// than this value.
@@ -143,11 +87,6 @@ abstract class RoadEventsLayerRoadEventStyle implements ffi.Finalizable {
   ///
   RoadEventsLayerTextStyle? get captionStyle;
   set captionStyle(RoadEventsLayerTextStyle? val);
-
-  /// Pulsation center on road event pin image (see HighlightMode). (0, 0)
-  /// is top left and (1.0, 1.0) is bottom right.
-  math.Point<core.double> get pulsationCenter;
-  set pulsationCenter(math.Point<core.double> val);
 
   /// Road event icon image.
   void setIconImage(image_provider.ImageProvider image);
@@ -204,10 +143,5 @@ abstract class RoadEventsLayerStyleProvider {
     core.bool isNightMode,
     core.double scaleFactor,
     RoadEventsLayerRoadEventStyle style,
-  );
-
-  RoadEventsLayerHighlightCircleStyle? provideHighlightCircleStyle(
-    core.bool isNightMode,
-    RoadEventsLayerHighlightMode highlightMode,
   );
 }
