@@ -480,6 +480,141 @@ abstract final class MasstransitElevationData implements ffi.Finalizable {
   }
 }
 
+/// Indoor level (floor).
+
+final class MasstransitIndoorLevel {
+  /// Level id that can be passed to the Router.
+  final core.String levelId;
+
+  /// Localized level name.
+  final core.String levelName;
+
+  const MasstransitIndoorLevel({
+    required this.levelId,
+    required this.levelName,
+  });
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([levelId, levelName]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitIndoorLevel other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return levelId == other.levelId && levelName == other.levelName;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitIndoorLevel(levelId: $levelId, levelName: $levelName)";
+  }
+}
+
+/// Connectors connect two floors, indoor and outdoor, two indoor plans.
+/// Connectors do not have single level id and name but still are
+/// considered a part of the indoor plan. Examples: stairs, elevators,
+/// escalators, travolators, transitions, route segment that goes from
+/// outdoor to indoor (through the entrance) and vica versa.
+
+final class MasstransitConnector {
+  /// A level (floor) where the connector begins. Null means outdoor.
+  ///
+  final MasstransitIndoorLevel? from;
+
+  /// A level (floor) where the connector ends. Null means outdoor.
+  ///
+  final MasstransitIndoorLevel? to;
+
+  const MasstransitConnector({
+    this.from,
+    this.to,
+  });
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([from, to]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitConnector other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return from == other.from && to == other.to;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitConnector(from: $from, to: $to)";
+  }
+}
+
+/// Indoor segment of the fitness section.
+
+final class MasstransitIndoorSegment {
+  final MasstransitIndoorSegmentIndoorData indoorData;
+
+  /// A span of this level on the route geometry.
+  final mapkit_geometry_geometry.Subpolyline subpolyline;
+
+  const MasstransitIndoorSegment(this.indoorData, this.subpolyline);
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([indoorData, subpolyline]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitIndoorSegment other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return indoorData == other.indoorData && subpolyline == other.subpolyline;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitIndoorSegment(indoorData: $indoorData, subpolyline: $subpolyline)";
+  }
+}
+
+final class MasstransitIndoorSegmentIndoorData {
+  const MasstransitIndoorSegmentIndoorData.fromIndoorLevel(
+      MasstransitIndoorLevel indoorLevel)
+      : _value = indoorLevel;
+
+  const MasstransitIndoorSegmentIndoorData.fromConnector(
+      MasstransitConnector connector)
+      : _value = connector;
+
+  MasstransitIndoorLevel? asIndoorLevel() {
+    if (_value is MasstransitIndoorLevel) {
+      return _value;
+    }
+    return null;
+  }
+
+  MasstransitConnector? asConnector() {
+    if (_value is MasstransitConnector) {
+      return _value;
+    }
+    return null;
+  }
+
+  /// Applies the passed function to the variant value.
+  void when({
+    required void Function(MasstransitIndoorLevel value) onIndoorLevel,
+    required void Function(MasstransitConnector value) onConnector,
+  }) {
+    if (_value is MasstransitIndoorLevel) {
+      return onIndoorLevel(_value as MasstransitIndoorLevel);
+    }
+    if (_value is MasstransitConnector) {
+      return onConnector(_value as MasstransitConnector);
+    }
+    assert(false);
+  }
+
+  final core.dynamic _value;
+}
+
 /// Represent a section where we have to move by ourself (like
 /// pedestrian, or by bicycle and scooter)
 abstract final class MasstransitFitness implements ffi.Finalizable {
@@ -494,9 +629,10 @@ abstract final class MasstransitFitness implements ffi.Finalizable {
           core.List<transport_masstransit_annotation.MasstransitAnnotation>
               annotations,
           core.List<MasstransitTrafficTypeSegment> trafficTypes,
-          MasstransitElevationData? elevationData) =>
+          MasstransitElevationData? elevationData,
+          core.List<MasstransitIndoorSegment> indoorSegments) =>
       MasstransitFitnessImpl(type, constructions, restrictedEntries, viaPoints,
-          annotations, trafficTypes, elevationData);
+          annotations, trafficTypes, elevationData, indoorSegments);
 
   MasstransitFitnessType get type;
 
@@ -524,6 +660,12 @@ abstract final class MasstransitFitness implements ffi.Finalizable {
   ///
   MasstransitElevationData? get elevationData;
 
+  /// List of indoor segments (levels or connectors) on path. Compressed
+  /// information about levels along the path.
+  /// [MasstransitIndoorSegment.subpolyline] fields of all indoor segments
+  /// cover only the indoor geometry, it does not cover outdoor parts.
+  core.List<MasstransitIndoorSegment> get indoorSegments;
+
   @core.override
   core.int get hashCode => core.Object.hashAll([
         type,
@@ -532,7 +674,8 @@ abstract final class MasstransitFitness implements ffi.Finalizable {
         viaPoints,
         annotations,
         trafficTypes,
-        elevationData
+        elevationData,
+        indoorSegments
       ]);
 
   @core.override
@@ -546,12 +689,13 @@ abstract final class MasstransitFitness implements ffi.Finalizable {
         viaPoints == other.viaPoints &&
         annotations == other.annotations &&
         trafficTypes == other.trafficTypes &&
-        elevationData == other.elevationData;
+        elevationData == other.elevationData &&
+        indoorSegments == other.indoorSegments;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitFitness(type: $type, constructions: $constructions, restrictedEntries: $restrictedEntries, viaPoints: $viaPoints, annotations: $annotations, trafficTypes: $trafficTypes, elevationData: $elevationData)";
+    return "MasstransitFitness(type: $type, constructions: $constructions, restrictedEntries: $restrictedEntries, viaPoints: $viaPoints, annotations: $annotations, trafficTypes: $trafficTypes, elevationData: $elevationData, indoorSegments: $indoorSegments)";
   }
 }
 

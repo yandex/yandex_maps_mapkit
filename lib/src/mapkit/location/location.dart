@@ -46,6 +46,10 @@ final class Location {
   ///
   final core.double? speed;
 
+  /// The universal identifier of indoor level.
+  ///
+  final core.String? indoorLevelId;
+
   /// Absolute timestamp, in milliseconds since January 1, 1970.
   final core.DateTime absoluteTimestamp;
 
@@ -62,6 +66,7 @@ final class Location {
     this.altitudeAccuracy,
     this.heading,
     this.speed,
+    this.indoorLevelId,
   });
 
   @core.override
@@ -72,6 +77,7 @@ final class Location {
         altitudeAccuracy,
         heading,
         speed,
+        indoorLevelId,
         absoluteTimestamp,
         relativeTimestamp,
       ]);
@@ -87,12 +93,13 @@ final class Location {
         altitudeAccuracy == other.altitudeAccuracy &&
         heading == other.heading &&
         speed == other.speed &&
+        indoorLevelId == other.indoorLevelId &&
         absoluteTimestamp == other.absoluteTimestamp &&
         relativeTimestamp == other.relativeTimestamp;
   }
 
   @core.override
   core.String toString() {
-    return "Location(position: $position, accuracy: $accuracy, altitude: $altitude, altitudeAccuracy: $altitudeAccuracy, heading: $heading, speed: $speed, absoluteTimestamp: $absoluteTimestamp, relativeTimestamp: $relativeTimestamp, )";
+    return "Location(position: $position, accuracy: $accuracy, altitude: $altitude, altitudeAccuracy: $altitudeAccuracy, heading: $heading, speed: $speed, indoorLevelId: $indoorLevelId, absoluteTimestamp: $absoluteTimestamp, relativeTimestamp: $relativeTimestamp, )";
   }
 }

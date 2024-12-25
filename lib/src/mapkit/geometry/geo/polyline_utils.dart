@@ -33,7 +33,7 @@ class PolylineUtils {
     );
   }
 
-  /// The position of the polyline.
+  /// Advance the polyline position by a specified distance in meters.
   ///
   /// [polyline] The polyline.
   /// [position] The polyline position.

@@ -10,12 +10,16 @@ final class MasstransitWayPointImpl implements MasstransitWayPoint {
       mapkit_geometry_point.Point position,
       mapkit_geometry_point.Point? selectedArrivalPoint,
       mapkit_geometry_point.Point? selectedDeparturePoint,
-      core.String? context)
+      core.String? context,
+      core.String? levelId,
+      core.String? levelName)
       : this.fromNativePtr(_MasstransitWayPoint_init(
             mapkit_geometry_point.PointImpl.toNative(position),
             mapkit_geometry_point.PointImpl.toPointer(selectedArrivalPoint),
             mapkit_geometry_point.PointImpl.toPointer(selectedDeparturePoint),
-            to_native.toNativePtrString(context)));
+            to_native.toNativePtrString(context),
+            to_native.toNativePtrString(levelId),
+            to_native.toNativePtrString(levelName)));
 
   @core.override
   late final position = mapkit_geometry_point.PointImpl.fromNative(
@@ -30,6 +34,12 @@ final class MasstransitWayPointImpl implements MasstransitWayPoint {
   @core.override
   late final context = to_platform
       .toPlatformFromPointerString(_MasstransitWayPoint_get_context(_ptr));
+  @core.override
+  late final levelId = to_platform
+      .toPlatformFromPointerString(_MasstransitWayPoint_get_levelId(_ptr));
+  @core.override
+  late final levelName = to_platform
+      .toPlatformFromPointerString(_MasstransitWayPoint_get_levelName(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer =
@@ -69,13 +79,20 @@ final _MasstransitWayPoint_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
         'yandex_flutter_transport_masstransit_MasstransitWayPoint_free');
 
-final ffi.Pointer<ffi.Void> Function(mapkit_geometry_point.PointNative,
-        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
-    _MasstransitWayPoint_init = lib.library
+final ffi.Pointer<ffi.Void> Function(
+        mapkit_geometry_point.PointNative,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>) _MasstransitWayPoint_init =
+    lib.library
         .lookup<
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(
                         mapkit_geometry_point.PointNative,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>)>>(
@@ -115,4 +132,20 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitWayPoint_get_context')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitWayPoint_get_levelId = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitWayPoint_get_levelId')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitWayPoint_get_levelName = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitWayPoint_get_levelName')
     .asFunction(isLeaf: true);

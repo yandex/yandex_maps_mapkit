@@ -23,6 +23,8 @@ import 'package:yandex_maps_mapkit/src/directions/driving/vehicle_options.dart'
     as directions_driving_vehicle_options;
 import 'package:yandex_maps_mapkit/src/mapkit/annotations/annotation_lang.dart'
     as mapkit_annotations_annotation_lang;
+import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
+    as mapkit_geometry_geometry;
 import 'package:yandex_maps_mapkit/src/mapkit/request_point.dart'
     as mapkit_request_point;
 import 'package:yandex_maps_mapkit/src/runtime/error.dart' as runtime_error;
@@ -145,6 +147,18 @@ abstract class DrivingRouter implements ffi.Finalizable {
     directions_driving_session.DrivingSessionRouteListener routeListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
   });
+
+  /// Builds a route based on a custom route geometry.
+  ///
+  /// [polyline] Custom route geometry.
+  /// [drivingOptions] Driving options.
+  /// [vehicleOptions] Vehicle options.
+  /// [routeListener] Route listener object.
+  directions_driving_session.DrivingSession matchRoute(
+      mapkit_geometry_geometry.Polyline polyline,
+      DrivingOptions drivingOptions,
+      directions_driving_vehicle_options.DrivingVehicleOptions vehicleOptions,
+      directions_driving_session.DrivingSessionRouteListener routeListener);
 
   /// Creates a route summary.
   ///

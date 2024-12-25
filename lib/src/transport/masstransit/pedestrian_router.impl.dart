@@ -116,6 +116,10 @@ class PedestrianRouterImpl implements PedestrianRouter, ffi.Finalizable {
     return transport_masstransit_serializer.MasstransitRouteSerializerImpl
         .fromNativePtr(result);
   }
+
+  void setIndoorEnabled(core.bool enabled) {
+    _PedestrianRouter_setIndoorEnabled(ptr, enabled);
+  }
 }
 
 final _PedestrianRouter_free = lib.library
@@ -198,6 +202,15 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_PedestrianRouter_routeSerializer')
+    .asFunction();
+final void Function(
+    ffi.Pointer<ffi.Void>,
+    core
+        .bool) _PedestrianRouter_setIndoorEnabled = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Bool)>>(
+        'yandex_flutter_transport_masstransit_PedestrianRouter_setIndoorEnabled')
     .asFunction();
 final void Function(ffi.Pointer<ffi.Void>, core.int) _PedestrianRouter_set = lib
     .library

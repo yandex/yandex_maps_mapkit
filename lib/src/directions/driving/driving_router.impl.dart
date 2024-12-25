@@ -259,6 +259,22 @@ class DrivingRouterImpl implements DrivingRouter, ffi.Finalizable {
     return directions_driving_session.DrivingSessionImpl.fromNativePtr(result);
   }
 
+  directions_driving_session.DrivingSession matchRoute(
+      mapkit_geometry_geometry.Polyline polyline,
+      DrivingOptions drivingOptions,
+      directions_driving_vehicle_options.DrivingVehicleOptions vehicleOptions,
+      directions_driving_session.DrivingSessionRouteListener routeListener) {
+    final result = _DrivingRouter_matchRoute(
+        ptr,
+        mapkit_geometry_geometry.PolylineImpl.getNativePtr(polyline),
+        DrivingOptionsImpl.toNative(drivingOptions),
+        directions_driving_vehicle_options.DrivingVehicleOptionsImpl.toNative(
+            vehicleOptions),
+        directions_driving_session.DrivingSessionRouteListenerImpl.getNativePtr(
+            routeListener));
+    return directions_driving_session.DrivingSessionImpl.fromNativePtr(result);
+  }
+
   directions_driving_session.DrivingSummarySession requestRoutesSummary(
     DrivingOptions drivingOptions,
     directions_driving_vehicle_options.DrivingVehicleOptions vehicleOptions,
@@ -302,6 +318,24 @@ final ffi.Pointer<ffi.Void> Function(
                             .DrivingVehicleOptionsNative,
                         ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingRouter_requestRoutes')
+        .asFunction();
+final ffi.Pointer<ffi.Void> Function(
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        DrivingOptionsNative,
+        directions_driving_vehicle_options.DrivingVehicleOptionsNative,
+        ffi.Pointer<ffi.Void>) _DrivingRouter_matchRoute =
+    lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        DrivingOptionsNative,
+                        directions_driving_vehicle_options
+                            .DrivingVehicleOptionsNative,
+                        ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_directions_driving_DrivingRouter_matchRoute')
         .asFunction();
 final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<ffi.Void>,

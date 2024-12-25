@@ -991,6 +991,276 @@ final ffi.Pointer<ffi.Void> Function(
         'yandex_flutter_transport_masstransit_MasstransitElevationData_get_elevationSegments')
     .asFunction(isLeaf: true);
 
+final class MasstransitIndoorLevelNative extends ffi.Struct {
+  external native_types.NativeString levelId;
+  external native_types.NativeString levelName;
+}
+
+final MasstransitIndoorLevelNative Function(
+        native_types.NativeString, native_types.NativeString)
+    _MasstransitIndoorLevelNativeInit = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    MasstransitIndoorLevelNative Function(
+                        native_types.NativeString, native_types.NativeString)>>(
+            'yandex_flutter_transport_masstransit_MasstransitIndoorLevel_init')
+        .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitIndoorLevelImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitIndoorLevelImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitIndoorLevel')
+extension MasstransitIndoorLevelImpl on MasstransitIndoorLevel {
+  static MasstransitIndoorLevel fromNative(
+      MasstransitIndoorLevelNative native) {
+    return MasstransitIndoorLevel(
+        levelId: to_platform.toPlatformString(native.levelId),
+        levelName: to_platform.toPlatformString(native.levelName));
+  }
+
+  static MasstransitIndoorLevelNative toNative(MasstransitIndoorLevel obj) {
+    return _MasstransitIndoorLevelNativeInit(
+        to_native.toNativeString(obj.levelId),
+        to_native.toNativeString(obj.levelName));
+  }
+
+  static MasstransitIndoorLevel? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitIndoorLevelImpl.fromNative(
+        ptr.cast<MasstransitIndoorLevelNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitIndoorLevel? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+    final result = malloc.call<MasstransitIndoorLevelNative>();
+    result.ref = toNative(val);
+
+    return result.cast();
+  }
+}
+
+final class MasstransitConnectorNative extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> from;
+  external ffi.Pointer<ffi.Void> to;
+}
+
+final MasstransitConnectorNative Function(
+        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
+    _MasstransitConnectorNativeInit = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    MasstransitConnectorNative Function(
+                        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_transport_masstransit_MasstransitConnector_init')
+        .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitConnectorImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitConnectorImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitConnector')
+extension MasstransitConnectorImpl on MasstransitConnector {
+  static MasstransitConnector fromNative(MasstransitConnectorNative native) {
+    return MasstransitConnector(
+        from: MasstransitIndoorLevelImpl.fromPointer(native.from),
+        to: MasstransitIndoorLevelImpl.fromPointer(native.to));
+  }
+
+  static MasstransitConnectorNative toNative(MasstransitConnector obj) {
+    return _MasstransitConnectorNativeInit(
+        MasstransitIndoorLevelImpl.toPointer(obj.from),
+        MasstransitIndoorLevelImpl.toPointer(obj.to));
+  }
+
+  static MasstransitConnector? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitConnectorImpl.fromNative(
+        ptr.cast<MasstransitConnectorNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitConnector? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+    final result = malloc.call<MasstransitConnectorNative>();
+    result.ref = toNative(val);
+
+    return result.cast();
+  }
+}
+
+final class MasstransitIndoorSegmentNative extends ffi.Struct {
+  external MasstransitIndoorSegmentIndoorDataNative indoorData;
+  external mapkit_geometry_geometry.SubpolylineNative subpolyline;
+}
+
+final MasstransitIndoorSegmentNative Function(
+    MasstransitIndoorSegmentIndoorDataNative,
+    mapkit_geometry_geometry
+        .SubpolylineNative) _MasstransitIndoorSegmentNativeInit = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                MasstransitIndoorSegmentNative Function(
+                    MasstransitIndoorSegmentIndoorDataNative,
+                    mapkit_geometry_geometry.SubpolylineNative)>>(
+        'yandex_flutter_transport_masstransit_MasstransitIndoorSegment_init')
+    .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitIndoorSegmentImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitIndoorSegmentImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitIndoorSegment')
+extension MasstransitIndoorSegmentImpl on MasstransitIndoorSegment {
+  static MasstransitIndoorSegment fromNative(
+      MasstransitIndoorSegmentNative native) {
+    return MasstransitIndoorSegment(
+        MasstransitIndoorSegmentIndoorDataImpl.toPlatform(native.indoorData),
+        mapkit_geometry_geometry.SubpolylineImpl.fromNative(
+            native.subpolyline));
+  }
+
+  static MasstransitIndoorSegmentNative toNative(MasstransitIndoorSegment obj) {
+    return _MasstransitIndoorSegmentNativeInit(
+        MasstransitIndoorSegmentIndoorDataImpl.toNative(obj.indoorData),
+        mapkit_geometry_geometry.SubpolylineImpl.toNative(obj.subpolyline));
+  }
+
+  static MasstransitIndoorSegment? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitIndoorSegmentImpl.fromNative(
+        ptr.cast<MasstransitIndoorSegmentNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitIndoorSegment? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+    final result = malloc.call<MasstransitIndoorSegmentNative>();
+    result.ref = toNative(val);
+
+    return result.cast();
+  }
+}
+
+final class _MasstransitIndoorSegmentIndoorDataNativeData extends ffi.Union {
+  external MasstransitIndoorLevelNative indoorLevel;
+  external MasstransitConnectorNative connector;
+}
+
+final class MasstransitIndoorSegmentIndoorDataNative extends ffi.Struct {
+  @ffi.Int()
+  external core.int tag;
+  external _MasstransitIndoorSegmentIndoorDataNativeData data;
+}
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitIndoorSegmentIndoorDataImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitIndoorSegmentIndoorDataImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitIndoorSegmentIndoorData')
+extension MasstransitIndoorSegmentIndoorDataImpl
+    on MasstransitIndoorSegmentIndoorData {
+  static MasstransitIndoorSegmentIndoorDataNative toNative(
+      MasstransitIndoorSegmentIndoorData obj) {
+    if (obj._value is MasstransitIndoorLevel) {
+      return _IndoorSegment_IndoorDataNative_IndoorLevelNative_init(
+          MasstransitIndoorLevelImpl.toNative(obj._value));
+    }
+    if (obj._value is MasstransitConnector) {
+      return _IndoorSegment_IndoorDataNative_ConnectorNative_init(
+          MasstransitConnectorImpl.toNative(obj._value));
+    }
+    throw core.TypeError();
+  }
+
+  static MasstransitIndoorSegmentIndoorData toPlatform(
+      MasstransitIndoorSegmentIndoorDataNative obj) {
+    switch (obj.tag) {
+      case 0:
+        return MasstransitIndoorSegmentIndoorData.fromIndoorLevel(
+            MasstransitIndoorLevelImpl.fromNative(obj.data.indoorLevel));
+      case 1:
+        return MasstransitIndoorSegmentIndoorData.fromConnector(
+            MasstransitConnectorImpl.fromNative(obj.data.connector));
+    }
+    throw core.TypeError();
+  }
+
+  static MasstransitIndoorSegmentIndoorData? fromPointer(
+      ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result =
+        toPlatform(ptr.cast<MasstransitIndoorSegmentIndoorDataNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(
+      MasstransitIndoorSegmentIndoorData? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<MasstransitIndoorSegmentIndoorDataNative>();
+    result.ref = toNative(val);
+
+    return result.cast();
+  }
+}
+
+final MasstransitIndoorSegmentIndoorDataNative Function(
+        MasstransitIndoorLevelNative)
+    _IndoorSegment_IndoorDataNative_IndoorLevelNative_init = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    MasstransitIndoorSegmentIndoorDataNative Function(
+                        MasstransitIndoorLevelNative)>>(
+            'yandex_flutter_transport_masstransit_IndoorSegment_MasstransitIndoorSegmentIndoorData_IndoorLevelNative_init')
+        .asFunction(isLeaf: true);
+final MasstransitIndoorSegmentIndoorDataNative Function(
+        MasstransitConnectorNative)
+    _IndoorSegment_IndoorDataNative_ConnectorNative_init = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    MasstransitIndoorSegmentIndoorDataNative Function(
+                        MasstransitConnectorNative)>>(
+            'yandex_flutter_transport_masstransit_IndoorSegment_MasstransitIndoorSegmentIndoorData_ConnectorNative_init')
+        .asFunction(isLeaf: true);
+
 @bindings_annotations.ContainerData(
     toNative: 'MasstransitFitnessImpl.getNativePtr',
     toPlatform:
@@ -1007,7 +1277,8 @@ final class MasstransitFitnessImpl implements MasstransitFitness {
       core.List<transport_masstransit_annotation.MasstransitAnnotation>
           annotations,
       core.List<MasstransitTrafficTypeSegment> trafficTypes,
-      MasstransitElevationData? elevationData)
+      MasstransitElevationData? elevationData,
+      core.List<MasstransitIndoorSegment> indoorSegments)
       : this.fromNativePtr(_MasstransitFitness_init(
             MasstransitFitnessTypeImpl.toInt(type),
             MasstransitConstructionSegmentContainerExtension.toNativeVector(
@@ -1022,7 +1293,9 @@ final class MasstransitFitnessImpl implements MasstransitFitness {
                 .toNativeVector(annotations),
             MasstransitTrafficTypeSegmentContainerExtension.toNativeVector(
                 trafficTypes),
-            MasstransitElevationDataImpl.getNativePtr(elevationData)));
+            MasstransitElevationDataImpl.getNativePtr(elevationData),
+            MasstransitIndoorSegmentContainerExtension.toNativeVector(
+                indoorSegments)));
 
   @core.override
   late final type =
@@ -1050,6 +1323,10 @@ final class MasstransitFitnessImpl implements MasstransitFitness {
   @core.override
   late final elevationData = MasstransitElevationDataImpl.fromOptionalPtr(
       _MasstransitFitness_get_elevationData(_ptr));
+  @core.override
+  late final indoorSegments =
+      MasstransitIndoorSegmentContainerExtension.toPlatformVector(
+          _MasstransitFitness_get_indoorSegments(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer =
@@ -1096,12 +1373,14 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>) _MasstransitFitness_init =
     lib.library
         .lookup<
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(
                         ffi.Int64,
+                        ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
@@ -1164,6 +1443,14 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitFitness_get_elevationData')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitFitness_get_indoorSegments = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitFitness_get_indoorSegments')
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
