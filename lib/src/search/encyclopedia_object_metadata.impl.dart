@@ -6,7 +6,7 @@ part of 'encyclopedia_object_metadata.dart';
         '(val) => SearchEncyclopediaObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchEncyclopediaObjectMetadata')
 final class SearchEncyclopediaObjectMetadataImpl
-    implements SearchEncyclopediaObjectMetadata {
+    extends SearchEncyclopediaObjectMetadata {
   SearchEncyclopediaObjectMetadataImpl(core.String? title,
       core.String? description, mapkit_attribution.Attribution? attribution)
       : this.fromNativePtr(_SearchEncyclopediaObjectMetadata_init(
@@ -32,7 +32,7 @@ final class SearchEncyclopediaObjectMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchEncyclopediaObjectMetadata_free.cast());
 
-  SearchEncyclopediaObjectMetadataImpl.fromNativePtr(this._ptr) {
+  SearchEncyclopediaObjectMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

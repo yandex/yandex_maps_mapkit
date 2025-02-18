@@ -4,7 +4,7 @@ part of 'summary.dart';
     toNative: 'BicycleSummaryImpl.getNativePtr',
     toPlatform: '(val) => BicycleSummaryImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleSummary')
-final class BicycleSummaryImpl implements BicycleSummary {
+final class BicycleSummaryImpl extends BicycleSummary {
   BicycleSummaryImpl(transport_bicycle_weight.BicycleWeight weight,
       transport_bicycle_flags.BicycleFlags? flags)
       : this.fromNativePtr(_BicycleSummary_init(
@@ -21,7 +21,7 @@ final class BicycleSummaryImpl implements BicycleSummary {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_BicycleSummary_free.cast());
 
-  BicycleSummaryImpl.fromNativePtr(this._ptr) {
+  BicycleSummaryImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

@@ -22,6 +22,8 @@ abstract final class BicycleLeg implements ffi.Finalizable {
           mapkit_geometry_geometry.Subpolyline geometry) =>
       BicycleLegImpl(weight, geometry);
 
+  BicycleLeg._();
+
   /// Quantitative characteristics of the route leg.
   transport_bicycle_weight.BicycleWeight get weight;
 

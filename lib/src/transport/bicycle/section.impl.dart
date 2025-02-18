@@ -4,7 +4,7 @@ part of 'section.dart';
     toNative: 'BicycleSectionImpl.getNativePtr',
     toPlatform: '(val) => BicycleSectionImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleSection')
-final class BicycleSectionImpl implements BicycleSection {
+final class BicycleSectionImpl extends BicycleSection {
   BicycleSectionImpl(transport_bicycle_weight.BicycleWeight weight,
       mapkit_geometry_geometry.Subpolyline geometry)
       : this.fromNativePtr(_BicycleSection_init(
@@ -21,7 +21,7 @@ final class BicycleSectionImpl implements BicycleSection {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_BicycleSection_free.cast());
 
-  BicycleSectionImpl.fromNativePtr(this._ptr) {
+  BicycleSectionImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

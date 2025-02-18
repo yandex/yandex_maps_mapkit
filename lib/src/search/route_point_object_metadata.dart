@@ -27,6 +27,8 @@ abstract final class SearchEntrance implements ffi.Finalizable {
           mapkit_geometry_direction.Direction? direction) =>
       SearchEntranceImpl(name, point, direction);
 
+  SearchEntrance._();
+
   core.String? get name;
   mapkit_geometry_point.Point get point;
   mapkit_geometry_direction.Direction? get direction;
@@ -54,6 +56,8 @@ abstract final class SearchParkingAttributes implements ffi.Finalizable {
   factory SearchParkingAttributes(core.String? orgURI,
           mapkit_money.TaxiMoney? firstHourPrice, core.int? placesCount) =>
       SearchParkingAttributesImpl(orgURI, firstHourPrice, placesCount);
+
+  SearchParkingAttributes._();
 
   /// Parking organization URI. For example, parking zone or any toll area
   /// or inside building parking.

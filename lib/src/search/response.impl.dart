@@ -4,7 +4,7 @@ part of 'response.dart';
     toNative: 'SearchResponseImpl.getNativePtr',
     toPlatform: '(val) => SearchResponseImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchResponse')
-final class SearchResponseImpl implements SearchResponse {
+final class SearchResponseImpl extends SearchResponse {
   SearchResponseImpl(
       search_search_metadata.SearchMetadata metadata,
       mapkit_geo_object_collection.GeoObjectCollection collection,
@@ -28,7 +28,7 @@ final class SearchResponseImpl implements SearchResponse {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchResponse_free.cast());
 
-  SearchResponseImpl.fromNativePtr(this._ptr) {
+  SearchResponseImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

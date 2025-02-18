@@ -5,7 +5,7 @@ part of 'restricted_entry.dart';
     toPlatform:
         '(val) => BicycleRestrictedEntryImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleRestrictedEntry')
-final class BicycleRestrictedEntryImpl implements BicycleRestrictedEntry {
+final class BicycleRestrictedEntryImpl extends BicycleRestrictedEntry {
   BicycleRestrictedEntryImpl(mapkit_geometry_geometry.PolylinePosition position)
       : this.fromNativePtr(_BicycleRestrictedEntry_init(
             mapkit_geometry_geometry.PolylinePositionImpl.toNative(position)));
@@ -19,7 +19,7 @@ final class BicycleRestrictedEntryImpl implements BicycleRestrictedEntry {
   static final _finalizer =
       ffi.NativeFinalizer(_BicycleRestrictedEntry_free.cast());
 
-  BicycleRestrictedEntryImpl.fromNativePtr(this._ptr) {
+  BicycleRestrictedEntryImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

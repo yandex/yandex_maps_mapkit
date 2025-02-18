@@ -5,7 +5,7 @@ part of 'speaker.dart';
     toPlatform:
         '(val) => LocalizedPhraseImpl.fromPointer(val, needFree: false)',
     platformType: 'LocalizedPhrase')
-final class LocalizedPhraseImpl implements LocalizedPhrase {
+final class LocalizedPhraseImpl extends LocalizedPhrase {
   LocalizedPhraseImpl(
       core.List<mapkit_annotations_phrase_token.SpeakerPhraseToken> tokens,
       core.String text,
@@ -32,7 +32,7 @@ final class LocalizedPhraseImpl implements LocalizedPhrase {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_LocalizedPhrase_free.cast());
 
-  LocalizedPhraseImpl.fromNativePtr(this._ptr) {
+  LocalizedPhraseImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

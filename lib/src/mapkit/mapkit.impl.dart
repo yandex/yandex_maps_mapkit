@@ -155,6 +155,26 @@ class MapKitImpl implements MapKit, ffi.Finalizable {
     return mapkit_map_map_window.MapWindowImpl.fromNativePtr(result);
   }
 
+  mapkit_map_map_window.OffscreenMapWindow createOffscreenMapWindow({
+    required core.int width,
+    required core.int height,
+  }) {
+    final result = _MapKit_createOffscreenMapWindow(ptr, width, height);
+    exception.checkCallResult();
+    return mapkit_map_map_window.OffscreenMapWindowImpl.fromNativePtr(result);
+  }
+
+  mapkit_map_map_window.OffscreenMapWindow createOffscreenMapWindowWithScale({
+    required core.int width,
+    required core.int height,
+    required core.double customScaleFactor,
+  }) {
+    final result = _MapKit_createOffscreenMapWindowWithScale(
+        ptr, width, height, customScaleFactor);
+    exception.checkCallResult();
+    return mapkit_map_map_window.OffscreenMapWindowImpl.fromNativePtr(result);
+  }
+
   mapkit_traffic_traffic_layer.TrafficLayer createTrafficLayer(
       mapkit_map_map_window.MapWindow mapWindow) {
     final result = _MapKit_createTrafficLayer(
@@ -297,6 +317,23 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>, ffi.Float)>>(
             'yandex_flutter_mapkit_MapKit_createMapWindowWithScale')
+        .asFunction();
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, core.int, core.int)
+    _MapKit_createOffscreenMapWindow = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>, ffi.Int, ffi.Int)>>(
+            'yandex_flutter_mapkit_MapKit_createOffscreenMapWindow')
+        .asFunction();
+final ffi.Pointer<ffi.Void> Function(
+        ffi.Pointer<ffi.Void>, core.int, core.int, core.double)
+    _MapKit_createOffscreenMapWindowWithScale = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>, ffi.Int, ffi.Int, ffi.Float)>>(
+            'yandex_flutter_mapkit_MapKit_createOffscreenMapWindowWithScale')
         .asFunction();
 final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)

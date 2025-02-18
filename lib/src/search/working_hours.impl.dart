@@ -4,7 +4,7 @@ part of 'working_hours.dart';
     toNative: 'SearchStateImpl.getNativePtr',
     toPlatform: '(val) => SearchStateImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchState')
-final class SearchStateImpl implements SearchState {
+final class SearchStateImpl extends SearchState {
   SearchStateImpl(core.bool? isOpenNow, core.String? text,
       core.String? shortText, core.List<core.String> tags)
       : this.fromNativePtr(_SearchState_init(
@@ -28,7 +28,7 @@ final class SearchStateImpl implements SearchState {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchState_free.cast());
 
-  SearchStateImpl.fromNativePtr(this._ptr) {
+  SearchStateImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -107,7 +107,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => SearchWorkingHoursImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchWorkingHours')
-final class SearchWorkingHoursImpl implements SearchWorkingHours {
+final class SearchWorkingHoursImpl extends SearchWorkingHours {
   SearchWorkingHoursImpl(
       core.String text,
       core.List<search_availability.SearchAvailability> availabilities,
@@ -133,7 +133,7 @@ final class SearchWorkingHoursImpl implements SearchWorkingHours {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchWorkingHours_free.cast());
 
-  SearchWorkingHoursImpl.fromNativePtr(this._ptr) {
+  SearchWorkingHoursImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

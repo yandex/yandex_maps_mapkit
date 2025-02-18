@@ -65,6 +65,8 @@ abstract final class SuggestItem implements ffi.Finalizable {
           center,
           businessContext);
 
+  SuggestItem._();
+
   /// Suggested object type.
   SuggestItemType get type;
 
@@ -223,6 +225,8 @@ enum SuggestItemBusinessContext {
 abstract final class SuggestResponse implements ffi.Finalizable {
   factory SuggestResponse(core.List<SuggestItem> items) =>
       SuggestResponseImpl(items);
+
+  SuggestResponse._();
 
   /// Suggest items.
   core.List<SuggestItem> get items;

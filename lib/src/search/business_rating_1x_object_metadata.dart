@@ -29,6 +29,8 @@ abstract final class SearchBusinessRating1xObjectMetadata
           core.int ratings, core.int reviews, core.double? score) =>
       SearchBusinessRating1xObjectMetadataImpl(ratings, reviews, score);
 
+  SearchBusinessRating1xObjectMetadata._();
+
   /// Total number of ratings.
   core.int get ratings;
 

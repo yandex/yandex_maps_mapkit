@@ -29,6 +29,8 @@ abstract final class SectionMetadataInternal
           core.bool isPassThroughTransportSection) =>
       SectionMetadataInternalImpl(metadata, isPassThroughTransportSection);
 
+  SectionMetadataInternal._();
+
   transport_masstransit_route.MasstransitSectionMetadata get metadata;
   core.bool get isPassThroughTransportSection;
 

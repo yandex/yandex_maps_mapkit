@@ -5,7 +5,7 @@ part of 'style_provider.dart';
     toPlatform:
         '(val) => RoadEventsLayerTextStyleImpl.fromPointer(val, needFree: false)',
     platformType: 'RoadEventsLayerTextStyle')
-final class RoadEventsLayerTextStyleImpl implements RoadEventsLayerTextStyle {
+final class RoadEventsLayerTextStyleImpl extends RoadEventsLayerTextStyle {
   RoadEventsLayerTextStyleImpl(
       core.double fontSize, ui.Color color, ui.Color? outlineColor)
       : this.fromNativePtr(_RoadEventsLayerTextStyle_init(
@@ -26,7 +26,7 @@ final class RoadEventsLayerTextStyleImpl implements RoadEventsLayerTextStyle {
   static final _finalizer =
       ffi.NativeFinalizer(_RoadEventsLayerTextStyle_free.cast());
 
-  RoadEventsLayerTextStyleImpl.fromNativePtr(this._ptr) {
+  RoadEventsLayerTextStyleImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

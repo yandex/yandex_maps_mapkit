@@ -5,8 +5,7 @@ part of 'exchange_object_metadata.dart';
     toPlatform:
         '(val) => SearchCurrencyExchangeTypeImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchCurrencyExchangeType')
-final class SearchCurrencyExchangeTypeImpl
-    implements SearchCurrencyExchangeType {
+final class SearchCurrencyExchangeTypeImpl extends SearchCurrencyExchangeType {
   SearchCurrencyExchangeTypeImpl(core.String? name, mapkit_money.TaxiMoney? buy,
       mapkit_money.TaxiMoney? sell)
       : this.fromNativePtr(_SearchCurrencyExchangeType_init(
@@ -28,7 +27,7 @@ final class SearchCurrencyExchangeTypeImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchCurrencyExchangeType_free.cast());
 
-  SearchCurrencyExchangeTypeImpl.fromNativePtr(this._ptr) {
+  SearchCurrencyExchangeTypeImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -101,7 +100,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         '(val) => SearchCurrencyExchangeMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchCurrencyExchangeMetadata')
 final class SearchCurrencyExchangeMetadataImpl
-    implements SearchCurrencyExchangeMetadata {
+    extends SearchCurrencyExchangeMetadata {
   SearchCurrencyExchangeMetadataImpl(
       core.List<SearchCurrencyExchangeType> currencies)
       : this.fromNativePtr(_SearchCurrencyExchangeMetadata_init(
@@ -121,7 +120,7 @@ final class SearchCurrencyExchangeMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchCurrencyExchangeMetadata_free.cast());
 
-  SearchCurrencyExchangeMetadataImpl.fromNativePtr(this._ptr) {
+  SearchCurrencyExchangeMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

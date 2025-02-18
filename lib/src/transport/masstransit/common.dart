@@ -59,6 +59,8 @@ abstract final class MasstransitTransportContour implements ffi.Finalizable {
           core.String name, MasstransitTransportContourStyle? style) =>
       MasstransitTransportContourImpl(name, style);
 
+  MasstransitTransportContour._();
+
   /// Contour name
   core.String get name;
 
@@ -128,6 +130,8 @@ abstract final class MasstransitStop extends mapkit_base_metadata.BaseMetadata
           core.List<MasstransitTransportContour> transportContours) =>
       MasstransitStopImpl(
           id, name, additionalName, features, transportContours);
+
+  MasstransitStop._();
 
   /// Stop ID.
   core.String get id;
@@ -200,6 +204,8 @@ abstract final class MasstransitLine extends mapkit_base_metadata.BaseMetadata
           core.String? transportSystemId) =>
       MasstransitLineImpl(id, name, vehicleTypes, style, isNight, uri,
           shortName, transportSystemId);
+
+  MasstransitLine._();
 
   /// Line ID.
   core.String get id;
@@ -304,6 +310,8 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
           core.List<MasstransitStop> essentialStops,
           core.String? description) =>
       MasstransitThreadImpl(id, essentialStops, description);
+
+  MasstransitThread._();
 
   /// Thread ID.
   core.String get id;

@@ -23,6 +23,8 @@ abstract final class BicycleSummary implements ffi.Finalizable {
           transport_bicycle_flags.BicycleFlags? flags) =>
       BicycleSummaryImpl(weight, flags);
 
+  BicycleSummary._();
+
   /// Quantitative characteristics of the route.
   transport_bicycle_weight.BicycleWeight get weight;
 

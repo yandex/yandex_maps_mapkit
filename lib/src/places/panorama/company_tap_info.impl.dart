@@ -4,7 +4,7 @@ part of 'company_tap_info.dart';
     toNative: 'CompanyTapInfoImpl.getNativePtr',
     toPlatform: '(val) => CompanyTapInfoImpl.fromPointer(val, needFree: false)',
     platformType: 'CompanyTapInfo')
-final class CompanyTapInfoImpl implements CompanyTapInfo {
+final class CompanyTapInfoImpl extends CompanyTapInfo {
   CompanyTapInfoImpl(
       core.String permalink, mapkit_screen_types.ScreenPoint screenPoint)
       : this.fromNativePtr(_CompanyTapInfo_init(
@@ -21,7 +21,7 @@ final class CompanyTapInfoImpl implements CompanyTapInfo {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_CompanyTapInfo_free.cast());
 
-  CompanyTapInfoImpl.fromNativePtr(this._ptr) {
+  CompanyTapInfoImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

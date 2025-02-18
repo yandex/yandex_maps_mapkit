@@ -5,7 +5,7 @@ part of 'filter_collection.dart';
     toPlatform:
         '(val) => SearchFilterCollectionImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFilterCollection')
-final class SearchFilterCollectionImpl implements SearchFilterCollection {
+final class SearchFilterCollectionImpl extends SearchFilterCollection {
   SearchFilterCollectionImpl(
       core.List<core.String> booleanFilters,
       core.Map<core.String, core.List<core.String>> enumFilters,
@@ -38,7 +38,7 @@ final class SearchFilterCollectionImpl implements SearchFilterCollection {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchFilterCollection_free.cast());
 
-  SearchFilterCollectionImpl.fromNativePtr(this._ptr) {
+  SearchFilterCollectionImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

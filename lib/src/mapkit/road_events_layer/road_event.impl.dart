@@ -4,7 +4,7 @@ part of 'road_event.dart';
     toNative: 'RoadEventImpl.getNativePtr',
     toPlatform: '(val) => RoadEventImpl.fromPointer(val, needFree: false)',
     platformType: 'RoadEvent')
-final class RoadEventImpl implements RoadEvent {
+final class RoadEventImpl extends RoadEvent {
   RoadEventImpl(
       core.String id,
       mapkit_geometry_point.Point position,
@@ -37,7 +37,7 @@ final class RoadEventImpl implements RoadEvent {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_RoadEvent_free.cast());
 
-  RoadEventImpl.fromNativePtr(this._ptr) {
+  RoadEventImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

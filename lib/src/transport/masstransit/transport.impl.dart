@@ -266,8 +266,7 @@ extension MasstransitTransportThreadAlertLastTripImpl
     toPlatform:
         '(val) => MasstransitBoardingOptionsImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitBoardingOptions')
-final class MasstransitBoardingOptionsImpl
-    implements MasstransitBoardingOptions {
+final class MasstransitBoardingOptionsImpl extends MasstransitBoardingOptions {
   MasstransitBoardingOptionsImpl(
       core.List<MasstransitBoardingOptionsBoardingArea> area)
       : this.fromNativePtr(_MasstransitBoardingOptions_init(
@@ -283,7 +282,7 @@ final class MasstransitBoardingOptionsImpl
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitBoardingOptions_free.cast());
 
-  MasstransitBoardingOptionsImpl.fromNativePtr(this._ptr) {
+  MasstransitBoardingOptionsImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -342,7 +341,7 @@ final ffi.Pointer<ffi.Void> Function(
         '(val) => MasstransitBoardingOptionsBoardingAreaImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitBoardingOptionsBoardingArea')
 final class MasstransitBoardingOptionsBoardingAreaImpl
-    implements MasstransitBoardingOptionsBoardingArea {
+    extends MasstransitBoardingOptionsBoardingArea {
   MasstransitBoardingOptionsBoardingAreaImpl(core.String? id)
       : this.fromNativePtr(_MasstransitBoardingOptionsBoardingArea_init(
             to_native.toNativePtrString(id)));
@@ -355,7 +354,8 @@ final class MasstransitBoardingOptionsBoardingAreaImpl
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitBoardingOptionsBoardingArea_free.cast());
 
-  MasstransitBoardingOptionsBoardingAreaImpl.fromNativePtr(this._ptr) {
+  MasstransitBoardingOptionsBoardingAreaImpl.fromNativePtr(this._ptr)
+      : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -418,7 +418,7 @@ final ffi.Pointer<ffi.Void> Function(
     toPlatform:
         '(val) => MasstransitTransportImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitTransport')
-final class MasstransitTransportImpl implements MasstransitTransport {
+final class MasstransitTransportImpl extends MasstransitTransport {
   MasstransitTransportImpl(
       transport_masstransit_common.MasstransitLine line,
       core.List<MasstransitTransportTransportThread> transports,
@@ -449,7 +449,7 @@ final class MasstransitTransportImpl implements MasstransitTransport {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitTransport_free.cast());
 
-  MasstransitTransportImpl.fromNativePtr(this._ptr) {
+  MasstransitTransportImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -525,7 +525,7 @@ final ffi.Pointer<ffi.Void> Function(
         '(val) => MasstransitTransportTransportThreadImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitTransportTransportThread')
 final class MasstransitTransportTransportThreadImpl
-    implements MasstransitTransportTransportThread {
+    extends MasstransitTransportTransportThread {
   MasstransitTransportTransportThreadImpl(
       transport_masstransit_common.MasstransitThread thread,
       core.bool isRecommended,
@@ -566,7 +566,7 @@ final class MasstransitTransportTransportThreadImpl
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitTransportTransportThread_free.cast());
 
-  MasstransitTransportTransportThreadImpl.fromNativePtr(this._ptr) {
+  MasstransitTransportTransportThreadImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

@@ -4,7 +4,7 @@ part of 'leg.dart';
     toNative: 'BicycleLegImpl.getNativePtr',
     toPlatform: '(val) => BicycleLegImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleLeg')
-final class BicycleLegImpl implements BicycleLeg {
+final class BicycleLegImpl extends BicycleLeg {
   BicycleLegImpl(transport_bicycle_weight.BicycleWeight weight,
       mapkit_geometry_geometry.Subpolyline geometry)
       : this.fromNativePtr(_BicycleLeg_init(
@@ -21,7 +21,7 @@ final class BicycleLegImpl implements BicycleLeg {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_BicycleLeg_free.cast());
 
-  BicycleLegImpl.fromNativePtr(this._ptr) {
+  BicycleLegImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

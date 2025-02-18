@@ -4,7 +4,7 @@ part of 'address.dart';
     toNative: 'SearchAddressImpl.getNativePtr',
     toPlatform: '(val) => SearchAddressImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchAddress')
-final class SearchAddressImpl implements SearchAddress {
+final class SearchAddressImpl extends SearchAddress {
   SearchAddressImpl(
       core.String formattedAddress,
       core.String? additionalInfo,
@@ -39,7 +39,7 @@ final class SearchAddressImpl implements SearchAddress {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchAddress_free.cast());
 
-  SearchAddressImpl.fromNativePtr(this._ptr) {
+  SearchAddressImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -130,7 +130,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => SearchAddressComponentImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchAddressComponent')
-final class SearchAddressComponentImpl implements SearchAddressComponent {
+final class SearchAddressComponentImpl extends SearchAddressComponent {
   SearchAddressComponentImpl(
       core.String name, core.List<SearchAddressComponentKind> kinds)
       : this.fromNativePtr(_SearchAddressComponent_init(
@@ -150,7 +150,7 @@ final class SearchAddressComponentImpl implements SearchAddressComponent {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchAddressComponent_free.cast());
 
-  SearchAddressComponentImpl.fromNativePtr(this._ptr) {
+  SearchAddressComponentImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

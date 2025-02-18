@@ -65,7 +65,7 @@ extension MasstransitStopFeatureMaskImpl on MasstransitStopFeatureMask {
         '(val) => MasstransitTransportContourImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitTransportContour')
 final class MasstransitTransportContourImpl
-    implements MasstransitTransportContour {
+    extends MasstransitTransportContour {
   MasstransitTransportContourImpl(
       core.String name, MasstransitTransportContourStyle? style)
       : this.fromNativePtr(_MasstransitTransportContour_init(
@@ -83,7 +83,7 @@ final class MasstransitTransportContourImpl
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitTransportContour_free.cast());
 
-  MasstransitTransportContourImpl.fromNativePtr(this._ptr) {
+  MasstransitTransportContourImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -217,7 +217,7 @@ extension MasstransitTransportContourStyleImpl
     toPlatform:
         '(val) => MasstransitStopImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitStop')
-final class MasstransitStopImpl implements MasstransitStop {
+final class MasstransitStopImpl extends MasstransitStop {
   MasstransitStopImpl(
       core.String id,
       core.String name,
@@ -255,7 +255,7 @@ final class MasstransitStopImpl implements MasstransitStop {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_MasstransitStop_free.cast());
 
-  MasstransitStopImpl.fromNativePtr(this._ptr) {
+  MasstransitStopImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -433,7 +433,7 @@ extension MasstransitTransportTypeImpl on MasstransitTransportType {
     toPlatform:
         '(val) => MasstransitLineImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitLine')
-final class MasstransitLineImpl implements MasstransitLine {
+final class MasstransitLineImpl extends MasstransitLine {
   MasstransitLineImpl(
       core.String id,
       core.String name,
@@ -483,7 +483,7 @@ final class MasstransitLineImpl implements MasstransitLine {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_MasstransitLine_free.cast());
 
-  MasstransitLineImpl.fromNativePtr(this._ptr) {
+  MasstransitLineImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -702,7 +702,7 @@ extension MasstransitLineStyleImpl on MasstransitLineStyle {
     toPlatform:
         '(val) => MasstransitThreadImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitThread')
-final class MasstransitThreadImpl implements MasstransitThread {
+final class MasstransitThreadImpl extends MasstransitThread {
   MasstransitThreadImpl(core.String id,
       core.List<MasstransitStop> essentialStops, core.String? description)
       : this.fromNativePtr(_MasstransitThread_init(
@@ -727,7 +727,7 @@ final class MasstransitThreadImpl implements MasstransitThread {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_MasstransitThread_free.cast());
 
-  MasstransitThreadImpl.fromNativePtr(this._ptr) {
+  MasstransitThreadImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

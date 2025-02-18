@@ -4,7 +4,7 @@ part of 'vehicle_raw_data.dart';
     toNative: 'VehicleRawDataImpl.getNativePtr',
     toPlatform: '(val) => VehicleRawDataImpl.fromPointer(val, needFree: false)',
     platformType: 'VehicleRawData')
-final class VehicleRawDataImpl implements VehicleRawData {
+final class VehicleRawDataImpl extends VehicleRawData {
   VehicleRawDataImpl(core.String id, core.String threadId,
       transport_masstransit_common.MasstransitLine line)
       : this.fromNativePtr(_VehicleRawData_init(
@@ -29,7 +29,7 @@ final class VehicleRawDataImpl implements VehicleRawData {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_VehicleRawData_free.cast());
 
-  VehicleRawDataImpl.fromNativePtr(this._ptr) {
+  VehicleRawDataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

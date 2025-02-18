@@ -33,6 +33,8 @@ abstract final class SearchEncyclopediaObjectMetadata
           mapkit_attribution.Attribution? attribution) =>
       SearchEncyclopediaObjectMetadataImpl(title, description, attribution);
 
+  SearchEncyclopediaObjectMetadata._();
+
   /// Encyclopedia article title.
   ///
   core.String? get title;

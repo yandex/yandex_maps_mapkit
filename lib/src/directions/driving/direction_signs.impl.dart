@@ -512,7 +512,7 @@ final DrivingDirectionSignItemNative Function(DrivingDirectionSignIconNative)
     toPlatform:
         '(val) => DrivingDirectionSignImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingDirectionSign')
-final class DrivingDirectionSignImpl implements DrivingDirectionSign {
+final class DrivingDirectionSignImpl extends DrivingDirectionSign {
   DrivingDirectionSignImpl(
       mapkit_geometry_geometry.PolylinePosition position,
       DrivingDirectionSignDirection? direction,
@@ -538,7 +538,7 @@ final class DrivingDirectionSignImpl implements DrivingDirectionSign {
   static final _finalizer =
       ffi.NativeFinalizer(_DrivingDirectionSign_free.cast());
 
-  DrivingDirectionSignImpl.fromNativePtr(this._ptr) {
+  DrivingDirectionSignImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

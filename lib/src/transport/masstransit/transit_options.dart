@@ -24,6 +24,19 @@ final class FilterVehicleTypes {
   static const Tramway = FilterVehicleTypes(1 << 4);
   static const Trolleybus = FilterVehicleTypes(1 << 5);
   static const Underground = FilterVehicleTypes(1 << 6);
+  static const Metrobus = FilterVehicleTypes(1 << 7);
+  static const Dolmus = FilterVehicleTypes(1 << 8);
+  static const HistoricTram = FilterVehicleTypes(1 << 9);
+  static const RapidTram = FilterVehicleTypes(1 << 10);
+  static const LightRail = FilterVehicleTypes(1 << 11);
+  static const SuburbanExpress = FilterVehicleTypes(1 << 12);
+  static const Aeroexpress = FilterVehicleTypes(1 << 13);
+  static const Water = FilterVehicleTypes(1 << 14);
+  static const Ferry = FilterVehicleTypes(1 << 15);
+  static const Funicular = FilterVehicleTypes(1 << 16);
+  static const Cable = FilterVehicleTypes(1 << 17);
+  static const Aero = FilterVehicleTypes(1 << 18);
+  static const SBahn = FilterVehicleTypes(1 << 19);
 
   const FilterVehicleTypes(this.value);
 

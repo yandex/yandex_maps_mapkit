@@ -77,7 +77,7 @@ extension SearchPanoramaImpl on SearchPanorama {
         '(val) => SearchPanoramasObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchPanoramasObjectMetadata')
 final class SearchPanoramasObjectMetadataImpl
-    implements SearchPanoramasObjectMetadata {
+    extends SearchPanoramasObjectMetadata {
   SearchPanoramasObjectMetadataImpl(core.List<SearchPanorama> panoramas)
       : this.fromNativePtr(_SearchPanoramasObjectMetadata_init(
             SearchPanoramaContainerExtension.toNativeVector(panoramas)));
@@ -94,7 +94,7 @@ final class SearchPanoramasObjectMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchPanoramasObjectMetadata_free.cast());
 
-  SearchPanoramasObjectMetadataImpl.fromNativePtr(this._ptr) {
+  SearchPanoramasObjectMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

@@ -5,7 +5,7 @@ part of 'way_point.dart';
     toPlatform:
         '(val) => MasstransitWayPointImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitWayPoint')
-final class MasstransitWayPointImpl implements MasstransitWayPoint {
+final class MasstransitWayPointImpl extends MasstransitWayPoint {
   MasstransitWayPointImpl(
       mapkit_geometry_point.Point position,
       mapkit_geometry_point.Point? selectedArrivalPoint,
@@ -45,7 +45,7 @@ final class MasstransitWayPointImpl implements MasstransitWayPoint {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitWayPoint_free.cast());
 
-  MasstransitWayPointImpl.fromNativePtr(this._ptr) {
+  MasstransitWayPointImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

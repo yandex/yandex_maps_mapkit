@@ -5,7 +5,7 @@ part of 'related_places.dart';
     toPlatform:
         '(val) => SearchPlaceInfoImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchPlaceInfo')
-final class SearchPlaceInfoImpl implements SearchPlaceInfo {
+final class SearchPlaceInfoImpl extends SearchPlaceInfo {
   SearchPlaceInfoImpl(
       core.String name,
       core.String? uri,
@@ -69,7 +69,7 @@ final class SearchPlaceInfoImpl implements SearchPlaceInfo {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchPlaceInfo_free.cast());
 
-  SearchPlaceInfoImpl.fromNativePtr(this._ptr) {
+  SearchPlaceInfoImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

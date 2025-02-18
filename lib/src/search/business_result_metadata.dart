@@ -32,6 +32,8 @@ abstract final class SearchBusinessResultMetadata implements ffi.Finalizable {
       SearchBusinessResultMetadataImpl(categories, chains, businessFilters,
           importantFilters, pricesCurrencies);
 
+  SearchBusinessResultMetadata._();
+
   /// List of categories (also known as rubrics) present in response.
   /// Non-empty list means that the request was treated as a 'category
   /// request' by the server (for example requests like "where to eat",

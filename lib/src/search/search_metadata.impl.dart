@@ -4,7 +4,7 @@ part of 'search_metadata.dart';
     toNative: 'SearchMetadataImpl.getNativePtr',
     toPlatform: '(val) => SearchMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchMetadata')
-final class SearchMetadataImpl implements SearchMetadata {
+final class SearchMetadataImpl extends SearchMetadata {
   SearchMetadataImpl(
       core.int found,
       search_display_type.SearchDisplayType displayType,
@@ -82,7 +82,7 @@ final class SearchMetadataImpl implements SearchMetadata {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchMetadata_free.cast());
 
-  SearchMetadataImpl.fromNativePtr(this._ptr) {
+  SearchMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

@@ -5,7 +5,7 @@ part of 'business_filter.dart';
     toPlatform:
         '(val) => SearchBusinessFilterImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessFilter')
-final class SearchBusinessFilterImpl implements SearchBusinessFilter {
+final class SearchBusinessFilterImpl extends SearchBusinessFilter {
   SearchBusinessFilterImpl(
       core.String id,
       core.String? name,
@@ -49,7 +49,7 @@ final class SearchBusinessFilterImpl implements SearchBusinessFilter {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessFilter_free.cast());
 
-  SearchBusinessFilterImpl.fromNativePtr(this._ptr) {
+  SearchBusinessFilterImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -227,7 +227,7 @@ extension SearchBusinessFilterBooleanValueImpl
         '(val) => SearchBusinessFilterEnumValueImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessFilterEnumValue')
 final class SearchBusinessFilterEnumValueImpl
-    implements SearchBusinessFilterEnumValue {
+    extends SearchBusinessFilterEnumValue {
   SearchBusinessFilterEnumValueImpl(search_feature.SearchFeatureEnumValue value,
       core.bool? selected, core.bool? disabled)
       : this.fromNativePtr(_SearchBusinessFilterEnumValue_init(
@@ -249,7 +249,7 @@ final class SearchBusinessFilterEnumValueImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessFilterEnumValue_free.cast());
 
-  SearchBusinessFilterEnumValueImpl.fromNativePtr(this._ptr) {
+  SearchBusinessFilterEnumValueImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -571,7 +571,7 @@ final SearchBusinessFilterValuesNative Function(
     toPlatform:
         '(val) => SearchFilterSetImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFilterSet')
-final class SearchFilterSetImpl implements SearchFilterSet {
+final class SearchFilterSetImpl extends SearchFilterSet {
   SearchFilterSetImpl(core.List<core.String> ids)
       : this.fromNativePtr(
             _SearchFilterSet_init(to_native.toNativeVectorString(ids)));
@@ -582,7 +582,7 @@ final class SearchFilterSetImpl implements SearchFilterSet {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchFilterSet_free.cast());
 
-  SearchFilterSetImpl.fromNativePtr(this._ptr) {
+  SearchFilterSetImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

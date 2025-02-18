@@ -4,7 +4,7 @@ part of 'feature.dart';
     toNative: 'SearchFeatureImpl.getNativePtr',
     toPlatform: '(val) => SearchFeatureImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFeature')
-final class SearchFeatureImpl implements SearchFeature {
+final class SearchFeatureImpl extends SearchFeature {
   SearchFeatureImpl(
       core.String id,
       SearchFeatureVariantValue value,
@@ -41,7 +41,7 @@ final class SearchFeatureImpl implements SearchFeature {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchFeature_free.cast());
 
-  SearchFeatureImpl.fromNativePtr(this._ptr) {
+  SearchFeatureImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -142,7 +142,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => SearchFeatureEnumValueImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFeatureEnumValue')
-final class SearchFeatureEnumValueImpl implements SearchFeatureEnumValue {
+final class SearchFeatureEnumValueImpl extends SearchFeatureEnumValue {
   SearchFeatureEnumValueImpl(core.String id, core.String name,
       core.String? imageUrlTemplate, core.List<core.String> tags)
       : this.fromNativePtr(_SearchFeatureEnumValue_init(
@@ -168,7 +168,7 @@ final class SearchFeatureEnumValueImpl implements SearchFeatureEnumValue {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchFeatureEnumValue_free.cast());
 
-  SearchFeatureEnumValueImpl.fromNativePtr(this._ptr) {
+  SearchFeatureEnumValueImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -412,7 +412,7 @@ final SearchFeatureVariantValueNative Function(
     toPlatform:
         '(val) => SearchFeatureSetImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFeatureSet')
-final class SearchFeatureSetImpl implements SearchFeatureSet {
+final class SearchFeatureSetImpl extends SearchFeatureSet {
   SearchFeatureSetImpl(core.List<core.String> ids)
       : this.fromNativePtr(
             _SearchFeatureSet_init(to_native.toNativeVectorString(ids)));
@@ -423,7 +423,7 @@ final class SearchFeatureSetImpl implements SearchFeatureSet {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchFeatureSet_free.cast());
 
-  SearchFeatureSetImpl.fromNativePtr(this._ptr) {
+  SearchFeatureSetImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -476,7 +476,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => SearchFeatureGroupImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFeatureGroup')
-final class SearchFeatureGroupImpl implements SearchFeatureGroup {
+final class SearchFeatureGroupImpl extends SearchFeatureGroup {
   SearchFeatureGroupImpl(core.String? name, core.List<core.String> ids)
       : this.fromNativePtr(_SearchFeatureGroup_init(
             to_native.toNativePtrString(name),
@@ -493,7 +493,7 @@ final class SearchFeatureGroupImpl implements SearchFeatureGroup {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchFeatureGroup_free.cast());
 
-  SearchFeatureGroupImpl.fromNativePtr(this._ptr) {
+  SearchFeatureGroupImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

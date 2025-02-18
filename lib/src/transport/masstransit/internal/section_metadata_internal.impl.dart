@@ -5,7 +5,7 @@ part of 'section_metadata_internal.dart';
     toPlatform:
         '(val) => SectionMetadataInternalImpl.fromPointer(val, needFree: false)',
     platformType: 'SectionMetadataInternal')
-final class SectionMetadataInternalImpl implements SectionMetadataInternal {
+final class SectionMetadataInternalImpl extends SectionMetadataInternal {
   SectionMetadataInternalImpl(
       transport_masstransit_route.MasstransitSectionMetadata metadata,
       core.bool isPassThroughTransportSection)
@@ -30,7 +30,7 @@ final class SectionMetadataInternalImpl implements SectionMetadataInternal {
   static final _finalizer =
       ffi.NativeFinalizer(_SectionMetadataInternal_free.cast());
 
-  SectionMetadataInternalImpl.fromNativePtr(this._ptr) {
+  SectionMetadataInternalImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

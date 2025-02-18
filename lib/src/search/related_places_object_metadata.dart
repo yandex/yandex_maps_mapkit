@@ -27,6 +27,8 @@ abstract final class SearchRelatedPlacesObjectMetadata
           core.List<search_related_places.SearchPlaceInfo> similarPlaces) =>
       SearchRelatedPlacesObjectMetadataImpl(similarPlaces);
 
+  SearchRelatedPlacesObjectMetadata._();
+
   /// List of similar places.
   core.List<search_related_places.SearchPlaceInfo> get similarPlaces;
 

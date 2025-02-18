@@ -6,7 +6,7 @@ part of 'business_result_metadata.dart';
         '(val) => SearchBusinessResultMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessResultMetadata')
 final class SearchBusinessResultMetadataImpl
-    implements SearchBusinessResultMetadata {
+    extends SearchBusinessResultMetadata {
   SearchBusinessResultMetadataImpl(
       core.List<search_category.SearchCategory> categories,
       core.List<search_chain.SearchChain> chains,
@@ -48,7 +48,7 @@ final class SearchBusinessResultMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessResultMetadata_free.cast());
 
-  SearchBusinessResultMetadataImpl.fromNativePtr(this._ptr) {
+  SearchBusinessResultMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

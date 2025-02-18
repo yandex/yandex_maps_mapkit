@@ -43,7 +43,7 @@ extension SearchClosedImpl on SearchClosed {
     toPlatform:
         '(val) => SearchPropertiesImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchProperties')
-final class SearchPropertiesImpl implements SearchProperties {
+final class SearchPropertiesImpl extends SearchProperties {
   SearchPropertiesImpl(core.List<SearchPropertiesItem> items)
       : this.fromNativePtr(_SearchProperties_init(
             SearchPropertiesItemContainerExtension.toNativeVector(items)));
@@ -55,7 +55,7 @@ final class SearchPropertiesImpl implements SearchProperties {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchProperties_free.cast());
 
-  SearchPropertiesImpl.fromNativePtr(this._ptr) {
+  SearchPropertiesImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -166,7 +166,7 @@ extension SearchPropertiesItemImpl on SearchPropertiesItem {
         '(val) => SearchBusinessObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessObjectMetadata')
 final class SearchBusinessObjectMetadataImpl
-    implements SearchBusinessObjectMetadata {
+    extends SearchBusinessObjectMetadata {
   SearchBusinessObjectMetadataImpl(
       core.String oid,
       core.String name,
@@ -285,7 +285,7 @@ final class SearchBusinessObjectMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessObjectMetadata_free.cast());
 
-  SearchBusinessObjectMetadataImpl.fromNativePtr(this._ptr) {
+  SearchBusinessObjectMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

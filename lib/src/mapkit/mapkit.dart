@@ -137,6 +137,20 @@ abstract class MapKit implements ffi.Finalizable {
     required core.double customScaleFactor,
   });
 
+  /// Creates an OffscreenMapWindow
+  mapkit_map_map_window.OffscreenMapWindow createOffscreenMapWindow({
+    required core.int width,
+    required core.int height,
+  });
+
+  /// Creates an OffscreenMapWindow with custom scale factor The scale
+  /// factor is equal to the number of pixels per device-independent point.
+  mapkit_map_map_window.OffscreenMapWindow createOffscreenMapWindowWithScale({
+    required core.int width,
+    required core.int height,
+    required core.double customScaleFactor,
+  });
+
   /// Creates the traffic layer.
   mapkit_traffic_traffic_layer.TrafficLayer createTrafficLayer(
       mapkit_map_map_window.MapWindow mapWindow);

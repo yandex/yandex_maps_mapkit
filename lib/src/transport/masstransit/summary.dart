@@ -28,6 +28,8 @@ abstract final class MasstransitSummary implements ffi.Finalizable {
           transport_masstransit_flags.MasstransitFlags? flags) =>
       MasstransitSummaryImpl(weight, estimation, flags);
 
+  MasstransitSummary._();
+
   /// Contains the route time, distance of the walking part, and the number
   /// of transfers.
   transport_masstransit_weight.MasstransitWeight get weight;

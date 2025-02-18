@@ -67,6 +67,8 @@ abstract final class PanoramaTileLevel implements ffi.Finalizable {
   factory PanoramaTileLevel(core.int level, PanoramaImageSize imageSize) =>
       PanoramaTileLevelImpl(level, imageSize);
 
+  PanoramaTileLevel._();
+
   /// level is passed as a parameter to the TileImageFactory or to the
   /// TileUrlProvider. Each panorama description tile level must have
   /// unique value.
@@ -133,6 +135,8 @@ abstract final class PanoramaTextMarker implements ffi.Finalizable {
           core.String fullLabel) =>
       PanoramaTextMarkerImpl(angularPosition, shortLabel, fullLabel);
 
+  PanoramaTextMarker._();
+
   /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
 
@@ -171,6 +175,8 @@ abstract final class PanoramaCompanyMarker implements ffi.Finalizable {
           core.String iconId,
           core.String permalink) =>
       PanoramaCompanyMarkerImpl(angularPosition, label, iconId, permalink);
+
+  PanoramaCompanyMarker._();
 
   /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
@@ -213,6 +219,8 @@ abstract final class PanoramaIconMarker implements ffi.Finalizable {
           core.String iconId) =>
       PanoramaIconMarkerImpl(angularPosition, iconId);
 
+  PanoramaIconMarker._();
+
   /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
 
@@ -243,6 +251,8 @@ abstract final class PanoramaIconConnection implements ffi.Finalizable {
           core.String iconId,
           core.String panoramaId) =>
       PanoramaIconConnectionImpl(angularPosition, iconId, panoramaId);
+
+  PanoramaIconConnection._();
 
   /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
@@ -283,6 +293,8 @@ abstract final class PanoramaArrowConnection implements ffi.Finalizable {
           core.String panoramaId) =>
       PanoramaArrowConnectionImpl(
           angularPosition, label, arrowStyle, panoramaId);
+
+  PanoramaArrowConnection._();
 
   /// Angular position, degrees. (bearing, tilt) (0, 0) - (north, horizon)
   mapkit_geometry_direction.Direction get angularPosition;
@@ -396,6 +408,8 @@ abstract final class PanoramaDescription implements ffi.Finalizable {
           direction,
           span,
           attribution);
+
+  PanoramaDescription._();
 
   /// panoramaId is passed as a parameter to the TileImageFactory or to the
   /// TileUrlProvider

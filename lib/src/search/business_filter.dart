@@ -44,6 +44,8 @@ abstract final class SearchBusinessFilter implements ffi.Finalizable {
       SearchBusinessFilterImpl(
           id, name, disabled, iconLight, iconDark, singleSelect, values);
 
+  SearchBusinessFilter._();
+
   /// Filter id.
   core.String get id;
 
@@ -129,6 +131,8 @@ abstract final class SearchBusinessFilterEnumValue implements ffi.Finalizable {
           core.bool? selected,
           core.bool? disabled) =>
       SearchBusinessFilterEnumValueImpl(value, selected, disabled);
+
+  SearchBusinessFilterEnumValue._();
 
   /// Filter value. Set in server response for selected filters.
   search_feature.SearchFeatureEnumValue get value;
@@ -299,6 +303,8 @@ final class SearchBusinessFilterValues {
 abstract final class SearchFilterSet implements ffi.Finalizable {
   factory SearchFilterSet(core.List<core.String> ids) =>
       SearchFilterSetImpl(ids);
+
+  SearchFilterSet._();
 
   /// IDs for filters in the collection.
   core.List<core.String> get ids;

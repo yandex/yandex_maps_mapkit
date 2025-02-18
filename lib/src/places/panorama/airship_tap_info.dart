@@ -27,6 +27,8 @@ abstract final class AirshipTapInfo extends mapkit_base_metadata.BaseMetadata
   factory AirshipTapInfo(core.String panoramaId) =>
       AirshipTapInfoImpl(panoramaId);
 
+  AirshipTapInfo._();
+
   /// Panorama id of the tapped airship. The id may be used to open
   /// panorama in the panorama player
   core.String get panoramaId;

@@ -82,7 +82,7 @@ extension DrivingLaneKindImpl on DrivingLaneKind {
     toNative: 'DrivingLaneImpl.getNativePtr',
     toPlatform: '(val) => DrivingLaneImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingLane')
-final class DrivingLaneImpl implements DrivingLane {
+final class DrivingLaneImpl extends DrivingLane {
   DrivingLaneImpl(
       DrivingLaneKind laneKind,
       core.List<DrivingLaneDirection> directions,
@@ -106,7 +106,7 @@ final class DrivingLaneImpl implements DrivingLane {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_DrivingLane_free.cast());
 
-  DrivingLaneImpl.fromNativePtr(this._ptr) {
+  DrivingLaneImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -174,7 +174,7 @@ final ffi.Pointer<ffi.Void> Function(
     toPlatform:
         '(val) => DrivingLaneSignImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingLaneSign')
-final class DrivingLaneSignImpl implements DrivingLaneSign {
+final class DrivingLaneSignImpl extends DrivingLaneSign {
   DrivingLaneSignImpl(mapkit_geometry_geometry.PolylinePosition position,
       core.bool? annotated, core.List<DrivingLane> lanes)
       : this.fromNativePtr(_DrivingLaneSign_init(
@@ -196,7 +196,7 @@ final class DrivingLaneSignImpl implements DrivingLaneSign {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_DrivingLaneSign_free.cast());
 
-  DrivingLaneSignImpl.fromNativePtr(this._ptr) {
+  DrivingLaneSignImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

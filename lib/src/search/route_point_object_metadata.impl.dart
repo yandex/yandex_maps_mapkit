@@ -4,7 +4,7 @@ part of 'route_point_object_metadata.dart';
     toNative: 'SearchEntranceImpl.getNativePtr',
     toPlatform: '(val) => SearchEntranceImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchEntrance')
-final class SearchEntranceImpl implements SearchEntrance {
+final class SearchEntranceImpl extends SearchEntrance {
   SearchEntranceImpl(core.String? name, mapkit_geometry_point.Point point,
       mapkit_geometry_direction.Direction? direction)
       : this.fromNativePtr(_SearchEntrance_init(
@@ -25,7 +25,7 @@ final class SearchEntranceImpl implements SearchEntrance {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchEntrance_free.cast());
 
-  SearchEntranceImpl.fromNativePtr(this._ptr) {
+  SearchEntranceImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -97,7 +97,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => SearchParkingAttributesImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchParkingAttributes')
-final class SearchParkingAttributesImpl implements SearchParkingAttributes {
+final class SearchParkingAttributesImpl extends SearchParkingAttributes {
   SearchParkingAttributesImpl(core.String? orgURI,
       mapkit_money.TaxiMoney? firstHourPrice, core.int? placesCount)
       : this.fromNativePtr(_SearchParkingAttributes_init(
@@ -119,7 +119,7 @@ final class SearchParkingAttributesImpl implements SearchParkingAttributes {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchParkingAttributes_free.cast());
 
-  SearchParkingAttributesImpl.fromNativePtr(this._ptr) {
+  SearchParkingAttributesImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

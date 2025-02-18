@@ -5,7 +5,7 @@ part of 'subtitle.dart';
     toPlatform:
         '(val) => SearchSubtitleItemImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchSubtitleItem')
-final class SearchSubtitleItemImpl implements SearchSubtitleItem {
+final class SearchSubtitleItemImpl extends SearchSubtitleItem {
   SearchSubtitleItemImpl(core.String type, core.String? text,
       core.List<runtime_key_value_pair.KeyValuePair> properties)
       : this.fromNativePtr(_SearchSubtitleItem_init(
@@ -29,7 +29,7 @@ final class SearchSubtitleItemImpl implements SearchSubtitleItem {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchSubtitleItem_free.cast());
 
-  SearchSubtitleItemImpl.fromNativePtr(this._ptr) {
+  SearchSubtitleItemImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -100,7 +100,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => SearchSubtitleMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchSubtitleMetadata')
-final class SearchSubtitleMetadataImpl implements SearchSubtitleMetadata {
+final class SearchSubtitleMetadataImpl extends SearchSubtitleMetadata {
   SearchSubtitleMetadataImpl(core.List<SearchSubtitleItem> subtitleItems,
       core.List<SearchSubtitleItem> serpSubtitleItems)
       : this.fromNativePtr(_SearchSubtitleMetadata_init(
@@ -125,7 +125,7 @@ final class SearchSubtitleMetadataImpl implements SearchSubtitleMetadata {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchSubtitleMetadata_free.cast());
 
-  SearchSubtitleMetadataImpl.fromNativePtr(this._ptr) {
+  SearchSubtitleMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

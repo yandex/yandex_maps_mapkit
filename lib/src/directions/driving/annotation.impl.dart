@@ -213,7 +213,7 @@ extension DrivingAnnotationSchemeIDImpl on DrivingAnnotationSchemeID {
     toPlatform:
         '(val) => DrivingToponymPhraseImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingToponymPhrase')
-final class DrivingToponymPhraseImpl implements DrivingToponymPhrase {
+final class DrivingToponymPhraseImpl extends DrivingToponymPhrase {
   DrivingToponymPhraseImpl(core.String text)
       : this.fromNativePtr(
             _DrivingToponymPhrase_init(to_native.toNativeString(text)));
@@ -226,7 +226,7 @@ final class DrivingToponymPhraseImpl implements DrivingToponymPhrase {
   static final _finalizer =
       ffi.NativeFinalizer(_DrivingToponymPhrase_free.cast());
 
-  DrivingToponymPhraseImpl.fromNativePtr(this._ptr) {
+  DrivingToponymPhraseImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -281,7 +281,7 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => DrivingAnnotationImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingAnnotation')
-final class DrivingAnnotationImpl implements DrivingAnnotation {
+final class DrivingAnnotationImpl extends DrivingAnnotation {
   DrivingAnnotationImpl(
       directions_driving_action.DrivingAction? action,
       core.String? toponym,
@@ -321,7 +321,7 @@ final class DrivingAnnotationImpl implements DrivingAnnotation {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_DrivingAnnotation_free.cast());
 
-  DrivingAnnotationImpl.fromNativePtr(this._ptr) {
+  DrivingAnnotationImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

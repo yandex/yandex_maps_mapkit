@@ -17,6 +17,8 @@ abstract final class MasstransitRestrictedEntry implements ffi.Finalizable {
   factory MasstransitRestrictedEntry(core.int position) =>
       MasstransitRestrictedEntryImpl(position);
 
+  MasstransitRestrictedEntry._();
+
   /// Index of the point in the section geometry.
   core.int get position;
 
@@ -42,6 +44,8 @@ abstract final class RestrictedEntriesContainer implements ffi.Finalizable {
   factory RestrictedEntriesContainer(
           core.List<MasstransitRestrictedEntry> entries) =>
       RestrictedEntriesContainerImpl(entries);
+
+  RestrictedEntriesContainer._();
 
   /// Vector of points on a pedestrian path.
   core.List<MasstransitRestrictedEntry> get entries;

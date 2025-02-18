@@ -5,7 +5,7 @@ part of 'references_object_metadata.dart';
     toPlatform:
         '(val) => SearchReferenceTypeImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchReferenceType')
-final class SearchReferenceTypeImpl implements SearchReferenceType {
+final class SearchReferenceTypeImpl extends SearchReferenceType {
   SearchReferenceTypeImpl(core.String id, core.String scope)
       : this.fromNativePtr(_SearchReferenceType_init(
             to_native.toNativeString(id), to_native.toNativeString(scope)));
@@ -21,7 +21,7 @@ final class SearchReferenceTypeImpl implements SearchReferenceType {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchReferenceType_free.cast());
 
-  SearchReferenceTypeImpl.fromNativePtr(this._ptr) {
+  SearchReferenceTypeImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -86,7 +86,7 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
         '(val) => SearchReferencesObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchReferencesObjectMetadata')
 final class SearchReferencesObjectMetadataImpl
-    implements SearchReferencesObjectMetadata {
+    extends SearchReferencesObjectMetadata {
   SearchReferencesObjectMetadataImpl(core.List<SearchReferenceType> references)
       : this.fromNativePtr(_SearchReferencesObjectMetadata_init(
             SearchReferenceTypeContainerExtension.toNativeVector(references)));
@@ -104,7 +104,7 @@ final class SearchReferencesObjectMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchReferencesObjectMetadata_free.cast());
 
-  SearchReferencesObjectMetadataImpl.fromNativePtr(this._ptr) {
+  SearchReferencesObjectMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

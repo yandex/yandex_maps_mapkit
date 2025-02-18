@@ -39,6 +39,8 @@ abstract final class SearchPlaceInfo implements ffi.Finalizable {
       SearchPlaceInfoImpl(name, uri, photoUrlTemplate, logId, point, category,
           shortName, rating, workingHours, address, tag);
 
+  SearchPlaceInfo._();
+
   /// Place name.
   core.String get name;
 

@@ -22,6 +22,8 @@ abstract final class BicycleSection implements ffi.Finalizable {
           mapkit_geometry_geometry.Subpolyline geometry) =>
       BicycleSectionImpl(weight, geometry);
 
+  BicycleSection._();
+
   /// Quantitative characteristics of a route or route section.
   transport_bicycle_weight.BicycleWeight get weight;
 

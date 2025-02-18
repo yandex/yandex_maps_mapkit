@@ -63,6 +63,36 @@ enum DrivingDirectionSignImage {
 
   /// Hospital image as H
   HospitalHImage,
+
+  /// Beach image
+  BeachImage,
+
+  /// Burj Khalifa image
+  BurjKhalifaImage,
+
+  /// Gas image
+  GasImage,
+
+  /// Hotel image
+  HotelImage,
+
+  /// Kaaba image
+  KaabaImage,
+
+  /// Mall image
+  MallImage,
+
+  /// Mosque image
+  MosqueImage,
+
+  /// Subway image for UAE
+  SubwayUAEImage,
+
+  /// Tram image for UAE
+  TramUAEImage,
+
+  /// University image
+  UniversityImage,
   ;
 }
 
@@ -323,6 +353,8 @@ abstract final class DrivingDirectionSign implements ffi.Finalizable {
           DrivingDirectionSignDirection? direction,
           core.List<DrivingDirectionSignItem> items) =>
       DrivingDirectionSignImpl(position, direction, items);
+
+  DrivingDirectionSign._();
 
   /// The position of the sign.
   mapkit_geometry_geometry.PolylinePosition get position;

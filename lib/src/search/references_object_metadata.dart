@@ -27,6 +27,8 @@ abstract final class SearchReferenceType implements ffi.Finalizable {
   factory SearchReferenceType(core.String id, core.String scope) =>
       SearchReferenceTypeImpl(id, scope);
 
+  SearchReferenceType._();
+
   /// Reference ID.
   core.String get id;
 
@@ -56,6 +58,8 @@ abstract final class SearchReferencesObjectMetadata
   factory SearchReferencesObjectMetadata(
           core.List<SearchReferenceType> references) =>
       SearchReferencesObjectMetadataImpl(references);
+
+  SearchReferencesObjectMetadata._();
 
   /// The  list of references.
   core.List<SearchReferenceType> get references;

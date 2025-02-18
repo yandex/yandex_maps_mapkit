@@ -5,7 +5,7 @@ part of 'intermediate_points.dart';
     toPlatform:
         '(val) => BicycleViaPointImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleViaPoint')
-final class BicycleViaPointImpl implements BicycleViaPoint {
+final class BicycleViaPointImpl extends BicycleViaPoint {
   BicycleViaPointImpl(mapkit_geometry_geometry.PolylinePosition position)
       : this.fromNativePtr(_BicycleViaPoint_init(
             mapkit_geometry_geometry.PolylinePositionImpl.toNative(position)));
@@ -18,7 +18,7 @@ final class BicycleViaPointImpl implements BicycleViaPoint {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_BicycleViaPoint_free.cast());
 
-  BicycleViaPointImpl.fromNativePtr(this._ptr) {
+  BicycleViaPointImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -75,7 +75,7 @@ final mapkit_geometry_geometry.PolylinePositionNative Function(
     toPlatform:
         '(val) => BicycleWayPointImpl.fromPointer(val, needFree: false)',
     platformType: 'BicycleWayPoint')
-final class BicycleWayPointImpl implements BicycleWayPoint {
+final class BicycleWayPointImpl extends BicycleWayPoint {
   BicycleWayPointImpl(mapkit_geometry_point.Point position,
       mapkit_geometry_point.Point? selectedArrivalPoint)
       : this.fromNativePtr(_BicycleWayPoint_init(
@@ -92,7 +92,7 @@ final class BicycleWayPointImpl implements BicycleWayPoint {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_BicycleWayPoint_free.cast());
 
-  BicycleWayPointImpl.fromNativePtr(this._ptr) {
+  BicycleWayPointImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

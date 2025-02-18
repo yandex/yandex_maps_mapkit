@@ -41,6 +41,8 @@ abstract final class SearchFeature implements ffi.Finalizable {
           mapkit_image.Image? iconDark) =>
       SearchFeatureImpl(id, value, name, aref, iconLight, iconDark);
 
+  SearchFeature._();
+
   /// Machine readable feature identifier.
   core.String get id;
 
@@ -86,6 +88,8 @@ abstract final class SearchFeatureEnumValue implements ffi.Finalizable {
   factory SearchFeatureEnumValue(core.String id, core.String name,
           core.String? imageUrlTemplate, core.List<core.String> tags) =>
       SearchFeatureEnumValueImpl(id, name, imageUrlTemplate, tags);
+
+  SearchFeatureEnumValue._();
 
   /// Machine readable value identifier.
   core.String get id;
@@ -206,6 +210,8 @@ abstract final class SearchFeatureSet implements ffi.Finalizable {
   factory SearchFeatureSet(core.List<core.String> ids) =>
       SearchFeatureSetImpl(ids);
 
+  SearchFeatureSet._();
+
   /// IDs for features in the collection.
   core.List<core.String> get ids;
 
@@ -230,6 +236,8 @@ abstract final class SearchFeatureSet implements ffi.Finalizable {
 abstract final class SearchFeatureGroup implements ffi.Finalizable {
   factory SearchFeatureGroup(core.String? name, core.List<core.String> ids) =>
       SearchFeatureGroupImpl(name, ids);
+
+  SearchFeatureGroup._();
 
   /// Group name.
   ///

@@ -132,6 +132,8 @@ abstract final class DrivingToponymPhrase implements ffi.Finalizable {
   factory DrivingToponymPhrase(core.String text) =>
       DrivingToponymPhraseImpl(text);
 
+  DrivingToponymPhrase._();
+
   /// The string containing the description.
   core.String get text;
 
@@ -163,6 +165,8 @@ abstract final class DrivingAnnotation implements ffi.Finalizable {
           DrivingToponymPhrase? toponymPhrase) =>
       DrivingAnnotationImpl(action, toponym, descriptionText, actionMetadata,
           landmarks, toponymPhrase);
+
+  DrivingAnnotation._();
 
   /// Driver action.
   ///

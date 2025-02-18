@@ -5,7 +5,7 @@ part of 'thread.dart';
     toPlatform:
         '(val) => MasstransitThreadStopImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitThreadStop')
-final class MasstransitThreadStopImpl implements MasstransitThreadStop {
+final class MasstransitThreadStopImpl extends MasstransitThreadStop {
   MasstransitThreadStopImpl(transport_masstransit_common.MasstransitStop stop,
       mapkit_geometry_point.Point position)
       : this.fromNativePtr(_MasstransitThreadStop_init(
@@ -24,7 +24,7 @@ final class MasstransitThreadStopImpl implements MasstransitThreadStop {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitThreadStop_free.cast());
 
-  MasstransitThreadStopImpl.fromNativePtr(this._ptr) {
+  MasstransitThreadStopImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

@@ -20,6 +20,8 @@ abstract final class BicycleRestrictedEntry implements ffi.Finalizable {
           mapkit_geometry_geometry.PolylinePosition position) =>
       BicycleRestrictedEntryImpl(position);
 
+  BicycleRestrictedEntry._();
+
   /// Entry position on the route polyline.
   mapkit_geometry_geometry.PolylinePosition get position;
 

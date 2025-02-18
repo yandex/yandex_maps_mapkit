@@ -30,6 +30,8 @@ abstract final class SearchShowtime implements ffi.Finalizable {
           mapkit_money.TaxiMoney? price, core.String? ticketId) =>
       SearchShowtimeImpl(startTime, price, ticketId);
 
+  SearchShowtime._();
+
   /// Session start time.
   mapkit_time.Time get startTime;
 
@@ -66,6 +68,8 @@ abstract final class SearchShowtimesObjectMetadata
   factory SearchShowtimesObjectMetadata(
           core.String title, core.List<SearchShowtime> showtimes) =>
       SearchShowtimesObjectMetadataImpl(title, showtimes);
+
+  SearchShowtimesObjectMetadata._();
 
   /// Event title.
   core.String get title;

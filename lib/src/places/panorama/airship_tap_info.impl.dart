@@ -4,7 +4,7 @@ part of 'airship_tap_info.dart';
     toNative: 'AirshipTapInfoImpl.getNativePtr',
     toPlatform: '(val) => AirshipTapInfoImpl.fromPointer(val, needFree: false)',
     platformType: 'AirshipTapInfo')
-final class AirshipTapInfoImpl implements AirshipTapInfo {
+final class AirshipTapInfoImpl extends AirshipTapInfo {
   AirshipTapInfoImpl(core.String panoramaId)
       : this.fromNativePtr(
             _AirshipTapInfo_init(to_native.toNativeString(panoramaId)));
@@ -19,7 +19,7 @@ final class AirshipTapInfoImpl implements AirshipTapInfo {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_AirshipTapInfo_free.cast());
 
-  AirshipTapInfoImpl.fromNativePtr(this._ptr) {
+  AirshipTapInfoImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

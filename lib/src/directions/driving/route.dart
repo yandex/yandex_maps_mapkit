@@ -132,6 +132,8 @@ abstract final class DrivingSectionMetadata implements ffi.Finalizable {
       DrivingSectionMetadataImpl(
           legIndex, weight, annotation, viaPointPositions);
 
+  DrivingSectionMetadata._();
+
   /// A leg is a section of the route between two consecutive waypoints.
   core.int get legIndex;
 
@@ -173,6 +175,8 @@ abstract final class DrivingRoutePoint implements ffi.Finalizable {
           mapkit_geometry_point.Point? selectedArrivalPoint) =>
       DrivingRoutePointImpl(position, selectedArrivalPoint);
 
+  DrivingRoutePoint._();
+
   /// Position of original route point.
   mapkit_geometry_point.Point get position;
 
@@ -211,6 +215,8 @@ abstract final class DrivingRouteMetadata
               nonAvoidedFeatures) =>
       DrivingRouteMetadataImpl(
           weight, flags, routePoints, uri, nonAvoidedFeatures);
+
+  DrivingRouteMetadata._();
 
   /// Route "weight".
   directions_driving_weight.DrivingWeight get weight;
@@ -262,6 +268,8 @@ abstract final class DrivingSection implements ffi.Finalizable {
           mapkit_geometry_geometry.Subpolyline geometry) =>
       DrivingSectionImpl(metadata, geometry);
 
+  DrivingSection._();
+
   /// Metadata information for the route section.
   DrivingSectionMetadata get metadata;
 
@@ -305,6 +313,8 @@ abstract final class DrivingEvent implements ffi.Finalizable {
           core.double? speedLimit) =>
       DrivingEventImpl(polylinePosition, eventId, descriptionText, tags,
           location, speedLimit);
+
+  DrivingEvent._();
 
   /// The position of the polyline.
   mapkit_geometry_geometry.PolylinePosition get polylinePosition;

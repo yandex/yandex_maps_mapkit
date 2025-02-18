@@ -78,6 +78,8 @@ abstract final class MasstransitAnnotation implements ffi.Finalizable {
           MasstransitToponym? toponym) =>
       MasstransitAnnotationImpl(position, action, landmark, toponym);
 
+  MasstransitAnnotation._();
+
   /// Position of annotation on part of route
   mapkit_geometry_geometry.PolylinePosition get position;
 

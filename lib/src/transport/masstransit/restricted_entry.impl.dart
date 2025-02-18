@@ -5,8 +5,7 @@ part of 'restricted_entry.dart';
     toPlatform:
         '(val) => MasstransitRestrictedEntryImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitRestrictedEntry')
-final class MasstransitRestrictedEntryImpl
-    implements MasstransitRestrictedEntry {
+final class MasstransitRestrictedEntryImpl extends MasstransitRestrictedEntry {
   MasstransitRestrictedEntryImpl(core.int position)
       : this.fromNativePtr(_MasstransitRestrictedEntry_init(position));
 
@@ -17,7 +16,7 @@ final class MasstransitRestrictedEntryImpl
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitRestrictedEntry_free.cast());
 
-  MasstransitRestrictedEntryImpl.fromNativePtr(this._ptr) {
+  MasstransitRestrictedEntryImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -72,8 +71,7 @@ final core.int Function(
     toPlatform:
         '(val) => RestrictedEntriesContainerImpl.fromPointer(val, needFree: false)',
     platformType: 'RestrictedEntriesContainer')
-final class RestrictedEntriesContainerImpl
-    implements RestrictedEntriesContainer {
+final class RestrictedEntriesContainerImpl extends RestrictedEntriesContainer {
   RestrictedEntriesContainerImpl(core.List<MasstransitRestrictedEntry> entries)
       : this.fromNativePtr(_RestrictedEntriesContainer_init(
             MasstransitRestrictedEntryContainerExtension.toNativeVector(
@@ -88,7 +86,7 @@ final class RestrictedEntriesContainerImpl
   static final _finalizer =
       ffi.NativeFinalizer(_RestrictedEntriesContainer_free.cast());
 
-  RestrictedEntriesContainerImpl.fromNativePtr(this._ptr) {
+  RestrictedEntriesContainerImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

@@ -30,6 +30,8 @@ abstract final class SearchSubtitleItem implements ffi.Finalizable {
           core.List<runtime_key_value_pair.KeyValuePair> properties) =>
       SearchSubtitleItemImpl(type, text, properties);
 
+  SearchSubtitleItem._();
+
   /// Subtitle type. For example, "exchange".
   core.String get type;
 
@@ -67,6 +69,8 @@ abstract final class SearchSubtitleMetadata
   factory SearchSubtitleMetadata(core.List<SearchSubtitleItem> subtitleItems,
           core.List<SearchSubtitleItem> serpSubtitleItems) =>
       SearchSubtitleMetadataImpl(subtitleItems, serpSubtitleItems);
+
+  SearchSubtitleMetadata._();
 
   /// List of subtitles.
   core.List<SearchSubtitleItem> get subtitleItems;

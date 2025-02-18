@@ -6,7 +6,7 @@ part of 'toponym_result_metadata.dart';
         '(val) => SearchToponymResultMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchToponymResultMetadata')
 final class SearchToponymResultMetadataImpl
-    implements SearchToponymResultMetadata {
+    extends SearchToponymResultMetadata {
   SearchToponymResultMetadataImpl(
       core.int found,
       SearchToponymResultMetadataResponseInfo? responseInfo,
@@ -34,7 +34,7 @@ final class SearchToponymResultMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchToponymResultMetadata_free.cast());
 
-  SearchToponymResultMetadataImpl.fromNativePtr(this._ptr) {
+  SearchToponymResultMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

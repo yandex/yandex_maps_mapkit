@@ -4,7 +4,7 @@ part of 'suggest_response.dart';
     toNative: 'SuggestItemImpl.getNativePtr',
     toPlatform: '(val) => SuggestItemImpl.fromPointer(val, needFree: false)',
     platformType: 'SuggestItem')
-final class SuggestItemImpl implements SuggestItem {
+final class SuggestItemImpl extends SuggestItem {
   SuggestItemImpl(
       SuggestItemType type,
       mapkit_spannable_string.SpannableString title,
@@ -95,7 +95,7 @@ final class SuggestItemImpl implements SuggestItem {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SuggestItem_free.cast());
 
-  SuggestItemImpl.fromNativePtr(this._ptr) {
+  SuggestItemImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -400,7 +400,7 @@ extension SuggestItemBusinessContextImpl on SuggestItemBusinessContext {
     toPlatform:
         '(val) => SuggestResponseImpl.fromPointer(val, needFree: false)',
     platformType: 'SuggestResponse')
-final class SuggestResponseImpl implements SuggestResponse {
+final class SuggestResponseImpl extends SuggestResponse {
   SuggestResponseImpl(core.List<SuggestItem> items)
       : this.fromNativePtr(_SuggestResponse_init(
             SuggestItemContainerExtension.toNativeVector(items)));
@@ -412,7 +412,7 @@ final class SuggestResponseImpl implements SuggestResponse {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SuggestResponse_free.cast());
 
-  SuggestResponseImpl.fromNativePtr(this._ptr) {
+  SuggestResponseImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

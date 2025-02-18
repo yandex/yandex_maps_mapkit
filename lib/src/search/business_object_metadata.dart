@@ -52,6 +52,8 @@ abstract final class SearchProperties implements ffi.Finalizable {
   factory SearchProperties(core.List<SearchPropertiesItem> items) =>
       SearchPropertiesImpl(items);
 
+  SearchProperties._();
+
   /// Property list.
   core.List<SearchPropertiesItem> get items;
 
@@ -146,6 +148,8 @@ abstract final class SearchBusinessObjectMetadata
           properties,
           featureGroups,
           indoorLevel);
+
+  SearchBusinessObjectMetadata._();
 
   /// Permanent company id.
   core.String get oid;

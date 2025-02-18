@@ -105,7 +105,7 @@ extension SearchDayGroupImpl on SearchDayGroup {
     toPlatform:
         '(val) => SearchAvailabilityImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchAvailability')
-final class SearchAvailabilityImpl implements SearchAvailability {
+final class SearchAvailabilityImpl extends SearchAvailability {
   SearchAvailabilityImpl(
       SearchDayGroup days, core.List<SearchTimeRange> timeRanges)
       : this.fromNativePtr(_SearchAvailability_init(
@@ -123,7 +123,7 @@ final class SearchAvailabilityImpl implements SearchAvailability {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchAvailability_free.cast());
 
-  SearchAvailabilityImpl.fromNativePtr(this._ptr) {
+  SearchAvailabilityImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

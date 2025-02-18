@@ -73,7 +73,7 @@ extension DrivingSummaryImpl on DrivingSummary {
     toPlatform:
         '(val) => DrivingSectionMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingSectionMetadata')
-final class DrivingSectionMetadataImpl implements DrivingSectionMetadata {
+final class DrivingSectionMetadataImpl extends DrivingSectionMetadata {
   DrivingSectionMetadataImpl(
       core.int legIndex,
       directions_driving_weight.DrivingWeight weight,
@@ -103,7 +103,7 @@ final class DrivingSectionMetadataImpl implements DrivingSectionMetadata {
   static final _finalizer =
       ffi.NativeFinalizer(_DrivingSectionMetadata_free.cast());
 
-  DrivingSectionMetadataImpl.fromNativePtr(this._ptr) {
+  DrivingSectionMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -191,7 +191,7 @@ final ffi.Pointer<ffi.Void> Function(
     toPlatform:
         '(val) => DrivingRoutePointImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingRoutePoint')
-final class DrivingRoutePointImpl implements DrivingRoutePoint {
+final class DrivingRoutePointImpl extends DrivingRoutePoint {
   DrivingRoutePointImpl(mapkit_geometry_point.Point position,
       mapkit_geometry_point.Point? selectedArrivalPoint)
       : this.fromNativePtr(_DrivingRoutePoint_init(
@@ -208,7 +208,7 @@ final class DrivingRoutePointImpl implements DrivingRoutePoint {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_DrivingRoutePoint_free.cast());
 
-  DrivingRoutePointImpl.fromNativePtr(this._ptr) {
+  DrivingRoutePointImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -274,7 +274,7 @@ final ffi.Pointer<ffi.Void> Function(
     toPlatform:
         '(val) => DrivingRouteMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingRouteMetadata')
-final class DrivingRouteMetadataImpl implements DrivingRouteMetadata {
+final class DrivingRouteMetadataImpl extends DrivingRouteMetadata {
   DrivingRouteMetadataImpl(
       directions_driving_weight.DrivingWeight weight,
       directions_driving_flags.DrivingFlags flags,
@@ -315,7 +315,7 @@ final class DrivingRouteMetadataImpl implements DrivingRouteMetadata {
   static final _finalizer =
       ffi.NativeFinalizer(_DrivingRouteMetadata_free.cast());
 
-  DrivingRouteMetadataImpl.fromNativePtr(this._ptr) {
+  DrivingRouteMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -463,7 +463,7 @@ final ffi.Pointer<ffi.Void> Function(
     toNative: 'DrivingSectionImpl.getNativePtr',
     toPlatform: '(val) => DrivingSectionImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingSection')
-final class DrivingSectionImpl implements DrivingSection {
+final class DrivingSectionImpl extends DrivingSection {
   DrivingSectionImpl(DrivingSectionMetadata metadata,
       mapkit_geometry_geometry.Subpolyline geometry)
       : this.fromNativePtr(_DrivingSection_init(
@@ -480,7 +480,7 @@ final class DrivingSectionImpl implements DrivingSection {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_DrivingSection_free.cast());
 
-  DrivingSectionImpl.fromNativePtr(this._ptr) {
+  DrivingSectionImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -652,7 +652,7 @@ void _DrivingConditionsListener_onConditionsOutdated(
     toNative: 'DrivingEventImpl.getNativePtr',
     toPlatform: '(val) => DrivingEventImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingEvent')
-final class DrivingEventImpl implements DrivingEvent {
+final class DrivingEventImpl extends DrivingEvent {
   DrivingEventImpl(
       mapkit_geometry_geometry.PolylinePosition polylinePosition,
       core.String eventId,
@@ -694,7 +694,7 @@ final class DrivingEventImpl implements DrivingEvent {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_DrivingEvent_free.cast());
 
-  DrivingEventImpl.fromNativePtr(this._ptr) {
+  DrivingEventImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

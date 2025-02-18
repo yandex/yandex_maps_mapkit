@@ -24,6 +24,8 @@ abstract final class MasstransitThreadStop implements ffi.Finalizable {
           mapkit_geometry_point.Point position) =>
       MasstransitThreadStopImpl(stop, position);
 
+  MasstransitThreadStop._();
+
   /// Stop on a thread.
   transport_masstransit_common.MasstransitStop get stop;
 

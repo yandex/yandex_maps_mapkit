@@ -81,6 +81,8 @@ abstract final class SearchPanoramasObjectMetadata
   factory SearchPanoramasObjectMetadata(core.List<SearchPanorama> panoramas) =>
       SearchPanoramasObjectMetadataImpl(panoramas);
 
+  SearchPanoramasObjectMetadata._();
+
   /// List of panoramas.
   core.List<SearchPanorama> get panoramas;
 

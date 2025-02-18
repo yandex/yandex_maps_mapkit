@@ -6,7 +6,7 @@ part of 'business_rating_1x_object_metadata.dart';
         '(val) => SearchBusinessRating1xObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessRating1xObjectMetadata')
 final class SearchBusinessRating1xObjectMetadataImpl
-    implements SearchBusinessRating1xObjectMetadata {
+    extends SearchBusinessRating1xObjectMetadata {
   SearchBusinessRating1xObjectMetadataImpl(
       core.int ratings, core.int reviews, core.double? score)
       : this.fromNativePtr(_SearchBusinessRating1xObjectMetadata_init(
@@ -28,7 +28,8 @@ final class SearchBusinessRating1xObjectMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessRating1xObjectMetadata_free.cast());
 
-  SearchBusinessRating1xObjectMetadataImpl.fromNativePtr(this._ptr) {
+  SearchBusinessRating1xObjectMetadataImpl.fromNativePtr(this._ptr)
+      : super._() {
     _finalizer.attach(this, _ptr);
   }
 

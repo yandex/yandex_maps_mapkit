@@ -35,6 +35,8 @@ abstract final class LocalizedPhrase implements ffi.Finalizable {
           mapkit_annotations_annotation_lang.AnnotationLanguage language) =>
       LocalizedPhraseImpl(tokens, text, language);
 
+  LocalizedPhrase._();
+
   core.List<mapkit_annotations_phrase_token.SpeakerPhraseToken> get tokens;
   core.String get text;
   mapkit_annotations_annotation_lang.AnnotationLanguage get language;

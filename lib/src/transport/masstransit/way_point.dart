@@ -32,6 +32,8 @@ abstract final class MasstransitWayPoint implements ffi.Finalizable {
       MasstransitWayPointImpl(position, selectedArrivalPoint,
           selectedDeparturePoint, context, levelId, levelName);
 
+  MasstransitWayPoint._();
+
   /// Coordinates of the original waypoint from the request.
   mapkit_geometry_point.Point get position;
 

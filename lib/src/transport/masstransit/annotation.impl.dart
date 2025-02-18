@@ -142,7 +142,7 @@ extension MasstransitToponymImpl on MasstransitToponym {
     toPlatform:
         '(val) => MasstransitAnnotationImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitAnnotation')
-final class MasstransitAnnotationImpl implements MasstransitAnnotation {
+final class MasstransitAnnotationImpl extends MasstransitAnnotation {
   MasstransitAnnotationImpl(
       mapkit_geometry_geometry.PolylinePosition position,
       MasstransitActionID? action,
@@ -172,7 +172,7 @@ final class MasstransitAnnotationImpl implements MasstransitAnnotation {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitAnnotation_free.cast());
 
-  MasstransitAnnotationImpl.fromNativePtr(this._ptr) {
+  MasstransitAnnotationImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

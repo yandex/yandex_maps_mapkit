@@ -40,6 +40,8 @@ abstract final class RoadEventsLayerTextStyle implements ffi.Finalizable {
           core.double fontSize, ui.Color color, ui.Color? outlineColor) =>
       RoadEventsLayerTextStyleImpl(fontSize, color, outlineColor);
 
+  RoadEventsLayerTextStyle._();
+
   /// Font size in device-independent pixels.
   core.double get fontSize;
 

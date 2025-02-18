@@ -65,6 +65,8 @@ abstract final class SearchMetadata extends mapkit_base_metadata.BaseMetadata
           correctedRequestText,
           requestBoundingBox);
 
+  SearchMetadata._();
+
   /// Approximate number of found objects.
   core.int get found;
 

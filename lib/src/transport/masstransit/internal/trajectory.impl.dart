@@ -5,7 +5,7 @@ part of 'trajectory.dart';
     toPlatform:
         '(val) => TrajectorySegmentMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'TrajectorySegmentMetadata')
-final class TrajectorySegmentMetadataImpl implements TrajectorySegmentMetadata {
+final class TrajectorySegmentMetadataImpl extends TrajectorySegmentMetadata {
   TrajectorySegmentMetadataImpl(core.int time, core.int duration)
       : this.fromNativePtr(_TrajectorySegmentMetadata_init(time, duration));
 
@@ -22,7 +22,7 @@ final class TrajectorySegmentMetadataImpl implements TrajectorySegmentMetadata {
   static final _finalizer =
       ffi.NativeFinalizer(_TrajectorySegmentMetadata_free.cast());
 
-  TrajectorySegmentMetadataImpl.fromNativePtr(this._ptr) {
+  TrajectorySegmentMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

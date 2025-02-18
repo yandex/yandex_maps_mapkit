@@ -28,6 +28,8 @@ abstract final class PersonalizedPoiExtraMetadataEntry
           core.String? key, core.String? value) =>
       PersonalizedPoiExtraMetadataEntryImpl(key, value);
 
+  PersonalizedPoiExtraMetadataEntry._();
+
   core.String? get key;
   core.String? get value;
 
@@ -56,6 +58,8 @@ abstract final class PersonalizedPoiExtraMetadata
   factory PersonalizedPoiExtraMetadata(
           core.List<PersonalizedPoiExtraMetadataEntry> data) =>
       PersonalizedPoiExtraMetadataImpl(data);
+
+  PersonalizedPoiExtraMetadata._();
 
   core.List<PersonalizedPoiExtraMetadataEntry> get data;
 

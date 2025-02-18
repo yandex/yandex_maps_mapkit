@@ -39,6 +39,8 @@ abstract final class SearchToponymObjectMetadata
       SearchToponymObjectMetadataImpl(
           address, precision, formerName, balloonPoint, id);
 
+  SearchToponymObjectMetadata._();
+
   /// Structured toponym address
   search_address.SearchAddress get address;
 

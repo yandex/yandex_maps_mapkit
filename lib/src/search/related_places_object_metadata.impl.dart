@@ -6,7 +6,7 @@ part of 'related_places_object_metadata.dart';
         '(val) => SearchRelatedPlacesObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchRelatedPlacesObjectMetadata')
 final class SearchRelatedPlacesObjectMetadataImpl
-    implements SearchRelatedPlacesObjectMetadata {
+    extends SearchRelatedPlacesObjectMetadata {
   SearchRelatedPlacesObjectMetadataImpl(
       core.List<search_related_places.SearchPlaceInfo> similarPlaces)
       : this.fromNativePtr(_SearchRelatedPlacesObjectMetadata_init(
@@ -26,7 +26,7 @@ final class SearchRelatedPlacesObjectMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchRelatedPlacesObjectMetadata_free.cast());
 
-  SearchRelatedPlacesObjectMetadataImpl.fromNativePtr(this._ptr) {
+  SearchRelatedPlacesObjectMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

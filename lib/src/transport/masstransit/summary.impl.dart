@@ -5,7 +5,7 @@ part of 'summary.dart';
     toPlatform:
         '(val) => MasstransitSummaryImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitSummary')
-final class MasstransitSummaryImpl implements MasstransitSummary {
+final class MasstransitSummaryImpl extends MasstransitSummary {
   MasstransitSummaryImpl(
       transport_masstransit_weight.MasstransitWeight weight,
       transport_masstransit_travel_estimation.MasstransitTravelEstimation?
@@ -34,7 +34,7 @@ final class MasstransitSummaryImpl implements MasstransitSummary {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitSummary_free.cast());
 
-  MasstransitSummaryImpl.fromNativePtr(this._ptr) {
+  MasstransitSummaryImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

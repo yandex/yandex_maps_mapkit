@@ -29,6 +29,8 @@ abstract final class SearchCurrencyExchangeType implements ffi.Finalizable {
           mapkit_money.TaxiMoney? buy, mapkit_money.TaxiMoney? sell) =>
       SearchCurrencyExchangeTypeImpl(name, buy, sell);
 
+  SearchCurrencyExchangeType._();
+
   /// ISO-4217 currency name, for example "USD" or "RUB" or "EUR".
   ///
   core.String? get name;
@@ -64,6 +66,8 @@ abstract final class SearchCurrencyExchangeMetadata
   factory SearchCurrencyExchangeMetadata(
           core.List<SearchCurrencyExchangeType> currencies) =>
       SearchCurrencyExchangeMetadataImpl(currencies);
+
+  SearchCurrencyExchangeMetadata._();
 
   /// Available currency exchange rates.
   core.List<SearchCurrencyExchangeType> get currencies;

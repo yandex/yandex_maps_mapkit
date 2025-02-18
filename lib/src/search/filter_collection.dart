@@ -28,6 +28,8 @@ abstract final class SearchFilterCollection implements ffi.Finalizable {
       SearchFilterCollectionImpl(
           booleanFilters, enumFilters, rangeFilters, dateFilters);
 
+  SearchFilterCollection._();
+
   /// List of boolean filter ids to be set.
   core.List<core.String> get booleanFilters;
 

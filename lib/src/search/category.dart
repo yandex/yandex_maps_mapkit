@@ -24,6 +24,8 @@ abstract final class SearchCategory implements ffi.Finalizable {
           core.List<core.String> tags) =>
       SearchCategoryImpl(name, categoryClass, tags);
 
+  SearchCategory._();
+
   /// Category name.
   core.String get name;
 

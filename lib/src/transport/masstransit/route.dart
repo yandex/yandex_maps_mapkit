@@ -430,6 +430,8 @@ abstract final class MasstransitElevationData implements ffi.Finalizable {
       MasstransitElevationDataImpl(totalAscent, totalDescent, steps,
           kilocalories, inclineSections, elevationSegments);
 
+  MasstransitElevationData._();
+
   /// Total ascent in meters
   mapkit_localized_value.LocalizedValue get totalAscent;
 
@@ -634,6 +636,8 @@ abstract final class MasstransitFitness implements ffi.Finalizable {
       MasstransitFitnessImpl(type, constructions, restrictedEntries, viaPoints,
           annotations, trafficTypes, elevationData, indoorSegments);
 
+  MasstransitFitness._();
+
   MasstransitFitnessType get type;
 
   /// Compressed information about constructions along the path.
@@ -708,6 +712,8 @@ abstract final class MasstransitRouteStopMetadata
           mapkit_geometry_point.Point? exitPoint) =>
       MasstransitRouteStopMetadataImpl(stop, stopExit, exitPoint);
 
+  MasstransitRouteStopMetadata._();
+
   /// Route stop information.
   transport_masstransit_common.MasstransitStop get stop;
 
@@ -748,6 +754,8 @@ abstract final class MasstransitRouteStop implements ffi.Finalizable {
           mapkit_geometry_point.Point position) =>
       MasstransitRouteStopImpl(metadata, position);
 
+  MasstransitRouteStop._();
+
   /// General information about a stop on a route and optionally about its
   /// exit
   MasstransitRouteStopMetadata get metadata;
@@ -782,6 +790,8 @@ abstract final class MasstransitTransferStop implements ffi.Finalizable {
               transports) =>
       MasstransitTransferStopImpl(routeStop, transports);
 
+  MasstransitTransferStop._();
+
   /// Stop information.
   MasstransitRouteStop get routeStop;
 
@@ -814,6 +824,8 @@ abstract final class MasstransitTransfer implements ffi.Finalizable {
           MasstransitTransferStop transferStop) =>
       MasstransitTransferImpl(constructions, transferStop);
 
+  MasstransitTransfer._();
+
   /// Compressed information about pedestrian constructions along the
   /// transfer path. [MasstransitConstructionSegment.subpolyline] fields of
   /// all segments cover the entire geometry of corresponding section".
@@ -845,6 +857,8 @@ abstract final class MasstransitTaxi implements ffi.Finalizable {
   factory MasstransitTaxi(
           core.List<mapkit_navigation_jam_segment.JamSegment> jamSegments) =>
       MasstransitTaxiImpl(jamSegments);
+
+  MasstransitTaxi._();
 
   /// Traffic conditions on the given part of route.
   core.List<mapkit_navigation_jam_segment.JamSegment> get jamSegments;
@@ -879,6 +893,8 @@ abstract final class MasstransitSectionMetadata implements ffi.Finalizable {
               estimation,
           core.int legIndex) =>
       MasstransitSectionMetadataImpl(weight, data, estimation, legIndex);
+
+  MasstransitSectionMetadata._();
 
   /// Contains the route traveling time, distance of the walking part, and
   /// the number of transfers.
@@ -1018,6 +1034,8 @@ abstract final class MasstransitRouteSettings implements ffi.Finalizable {
           core.List<core.String> acceptTypes) =>
       MasstransitRouteSettingsImpl(avoidTypes, acceptTypes);
 
+  MasstransitRouteSettings._();
+
   /// Transport types that the router avoided.
   core.List<core.String> get avoidTypes;
 
@@ -1068,6 +1086,8 @@ abstract final class MasstransitRouteMetadata
           MasstransitStairsSummary stairsSummary) =>
       MasstransitRouteMetadataImpl(weight, settings, estimation, wayPoints,
           routeId, flags, comfortTags, stairsSummary);
+
+  MasstransitRouteMetadata._();
 
   /// Contains the route time, distance of the walking part, and the number
   /// of transfers.
@@ -1144,6 +1164,8 @@ abstract final class MasstransitSection implements ffi.Finalizable {
           core.List<MasstransitRouteStop> stops,
           core.List<mapkit_geometry_geometry.Subpolyline> rideLegs) =>
       MasstransitSectionImpl(metadata, geometry, stops, rideLegs);
+
+  MasstransitSection._();
 
   /// General information about a section of a route.
   MasstransitSectionMetadata get metadata;

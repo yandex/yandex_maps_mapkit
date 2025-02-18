@@ -4,7 +4,7 @@ part of 'showtimes_object_metadata.dart';
     toNative: 'SearchShowtimeImpl.getNativePtr',
     toPlatform: '(val) => SearchShowtimeImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchShowtime')
-final class SearchShowtimeImpl implements SearchShowtime {
+final class SearchShowtimeImpl extends SearchShowtime {
   SearchShowtimeImpl(mapkit_time.Time startTime, mapkit_money.TaxiMoney? price,
       core.String? ticketId)
       : this.fromNativePtr(_SearchShowtime_init(
@@ -25,7 +25,7 @@ final class SearchShowtimeImpl implements SearchShowtime {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchShowtime_free.cast());
 
-  SearchShowtimeImpl.fromNativePtr(this._ptr) {
+  SearchShowtimeImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -95,7 +95,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
         '(val) => SearchShowtimesObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchShowtimesObjectMetadata')
 final class SearchShowtimesObjectMetadataImpl
-    implements SearchShowtimesObjectMetadata {
+    extends SearchShowtimesObjectMetadata {
   SearchShowtimesObjectMetadataImpl(
       core.String title, core.List<SearchShowtime> showtimes)
       : this.fromNativePtr(_SearchShowtimesObjectMetadata_init(
@@ -117,7 +117,7 @@ final class SearchShowtimesObjectMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchShowtimesObjectMetadata_free.cast());
 
-  SearchShowtimesObjectMetadataImpl.fromNativePtr(this._ptr) {
+  SearchShowtimesObjectMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

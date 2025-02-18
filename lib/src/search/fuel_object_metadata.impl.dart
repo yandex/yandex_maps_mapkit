@@ -4,7 +4,7 @@ part of 'fuel_object_metadata.dart';
     toNative: 'SearchFuelTypeImpl.getNativePtr',
     toPlatform: '(val) => SearchFuelTypeImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFuelType')
-final class SearchFuelTypeImpl implements SearchFuelType {
+final class SearchFuelTypeImpl extends SearchFuelType {
   SearchFuelTypeImpl(core.String? name, mapkit_money.TaxiMoney? price)
       : this.fromNativePtr(_SearchFuelType_init(
             to_native.toNativePtrString(name),
@@ -20,7 +20,7 @@ final class SearchFuelTypeImpl implements SearchFuelType {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchFuelType_free.cast());
 
-  SearchFuelTypeImpl.fromNativePtr(this._ptr) {
+  SearchFuelTypeImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -82,7 +82,7 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => SearchFuelMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFuelMetadata')
-final class SearchFuelMetadataImpl implements SearchFuelMetadata {
+final class SearchFuelMetadataImpl extends SearchFuelMetadata {
   SearchFuelMetadataImpl(core.int? timestamp, core.List<SearchFuelType> fuels,
       mapkit_attribution.Attribution? attribution)
       : this.fromNativePtr(_SearchFuelMetadata_init(
@@ -108,7 +108,7 @@ final class SearchFuelMetadataImpl implements SearchFuelMetadata {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchFuelMetadata_free.cast());
 
-  SearchFuelMetadataImpl.fromNativePtr(this._ptr) {
+  SearchFuelMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

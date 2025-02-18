@@ -4,7 +4,7 @@ part of 'category.dart';
     toNative: 'SearchCategoryImpl.getNativePtr',
     toPlatform: '(val) => SearchCategoryImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchCategory')
-final class SearchCategoryImpl implements SearchCategory {
+final class SearchCategoryImpl extends SearchCategory {
   SearchCategoryImpl(
       core.String name, core.String? categoryClass, core.List<core.String> tags)
       : this.fromNativePtr(_SearchCategory_init(
@@ -24,7 +24,7 @@ final class SearchCategoryImpl implements SearchCategory {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchCategory_free.cast());
 
-  SearchCategoryImpl.fromNativePtr(this._ptr) {
+  SearchCategoryImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
