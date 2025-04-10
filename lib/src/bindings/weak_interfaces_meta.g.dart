@@ -1,3 +1,5 @@
+import 'package:yandex_maps_mapkit/src/directions/carparks/carparks_layer.dart'
+    as directions;
 import 'package:yandex_maps_mapkit/src/directions/directions.dart'
     as directions;
 import 'package:yandex_maps_mapkit/src/directions/driving/driving_router.dart'
@@ -79,6 +81,8 @@ import 'package:yandex_maps_mapkit/src/transport/transport.dart' as transport;
 
 const weakInterfacesMeta = {
   'directions.Directions': directions.DirectionsImpl.fromNativePtrImpl,
+  'directions.carparks.CarparksLayer':
+      directions.CarparksLayerImpl.fromNativePtrImpl,
   'directions.driving.TooComplexAvoidedZonesError':
       directions.DrivingTooComplexAvoidedZonesErrorImpl.fromNativePtrImpl,
   'mapkit.MapKit': mapkit.MapKitImpl.fromNativePtrImpl,

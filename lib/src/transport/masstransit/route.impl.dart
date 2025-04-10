@@ -1956,13 +1956,18 @@ final class MasstransitSectionMetadataImpl extends MasstransitSectionMetadata {
       MasstransitSectionMetadataSectionData data,
       transport_masstransit_travel_estimation.MasstransitTravelEstimation?
           estimation,
-      core.int legIndex)
+      core.int legIndex,
+      core.List<transport_masstransit_fare.MasstransitSectionPaymentOption>
+          paymentOptions)
       : this.fromNativePtr(_MasstransitSectionMetadata_init(
             transport_masstransit_weight.MasstransitWeightImpl.toNative(weight),
             MasstransitSectionMetadataSectionDataImpl.toNative(data),
             transport_masstransit_travel_estimation
                 .MasstransitTravelEstimationImpl.toPointer(estimation),
-            legIndex));
+            legIndex,
+            transport_masstransit_fare
+                    .MasstransitSectionPaymentOptionContainerExtension
+                .toNativeVector(paymentOptions)));
 
   @core.override
   late final weight =
@@ -1977,6 +1982,10 @@ final class MasstransitSectionMetadataImpl extends MasstransitSectionMetadata {
           .fromPointer(_MasstransitSectionMetadata_get_estimation(_ptr));
   @core.override
   late final legIndex = _MasstransitSectionMetadata_get_legIndex(_ptr);
+  @core.override
+  late final paymentOptions = transport_masstransit_fare
+          .MasstransitSectionPaymentOptionContainerExtension
+      .toPlatformVector(_MasstransitSectionMetadata_get_paymentOptions(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer =
@@ -2021,15 +2030,17 @@ final ffi.Pointer<ffi.Void> Function(
     transport_masstransit_weight.MasstransitWeightNative,
     MasstransitSectionMetadataSectionDataNative,
     ffi.Pointer<ffi.Void>,
-    core
-        .int) _MasstransitSectionMetadata_init = lib.library
+    core.int,
+    ffi
+        .Pointer<ffi.Void>) _MasstransitSectionMetadata_init = lib.library
     .lookup<
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(
                     transport_masstransit_weight.MasstransitWeightNative,
                     MasstransitSectionMetadataSectionDataNative,
                     ffi.Pointer<ffi.Void>,
-                    ffi.Uint32)>>(
+                    ffi.Uint32,
+                    ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitSectionMetadata_init')
     .asFunction(isLeaf: true);
 
@@ -2066,6 +2077,15 @@ final core.int Function(
     .library
     .lookup<ffi.NativeFunction<ffi.Uint32 Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitSectionMetadata_get_legIndex')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitSectionMetadata_get_paymentOptions = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitSectionMetadata_get_paymentOptions')
     .asFunction(isLeaf: true);
 
 final class _MasstransitSectionMetadataSectionDataNativeData extends ffi.Union {
@@ -2358,7 +2378,9 @@ final class MasstransitRouteMetadataImpl extends MasstransitRouteMetadata {
       core.String? routeId,
       transport_masstransit_flags.MasstransitFlags? flags,
       core.List<MasstransitComfortTag> comfortTags,
-      MasstransitStairsSummary stairsSummary)
+      MasstransitStairsSummary stairsSummary,
+      core.List<transport_masstransit_fare.MasstransitRoutePaymentOption>
+          paymentOptions)
       : this.fromNativePtr(_MasstransitRouteMetadata_init(
             transport_masstransit_weight.MasstransitWeightImpl.toNative(weight),
             MasstransitRouteSettingsImpl.getNativePtr(settings),
@@ -2370,7 +2392,10 @@ final class MasstransitRouteMetadataImpl extends MasstransitRouteMetadata {
             to_native.toNativePtrString(routeId),
             transport_masstransit_flags.MasstransitFlagsImpl.toPointer(flags),
             MasstransitComfortTagContainerExtension.toNativeVector(comfortTags),
-            MasstransitStairsSummaryImpl.toNative(stairsSummary)));
+            MasstransitStairsSummaryImpl.toNative(stairsSummary),
+            transport_masstransit_fare
+                    .MasstransitRoutePaymentOptionContainerExtension
+                .toNativeVector(paymentOptions)));
 
   @core.override
   late final weight =
@@ -2401,6 +2426,10 @@ final class MasstransitRouteMetadataImpl extends MasstransitRouteMetadata {
   @core.override
   late final stairsSummary = MasstransitStairsSummaryImpl.fromNative(
       _MasstransitRouteMetadata_get_stairsSummary(_ptr));
+  @core.override
+  late final paymentOptions =
+      transport_masstransit_fare.MasstransitRoutePaymentOptionContainerExtension
+          .toPlatformVector(_MasstransitRouteMetadata_get_paymentOptions(_ptr));
 
   @core.override
   final _MasstransitRouteMetadataFactory runtimeFactory =
@@ -2496,28 +2525,30 @@ final _MasstransitRouteMetadata_free = lib.library
         'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_free');
 
 final ffi.Pointer<ffi.Void> Function(
-        transport_masstransit_weight.MasstransitWeightNative,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        MasstransitStairsSummaryNative) _MasstransitRouteMetadata_init =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        transport_masstransit_weight.MasstransitWeightNative,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        MasstransitStairsSummaryNative)>>(
-            'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_init')
-        .asFunction(isLeaf: true);
+    transport_masstransit_weight.MasstransitWeightNative,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    MasstransitStairsSummaryNative,
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRouteMetadata_init = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(
+                    transport_masstransit_weight.MasstransitWeightNative,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    MasstransitStairsSummaryNative,
+                    ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_init')
+    .asFunction(isLeaf: true);
 
 final transport_masstransit_weight.MasstransitWeightNative Function(
     ffi
@@ -2588,6 +2619,15 @@ final MasstransitStairsSummaryNative Function(
                 MasstransitStairsSummaryNative Function(
                     ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_get_stairsSummary')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRouteMetadata_get_paymentOptions = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_get_paymentOptions')
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
@@ -2783,10 +2823,10 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)
     _MasstransitRouteJamsListener_new = lib.library
         .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(
-                    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>,
-                    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>('yandex_flutter_transport_masstransit_MasstransitRouteJamsListener_new')
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
+            'yandex_flutter_transport_masstransit_MasstransitRouteJamsListener_new')
         .asFunction(isLeaf: true);
 
 final _MasstransitRouteJamsListener_free = lib.library.lookup<

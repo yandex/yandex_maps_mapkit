@@ -39,6 +39,8 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/annotation.dart'
     as transport_masstransit_annotation;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
     as transport_masstransit_common;
+import 'package:yandex_maps_mapkit/src/transport/masstransit/fare.dart'
+    as transport_masstransit_fare;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/flags.dart'
     as transport_masstransit_flags;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/masstransit_router.dart'
@@ -891,8 +893,11 @@ abstract final class MasstransitSectionMetadata implements ffi.Finalizable {
           MasstransitSectionMetadataSectionData data,
           transport_masstransit_travel_estimation.MasstransitTravelEstimation?
               estimation,
-          core.int legIndex) =>
-      MasstransitSectionMetadataImpl(weight, data, estimation, legIndex);
+          core.int legIndex,
+          core.List<transport_masstransit_fare.MasstransitSectionPaymentOption>
+              paymentOptions) =>
+      MasstransitSectionMetadataImpl(
+          weight, data, estimation, legIndex, paymentOptions);
 
   MasstransitSectionMetadata._();
 
@@ -914,9 +919,13 @@ abstract final class MasstransitSectionMetadata implements ffi.Finalizable {
   /// route between two consecutive waypoints.
   core.int get legIndex;
 
+  /// List of payment options with prices for the current section.
+  core.List<transport_masstransit_fare.MasstransitSectionPaymentOption>
+      get paymentOptions;
+
   @core.override
   core.int get hashCode =>
-      core.Object.hashAll([weight, data, estimation, legIndex]);
+      core.Object.hashAll([weight, data, estimation, legIndex, paymentOptions]);
 
   @core.override
   core.bool operator ==(covariant MasstransitSectionMetadata other) {
@@ -926,12 +935,13 @@ abstract final class MasstransitSectionMetadata implements ffi.Finalizable {
     return weight == other.weight &&
         data == other.data &&
         estimation == other.estimation &&
-        legIndex == other.legIndex;
+        legIndex == other.legIndex &&
+        paymentOptions == other.paymentOptions;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitSectionMetadata(weight: $weight, data: $data, estimation: $estimation, legIndex: $legIndex)";
+    return "MasstransitSectionMetadata(weight: $weight, data: $data, estimation: $estimation, legIndex: $legIndex, paymentOptions: $paymentOptions)";
   }
 }
 
@@ -1083,9 +1093,11 @@ abstract final class MasstransitRouteMetadata
           core.String? routeId,
           transport_masstransit_flags.MasstransitFlags? flags,
           core.List<MasstransitComfortTag> comfortTags,
-          MasstransitStairsSummary stairsSummary) =>
+          MasstransitStairsSummary stairsSummary,
+          core.List<transport_masstransit_fare.MasstransitRoutePaymentOption>
+              paymentOptions) =>
       MasstransitRouteMetadataImpl(weight, settings, estimation, wayPoints,
-          routeId, flags, comfortTags, stairsSummary);
+          routeId, flags, comfortTags, stairsSummary, paymentOptions);
 
   MasstransitRouteMetadata._();
 
@@ -1116,6 +1128,10 @@ abstract final class MasstransitRouteMetadata
   core.List<MasstransitComfortTag> get comfortTags;
   MasstransitStairsSummary get stairsSummary;
 
+  /// List of payment options with prices for the whole route.
+  core.List<transport_masstransit_fare.MasstransitRoutePaymentOption>
+      get paymentOptions;
+
   @core.override
   core.int get hashCode => core.Object.hashAll([
         weight,
@@ -1125,7 +1141,8 @@ abstract final class MasstransitRouteMetadata
         routeId,
         flags,
         comfortTags,
-        stairsSummary
+        stairsSummary,
+        paymentOptions
       ]);
 
   @core.override
@@ -1140,12 +1157,13 @@ abstract final class MasstransitRouteMetadata
         routeId == other.routeId &&
         flags == other.flags &&
         comfortTags == other.comfortTags &&
-        stairsSummary == other.stairsSummary;
+        stairsSummary == other.stairsSummary &&
+        paymentOptions == other.paymentOptions;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitRouteMetadata(weight: $weight, settings: $settings, estimation: $estimation, wayPoints: $wayPoints, routeId: $routeId, flags: $flags, comfortTags: $comfortTags, stairsSummary: $stairsSummary)";
+    return "MasstransitRouteMetadata(weight: $weight, settings: $settings, estimation: $estimation, wayPoints: $wayPoints, routeId: $routeId, flags: $flags, comfortTags: $comfortTags, stairsSummary: $stairsSummary, paymentOptions: $paymentOptions)";
   }
 
   static final struct_factory.StructFactory<MasstransitRouteMetadata> factory =

@@ -79,16 +79,12 @@ final void Function(
 final class DrivingOptionsNative extends ffi.Struct {
   external ffi.Pointer<ffi.Void> initialAzimuth;
   external ffi.Pointer<ffi.Void> routesCount;
-  external ffi.Pointer<ffi.Void> avoidTolls;
-  external ffi.Pointer<ffi.Void> avoidUnpaved;
-  external ffi.Pointer<ffi.Void> avoidPoorConditions;
   external ffi.Pointer<ffi.Void> departureTime;
   external ffi.Pointer<ffi.Void> annotationLanguage;
+  external ffi.Pointer<ffi.Void> avoidanceFlags;
 }
 
 final DrivingOptionsNative Function(
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
@@ -98,8 +94,6 @@ final DrivingOptionsNative Function(
         .lookup<
                 ffi.NativeFunction<
                     DrivingOptionsNative Function(
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
@@ -118,27 +112,23 @@ extension DrivingOptionsImpl on DrivingOptions {
         initialAzimuth:
             to_platform.toPlatformFromPointerDouble(native.initialAzimuth),
         routesCount: to_platform.toPlatformFromPointerInt(native.routesCount),
-        avoidTolls: to_platform.toPlatformFromPointerBool(native.avoidTolls),
-        avoidUnpaved:
-            to_platform.toPlatformFromPointerBool(native.avoidUnpaved),
-        avoidPoorConditions:
-            to_platform.toPlatformFromPointerBool(native.avoidPoorConditions),
         departureTime:
             to_platform.toPlatformFromPointerAbsTimestamp(native.departureTime),
         annotationLanguage: mapkit_annotations_annotation_lang
-            .AnnotationLanguageImpl.fromPointer(native.annotationLanguage));
+            .AnnotationLanguageImpl.fromPointer(native.annotationLanguage),
+        avoidanceFlags: directions_driving_avoidance_flags
+            .DrivingAvoidanceFlagsImpl.fromPointer(native.avoidanceFlags));
   }
 
   static DrivingOptionsNative toNative(DrivingOptions obj) {
     return _DrivingOptionsNativeInit(
         to_native.toNativePtrDouble(obj.initialAzimuth),
         to_native.toNativePtrInt(obj.routesCount),
-        to_native.toNativePtrBool(obj.avoidTolls),
-        to_native.toNativePtrBool(obj.avoidUnpaved),
-        to_native.toNativePtrBool(obj.avoidPoorConditions),
         to_native.toNativePtrAbsTimestamp(obj.departureTime),
         mapkit_annotations_annotation_lang.AnnotationLanguageImpl.toPointer(
-            obj.annotationLanguage));
+            obj.annotationLanguage),
+        directions_driving_avoidance_flags.DrivingAvoidanceFlagsImpl.toPointer(
+            obj.avoidanceFlags));
   }
 
   static DrivingOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,

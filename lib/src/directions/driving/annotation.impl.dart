@@ -5,14 +5,13 @@ final class DrivingUturnMetadataNative extends ffi.Struct {
   external core.double length;
 }
 
-final DrivingUturnMetadataNative Function(
-    core
-        .double) _DrivingUturnMetadataNativeInit = lib.library
-    .lookup<
-            ffi
-            .NativeFunction<DrivingUturnMetadataNative Function(ffi.Double)>>(
-        'yandex_flutter_directions_driving_DrivingUturnMetadata_init')
-    .asFunction(isLeaf: true);
+final DrivingUturnMetadataNative Function(core.double)
+    _DrivingUturnMetadataNativeInit = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    DrivingUturnMetadataNative Function(ffi.Double)>>(
+            'yandex_flutter_directions_driving_DrivingUturnMetadata_init')
+        .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
     toNative: 'DrivingUturnMetadataImpl.toPointer',

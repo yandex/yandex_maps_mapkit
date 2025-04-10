@@ -86,8 +86,7 @@ final void Function(ffi.Pointer<ffi.Void>, core.int) _SearchSuggestSession_set =
     lib
         .library
         .lookup<
-                ffi
-                .NativeFunction<
+                ffi.NativeFunction<
                     ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int64)>>(
             'yandex_flutter_search_SearchSuggestSession_set_')
         .asFunction(isLeaf: true);
@@ -164,10 +163,10 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)
     _SearchSuggestSessionSuggestListener_new = lib.library
         .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(
-                    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>,
-                    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>('yandex_flutter_search_SuggestSession_SearchSuggestSessionSuggestListener_new')
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
+            'yandex_flutter_search_SuggestSession_SearchSuggestSessionSuggestListener_new')
         .asFunction(isLeaf: true);
 
 void _SearchSuggestSessionSuggestListener_onResponse(

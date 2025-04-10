@@ -39,10 +39,12 @@ abstract final class SearchBusinessFilter implements ffi.Finalizable {
           core.bool? disabled,
           mapkit_image.Image? iconLight,
           mapkit_image.Image? iconDark,
+          mapkit_image.Image? iconAfterLight,
+          mapkit_image.Image? iconAfterDark,
           core.bool? singleSelect,
           SearchBusinessFilterValues values) =>
-      SearchBusinessFilterImpl(
-          id, name, disabled, iconLight, iconDark, singleSelect, values);
+      SearchBusinessFilterImpl(id, name, disabled, iconLight, iconDark,
+          iconAfterLight, iconAfterDark, singleSelect, values);
 
   SearchBusinessFilter._();
 
@@ -60,6 +62,8 @@ abstract final class SearchBusinessFilter implements ffi.Finalizable {
   core.bool? get disabled;
   mapkit_image.Image? get iconLight;
   mapkit_image.Image? get iconDark;
+  mapkit_image.Image? get iconAfterLight;
+  mapkit_image.Image? get iconAfterDark;
 
   /// Only one of multiple available values should be selected.
   ///
@@ -69,8 +73,17 @@ abstract final class SearchBusinessFilter implements ffi.Finalizable {
   SearchBusinessFilterValues get values;
 
   @core.override
-  core.int get hashCode => core.Object.hashAll(
-      [id, name, disabled, iconLight, iconDark, singleSelect, values]);
+  core.int get hashCode => core.Object.hashAll([
+        id,
+        name,
+        disabled,
+        iconLight,
+        iconDark,
+        iconAfterLight,
+        iconAfterDark,
+        singleSelect,
+        values
+      ]);
 
   @core.override
   core.bool operator ==(covariant SearchBusinessFilter other) {
@@ -82,13 +95,15 @@ abstract final class SearchBusinessFilter implements ffi.Finalizable {
         disabled == other.disabled &&
         iconLight == other.iconLight &&
         iconDark == other.iconDark &&
+        iconAfterLight == other.iconAfterLight &&
+        iconAfterDark == other.iconAfterDark &&
         singleSelect == other.singleSelect &&
         values == other.values;
   }
 
   @core.override
   core.String toString() {
-    return "SearchBusinessFilter(id: $id, name: $name, disabled: $disabled, iconLight: $iconLight, iconDark: $iconDark, singleSelect: $singleSelect, values: $values)";
+    return "SearchBusinessFilter(id: $id, name: $name, disabled: $disabled, iconLight: $iconLight, iconDark: $iconDark, iconAfterLight: $iconAfterLight, iconAfterDark: $iconAfterDark, singleSelect: $singleSelect, values: $values)";
   }
 }
 

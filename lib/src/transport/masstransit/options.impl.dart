@@ -65,15 +65,13 @@ final class FitnessOptionsNative extends ffi.Struct {
   external core.bool avoidStairs;
 }
 
-final FitnessOptionsNative Function(
-    core.bool,
-    core
-        .bool) _FitnessOptionsNativeInit = lib.library
-    .lookup<
-            ffi
-            .NativeFunction<FitnessOptionsNative Function(ffi.Bool, ffi.Bool)>>(
-        'yandex_flutter_transport_masstransit_FitnessOptions_init')
-    .asFunction(isLeaf: true);
+final FitnessOptionsNative Function(core.bool, core.bool)
+    _FitnessOptionsNativeInit = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    FitnessOptionsNative Function(ffi.Bool, ffi.Bool)>>(
+            'yandex_flutter_transport_masstransit_FitnessOptions_init')
+        .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
     toNative: 'FitnessOptionsImpl.toPointer',

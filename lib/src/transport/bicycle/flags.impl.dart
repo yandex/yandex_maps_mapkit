@@ -7,15 +7,13 @@ final class BicycleFlagsNative extends ffi.Struct {
   external core.bool hasAutoRoad;
 }
 
-final BicycleFlagsNative Function(
-    core.bool,
-    core
-        .bool) _BicycleFlagsNativeInit = lib.library
-    .lookup<
-            ffi
-            .NativeFunction<BicycleFlagsNative Function(ffi.Bool, ffi.Bool)>>(
-        'yandex_flutter_transport_bicycle_BicycleFlags_init')
-    .asFunction(isLeaf: true);
+final BicycleFlagsNative Function(core.bool, core.bool)
+    _BicycleFlagsNativeInit = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    BicycleFlagsNative Function(ffi.Bool, ffi.Bool)>>(
+            'yandex_flutter_transport_bicycle_BicycleFlags_init')
+        .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
     toNative: 'BicycleFlagsImpl.toPointer',

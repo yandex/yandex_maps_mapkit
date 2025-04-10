@@ -46,6 +46,15 @@ class DirectionsImpl implements Directions, ffi.Finalizable {
     return DirectionsImpl.fromNativePtr(ptr);
   }
 
+  directions_carparks_carparks_layer.CarparksLayer createCarparksLayer(
+      mapkit_map_map_window.MapWindow mapWindow) {
+    final result = _Directions_createCarparksLayer(
+        ptr, mapkit_map_map_window.MapWindowImpl.getNativePtr(mapWindow));
+    exception.checkCallResult();
+    return directions_carparks_carparks_layer.CarparksLayerImpl.fromNativePtr(
+        result);
+  }
+
   directions_driving_driving_router.DrivingRouter createDrivingRouter(
       directions_driving_driving_router.DrivingRouterType type) {
     final result = _Directions_createDrivingRouter(ptr,
@@ -64,6 +73,15 @@ final core.bool Function(ffi.Pointer<ffi.Void>) _Directions_check = lib.library
         'yandex_flutter_directions_Directions_check')
     .asFunction(isLeaf: true);
 
+final ffi.Pointer<ffi.Void> Function(
+        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
+    _Directions_createCarparksLayer = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_directions_Directions_createCarparksLayer')
+        .asFunction();
 final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, core.int)
     _Directions_createDrivingRouter = lib.library
         .lookup<

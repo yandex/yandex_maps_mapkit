@@ -25,4 +25,9 @@ class Runtime {
       runtimeOptions,
     );
   }
+
+  /// only for flutter
+  static void onDetachedFromEngine() {
+    _onDetachedFromEngine();
+  }
 }

@@ -6,8 +6,6 @@ import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
-import 'package:yandex_maps_mapkit/src/bindings/common/async.dart'
-    show runWithBlockUi;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:yandex_maps_mapkit/src/bindings/common/to_native.dart'
@@ -17,6 +15,8 @@ import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 import 'package:yandex_maps_mapkit/src/bindings/common/weak_interface_wrapper.dart'
     as weak_interface_wrapper;
+import 'package:yandex_maps_mapkit/src/directions/driving/avoidance_flags.dart'
+    as directions_driving_avoidance_flags;
 import 'package:yandex_maps_mapkit/src/directions/driving/session.dart'
     as directions_driving_session;
 import 'package:yandex_maps_mapkit/src/directions/driving/vehicle_options.dart'
@@ -34,7 +34,6 @@ part 'driving_router.impl.dart';
 
 abstract class DrivingTooComplexAvoidedZonesError
     implements runtime_error.Error, ffi.Finalizable {
-  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 
@@ -48,21 +47,6 @@ final class DrivingOptions {
   /// The number of alternatives.
   ///
   final core.int? routesCount;
-
-  /// The 'avoidTolls' option instructs the router to return routes that
-  /// avoid tolls when possible.
-  ///
-  final core.bool? avoidTolls;
-
-  /// The 'avoidUnpaved' option instructs the router to return routes that
-  /// avoid unpaved roads when possible.
-  ///
-  final core.bool? avoidUnpaved;
-
-  /// The 'avoidPoorConditions' option instructs the router to return
-  /// routes that avoid roads in poor conditions when possible.
-  ///
-  final core.bool? avoidPoorConditions;
   final core.DateTime? departureTime;
 
   /// A method to set the annotation language. lang The annotation
@@ -71,25 +55,27 @@ final class DrivingOptions {
   final mapkit_annotations_annotation_lang.AnnotationLanguage?
       annotationLanguage;
 
+  /// The 'avoidanceFlags' instruct the router to return routes that avoid
+  /// roads with the specified properties when possible.
+  ///
+  final directions_driving_avoidance_flags.DrivingAvoidanceFlags?
+      avoidanceFlags;
+
   const DrivingOptions({
     this.initialAzimuth,
     this.routesCount,
-    this.avoidTolls,
-    this.avoidUnpaved,
-    this.avoidPoorConditions,
     this.departureTime,
     this.annotationLanguage,
+    this.avoidanceFlags,
   });
 
   @core.override
   core.int get hashCode => core.Object.hashAll([
         initialAzimuth,
         routesCount,
-        avoidTolls,
-        avoidUnpaved,
-        avoidPoorConditions,
         departureTime,
-        annotationLanguage
+        annotationLanguage,
+        avoidanceFlags
       ]);
 
   @core.override
@@ -99,16 +85,14 @@ final class DrivingOptions {
     }
     return initialAzimuth == other.initialAzimuth &&
         routesCount == other.routesCount &&
-        avoidTolls == other.avoidTolls &&
-        avoidUnpaved == other.avoidUnpaved &&
-        avoidPoorConditions == other.avoidPoorConditions &&
         departureTime == other.departureTime &&
-        annotationLanguage == other.annotationLanguage;
+        annotationLanguage == other.annotationLanguage &&
+        avoidanceFlags == other.avoidanceFlags;
   }
 
   @core.override
   core.String toString() {
-    return "DrivingOptions(initialAzimuth: $initialAzimuth, routesCount: $routesCount, avoidTolls: $avoidTolls, avoidUnpaved: $avoidUnpaved, avoidPoorConditions: $avoidPoorConditions, departureTime: $departureTime, annotationLanguage: $annotationLanguage)";
+    return "DrivingOptions(initialAzimuth: $initialAzimuth, routesCount: $routesCount, departureTime: $departureTime, annotationLanguage: $annotationLanguage, avoidanceFlags: $avoidanceFlags)";
   }
 }
 

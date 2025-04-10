@@ -1,10 +1,12 @@
 export 'package:yandex_maps_mapkit/src/directions/directions_export.dart';
+export 'package:yandex_maps_mapkit/src/directions/carparks/carparks_layer_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/lane_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/restricted_entry_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/route_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/driving_router_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/direction_signs_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/tunnel_export.dart';
+export 'package:yandex_maps_mapkit/src/directions/driving/avoidance_flags_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/checkpoint_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/restricted_turn_export.dart';
 export 'package:yandex_maps_mapkit/src/directions/driving/rugged_road_export.dart';

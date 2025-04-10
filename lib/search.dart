@@ -39,6 +39,7 @@ export 'package:yandex_maps_mapkit/src/search/business_object_metadata_export.da
 export 'package:yandex_maps_mapkit/src/search/search_export.dart';
 export 'package:yandex_maps_mapkit/src/search/suggest_response_export.dart';
 export 'package:yandex_maps_mapkit/src/search/business_rating_1x_object_metadata_export.dart';
+export 'package:yandex_maps_mapkit/src/search/org_ownership_export.dart';
 export 'package:yandex_maps_mapkit/src/search/filter_collection_builder_export.dart';
 export 'package:yandex_maps_mapkit/src/search/personal_suggest_session_export.dart';
 export 'package:yandex_maps_mapkit/src/search/sort_export.dart';

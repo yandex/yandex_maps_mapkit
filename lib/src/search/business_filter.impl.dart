@@ -12,6 +12,8 @@ final class SearchBusinessFilterImpl extends SearchBusinessFilter {
       core.bool? disabled,
       mapkit_image.Image? iconLight,
       mapkit_image.Image? iconDark,
+      mapkit_image.Image? iconAfterLight,
+      mapkit_image.Image? iconAfterDark,
       core.bool? singleSelect,
       SearchBusinessFilterValues values)
       : this.fromNativePtr(_SearchBusinessFilter_init(
@@ -20,6 +22,8 @@ final class SearchBusinessFilterImpl extends SearchBusinessFilter {
             to_native.toNativePtrBool(disabled),
             mapkit_image.ImageImpl.getNativePtr(iconLight),
             mapkit_image.ImageImpl.getNativePtr(iconDark),
+            mapkit_image.ImageImpl.getNativePtr(iconAfterLight),
+            mapkit_image.ImageImpl.getNativePtr(iconAfterDark),
             to_native.toNativePtrBool(singleSelect),
             SearchBusinessFilterValuesImpl.toNative(values)));
 
@@ -38,6 +42,12 @@ final class SearchBusinessFilterImpl extends SearchBusinessFilter {
   @core.override
   late final iconDark = mapkit_image.ImageImpl.fromOptionalPtr(
       _SearchBusinessFilter_get_iconDark(_ptr));
+  @core.override
+  late final iconAfterLight = mapkit_image.ImageImpl.fromOptionalPtr(
+      _SearchBusinessFilter_get_iconAfterLight(_ptr));
+  @core.override
+  late final iconAfterDark = mapkit_image.ImageImpl.fromOptionalPtr(
+      _SearchBusinessFilter_get_iconAfterDark(_ptr));
   @core.override
   late final singleSelect = to_platform
       .toPlatformFromPointerBool(_SearchBusinessFilter_get_singleSelect(_ptr));
@@ -90,12 +100,16 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
         SearchBusinessFilterValuesNative) _SearchBusinessFilter_init =
     lib.library
         .lookup<
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(
                         native_types.NativeString,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
@@ -139,6 +153,20 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SearchBusinessFilter_get_iconDark')
+        .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _SearchBusinessFilter_get_iconAfterLight = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SearchBusinessFilter_get_iconAfterLight')
+        .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _SearchBusinessFilter_get_iconAfterDark = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SearchBusinessFilter_get_iconAfterDark')
         .asFunction(isLeaf: true);
 final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     _SearchBusinessFilter_get_singleSelect = lib.library

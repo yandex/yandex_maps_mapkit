@@ -5,8 +5,6 @@ import 'dart:core' as core;
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
-import 'package:yandex_maps_mapkit/src/bindings/common/async.dart'
-    show runWithBlockUi;
 import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
     as exception;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
@@ -60,7 +58,6 @@ abstract class Transport implements ffi.Finalizable {
   transport_masstransit_bicycle_router_v2.BicycleRouterV2
       createElectricBikeRouter();
 
-  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 

@@ -128,45 +128,46 @@ final _SuggestItem_free = lib.library
         'yandex_flutter_search_SuggestItem_free');
 
 final ffi.Pointer<ffi.Void> Function(
-    core.int,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    native_types.NativeString,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    core.bool,
-    core.int,
-    ffi.Pointer<ffi.Void>,
-    core.bool,
-    core.bool,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi
-        .Pointer<ffi.Void>) _SuggestItem_init = lib.library
-    .lookup<
-        ffi.NativeFunction<
-            ffi.Pointer<ffi.Void> Function(
-                ffi.Int64,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                native_types.NativeString,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Bool,
-                ffi.Int64,
-                ffi.Pointer<ffi.Void>,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>)>>('yandex_flutter_search_SuggestItem_init')
-    .asFunction(isLeaf: true);
+        core.int,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        native_types.NativeString,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        core.bool,
+        core.int,
+        ffi.Pointer<ffi.Void>,
+        core.bool,
+        core.bool,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>) _SuggestItem_init =
+    lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Int64,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        native_types.NativeString,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Bool,
+                        ffi.Int64,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Bool,
+                        ffi.Bool,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SuggestItem_init')
+        .asFunction(isLeaf: true);
 
 final core.int Function(ffi.Pointer<ffi.Void>) _SuggestItem_get_type = lib
     .library
