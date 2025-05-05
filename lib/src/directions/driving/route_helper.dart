@@ -78,117 +78,28 @@ final class ArrowManeuverStyle {
   }
 }
 
-/// Polygon maneuver render mode.
-enum PolygonManeuverRenderMode {
-  /// Polygon maneuver is colored as jams, trajectory is rendered with
-  /// color specified in style.
-  ColoredPolygon,
-
-  /// Trajectory is colored as jams, polygon maneuver is filled with
-  /// colored specified in style.
-  ColoredTrajectory,
-  ;
-}
-
-/// The style that is used to display polygon maneuvers and trajectories
-/// on the map.
-
-final class PolygonManeuverStyle {
-  /// Width of trajectory line on polygon maneuvers. Used only
-  /// ColoredPolygon render mode.
-  final core.double trajectoryWidth;
-
-  /// Color of trajectory line on polygon maneuvers. Used only
-  /// ColoredPolygon render mode.
-  final ui.Color trajectoryColor;
-
-  /// Polygon maneuver alpha.
-  final core.double polygonAlpha;
-
-  /// Color of polygon maneuver. Used only ColoredTrajectory render mode.
-  final ui.Color polygonColor;
-
-  /// Polygon maneuver render mode.
-  final PolygonManeuverRenderMode renderMode;
-
-  /// In meters.
-  final core.double fadeDistance;
-
-  /// Must be in range \[0, 1\], where 0 means invisibility.
-  final core.double fadeAlpha;
-
-  /// Enables/disables polygon maneuvers.
-  final core.bool enabled;
-
-  const PolygonManeuverStyle(
-    this.trajectoryColor,
-    this.polygonColor,
-    this.renderMode, {
-    required this.trajectoryWidth,
-    required this.polygonAlpha,
-    required this.fadeDistance,
-    required this.fadeAlpha,
-    required this.enabled,
-  });
-
-  @core.override
-  core.int get hashCode => core.Object.hashAll([
-        trajectoryWidth,
-        trajectoryColor,
-        polygonAlpha,
-        polygonColor,
-        renderMode,
-        fadeDistance,
-        fadeAlpha,
-        enabled
-      ]);
-
-  @core.override
-  core.bool operator ==(covariant PolygonManeuverStyle other) {
-    if (core.identical(this, other)) {
-      return true;
-    }
-    return trajectoryWidth == other.trajectoryWidth &&
-        trajectoryColor == other.trajectoryColor &&
-        polygonAlpha == other.polygonAlpha &&
-        polygonColor == other.polygonColor &&
-        renderMode == other.renderMode &&
-        fadeDistance == other.fadeDistance &&
-        fadeAlpha == other.fadeAlpha &&
-        enabled == other.enabled;
-  }
-
-  @core.override
-  core.String toString() {
-    return "PolygonManeuverStyle(trajectoryWidth: $trajectoryWidth, trajectoryColor: $trajectoryColor, polygonAlpha: $polygonAlpha, polygonColor: $polygonColor, renderMode: $renderMode, fadeDistance: $fadeDistance, fadeAlpha: $fadeAlpha, enabled: $enabled)";
-  }
-}
-
 /// The style that is used to display maneuvers on the map.
 
 final class ManeuverStyle {
   /// Arrow maneuver style.
   final ArrowManeuverStyle arrow;
 
-  /// Polygon maneuver style.
-  final PolygonManeuverStyle polygon;
-
-  const ManeuverStyle(this.arrow, this.polygon);
+  const ManeuverStyle(this.arrow);
 
   @core.override
-  core.int get hashCode => core.Object.hashAll([arrow, polygon]);
+  core.int get hashCode => core.Object.hashAll([arrow]);
 
   @core.override
   core.bool operator ==(covariant ManeuverStyle other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return arrow == other.arrow && polygon == other.polygon;
+    return arrow == other.arrow;
   }
 
   @core.override
   core.String toString() {
-    return "ManeuverStyle(arrow: $arrow, polygon: $polygon)";
+    return "ManeuverStyle(arrow: $arrow)";
   }
 }
 
@@ -214,11 +125,6 @@ class RouteHelper {
   /// Default values for ArrowManeuverStyle: fillColor      : 0x000000ff
   /// outlineColor   : 0xffffffff outlineWidth   : 2.f length         : 80
   /// triangleHeight : 16 enabled        : false
-  ///
-  /// Default values for PolygonManeuverStyle: trajectoryWidth : 5.f
-  /// trajectoryColor : 0xffffffff polygonAlpha    : 60.f / 255.f
-  /// polygonColor    : 0xff00ffff renderMode      : ColoredPolygon
-  /// fadeDistance    : 10.f fadeAlpha       : 0.f enabled         : false
   static ManeuverStyle createDefaultManeuverStyle() {
     return _createDefaultManeuverStyle();
   }

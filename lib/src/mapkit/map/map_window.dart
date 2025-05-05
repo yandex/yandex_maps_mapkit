@@ -7,6 +7,8 @@ import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
     as exception;
+import 'package:yandex_maps_mapkit/src/bindings/common/native_types.dart'
+    as native_types;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
@@ -152,6 +154,24 @@ abstract class MapWindow implements ffi.Finalizable {
   /// Allows to reduce CPU/GPU/battery usage in specific scenarios, where
   /// lower framerate is acceptable. Valid range: (0, 60\]. Default: 60.
   void setMaxFps(core.double fps);
+
+  /// @nodoc
+  /// Starts capturing performance metrics.
+  void startPerformanceMetricsCapture();
+
+  /// @nodoc
+  /// Stops capturing performance metrics and returns captured metrics as a
+  /// string.
+  core.String stopPerformanceMetricsCapture();
+
+  /// @nodoc
+  /// Starts capturing performance metrics.
+  void startMemoryMetricsCapture();
+
+  /// @nodoc
+  /// Stops capturing performance metrics and returns captured metrics as a
+  /// string.
+  core.String stopMemoryMetricsCapture();
 
   /// Adds additional surface to render frames on. A part of the frame with
   /// center in focusPoint will be sent to surface. Dimesions of this part

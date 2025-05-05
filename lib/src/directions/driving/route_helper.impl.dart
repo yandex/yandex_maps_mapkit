@@ -83,153 +83,15 @@ extension ArrowManeuverStyleImpl on ArrowManeuverStyle {
   }
 }
 
-@bindings_annotations.ContainerData(
-    toNative: 'PolygonManeuverRenderModeImpl.toPointer',
-    toPlatform:
-        '(val) => PolygonManeuverRenderModeImpl.fromPointer(val, needFree: false)',
-    platformType: 'PolygonManeuverRenderMode')
-extension PolygonManeuverRenderModeImpl on PolygonManeuverRenderMode {
-  static core.int toInt(PolygonManeuverRenderMode e) {
-    return e.index;
-  }
-
-  static PolygonManeuverRenderMode fromInt(core.int val) {
-    return PolygonManeuverRenderMode.values[val];
-  }
-
-  static PolygonManeuverRenderMode? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr == ffi.nullptr) {
-      return null;
-    }
-    final result = fromInt(ptr.cast<ffi.Int64>().value);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(PolygonManeuverRenderMode? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-
-    final result = malloc.call<ffi.Int64>();
-    result.value = toInt(val);
-
-    return result.cast();
-  }
-}
-
-final class PolygonManeuverStyleNative extends ffi.Struct {
-  @ffi.Float()
-  external core.double trajectoryWidth;
-  external native_types.NativeColor trajectoryColor;
-  @ffi.Float()
-  external core.double polygonAlpha;
-  external native_types.NativeColor polygonColor;
-  @ffi.Int64()
-  external core.int renderMode;
-  @ffi.Float()
-  external core.double fadeDistance;
-  @ffi.Float()
-  external core.double fadeAlpha;
-  @ffi.Bool()
-  external core.bool enabled;
-}
-
-final PolygonManeuverStyleNative Function(
-        core.double,
-        native_types.NativeColor,
-        core.double,
-        native_types.NativeColor,
-        core.int,
-        core.double,
-        core.double,
-        core.bool) _PolygonManeuverStyleNativeInit =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    PolygonManeuverStyleNative Function(
-                        ffi.Float,
-                        native_types.NativeColor,
-                        ffi.Float,
-                        native_types.NativeColor,
-                        ffi.Int64,
-                        ffi.Float,
-                        ffi.Float,
-                        ffi.Bool)>>(
-            'yandex_flutter_directions_driving_PolygonManeuverStyle_init')
-        .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'PolygonManeuverStyleImpl.toPointer',
-    toPlatform:
-        '(val) => PolygonManeuverStyleImpl.fromPointer(val, needFree: false)',
-    platformType: 'PolygonManeuverStyle')
-extension PolygonManeuverStyleImpl on PolygonManeuverStyle {
-  static PolygonManeuverStyle fromNative(PolygonManeuverStyleNative native) {
-    return PolygonManeuverStyle(
-        trajectoryWidth: native.trajectoryWidth,
-        to_platform.toPlatformColor(native.trajectoryColor),
-        polygonAlpha: native.polygonAlpha,
-        to_platform.toPlatformColor(native.polygonColor),
-        PolygonManeuverRenderModeImpl.fromInt(native.renderMode),
-        fadeDistance: native.fadeDistance,
-        fadeAlpha: native.fadeAlpha,
-        enabled: native.enabled);
-  }
-
-  static PolygonManeuverStyleNative toNative(PolygonManeuverStyle obj) {
-    return _PolygonManeuverStyleNativeInit(
-        obj.trajectoryWidth,
-        to_native.toNativeColor(obj.trajectoryColor),
-        obj.polygonAlpha,
-        to_native.toNativeColor(obj.polygonColor),
-        PolygonManeuverRenderModeImpl.toInt(obj.renderMode),
-        obj.fadeDistance,
-        obj.fadeAlpha,
-        obj.enabled);
-  }
-
-  static PolygonManeuverStyle? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr == ffi.nullptr) {
-      return null;
-    }
-    final result = PolygonManeuverStyleImpl.fromNative(
-        ptr.cast<PolygonManeuverStyleNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(PolygonManeuverStyle? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<PolygonManeuverStyleNative>();
-    result.ref = toNative(val);
-
-    return result.cast();
-  }
-}
-
 final class ManeuverStyleNative extends ffi.Struct {
   external ArrowManeuverStyleNative arrow;
-  external PolygonManeuverStyleNative polygon;
 }
 
-final ManeuverStyleNative Function(
-        ArrowManeuverStyleNative, PolygonManeuverStyleNative)
+final ManeuverStyleNative Function(ArrowManeuverStyleNative)
     _ManeuverStyleNativeInit = lib.library
         .lookup<
                 ffi.NativeFunction<
-                    ManeuverStyleNative Function(
-                        ArrowManeuverStyleNative, PolygonManeuverStyleNative)>>(
+                    ManeuverStyleNative Function(ArrowManeuverStyleNative)>>(
             'yandex_flutter_directions_driving_ManeuverStyle_init')
         .asFunction(isLeaf: true);
 
@@ -239,13 +101,11 @@ final ManeuverStyleNative Function(
     platformType: 'ManeuverStyle')
 extension ManeuverStyleImpl on ManeuverStyle {
   static ManeuverStyle fromNative(ManeuverStyleNative native) {
-    return ManeuverStyle(ArrowManeuverStyleImpl.fromNative(native.arrow),
-        PolygonManeuverStyleImpl.fromNative(native.polygon));
+    return ManeuverStyle(ArrowManeuverStyleImpl.fromNative(native.arrow));
   }
 
   static ManeuverStyleNative toNative(ManeuverStyle obj) {
-    return _ManeuverStyleNativeInit(ArrowManeuverStyleImpl.toNative(obj.arrow),
-        PolygonManeuverStyleImpl.toNative(obj.polygon));
+    return _ManeuverStyleNativeInit(ArrowManeuverStyleImpl.toNative(obj.arrow));
   }
 
   static ManeuverStyle? fromPointer(ffi.Pointer<ffi.Void> ptr,
