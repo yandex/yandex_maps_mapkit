@@ -5,8 +5,6 @@ import 'dart:core' as core;
 import 'package:meta/meta.dart';
 import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
-import 'package:yandex_maps_mapkit/src/bindings/common/dispatcher.dart'
-    as nativeBinding;
 import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
     as exception;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'

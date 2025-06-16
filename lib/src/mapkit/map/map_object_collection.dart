@@ -20,6 +20,8 @@ import 'package:yandex_maps_mapkit/src/bindings/image/image_provider.dart'
     as image_provider;
 import 'package:yandex_maps_mapkit/src/bindings/ui_view/view_provider.dart'
     as view_provider;
+import 'package:yandex_maps_mapkit/src/mapkit/conflict_resolution_mode.dart'
+    as mapkit_conflict_resolution_mode;
 import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
     as mapkit_geometry_geometry;
 import 'package:yandex_maps_mapkit/src/mapkit/geometry/point.dart'
@@ -153,6 +155,16 @@ abstract class MapObjectCollection
   /// A styler for all placemarks in this collection, including placemarks
   /// in child collections.
   mapkit_map_placemarks_styler.PlacemarksStyler placemarksStyler();
+
+  core.bool isValid();
+}
+
+abstract class RootMapObjectCollection
+    implements MapObjectCollection, ffi.Finalizable {
+  mapkit_conflict_resolution_mode.ConflictResolutionMode
+      get conflictResolutionMode;
+  set conflictResolutionMode(
+      mapkit_conflict_resolution_mode.ConflictResolutionMode val);
 
   core.bool isValid();
 }
