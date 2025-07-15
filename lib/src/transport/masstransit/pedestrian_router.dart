@@ -97,7 +97,4 @@ abstract class PedestrianRouter implements ffi.Finalizable {
 
   /// Route serializer.
   transport_masstransit_serializer.MasstransitRouteSerializer routeSerializer();
-
-  /// Enables indoor routing.
-  void setIndoorEnabled(core.bool enabled);
 }
