@@ -88,11 +88,28 @@ extension SearchFeatureContainerExtension on SearchFeature {
   static vector.Vector<SearchFeature> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => SearchFeatureImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchFeature?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => SearchFeatureImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeature>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchFeature>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -102,6 +119,17 @@ extension SearchFeatureContainerExtension on SearchFeature {
 
   static vector.Vector<string_map.StringMap<SearchFeature>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFeature>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -193,11 +221,28 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
   static vector.Vector<SearchFeatureEnumValue> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
+        (val) => SearchFeatureEnumValueImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchFeatureEnumValue?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
         (val) => SearchFeatureEnumValueImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeatureEnumValue>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchFeatureEnumValue>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -207,6 +252,17 @@ extension SearchFeatureEnumValueContainerExtension on SearchFeatureEnumValue {
 
   static vector.Vector<string_map.StringMap<SearchFeatureEnumValue>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFeatureEnumValue>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -297,11 +353,28 @@ extension SearchFeatureSetContainerExtension on SearchFeatureSet {
   static vector.Vector<SearchFeatureSet> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => SearchFeatureSetImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchFeatureSet?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => SearchFeatureSetImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeatureSet>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchFeatureSet>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -311,6 +384,17 @@ extension SearchFeatureSetContainerExtension on SearchFeatureSet {
 
   static vector.Vector<string_map.StringMap<SearchFeatureSet>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFeatureSet>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -400,12 +484,29 @@ extension SearchFeatureGroupContainerExtension on SearchFeatureGroup {
 
   static vector.Vector<SearchFeatureGroup> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
+        (val) => SearchFeatureGroupImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchFeatureGroup?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr, (val) => SearchFeatureGroupImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeatureGroup>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchFeatureGroup>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -415,6 +516,17 @@ extension SearchFeatureGroupContainerExtension on SearchFeatureGroup {
 
   static vector.Vector<string_map.StringMap<SearchFeatureGroup>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFeatureGroup>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -511,11 +623,30 @@ extension SearchFeatureBooleanValueContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
+            SearchFeatureBooleanValueImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchFeatureBooleanValue?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
             SearchFeatureBooleanValueImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeatureBooleanValue>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchFeatureBooleanValue>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -525,6 +656,17 @@ extension SearchFeatureBooleanValueContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchFeatureBooleanValue>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFeatureBooleanValue>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -621,11 +763,30 @@ extension SearchFeatureVariantValueContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
+            SearchFeatureVariantValueImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchFeatureVariantValue?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
             SearchFeatureVariantValueImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFeatureVariantValue>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchFeatureVariantValue>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -635,6 +796,17 @@ extension SearchFeatureVariantValueContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchFeatureVariantValue>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFeatureVariantValue>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

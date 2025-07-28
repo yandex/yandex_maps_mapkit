@@ -20,14 +20,20 @@ import 'package:yandex_maps_mapkit/src/bindings/image/image_provider.dart'
     as image_provider;
 import 'package:yandex_maps_mapkit/src/mapkit/map/callback.dart'
     as mapkit_map_callback;
+import 'package:yandex_maps_mapkit/src/mapkit/map/icon.dart' as mapkit_map_icon;
 import 'package:yandex_maps_mapkit/src/mapkit/map/icon_style.dart'
     as mapkit_map_icon_style;
+import 'package:yandex_maps_mapkit/src/mapkit/map/placemark_presentation.dart'
+    as mapkit_map_placemark_presentation;
 
 part 'composite_icon.containers.dart';
 part 'composite_icon.impl.dart';
 
 /// Combines multiple icons into one.
-abstract class CompositeIcon implements ffi.Finalizable {
+abstract class CompositeIcon
+    implements
+        mapkit_map_placemark_presentation.PlacemarkPresentation,
+        ffi.Finalizable {
   /// Creates or resets a named layer with an icon and its style.
   void setIcon(
     image_provider.ImageProvider image,
@@ -50,6 +56,10 @@ abstract class CompositeIcon implements ffi.Finalizable {
     mapkit_map_icon_style.IconStyle style, {
     required core.String name,
   });
+
+  /// Returns named Icon object that can be used to set icon and its style.
+  /// Creates an empty Icon if it didn't exist.
+  mapkit_map_icon.Icon icon(core.String name);
 
   /// Removes the named layer.
   void removeIcon(core.String name);

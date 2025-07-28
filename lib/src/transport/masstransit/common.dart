@@ -300,6 +300,21 @@ final class MasstransitLineStyle {
   }
 }
 
+enum MasstransitThreadCategory {
+  /// Primary thread
+  Primary,
+
+  /// Secondary thread
+  Secondary,
+
+  /// Temporary thread
+  Temporary,
+
+  /// Thread going to depot
+  ToDepot,
+  ;
+}
+
 /// Describes a public transport thread. A thread is one of the
 /// [MasstransitLine] variants. For example, one line can have two
 /// threads: direct and return.
@@ -308,8 +323,9 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
   factory MasstransitThread(
           core.String id,
           core.List<MasstransitStop> essentialStops,
-          core.String? description) =>
-      MasstransitThreadImpl(id, essentialStops, description);
+          core.String? description,
+          core.List<MasstransitThreadCategory> category) =>
+      MasstransitThreadImpl(id, essentialStops, description, category);
 
   MasstransitThread._();
 
@@ -330,9 +346,13 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
   ///
   core.String? get description;
 
+  /// List of categories describing important traits of the thread. For
+  /// example, "primary", "secondary", "to_depot"
+  core.List<MasstransitThreadCategory> get category;
+
   @core.override
   core.int get hashCode =>
-      core.Object.hashAll([id, essentialStops, description]);
+      core.Object.hashAll([id, essentialStops, description, category]);
 
   @core.override
   core.bool operator ==(covariant MasstransitThread other) {
@@ -341,12 +361,13 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
     }
     return id == other.id &&
         essentialStops == other.essentialStops &&
-        description == other.description;
+        description == other.description &&
+        category == other.category;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitThread(id: $id, essentialStops: $essentialStops, description: $description)";
+    return "MasstransitThread(id: $id, essentialStops: $essentialStops, description: $description, category: $category)";
   }
 
   static final struct_factory.StructFactory<MasstransitThread> factory =

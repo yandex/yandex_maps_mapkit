@@ -177,16 +177,20 @@ extension MasstransitPaymentImpl on MasstransitPayment {
 
 final class MasstransitSectionPaymentOptionNative extends ffi.Struct {
   external ffi.Pointer<ffi.Void> payment;
+  @ffi.Int64()
+  external core.int appliedFare;
 }
 
 final MasstransitSectionPaymentOptionNative Function(
-    ffi
-        .Pointer<ffi.Void>) _MasstransitSectionPaymentOptionNativeInit = lib
-    .library
+  ffi.Pointer<ffi.Void>,
+  core.int,
+) _MasstransitSectionPaymentOptionNativeInit = lib.library
     .lookup<
             ffi.NativeFunction<
                 MasstransitSectionPaymentOptionNative Function(
-                    ffi.Pointer<ffi.Void>)>>(
+                  ffi.Pointer<ffi.Void>,
+                  ffi.Int64,
+                )>>(
         'yandex_flutter_transport_masstransit_MasstransitSectionPaymentOption_init')
     .asFunction(isLeaf: true);
 
@@ -200,13 +204,18 @@ extension MasstransitSectionPaymentOptionImpl
   static MasstransitSectionPaymentOption fromNative(
       MasstransitSectionPaymentOptionNative native) {
     return MasstransitSectionPaymentOption(
-        payment: MasstransitPaymentImpl.fromPointer(native.payment));
+      payment: MasstransitPaymentImpl.fromPointer(native.payment),
+      MasstransitSectionPaymentOptionAppliedFareImpl.fromInt(
+          native.appliedFare),
+    );
   }
 
   static MasstransitSectionPaymentOptionNative toNative(
       MasstransitSectionPaymentOption obj) {
     return _MasstransitSectionPaymentOptionNativeInit(
-        MasstransitPaymentImpl.toPointer(obj.payment));
+      MasstransitPaymentImpl.toPointer(obj.payment),
+      MasstransitSectionPaymentOptionAppliedFareImpl.toInt(obj.appliedFare),
+    );
   }
 
   static MasstransitSectionPaymentOption? fromPointer(ffi.Pointer<ffi.Void> ptr,
@@ -229,6 +238,48 @@ extension MasstransitSectionPaymentOptionImpl
     }
     final result = malloc.call<MasstransitSectionPaymentOptionNative>();
     result.ref = toNative(val);
+
+    return result.cast();
+  }
+}
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitSectionPaymentOptionAppliedFareImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitSectionPaymentOptionAppliedFareImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitSectionPaymentOptionAppliedFare')
+extension MasstransitSectionPaymentOptionAppliedFareImpl
+    on MasstransitSectionPaymentOptionAppliedFare {
+  static core.int toInt(MasstransitSectionPaymentOptionAppliedFare e) {
+    return e.index;
+  }
+
+  static MasstransitSectionPaymentOptionAppliedFare fromInt(core.int val) {
+    return MasstransitSectionPaymentOptionAppliedFare.values[val];
+  }
+
+  static MasstransitSectionPaymentOptionAppliedFare? fromPointer(
+      ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = fromInt(ptr.cast<ffi.Int64>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(
+      MasstransitSectionPaymentOptionAppliedFare? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<ffi.Int64>();
+    result.value = toInt(val);
 
     return result.cast();
   }

@@ -95,11 +95,30 @@ extension DrivingNonAvoidedFeaturesContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
+            DrivingNonAvoidedFeaturesImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<DrivingNonAvoidedFeatures?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
             DrivingNonAvoidedFeaturesImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingNonAvoidedFeatures>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<DrivingNonAvoidedFeatures>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -109,6 +128,17 @@ extension DrivingNonAvoidedFeaturesContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingNonAvoidedFeatures>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<DrivingNonAvoidedFeatures>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

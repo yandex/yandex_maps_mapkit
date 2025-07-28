@@ -90,11 +90,28 @@ extension SearchBusinessFilterContainerExtension on SearchBusinessFilter {
   static vector.Vector<SearchBusinessFilter> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
+        (val) => SearchBusinessFilterImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchBusinessFilter?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
         (val) => SearchBusinessFilterImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessFilter>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchBusinessFilter>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -104,6 +121,17 @@ extension SearchBusinessFilterContainerExtension on SearchBusinessFilter {
 
   static vector.Vector<string_map.StringMap<SearchBusinessFilter>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchBusinessFilter>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -204,11 +232,30 @@ extension SearchBusinessFilterEnumValueContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchBusinessFilterEnumValueImpl.fromPointer(val,
+            needFree: false)!);
+  }
+
+  static vector.Vector<SearchBusinessFilterEnumValue?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => SearchBusinessFilterEnumValueImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessFilterEnumValue>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchBusinessFilterEnumValue>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -218,6 +265,17 @@ extension SearchBusinessFilterEnumValueContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchBusinessFilterEnumValue>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchBusinessFilterEnumValue>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -308,11 +366,28 @@ extension SearchFilterSetContainerExtension on SearchFilterSet {
   static vector.Vector<SearchFilterSet> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => SearchFilterSetImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchFilterSet?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => SearchFilterSetImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchFilterSet>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchFilterSet>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -322,6 +397,17 @@ extension SearchFilterSetContainerExtension on SearchFilterSet {
 
   static vector.Vector<string_map.StringMap<SearchFilterSet>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchFilterSet>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -424,11 +510,30 @@ extension SearchBusinessFilterBooleanValueContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchBusinessFilterBooleanValueImpl.fromPointer(val,
+            needFree: false)!);
+  }
+
+  static vector.Vector<SearchBusinessFilterBooleanValue?>
+      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => SearchBusinessFilterBooleanValueImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessFilterBooleanValue>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchBusinessFilterBooleanValue>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -438,6 +543,17 @@ extension SearchBusinessFilterBooleanValueContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchBusinessFilterBooleanValue>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchBusinessFilterBooleanValue>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -538,11 +654,30 @@ extension SearchBusinessFilterRangeValueContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchBusinessFilterRangeValueImpl.fromPointer(val,
+            needFree: false)!);
+  }
+
+  static vector.Vector<SearchBusinessFilterRangeValue?>
+      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => SearchBusinessFilterRangeValueImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessFilterRangeValue>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchBusinessFilterRangeValue>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -552,6 +687,17 @@ extension SearchBusinessFilterRangeValueContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchBusinessFilterRangeValue>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchBusinessFilterRangeValue>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -652,11 +798,30 @@ extension SearchBusinessFilterDateValueContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchBusinessFilterDateValueImpl.fromPointer(val,
+            needFree: false)!);
+  }
+
+  static vector.Vector<SearchBusinessFilterDateValue?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => SearchBusinessFilterDateValueImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessFilterDateValue>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchBusinessFilterDateValue>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -666,6 +831,17 @@ extension SearchBusinessFilterDateValueContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchBusinessFilterDateValue>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchBusinessFilterDateValue>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -764,11 +940,30 @@ extension SearchBusinessFilterValuesContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
+            SearchBusinessFilterValuesImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchBusinessFilterValues?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
             SearchBusinessFilterValuesImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessFilterValues>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchBusinessFilterValues>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -778,6 +973,17 @@ extension SearchBusinessFilterValuesContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchBusinessFilterValues>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchBusinessFilterValues>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

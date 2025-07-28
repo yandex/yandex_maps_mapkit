@@ -89,11 +89,28 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
   static vector.Vector<PanoramaTileLevel> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => PanoramaTileLevelImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaTileLevel?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => PanoramaTileLevelImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaTileLevel>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaTileLevel>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -103,6 +120,17 @@ extension PanoramaTileLevelContainerExtension on PanoramaTileLevel {
 
   static vector.Vector<string_map.StringMap<PanoramaTileLevel>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaTileLevel>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -192,12 +220,29 @@ extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
 
   static vector.Vector<PanoramaTextMarker> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
+        (val) => PanoramaTextMarkerImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaTextMarker?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr, (val) => PanoramaTextMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaTextMarker>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaTextMarker>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -207,6 +252,17 @@ extension PanoramaTextMarkerContainerExtension on PanoramaTextMarker {
 
   static vector.Vector<string_map.StringMap<PanoramaTextMarker>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaTextMarker>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -298,11 +354,28 @@ extension PanoramaCompanyMarkerContainerExtension on PanoramaCompanyMarker {
   static vector.Vector<PanoramaCompanyMarker> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
+        (val) => PanoramaCompanyMarkerImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaCompanyMarker?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
         (val) => PanoramaCompanyMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaCompanyMarker>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaCompanyMarker>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -312,6 +385,17 @@ extension PanoramaCompanyMarkerContainerExtension on PanoramaCompanyMarker {
 
   static vector.Vector<string_map.StringMap<PanoramaCompanyMarker>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaCompanyMarker>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -401,12 +485,29 @@ extension PanoramaIconMarkerContainerExtension on PanoramaIconMarker {
 
   static vector.Vector<PanoramaIconMarker> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
+        (val) => PanoramaIconMarkerImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaIconMarker?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr, (val) => PanoramaIconMarkerImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaIconMarker>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaIconMarker>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -416,6 +517,17 @@ extension PanoramaIconMarkerContainerExtension on PanoramaIconMarker {
 
   static vector.Vector<string_map.StringMap<PanoramaIconMarker>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaIconMarker>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -507,11 +619,28 @@ extension PanoramaIconConnectionContainerExtension on PanoramaIconConnection {
   static vector.Vector<PanoramaIconConnection> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
+        (val) => PanoramaIconConnectionImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaIconConnection?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
         (val) => PanoramaIconConnectionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaIconConnection>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaIconConnection>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -521,6 +650,17 @@ extension PanoramaIconConnectionContainerExtension on PanoramaIconConnection {
 
   static vector.Vector<string_map.StringMap<PanoramaIconConnection>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaIconConnection>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -612,12 +752,31 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
 
   static vector.Vector<PanoramaArrowConnection> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
+            PanoramaArrowConnectionImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaArrowConnection?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
         (val) => PanoramaArrowConnectionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaArrowConnection>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaArrowConnection>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -627,6 +786,17 @@ extension PanoramaArrowConnectionContainerExtension on PanoramaArrowConnection {
 
   static vector.Vector<string_map.StringMap<PanoramaArrowConnection>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaArrowConnection>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -718,11 +888,28 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
   static vector.Vector<PanoramaDescription> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
+        (val) => PanoramaDescriptionImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaDescription?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
         (val) => PanoramaDescriptionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaDescription>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaDescription>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -732,6 +919,17 @@ extension PanoramaDescriptionContainerExtension on PanoramaDescription {
 
   static vector.Vector<string_map.StringMap<PanoramaDescription>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaDescription>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -822,11 +1020,28 @@ extension PanoramaImageSizeContainerExtension on PanoramaImageSize {
   static vector.Vector<PanoramaImageSize> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => PanoramaImageSizeImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaImageSize?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => PanoramaImageSizeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaImageSize>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaImageSize>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -836,6 +1051,17 @@ extension PanoramaImageSizeContainerExtension on PanoramaImageSize {
 
   static vector.Vector<string_map.StringMap<PanoramaImageSize>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaImageSize>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -926,11 +1152,28 @@ extension PanoramaPositionContainerExtension on PanoramaPosition {
   static vector.Vector<PanoramaPosition> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => PanoramaPositionImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaPosition?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => PanoramaPositionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaPosition>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaPosition>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -940,6 +1183,17 @@ extension PanoramaPositionContainerExtension on PanoramaPosition {
 
   static vector.Vector<string_map.StringMap<PanoramaPosition>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaPosition>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1039,12 +1293,31 @@ extension PanoramaArrowConnectionStyleContainerExtension
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
+        (val) => PanoramaArrowConnectionStyleImpl.fromPointer(val,
+            needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaArrowConnectionStyle?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
         (val) =>
             PanoramaArrowConnectionStyleImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaArrowConnectionStyle>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaArrowConnectionStyle>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1054,6 +1327,17 @@ extension PanoramaArrowConnectionStyleContainerExtension
 
   static vector.Vector<string_map.StringMap<PanoramaArrowConnectionStyle>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaArrowConnectionStyle>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1152,11 +1436,30 @@ extension PanoramaAngularBoundingBoxContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
+            PanoramaAngularBoundingBoxImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<PanoramaAngularBoundingBox?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
             PanoramaAngularBoundingBoxImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<PanoramaAngularBoundingBox>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<PanoramaAngularBoundingBox>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1166,6 +1469,17 @@ extension PanoramaAngularBoundingBoxContainerExtension
 
   static vector.Vector<string_map.StringMap<PanoramaAngularBoundingBox>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<PanoramaAngularBoundingBox>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
