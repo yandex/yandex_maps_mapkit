@@ -19,6 +19,8 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
     as transport_masstransit_common;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/route.dart'
     as transport_masstransit_route;
+import 'package:yandex_maps_mapkit/src/transport/masstransit/travel_estimation.dart'
+    as transport_masstransit_travel_estimation;
 
 part 'transport.containers.dart';
 part 'transport.impl.dart';
@@ -272,9 +274,11 @@ abstract final class MasstransitTransportTransportThread
           core.bool isRecommended,
           core.List<MasstransitTransportThreadAlert> alerts,
           transport_masstransit_common.MasstransitStop? alternateDepartureStop,
-          MasstransitBoardingOptions? boardingOptions) =>
+          MasstransitBoardingOptions? boardingOptions,
+          transport_masstransit_travel_estimation.MasstransitTravelEstimation?
+              estimation) =>
       MasstransitTransportTransportThreadImpl(thread, isRecommended, alerts,
-          alternateDepartureStop, boardingOptions);
+          alternateDepartureStop, boardingOptions, estimation);
 
   MasstransitTransportTransportThread._();
 
@@ -298,9 +302,20 @@ abstract final class MasstransitTransportTransportThread
   ///
   MasstransitBoardingOptions? get boardingOptions;
 
+  /// Time estimation for transport thread.
+  ///
+  transport_masstransit_travel_estimation.MasstransitTravelEstimation?
+      get estimation;
+
   @core.override
-  core.int get hashCode => core.Object.hashAll(
-      [thread, isRecommended, alerts, alternateDepartureStop, boardingOptions]);
+  core.int get hashCode => core.Object.hashAll([
+        thread,
+        isRecommended,
+        alerts,
+        alternateDepartureStop,
+        boardingOptions,
+        estimation
+      ]);
 
   @core.override
   core.bool operator ==(covariant MasstransitTransportTransportThread other) {
@@ -311,11 +326,12 @@ abstract final class MasstransitTransportTransportThread
         isRecommended == other.isRecommended &&
         alerts == other.alerts &&
         alternateDepartureStop == other.alternateDepartureStop &&
-        boardingOptions == other.boardingOptions;
+        boardingOptions == other.boardingOptions &&
+        estimation == other.estimation;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitTransportTransportThread(thread: $thread, isRecommended: $isRecommended, alerts: $alerts, alternateDepartureStop: $alternateDepartureStop, boardingOptions: $boardingOptions)";
+    return "MasstransitTransportTransportThread(thread: $thread, isRecommended: $isRecommended, alerts: $alerts, alternateDepartureStop: $alternateDepartureStop, boardingOptions: $boardingOptions, estimation: $estimation)";
   }
 }

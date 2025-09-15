@@ -38,8 +38,6 @@ import 'package:yandex_maps_mapkit/src/mapkit/map/placemark_animation.dart'
     as mapkit_map_placemark_animation;
 import 'package:yandex_maps_mapkit/src/mapkit/map/placemark_text.dart'
     as mapkit_map_placemark_text;
-import 'package:yandex_maps_mapkit/src/mapkit/map/placemark_view.dart'
-    as mapkit_map_placemark_view;
 import 'package:yandex_maps_mapkit/src/mapkit/map/text_style.dart'
     as mapkit_map_text_style;
 
@@ -100,8 +98,8 @@ abstract class PlacemarkMapObject
   /// the animated icon.
   void setIconStyle(mapkit_map_icon_style.IconStyle style);
 
-  /// Returns Icon object that can be used to set icon and its style for
-  /// the placemark. Switches off and resets composite
+  /// Returns Icon object that can be used to set image or view and its
+  /// style for the placemark. Switches off and resets composite
   /// icon/model/animation/view.
   mapkit_map_icon.Icon useIcon();
 
@@ -119,11 +117,6 @@ abstract class PlacemarkMapObject
   /// animation of the placemark. Switches off and resets icon/composite
   /// icon/model/view.
   mapkit_map_placemark_animation.PlacemarkAnimation useAnimation();
-
-  /// Returns PlacemarkView object that can be used to set view and its
-  /// style for the placemark. Switches off and resets icon/composite
-  /// icon/model/animation.
-  mapkit_map_placemark_view.PlacemarkView useView();
 
   /// Sets the view with the default style for the placemark. Switches off
   /// and resets icon/composite icon/animation/model.

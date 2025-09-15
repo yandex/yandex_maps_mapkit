@@ -83,7 +83,6 @@ export 'package:yandex_maps_mapkit/src/mapkit/map/icon_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/geo_object_tags_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/tile_data_source_builder_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/model_export.dart';
-export 'package:yandex_maps_mapkit/src/mapkit/map/placemark_view_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/map_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/line_style_export.dart';
 export 'package:yandex_maps_mapkit/src/mapkit/map/gesture_focus_point_mode_export.dart';

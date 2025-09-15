@@ -531,7 +531,9 @@ final class MasstransitTransportTransportThreadImpl
       core.bool isRecommended,
       core.List<MasstransitTransportThreadAlert> alerts,
       transport_masstransit_common.MasstransitStop? alternateDepartureStop,
-      MasstransitBoardingOptions? boardingOptions)
+      MasstransitBoardingOptions? boardingOptions,
+      transport_masstransit_travel_estimation.MasstransitTravelEstimation?
+          estimation)
       : this.fromNativePtr(_MasstransitTransportTransportThread_init(
             transport_masstransit_common.MasstransitThreadImpl.getNativePtr(
                 thread),
@@ -540,7 +542,9 @@ final class MasstransitTransportTransportThreadImpl
                 alerts),
             transport_masstransit_common.MasstransitStopImpl.getNativePtr(
                 alternateDepartureStop),
-            MasstransitBoardingOptionsImpl.getNativePtr(boardingOptions)));
+            MasstransitBoardingOptionsImpl.getNativePtr(boardingOptions),
+            transport_masstransit_travel_estimation
+                .MasstransitTravelEstimationImpl.toPointer(estimation)));
 
   @core.override
   late final thread =
@@ -561,6 +565,10 @@ final class MasstransitTransportTransportThreadImpl
   @core.override
   late final boardingOptions = MasstransitBoardingOptionsImpl.fromOptionalPtr(
       _MasstransitTransportTransportThread_get_boardingOptions(_ptr));
+  @core.override
+  late final estimation = transport_masstransit_travel_estimation
+          .MasstransitTravelEstimationImpl
+      .fromPointer(_MasstransitTransportTransportThread_get_estimation(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer =
@@ -609,6 +617,7 @@ final ffi.Pointer<ffi.Void> Function(
     core.bool,
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
     ffi
         .Pointer<ffi.Void>) _MasstransitTransportTransportThread_init = lib
     .library
@@ -617,6 +626,7 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>,
                     ffi.Bool,
+                    ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>)>>(
@@ -663,4 +673,13 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_Transport_MasstransitTransportTransportThread_get_boardingOptions')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi.Pointer<
+        ffi.Void>) _MasstransitTransportTransportThread_get_estimation = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_Transport_MasstransitTransportTransportThread_get_estimation')
     .asFunction(isLeaf: true);
