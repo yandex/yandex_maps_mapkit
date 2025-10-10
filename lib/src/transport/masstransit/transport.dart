@@ -161,31 +161,36 @@ final class MasstransitTransportThreadAlertLastTrip {
   }
 }
 
-/// Contains information about underground boarding recommendations.
+/// Contains information about underground or railway boarding
+/// recommendations.
 abstract final class MasstransitBoardingOptions implements ffi.Finalizable {
   factory MasstransitBoardingOptions(
-          core.List<MasstransitBoardingOptionsBoardingArea> area) =>
-      MasstransitBoardingOptionsImpl(area);
+          core.List<MasstransitBoardingOptionsBoardingArea> area,
+          MasstransitBoardingOptionsRailwayOptions railwayOptions) =>
+      MasstransitBoardingOptionsImpl(area, railwayOptions);
 
   MasstransitBoardingOptions._();
 
   /// Vector of recommended areas to board.
   core.List<MasstransitBoardingOptionsBoardingArea> get area;
 
+  /// Options about boarding to trains.
+  MasstransitBoardingOptionsRailwayOptions get railwayOptions;
+
   @core.override
-  core.int get hashCode => core.Object.hashAll([area]);
+  core.int get hashCode => core.Object.hashAll([area, railwayOptions]);
 
   @core.override
   core.bool operator ==(covariant MasstransitBoardingOptions other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return area == other.area;
+    return area == other.area && railwayOptions == other.railwayOptions;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitBoardingOptions(area: $area)";
+    return "MasstransitBoardingOptions(area: $area, railwayOptions: $railwayOptions)";
   }
 }
 
@@ -216,6 +221,48 @@ abstract final class MasstransitBoardingOptionsBoardingArea
   @core.override
   core.String toString() {
     return "MasstransitBoardingOptionsBoardingArea(id: $id)";
+  }
+}
+
+abstract final class MasstransitBoardingOptionsRailwayOptions
+    implements ffi.Finalizable {
+  factory MasstransitBoardingOptionsRailwayOptions(core.String? boardingTrack,
+          core.String? boardingPlatform, core.bool uncertain) =>
+      MasstransitBoardingOptionsRailwayOptionsImpl(
+          boardingTrack, boardingPlatform, uncertain);
+
+  MasstransitBoardingOptionsRailwayOptions._();
+
+  /// Departure track annotation, e.g. "3 or 4 track".
+  ///
+  core.String? get boardingTrack;
+
+  /// Departure platform annotation, e.g. "2 platform".
+  ///
+  core.String? get boardingPlatform;
+
+  /// Flag of track/platform selection uncertainty to suggest user
+  /// double-check it in the station.
+  core.bool get uncertain;
+
+  @core.override
+  core.int get hashCode =>
+      core.Object.hashAll([boardingTrack, boardingPlatform, uncertain]);
+
+  @core.override
+  core.bool operator ==(
+      covariant MasstransitBoardingOptionsRailwayOptions other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return boardingTrack == other.boardingTrack &&
+        boardingPlatform == other.boardingPlatform &&
+        uncertain == other.uncertain;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitBoardingOptionsRailwayOptions(boardingTrack: $boardingTrack, boardingPlatform: $boardingPlatform, uncertain: $uncertain)";
   }
 }
 
@@ -276,9 +323,10 @@ abstract final class MasstransitTransportTransportThread
           transport_masstransit_common.MasstransitStop? alternateDepartureStop,
           MasstransitBoardingOptions? boardingOptions,
           transport_masstransit_travel_estimation.MasstransitTravelEstimation?
-              estimation) =>
+              estimation,
+          core.String? comfortClass) =>
       MasstransitTransportTransportThreadImpl(thread, isRecommended, alerts,
-          alternateDepartureStop, boardingOptions, estimation);
+          alternateDepartureStop, boardingOptions, estimation, comfortClass);
 
   MasstransitTransportTransportThread._();
 
@@ -307,6 +355,11 @@ abstract final class MasstransitTransportTransportThread
   transport_masstransit_travel_estimation.MasstransitTravelEstimation?
       get estimation;
 
+  /// Comfort class of transport, e.g. "Standart plus", "Lastochka" for
+  /// trains.
+  ///
+  core.String? get comfortClass;
+
   @core.override
   core.int get hashCode => core.Object.hashAll([
         thread,
@@ -314,7 +367,8 @@ abstract final class MasstransitTransportTransportThread
         alerts,
         alternateDepartureStop,
         boardingOptions,
-        estimation
+        estimation,
+        comfortClass
       ]);
 
   @core.override
@@ -327,11 +381,12 @@ abstract final class MasstransitTransportTransportThread
         alerts == other.alerts &&
         alternateDepartureStop == other.alternateDepartureStop &&
         boardingOptions == other.boardingOptions &&
-        estimation == other.estimation;
+        estimation == other.estimation &&
+        comfortClass == other.comfortClass;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitTransportTransportThread(thread: $thread, isRecommended: $isRecommended, alerts: $alerts, alternateDepartureStop: $alternateDepartureStop, boardingOptions: $boardingOptions, estimation: $estimation)";
+    return "MasstransitTransportTransportThread(thread: $thread, isRecommended: $isRecommended, alerts: $alerts, alternateDepartureStop: $alternateDepartureStop, boardingOptions: $boardingOptions, estimation: $estimation, comfortClass: $comfortClass)";
   }
 }
