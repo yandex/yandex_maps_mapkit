@@ -102,30 +102,11 @@ extension SearchDeleteAllPersonalSuggestSessionContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchDeleteAllPersonalSuggestSessionImpl.fromOptionalPtr(
-            val.cast<ffi.Pointer<ffi.Void>>().value)!);
-  }
-
-  static vector.Vector<SearchDeleteAllPersonalSuggestSession?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => SearchDeleteAllPersonalSuggestSessionImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
   static vector.Vector<vector.Vector<SearchDeleteAllPersonalSuggestSession>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchDeleteAllPersonalSuggestSession>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -136,18 +117,6 @@ extension SearchDeleteAllPersonalSuggestSessionContainerExtension
   static vector
       .Vector<string_map.StringMap<SearchDeleteAllPersonalSuggestSession>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<SearchDeleteAllPersonalSuggestSession>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

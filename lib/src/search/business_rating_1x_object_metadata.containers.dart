@@ -102,30 +102,11 @@ extension SearchBusinessRating1xObjectMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchBusinessRating1xObjectMetadataImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<SearchBusinessRating1xObjectMetadata?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => SearchBusinessRating1xObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessRating1xObjectMetadata>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchBusinessRating1xObjectMetadata>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -136,18 +117,6 @@ extension SearchBusinessRating1xObjectMetadataContainerExtension
   static vector
       .Vector<string_map.StringMap<SearchBusinessRating1xObjectMetadata>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<SearchBusinessRating1xObjectMetadata>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

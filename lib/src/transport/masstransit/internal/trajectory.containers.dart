@@ -97,30 +97,11 @@ extension TrajectorySegmentMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            TrajectorySegmentMetadataImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<TrajectorySegmentMetadata?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             TrajectorySegmentMetadataImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<TrajectorySegmentMetadata>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<TrajectorySegmentMetadata>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -130,17 +111,6 @@ extension TrajectorySegmentMetadataContainerExtension
 
   static vector.Vector<string_map.StringMap<TrajectorySegmentMetadata>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<TrajectorySegmentMetadata>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

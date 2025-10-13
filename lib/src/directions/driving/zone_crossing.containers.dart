@@ -90,28 +90,11 @@ extension DrivingZoneCrossingContainerExtension on DrivingZoneCrossing {
   static vector.Vector<DrivingZoneCrossing> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => DrivingZoneCrossingImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingZoneCrossing?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
         (val) => DrivingZoneCrossingImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingZoneCrossing>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingZoneCrossing>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -121,17 +104,6 @@ extension DrivingZoneCrossingContainerExtension on DrivingZoneCrossing {
 
   static vector.Vector<string_map.StringMap<DrivingZoneCrossing>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingZoneCrossing>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

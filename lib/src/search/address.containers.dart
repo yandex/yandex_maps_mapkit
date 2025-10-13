@@ -88,28 +88,11 @@ extension SearchAddressContainerExtension on SearchAddress {
   static vector.Vector<SearchAddress> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => SearchAddressImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<SearchAddress?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
         ptr, (val) => SearchAddressImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchAddress>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchAddress>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -119,17 +102,6 @@ extension SearchAddressContainerExtension on SearchAddress {
 
   static vector.Vector<string_map.StringMap<SearchAddress>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<SearchAddress>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -221,28 +193,11 @@ extension SearchAddressComponentContainerExtension on SearchAddressComponent {
   static vector.Vector<SearchAddressComponent> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => SearchAddressComponentImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<SearchAddressComponent?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
         (val) => SearchAddressComponentImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchAddressComponent>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchAddressComponent>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -252,17 +207,6 @@ extension SearchAddressComponentContainerExtension on SearchAddressComponent {
 
   static vector.Vector<string_map.StringMap<SearchAddressComponent>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<SearchAddressComponent>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -361,30 +305,11 @@ extension SearchAddressComponentKindContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            SearchAddressComponentKindImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<SearchAddressComponentKind?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             SearchAddressComponentKindImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchAddressComponentKind>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchAddressComponentKind>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -394,17 +319,6 @@ extension SearchAddressComponentKindContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchAddressComponentKind>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<SearchAddressComponentKind>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

@@ -101,30 +101,11 @@ extension SearchBusinessPhotoObjectMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchBusinessPhotoObjectMetadataImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<SearchBusinessPhotoObjectMetadata?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => SearchBusinessPhotoObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessPhotoObjectMetadata>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchBusinessPhotoObjectMetadata>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -134,17 +115,6 @@ extension SearchBusinessPhotoObjectMetadataContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchBusinessPhotoObjectMetadata>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<SearchBusinessPhotoObjectMetadata>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -250,30 +220,11 @@ extension SearchBusinessPhotoObjectMetadataPhotoContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchBusinessPhotoObjectMetadataPhotoImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<SearchBusinessPhotoObjectMetadataPhoto?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => SearchBusinessPhotoObjectMetadataPhotoImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchBusinessPhotoObjectMetadataPhoto>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchBusinessPhotoObjectMetadataPhoto>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -284,18 +235,6 @@ extension SearchBusinessPhotoObjectMetadataPhotoContainerExtension
   static vector
       .Vector<string_map.StringMap<SearchBusinessPhotoObjectMetadataPhoto>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<SearchBusinessPhotoObjectMetadataPhoto>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -408,33 +347,12 @@ extension SearchBusinessPhotoObjectMetadataPhotoPhotoLinkContainerExtension
         ptr,
         (val) =>
             SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.fromPointer(val,
-                needFree: false)!);
-  }
-
-  static vector.Vector<SearchBusinessPhotoObjectMetadataPhotoPhotoLink?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
-            SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.fromPointer(val,
                 needFree: false));
   }
 
   static vector
       .Vector<vector.Vector<SearchBusinessPhotoObjectMetadataPhotoPhotoLink>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<vector.Vector<SearchBusinessPhotoObjectMetadataPhotoPhotoLink>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -445,19 +363,6 @@ extension SearchBusinessPhotoObjectMetadataPhotoPhotoLinkContainerExtension
   static vector.Vector<
           string_map.StringMap<SearchBusinessPhotoObjectMetadataPhotoPhotoLink>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<
-          string_map
-          .StringMap<SearchBusinessPhotoObjectMetadataPhotoPhotoLink>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

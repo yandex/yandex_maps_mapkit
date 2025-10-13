@@ -35,10 +35,9 @@ abstract final class SearchToponymObjectMetadata
           search_precision.SearchPrecision? precision,
           core.String? formerName,
           mapkit_geometry_point.Point balloonPoint,
-          core.int geoId,
           core.String? id) =>
       SearchToponymObjectMetadataImpl(
-          address, precision, formerName, balloonPoint, geoId, id);
+          address, precision, formerName, balloonPoint, id);
 
   SearchToponymObjectMetadata._();
 
@@ -58,16 +57,13 @@ abstract final class SearchToponymObjectMetadata
   /// Reverse mode -- toponym nearest point to the given coordinates.
   mapkit_geometry_point.Point get balloonPoint;
 
-  /// geobase id
-  core.int get geoId;
-
   /// Persistent toponym id (available for Yandex-owned regions).
   ///
   core.String? get id;
 
   @core.override
-  core.int get hashCode => core.Object.hashAll(
-      [address, precision, formerName, balloonPoint, geoId, id]);
+  core.int get hashCode =>
+      core.Object.hashAll([address, precision, formerName, balloonPoint, id]);
 
   @core.override
   core.bool operator ==(covariant SearchToponymObjectMetadata other) {
@@ -78,13 +74,12 @@ abstract final class SearchToponymObjectMetadata
         precision == other.precision &&
         formerName == other.formerName &&
         balloonPoint == other.balloonPoint &&
-        geoId == other.geoId &&
         id == other.id;
   }
 
   @core.override
   core.String toString() {
-    return "SearchToponymObjectMetadata(address: $address, precision: $precision, formerName: $formerName, balloonPoint: $balloonPoint, geoId: $geoId, id: $id)";
+    return "SearchToponymObjectMetadata(address: $address, precision: $precision, formerName: $formerName, balloonPoint: $balloonPoint, id: $id)";
   }
 
   static final struct_factory.StructFactory<SearchToponymObjectMetadata>

@@ -98,30 +98,11 @@ extension SearchCurrencyExchangeTypeContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            SearchCurrencyExchangeTypeImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<SearchCurrencyExchangeType?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             SearchCurrencyExchangeTypeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchCurrencyExchangeType>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchCurrencyExchangeType>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -131,17 +112,6 @@ extension SearchCurrencyExchangeTypeContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchCurrencyExchangeType>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<SearchCurrencyExchangeType>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -242,30 +212,11 @@ extension SearchCurrencyExchangeMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchCurrencyExchangeMetadataImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<SearchCurrencyExchangeMetadata?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => SearchCurrencyExchangeMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchCurrencyExchangeMetadata>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchCurrencyExchangeMetadata>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -275,17 +226,6 @@ extension SearchCurrencyExchangeMetadataContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchCurrencyExchangeMetadata>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<SearchCurrencyExchangeMetadata>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

@@ -19,8 +19,6 @@ import 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
     as transport_masstransit_common;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/route.dart'
     as transport_masstransit_route;
-import 'package:yandex_maps_mapkit/src/transport/masstransit/travel_estimation.dart'
-    as transport_masstransit_travel_estimation;
 
 part 'transport.containers.dart';
 part 'transport.impl.dart';
@@ -161,36 +159,31 @@ final class MasstransitTransportThreadAlertLastTrip {
   }
 }
 
-/// Contains information about underground or railway boarding
-/// recommendations.
+/// Contains information about underground boarding recommendations.
 abstract final class MasstransitBoardingOptions implements ffi.Finalizable {
   factory MasstransitBoardingOptions(
-          core.List<MasstransitBoardingOptionsBoardingArea> area,
-          MasstransitBoardingOptionsRailwayOptions railwayOptions) =>
-      MasstransitBoardingOptionsImpl(area, railwayOptions);
+          core.List<MasstransitBoardingOptionsBoardingArea> area) =>
+      MasstransitBoardingOptionsImpl(area);
 
   MasstransitBoardingOptions._();
 
   /// Vector of recommended areas to board.
   core.List<MasstransitBoardingOptionsBoardingArea> get area;
 
-  /// Options about boarding to trains.
-  MasstransitBoardingOptionsRailwayOptions get railwayOptions;
-
   @core.override
-  core.int get hashCode => core.Object.hashAll([area, railwayOptions]);
+  core.int get hashCode => core.Object.hashAll([area]);
 
   @core.override
   core.bool operator ==(covariant MasstransitBoardingOptions other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return area == other.area && railwayOptions == other.railwayOptions;
+    return area == other.area;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitBoardingOptions(area: $area, railwayOptions: $railwayOptions)";
+    return "MasstransitBoardingOptions(area: $area)";
   }
 }
 
@@ -221,48 +214,6 @@ abstract final class MasstransitBoardingOptionsBoardingArea
   @core.override
   core.String toString() {
     return "MasstransitBoardingOptionsBoardingArea(id: $id)";
-  }
-}
-
-abstract final class MasstransitBoardingOptionsRailwayOptions
-    implements ffi.Finalizable {
-  factory MasstransitBoardingOptionsRailwayOptions(core.String? boardingTrack,
-          core.String? boardingPlatform, core.bool uncertain) =>
-      MasstransitBoardingOptionsRailwayOptionsImpl(
-          boardingTrack, boardingPlatform, uncertain);
-
-  MasstransitBoardingOptionsRailwayOptions._();
-
-  /// Departure track annotation, e.g. "3 or 4 track".
-  ///
-  core.String? get boardingTrack;
-
-  /// Departure platform annotation, e.g. "2 platform".
-  ///
-  core.String? get boardingPlatform;
-
-  /// Flag of track/platform selection uncertainty to suggest user
-  /// double-check it in the station.
-  core.bool get uncertain;
-
-  @core.override
-  core.int get hashCode =>
-      core.Object.hashAll([boardingTrack, boardingPlatform, uncertain]);
-
-  @core.override
-  core.bool operator ==(
-      covariant MasstransitBoardingOptionsRailwayOptions other) {
-    if (core.identical(this, other)) {
-      return true;
-    }
-    return boardingTrack == other.boardingTrack &&
-        boardingPlatform == other.boardingPlatform &&
-        uncertain == other.uncertain;
-  }
-
-  @core.override
-  core.String toString() {
-    return "MasstransitBoardingOptionsRailwayOptions(boardingTrack: $boardingTrack, boardingPlatform: $boardingPlatform, uncertain: $uncertain)";
   }
 }
 
@@ -321,12 +272,9 @@ abstract final class MasstransitTransportTransportThread
           core.bool isRecommended,
           core.List<MasstransitTransportThreadAlert> alerts,
           transport_masstransit_common.MasstransitStop? alternateDepartureStop,
-          MasstransitBoardingOptions? boardingOptions,
-          transport_masstransit_travel_estimation.MasstransitTravelEstimation?
-              estimation,
-          core.String? comfortClass) =>
+          MasstransitBoardingOptions? boardingOptions) =>
       MasstransitTransportTransportThreadImpl(thread, isRecommended, alerts,
-          alternateDepartureStop, boardingOptions, estimation, comfortClass);
+          alternateDepartureStop, boardingOptions);
 
   MasstransitTransportTransportThread._();
 
@@ -350,26 +298,9 @@ abstract final class MasstransitTransportTransportThread
   ///
   MasstransitBoardingOptions? get boardingOptions;
 
-  /// Time estimation for transport thread.
-  ///
-  transport_masstransit_travel_estimation.MasstransitTravelEstimation?
-      get estimation;
-
-  /// Comfort class of transport, e.g. "Standart plus", "Lastochka" for
-  /// trains.
-  ///
-  core.String? get comfortClass;
-
   @core.override
-  core.int get hashCode => core.Object.hashAll([
-        thread,
-        isRecommended,
-        alerts,
-        alternateDepartureStop,
-        boardingOptions,
-        estimation,
-        comfortClass
-      ]);
+  core.int get hashCode => core.Object.hashAll(
+      [thread, isRecommended, alerts, alternateDepartureStop, boardingOptions]);
 
   @core.override
   core.bool operator ==(covariant MasstransitTransportTransportThread other) {
@@ -380,13 +311,11 @@ abstract final class MasstransitTransportTransportThread
         isRecommended == other.isRecommended &&
         alerts == other.alerts &&
         alternateDepartureStop == other.alternateDepartureStop &&
-        boardingOptions == other.boardingOptions &&
-        estimation == other.estimation &&
-        comfortClass == other.comfortClass;
+        boardingOptions == other.boardingOptions;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitTransportTransportThread(thread: $thread, isRecommended: $isRecommended, alerts: $alerts, alternateDepartureStop: $alternateDepartureStop, boardingOptions: $boardingOptions, estimation: $estimation, comfortClass: $comfortClass)";
+    return "MasstransitTransportTransportThread(thread: $thread, isRecommended: $isRecommended, alerts: $alerts, alternateDepartureStop: $alternateDepartureStop, boardingOptions: $boardingOptions)";
   }
 }

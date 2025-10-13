@@ -107,129 +107,20 @@ extension DrivingLeaveRoundaboutMetadataImpl on DrivingLeaveRoundaboutMetadata {
   }
 }
 
-final class DrivingTurnMetadataNative extends ffi.Struct {
-  @ffi.Uint32()
-  external core.int turnNumber;
+final class DrivingActionMetadataNative extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> uturnMetadata;
+  external ffi.Pointer<ffi.Void> leaveRoundaboutMetadada;
 }
 
-final DrivingTurnMetadataNative Function(
-    core
-        .int) _DrivingTurnMetadataNativeInit = lib.library
-    .lookup<ffi.NativeFunction<DrivingTurnMetadataNative Function(ffi.Uint32)>>(
-        'yandex_flutter_directions_driving_DrivingTurnMetadata_init')
-    .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingTurnMetadataImpl.toPointer',
-    toPlatform:
-        '(val) => DrivingTurnMetadataImpl.fromPointer(val, needFree: false)',
-    platformType: 'DrivingTurnMetadata')
-extension DrivingTurnMetadataImpl on DrivingTurnMetadata {
-  static DrivingTurnMetadata fromNative(DrivingTurnMetadataNative native) {
-    return DrivingTurnMetadata(turnNumber: native.turnNumber);
-  }
-
-  static DrivingTurnMetadataNative toNative(DrivingTurnMetadata obj) {
-    return _DrivingTurnMetadataNativeInit(obj.turnNumber);
-  }
-
-  static DrivingTurnMetadata? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr == ffi.nullptr) {
-      return null;
-    }
-    final result = DrivingTurnMetadataImpl.fromNative(
-        ptr.cast<DrivingTurnMetadataNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingTurnMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<DrivingTurnMetadataNative>();
-    result.ref = toNative(val);
-
-    return result.cast();
-  }
-}
-
-final class DrivingExitMetadataNative extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> sequentialNumber;
-  external ffi.Pointer<ffi.Void> numerationProximityMask;
-}
-
-final DrivingExitMetadataNative Function(
+final DrivingActionMetadataNative Function(
         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
-    _DrivingExitMetadataNativeInit = lib.library
+    _DrivingActionMetadataNativeInit = lib.library
         .lookup<
                 ffi.NativeFunction<
-                    DrivingExitMetadataNative Function(
+                    DrivingActionMetadataNative Function(
                         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_directions_driving_DrivingExitMetadata_init')
+            'yandex_flutter_directions_driving_DrivingActionMetadata_init')
         .asFunction(isLeaf: true);
-
-@bindings_annotations.ContainerData(
-    toNative: 'DrivingExitMetadataImpl.toPointer',
-    toPlatform:
-        '(val) => DrivingExitMetadataImpl.fromPointer(val, needFree: false)',
-    platformType: 'DrivingExitMetadata')
-extension DrivingExitMetadataImpl on DrivingExitMetadata {
-  static DrivingExitMetadata fromNative(DrivingExitMetadataNative native) {
-    return DrivingExitMetadata(
-        sequentialNumber:
-            to_platform.toPlatformFromPointerUint32(native.sequentialNumber),
-        numerationProximityMask: to_platform
-            .toPlatformFromPointerUint32(native.numerationProximityMask));
-  }
-
-  static DrivingExitMetadataNative toNative(DrivingExitMetadata obj) {
-    return _DrivingExitMetadataNativeInit(
-        to_native.toNativePtrUint32(obj.sequentialNumber),
-        to_native.toNativePtrUint32(obj.numerationProximityMask));
-  }
-
-  static DrivingExitMetadata? fromPointer(ffi.Pointer<ffi.Void> ptr,
-      {core.bool needFree = true}) {
-    if (ptr == ffi.nullptr) {
-      return null;
-    }
-    final result = DrivingExitMetadataImpl.fromNative(
-        ptr.cast<DrivingExitMetadataNative>().ref);
-
-    if (needFree) {
-      malloc.free(ptr);
-    }
-    return result;
-  }
-
-  static ffi.Pointer<ffi.Void> toPointer(DrivingExitMetadata? val) {
-    if (val == null) {
-      return ffi.nullptr;
-    }
-    final result = malloc.call<DrivingExitMetadataNative>();
-    result.ref = toNative(val);
-
-    return result.cast();
-  }
-}
-
-final class _DrivingActionMetadataNativeData extends ffi.Union {
-  external DrivingUturnMetadataNative uturnMetadata;
-  external DrivingLeaveRoundaboutMetadataNative leaveRoundaboutMetadata;
-  external DrivingTurnMetadataNative turnMetadata;
-  external DrivingExitMetadataNative exitMetadata;
-}
-
-final class DrivingActionMetadataNative extends ffi.Struct {
-  @ffi.Int()
-  external core.int tag;
-  external _DrivingActionMetadataNativeData data;
-}
 
 @bindings_annotations.ContainerData(
     toNative: 'DrivingActionMetadataImpl.toPointer',
@@ -237,43 +128,19 @@ final class DrivingActionMetadataNative extends ffi.Struct {
         '(val) => DrivingActionMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingActionMetadata')
 extension DrivingActionMetadataImpl on DrivingActionMetadata {
-  static DrivingActionMetadataNative toNative(DrivingActionMetadata obj) {
-    if (obj._value is DrivingUturnMetadata) {
-      return _ActionMetadataNative_UturnMetadataNative_init(
-          DrivingUturnMetadataImpl.toNative(obj._value));
-    }
-    if (obj._value is DrivingLeaveRoundaboutMetadata) {
-      return _ActionMetadataNative_LeaveRoundaboutMetadataNative_init(
-          DrivingLeaveRoundaboutMetadataImpl.toNative(obj._value));
-    }
-    if (obj._value is DrivingTurnMetadata) {
-      return _ActionMetadataNative_TurnMetadataNative_init(
-          DrivingTurnMetadataImpl.toNative(obj._value));
-    }
-    if (obj._value is DrivingExitMetadata) {
-      return _ActionMetadataNative_ExitMetadataNative_init(
-          DrivingExitMetadataImpl.toNative(obj._value));
-    }
-    throw core.TypeError();
+  static DrivingActionMetadata fromNative(DrivingActionMetadataNative native) {
+    return DrivingActionMetadata(
+        uturnMetadata:
+            DrivingUturnMetadataImpl.fromPointer(native.uturnMetadata),
+        leaveRoundaboutMetadada: DrivingLeaveRoundaboutMetadataImpl.fromPointer(
+            native.leaveRoundaboutMetadada));
   }
 
-  static DrivingActionMetadata toPlatform(DrivingActionMetadataNative obj) {
-    switch (obj.tag) {
-      case 0:
-        return DrivingActionMetadata.fromUturnMetadata(
-            DrivingUturnMetadataImpl.fromNative(obj.data.uturnMetadata));
-      case 1:
-        return DrivingActionMetadata.fromLeaveRoundaboutMetadata(
-            DrivingLeaveRoundaboutMetadataImpl.fromNative(
-                obj.data.leaveRoundaboutMetadata));
-      case 2:
-        return DrivingActionMetadata.fromTurnMetadata(
-            DrivingTurnMetadataImpl.fromNative(obj.data.turnMetadata));
-      case 3:
-        return DrivingActionMetadata.fromExitMetadata(
-            DrivingExitMetadataImpl.fromNative(obj.data.exitMetadata));
-    }
-    throw core.TypeError();
+  static DrivingActionMetadataNative toNative(DrivingActionMetadata obj) {
+    return _DrivingActionMetadataNativeInit(
+        DrivingUturnMetadataImpl.toPointer(obj.uturnMetadata),
+        DrivingLeaveRoundaboutMetadataImpl.toPointer(
+            obj.leaveRoundaboutMetadada));
   }
 
   static DrivingActionMetadata? fromPointer(ffi.Pointer<ffi.Void> ptr,
@@ -281,7 +148,8 @@ extension DrivingActionMetadataImpl on DrivingActionMetadata {
     if (ptr == ffi.nullptr) {
       return null;
     }
-    final result = toPlatform(ptr.cast<DrivingActionMetadataNative>().ref);
+    final result = DrivingActionMetadataImpl.fromNative(
+        ptr.cast<DrivingActionMetadataNative>().ref);
 
     if (needFree) {
       malloc.free(ptr);
@@ -293,46 +161,12 @@ extension DrivingActionMetadataImpl on DrivingActionMetadata {
     if (val == null) {
       return ffi.nullptr;
     }
-
     final result = malloc.call<DrivingActionMetadataNative>();
     result.ref = toNative(val);
 
     return result.cast();
   }
 }
-
-final DrivingActionMetadataNative Function(DrivingUturnMetadataNative)
-    _ActionMetadataNative_UturnMetadataNative_init = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    DrivingActionMetadataNative Function(
-                        DrivingUturnMetadataNative)>>(
-            'yandex_flutter_directions_driving_DrivingActionMetadata_UturnMetadataNative_init')
-        .asFunction(isLeaf: true);
-final DrivingActionMetadataNative Function(DrivingLeaveRoundaboutMetadataNative)
-    _ActionMetadataNative_LeaveRoundaboutMetadataNative_init = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    DrivingActionMetadataNative Function(
-                        DrivingLeaveRoundaboutMetadataNative)>>(
-            'yandex_flutter_directions_driving_DrivingActionMetadata_LeaveRoundaboutMetadataNative_init')
-        .asFunction(isLeaf: true);
-final DrivingActionMetadataNative Function(DrivingTurnMetadataNative)
-    _ActionMetadataNative_TurnMetadataNative_init = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    DrivingActionMetadataNative Function(
-                        DrivingTurnMetadataNative)>>(
-            'yandex_flutter_directions_driving_DrivingActionMetadata_TurnMetadataNative_init')
-        .asFunction(isLeaf: true);
-final DrivingActionMetadataNative Function(DrivingExitMetadataNative)
-    _ActionMetadataNative_ExitMetadataNative_init = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    DrivingActionMetadataNative Function(
-                        DrivingExitMetadataNative)>>(
-            'yandex_flutter_directions_driving_DrivingActionMetadata_ExitMetadataNative_init')
-        .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
     toNative: 'DrivingAnnotationSchemeIDImpl.toPointer',
@@ -379,17 +213,13 @@ extension DrivingAnnotationSchemeIDImpl on DrivingAnnotationSchemeID {
         '(val) => DrivingToponymPhraseImpl.fromPointer(val, needFree: false)',
     platformType: 'DrivingToponymPhrase')
 final class DrivingToponymPhraseImpl extends DrivingToponymPhrase {
-  DrivingToponymPhraseImpl(core.String text, core.int? actionProximity)
-      : this.fromNativePtr(_DrivingToponymPhrase_init(
-            to_native.toNativeString(text),
-            to_native.toNativePtrUint32(actionProximity)));
+  DrivingToponymPhraseImpl(core.String text)
+      : this.fromNativePtr(
+            _DrivingToponymPhrase_init(to_native.toNativeString(text)));
 
   @core.override
   late final text =
       to_platform.toPlatformString(_DrivingToponymPhrase_get_text(_ptr));
-  @core.override
-  late final actionProximity = to_platform.toPlatformFromPointerUint32(
-      _DrivingToponymPhrase_get_actionProximity(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer =
@@ -429,13 +259,11 @@ final _DrivingToponymPhrase_free = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
         'yandex_flutter_directions_driving_DrivingToponymPhrase_free');
 
-final ffi.Pointer<ffi.Void> Function(
-        native_types.NativeString, ffi.Pointer<ffi.Void>)
+final ffi.Pointer<ffi.Void> Function(native_types.NativeString)
     _DrivingToponymPhrase_init = lib.library
         .lookup<
                 ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        native_types.NativeString, ffi.Pointer<ffi.Void>)>>(
+                    ffi.Pointer<ffi.Void> Function(native_types.NativeString)>>(
             'yandex_flutter_directions_driving_DrivingToponymPhrase_init')
         .asFunction(isLeaf: true);
 
@@ -446,15 +274,6 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
                     native_types.NativeString Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingToponymPhrase_get_text')
         .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(
-    ffi
-        .Pointer<ffi.Void>) _DrivingToponymPhrase_get_actionProximity = lib
-    .library
-    .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
-        'yandex_flutter_directions_driving_DrivingToponymPhrase_get_actionProximity')
-    .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
     toNative: 'DrivingAnnotationImpl.getNativePtr',
@@ -466,18 +285,17 @@ final class DrivingAnnotationImpl extends DrivingAnnotation {
       directions_driving_action.DrivingAction? action,
       core.String? toponym,
       core.String descriptionText,
-      DrivingActionMetadata? actionMetadata,
+      DrivingActionMetadata actionMetadata,
       core.List<directions_driving_landmark.DrivingLandmark> landmarks,
-      core.List<DrivingToponymPhrase> toponymPhrase)
+      DrivingToponymPhrase? toponymPhrase)
       : this.fromNativePtr(_DrivingAnnotation_init(
             directions_driving_action.DrivingActionImpl.toPointer(action),
             to_native.toNativePtrString(toponym),
             to_native.toNativeString(descriptionText),
-            DrivingActionMetadataImpl.toPointer(actionMetadata),
+            DrivingActionMetadataImpl.toNative(actionMetadata),
             directions_driving_landmark.DrivingLandmarkContainerExtension
                 .toNativeVector(landmarks),
-            DrivingToponymPhraseContainerExtension.toNativeVector(
-                toponymPhrase)));
+            DrivingToponymPhraseImpl.getNativePtr(toponymPhrase)));
 
   @core.override
   late final action = directions_driving_action.DrivingActionImpl.fromPointer(
@@ -489,16 +307,15 @@ final class DrivingAnnotationImpl extends DrivingAnnotation {
   late final descriptionText = to_platform
       .toPlatformString(_DrivingAnnotation_get_descriptionText(_ptr));
   @core.override
-  late final actionMetadata = DrivingActionMetadataImpl.fromPointer(
+  late final actionMetadata = DrivingActionMetadataImpl.fromNative(
       _DrivingAnnotation_get_actionMetadata(_ptr));
   @core.override
   late final landmarks =
       directions_driving_landmark.DrivingLandmarkContainerExtension
           .toPlatformVector(_DrivingAnnotation_get_landmarks(_ptr));
   @core.override
-  late final toponymPhrase =
-      DrivingToponymPhraseContainerExtension.toPlatformVector(
-          _DrivingAnnotation_get_toponymPhrase(_ptr));
+  late final toponymPhrase = DrivingToponymPhraseImpl.fromOptionalPtr(
+      _DrivingAnnotation_get_toponymPhrase(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_DrivingAnnotation_free.cast());
@@ -539,7 +356,7 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
         native_types.NativeString,
-        ffi.Pointer<ffi.Void>,
+        DrivingActionMetadataNative,
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>) _DrivingAnnotation_init =
     lib.library
@@ -549,7 +366,7 @@ final ffi.Pointer<ffi.Void> Function(
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         native_types.NativeString,
-                        ffi.Pointer<ffi.Void>,
+                        DrivingActionMetadataNative,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingAnnotation_init')
@@ -577,12 +394,12 @@ final native_types.NativeString Function(
                 native_types.NativeString Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_directions_driving_DrivingAnnotation_get_descriptionText')
     .asFunction(isLeaf: true);
-final ffi.Pointer<ffi.Void> Function(
+final DrivingActionMetadataNative Function(
     ffi
         .Pointer<ffi.Void>) _DrivingAnnotation_get_actionMetadata = lib.library
     .lookup<
             ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+                DrivingActionMetadataNative Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_directions_driving_DrivingAnnotation_get_actionMetadata')
     .asFunction(isLeaf: true);
 final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)

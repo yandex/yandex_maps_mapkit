@@ -101,30 +101,11 @@ extension SearchOrgOwnershipObjectMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchOrgOwnershipObjectMetadataImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<SearchOrgOwnershipObjectMetadata?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => SearchOrgOwnershipObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchOrgOwnershipObjectMetadata>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchOrgOwnershipObjectMetadata>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -134,17 +115,6 @@ extension SearchOrgOwnershipObjectMetadataContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchOrgOwnershipObjectMetadata>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<SearchOrgOwnershipObjectMetadata>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

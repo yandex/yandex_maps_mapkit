@@ -90,28 +90,11 @@ extension DrivingDirectionSignContainerExtension on DrivingDirectionSign {
   static vector.Vector<DrivingDirectionSign> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => DrivingDirectionSignImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSign?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
         (val) => DrivingDirectionSignImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSign>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSign>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -121,17 +104,6 @@ extension DrivingDirectionSignContainerExtension on DrivingDirectionSign {
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSign>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSign>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -228,30 +200,11 @@ extension DrivingDirectionSignImageContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            DrivingDirectionSignImageImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSignImage?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             DrivingDirectionSignImageImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSignImage>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSignImage>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -261,17 +214,6 @@ extension DrivingDirectionSignImageContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSignImage>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSignImage>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -372,30 +314,11 @@ extension DrivingDirectionSignDirectionContainerExtension
     return vector.Vector(
         ptr,
         (val) => DrivingDirectionSignDirectionImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSignDirection?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => DrivingDirectionSignDirectionImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSignDirection>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSignDirection>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -405,17 +328,6 @@ extension DrivingDirectionSignDirectionContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSignDirection>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSignDirection>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -512,30 +424,11 @@ extension DrivingDirectionSignStyleContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            DrivingDirectionSignStyleImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSignStyle?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             DrivingDirectionSignStyleImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSignStyle>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSignStyle>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -545,17 +438,6 @@ extension DrivingDirectionSignStyleContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSignStyle>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSignStyle>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -655,30 +537,11 @@ extension DrivingDirectionSignToponymContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            DrivingDirectionSignToponymImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSignToponym?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             DrivingDirectionSignToponymImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSignToponym>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSignToponym>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -688,17 +551,6 @@ extension DrivingDirectionSignToponymContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSignToponym>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSignToponym>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -795,30 +647,11 @@ extension DrivingDirectionSignRoadContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            DrivingDirectionSignRoadImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSignRoad?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             DrivingDirectionSignRoadImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSignRoad>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSignRoad>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -828,17 +661,6 @@ extension DrivingDirectionSignRoadContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSignRoad>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSignRoad>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -935,30 +757,11 @@ extension DrivingDirectionSignExitContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            DrivingDirectionSignExitImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSignExit?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             DrivingDirectionSignExitImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSignExit>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSignExit>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -968,17 +771,6 @@ extension DrivingDirectionSignExitContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSignExit>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSignExit>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1075,30 +867,11 @@ extension DrivingDirectionSignIconContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            DrivingDirectionSignIconImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSignIcon?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             DrivingDirectionSignIconImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSignIcon>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSignIcon>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1108,17 +881,6 @@ extension DrivingDirectionSignIconContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSignIcon>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSignIcon>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1215,30 +977,11 @@ extension DrivingDirectionSignItemContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            DrivingDirectionSignItemImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingDirectionSignItem?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             DrivingDirectionSignItemImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingDirectionSignItem>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingDirectionSignItem>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1248,17 +991,6 @@ extension DrivingDirectionSignItemContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingDirectionSignItem>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingDirectionSignItem>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

@@ -101,30 +101,11 @@ extension SearchRelatedPlacesObjectMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchRelatedPlacesObjectMetadataImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<SearchRelatedPlacesObjectMetadata?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => SearchRelatedPlacesObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchRelatedPlacesObjectMetadata>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<SearchRelatedPlacesObjectMetadata>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -134,17 +115,6 @@ extension SearchRelatedPlacesObjectMetadataContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchRelatedPlacesObjectMetadata>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<SearchRelatedPlacesObjectMetadata>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

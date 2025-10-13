@@ -27,7 +27,6 @@ import 'package:yandex_maps_mapkit/src/mapkit/map/callback.dart'
     as mapkit_map_callback;
 import 'package:yandex_maps_mapkit/src/mapkit/map/composite_icon.dart'
     as mapkit_map_composite_icon;
-import 'package:yandex_maps_mapkit/src/mapkit/map/icon.dart' as mapkit_map_icon;
 import 'package:yandex_maps_mapkit/src/mapkit/map/icon_style.dart'
     as mapkit_map_icon_style;
 import 'package:yandex_maps_mapkit/src/mapkit/map/map_object.dart'
@@ -36,8 +35,6 @@ import 'package:yandex_maps_mapkit/src/mapkit/map/model.dart'
     as mapkit_map_model;
 import 'package:yandex_maps_mapkit/src/mapkit/map/placemark_animation.dart'
     as mapkit_map_placemark_animation;
-import 'package:yandex_maps_mapkit/src/mapkit/map/placemark_text.dart'
-    as mapkit_map_placemark_text;
 import 'package:yandex_maps_mapkit/src/mapkit/map/text_style.dart'
     as mapkit_map_text_style;
 
@@ -59,11 +56,6 @@ abstract class PlacemarkMapObject
   /// be set to 0. Default: 1.
   core.double get opacity;
   set opacity(core.double val);
-
-  /// PlacemarkText can be used to set text and its style for the
-  /// placemark. It's optional parameter and can be used in addition to
-  /// placemark objects
-  mapkit_map_placemark_text.PlacemarkText get text;
 
   /// Sets an icon with the default style for the placemark. Switches off
   /// and resets model/composite icon/animation/view.
@@ -97,11 +89,6 @@ abstract class PlacemarkMapObject
   /// Changes the icon style. Valid only for the single icon, the view and
   /// the animated icon.
   void setIconStyle(mapkit_map_icon_style.IconStyle style);
-
-  /// Returns Icon object that can be used to set image or view and its
-  /// style for the placemark. Switches off and resets composite
-  /// icon/model/animation/view.
-  mapkit_map_icon.Icon useIcon();
 
   /// Returns CompositeIcon object that can be used to set icons and their
   /// styles for the placemark. Switches off and resets

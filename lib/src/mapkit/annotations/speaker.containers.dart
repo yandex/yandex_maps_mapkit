@@ -89,28 +89,11 @@ extension LocalizedPhraseContainerExtension on LocalizedPhrase {
   static vector.Vector<LocalizedPhrase> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
-        ptr, (val) => LocalizedPhraseImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<LocalizedPhrase?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
         ptr, (val) => LocalizedPhraseImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<LocalizedPhrase>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<LocalizedPhrase>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -120,17 +103,6 @@ extension LocalizedPhraseContainerExtension on LocalizedPhrase {
 
   static vector.Vector<string_map.StringMap<LocalizedPhrase>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<LocalizedPhrase>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

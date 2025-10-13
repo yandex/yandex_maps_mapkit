@@ -7,8 +7,6 @@ import 'package:yandex_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
 import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
     as exception;
-import 'package:yandex_maps_mapkit/src/bindings/common/platform_data_holder.dart'
-    as platform_data_holder;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;

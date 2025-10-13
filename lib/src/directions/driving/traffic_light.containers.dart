@@ -90,28 +90,11 @@ extension DrivingTrafficLightContainerExtension on DrivingTrafficLight {
   static vector.Vector<DrivingTrafficLight> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => DrivingTrafficLightImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingTrafficLight?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
         (val) => DrivingTrafficLightImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingTrafficLight>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingTrafficLight>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -121,17 +104,6 @@ extension DrivingTrafficLightContainerExtension on DrivingTrafficLight {
 
   static vector.Vector<string_map.StringMap<DrivingTrafficLight>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingTrafficLight>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

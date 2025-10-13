@@ -12,14 +12,12 @@ final class SearchToponymObjectMetadataImpl
       search_precision.SearchPrecision? precision,
       core.String? formerName,
       mapkit_geometry_point.Point balloonPoint,
-      core.int geoId,
       core.String? id)
       : this.fromNativePtr(_SearchToponymObjectMetadata_init(
             search_address.SearchAddressImpl.getNativePtr(address),
             search_precision.SearchPrecisionImpl.toPointer(precision),
             to_native.toNativePtrString(formerName),
             mapkit_geometry_point.PointImpl.toNative(balloonPoint),
-            geoId,
             to_native.toNativePtrString(id)));
 
   @core.override
@@ -34,8 +32,6 @@ final class SearchToponymObjectMetadataImpl
   @core.override
   late final balloonPoint = mapkit_geometry_point.PointImpl.fromNative(
       _SearchToponymObjectMetadata_get_balloonPoint(_ptr));
-  @core.override
-  late final geoId = _SearchToponymObjectMetadata_get_geoId(_ptr);
   @core.override
   late final id = to_platform
       .toPlatformFromPointerString(_SearchToponymObjectMetadata_get_id(_ptr));
@@ -137,7 +133,6 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
         mapkit_geometry_point.PointNative,
-        core.int,
         ffi.Pointer<ffi.Void>) _SearchToponymObjectMetadata_init =
     lib.library
         .lookup<
@@ -147,7 +142,6 @@ final ffi.Pointer<ffi.Void> Function(
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         mapkit_geometry_point.PointNative,
-                        ffi.Int,
                         ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SearchToponymObjectMetadata_init')
         .asFunction(isLeaf: true);
@@ -183,11 +177,6 @@ final mapkit_geometry_point.PointNative Function(
                     ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_search_SearchToponymObjectMetadata_get_balloonPoint')
     .asFunction(isLeaf: true);
-final core.int Function(ffi.Pointer<ffi.Void>)
-    _SearchToponymObjectMetadata_get_geoId = lib.library
-        .lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Void>)>>(
-            'yandex_flutter_search_SearchToponymObjectMetadata_get_geoId')
-        .asFunction(isLeaf: true);
 final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     _SearchToponymObjectMetadata_get_id = lib.library
         .lookup<

@@ -98,30 +98,11 @@ extension MasstransitBoardingOptionsContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
-            MasstransitBoardingOptionsImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitBoardingOptions?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) =>
             MasstransitBoardingOptionsImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitBoardingOptions>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<MasstransitBoardingOptions>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -131,17 +112,6 @@ extension MasstransitBoardingOptionsContainerExtension
 
   static vector.Vector<string_map.StringMap<MasstransitBoardingOptions>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<MasstransitBoardingOptions>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -247,30 +217,11 @@ extension MasstransitBoardingOptionsBoardingAreaContainerExtension
     return vector.Vector(
         ptr,
         (val) => MasstransitBoardingOptionsBoardingAreaImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitBoardingOptionsBoardingArea?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitBoardingOptionsBoardingAreaImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitBoardingOptionsBoardingArea>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<MasstransitBoardingOptionsBoardingArea>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -281,172 +232,6 @@ extension MasstransitBoardingOptionsBoardingAreaContainerExtension
   static vector
       .Vector<string_map.StringMap<MasstransitBoardingOptionsBoardingArea>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<MasstransitBoardingOptionsBoardingArea>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-}
-
-extension MasstransitBoardingOptionsRailwayOptionsContainerExtension
-    on MasstransitBoardingOptionsRailwayOptions {
-  static ffi.Pointer<ffi.Void> toNativeMap(
-      core.Map<core.String, MasstransitBoardingOptionsRailwayOptions?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(
-        obj, MasstransitBoardingOptionsRailwayOptionsImpl.getNativePtr);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapVector(
-      core.Map<core.String,
-              core.List<MasstransitBoardingOptionsRailwayOptions?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeMapDictionary(
-      core.Map<
-              core.String,
-              core
-              .Map<core.String, MasstransitBoardingOptionsRailwayOptions?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return string_map.toNativeMap(obj, toNativeMap);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVector(
-      core.List<MasstransitBoardingOptionsRailwayOptions?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(
-        obj, MasstransitBoardingOptionsRailwayOptionsImpl.getNativePtr);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorVector(
-      core.List<core.List<MasstransitBoardingOptionsRailwayOptions?>?>? obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeVector);
-  }
-
-  static ffi.Pointer<ffi.Void> toNativeVectorDictionary(
-      core.List<
-              core
-              .Map<core.String, MasstransitBoardingOptionsRailwayOptions?>?>?
-          obj) {
-    if (obj == null) {
-      return ffi.nullptr;
-    }
-
-    return vector.toNativeVector(obj, toNativeMap);
-  }
-
-  static string_map.StringMap<MasstransitBoardingOptionsRailwayOptions>
-      toPlatformMap(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => MasstransitBoardingOptionsRailwayOptionsImpl.fromPointer(val,
-            needFree: false));
-  }
-
-  static string_map
-      .StringMap<vector.Vector<MasstransitBoardingOptionsRailwayOptions>>
-      toPlatformMapVector(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static string_map
-      .StringMap<string_map.StringMap<MasstransitBoardingOptionsRailwayOptions>>
-      toPlatformMapDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return string_map.StringMap(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector.Vector<MasstransitBoardingOptionsRailwayOptions>
-      toPlatformVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitBoardingOptionsRailwayOptionsImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitBoardingOptionsRailwayOptions?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitBoardingOptionsRailwayOptionsImpl.fromPointer(val,
-            needFree: false));
-  }
-
-  static vector.Vector<vector.Vector<MasstransitBoardingOptionsRailwayOptions>>
-      toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<MasstransitBoardingOptionsRailwayOptions>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => val == ffi.nullptr
-            ? null
-            : toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value));
-  }
-
-  static vector
-      .Vector<string_map.StringMap<MasstransitBoardingOptionsRailwayOptions>>
-      toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<MasstransitBoardingOptionsRailwayOptions>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -538,28 +323,11 @@ extension MasstransitTransportContainerExtension on MasstransitTransport {
   static vector.Vector<MasstransitTransport> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => MasstransitTransportImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitTransport?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
         (val) => MasstransitTransportImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTransport>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<MasstransitTransport>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -569,17 +337,6 @@ extension MasstransitTransportContainerExtension on MasstransitTransport {
 
   static vector.Vector<string_map.StringMap<MasstransitTransport>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<MasstransitTransport>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -683,30 +440,11 @@ extension MasstransitTransportTransportThreadContainerExtension
     return vector.Vector(
         ptr,
         (val) => MasstransitTransportTransportThreadImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitTransportTransportThread?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitTransportTransportThreadImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTransportTransportThread>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<MasstransitTransportTransportThread>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -717,18 +455,6 @@ extension MasstransitTransportTransportThreadContainerExtension
   static vector
       .Vector<string_map.StringMap<MasstransitTransportTransportThread>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<MasstransitTransportTransportThread>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -831,30 +557,11 @@ extension MasstransitTransportThreadAlertContainerExtension
     return vector.Vector(
         ptr,
         (val) => MasstransitTransportThreadAlertImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitTransportThreadAlert?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitTransportThreadAlertImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTransportThreadAlert>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<MasstransitTransportThreadAlert>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -864,17 +571,6 @@ extension MasstransitTransportThreadAlertContainerExtension
 
   static vector.Vector<string_map.StringMap<MasstransitTransportThreadAlert>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<MasstransitTransportThreadAlert>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -978,30 +674,11 @@ extension MasstransitTransportThreadAlertClosedContainerExtension
     return vector.Vector(
         ptr,
         (val) => MasstransitTransportThreadAlertClosedImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitTransportThreadAlertClosed?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitTransportThreadAlertClosedImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTransportThreadAlertClosed>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<MasstransitTransportThreadAlertClosed>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1012,18 +689,6 @@ extension MasstransitTransportThreadAlertClosedContainerExtension
   static vector
       .Vector<string_map.StringMap<MasstransitTransportThreadAlertClosed>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<MasstransitTransportThreadAlertClosed>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1132,32 +797,12 @@ extension MasstransitTransportThreadAlertClosedUntilContainerExtension
     return vector.Vector(
         ptr,
         (val) => MasstransitTransportThreadAlertClosedUntilImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitTransportThreadAlertClosedUntil?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitTransportThreadAlertClosedUntilImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector
       .Vector<vector.Vector<MasstransitTransportThreadAlertClosedUntil>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<vector.Vector<MasstransitTransportThreadAlertClosedUntil>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1168,18 +813,6 @@ extension MasstransitTransportThreadAlertClosedUntilContainerExtension
   static vector
       .Vector<string_map.StringMap<MasstransitTransportThreadAlertClosedUntil>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<MasstransitTransportThreadAlertClosedUntil>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1285,30 +918,11 @@ extension MasstransitTransportThreadAlertLastTripContainerExtension
     return vector.Vector(
         ptr,
         (val) => MasstransitTransportThreadAlertLastTripImpl.fromPointer(val,
-            needFree: false)!);
-  }
-
-  static vector.Vector<MasstransitTransportThreadAlertLastTrip?>
-      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-        ptr,
-        (val) => MasstransitTransportThreadAlertLastTripImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<MasstransitTransportThreadAlertLastTrip>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<MasstransitTransportThreadAlertLastTrip>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -1319,18 +933,6 @@ extension MasstransitTransportThreadAlertLastTripContainerExtension
   static vector
       .Vector<string_map.StringMap<MasstransitTransportThreadAlertLastTrip>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector
-      .Vector<string_map.StringMap<MasstransitTransportThreadAlertLastTrip>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

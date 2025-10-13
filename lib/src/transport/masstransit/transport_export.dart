@@ -2,8 +2,6 @@ export 'package:yandex_maps_mapkit/src/transport/masstransit/transport.dart'
     hide
         MasstransitTransportTransportThreadImpl,
         MasstransitTransportContainerExtension,
-        MasstransitBoardingOptionsRailwayOptionsImpl,
-        MasstransitBoardingOptionsRailwayOptionsContainerExtension,
         MasstransitTransportImpl,
         MasstransitBoardingOptionsBoardingAreaContainerExtension,
         MasstransitTransportThreadAlertClosedUntilNative,

@@ -90,28 +90,11 @@ extension BicycleTrafficTypeIDContainerExtension on BicycleTrafficTypeID {
   static vector.Vector<BicycleTrafficTypeID> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => BicycleTrafficTypeIDImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<BicycleTrafficTypeID?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
         (val) => BicycleTrafficTypeIDImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<BicycleTrafficTypeID>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<BicycleTrafficTypeID>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -121,17 +104,6 @@ extension BicycleTrafficTypeIDContainerExtension on BicycleTrafficTypeID {
 
   static vector.Vector<string_map.StringMap<BicycleTrafficTypeID>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<BicycleTrafficTypeID>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

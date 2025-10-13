@@ -90,28 +90,11 @@ extension BicycleRestrictedEntryContainerExtension on BicycleRestrictedEntry {
   static vector.Vector<BicycleRestrictedEntry> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => BicycleRestrictedEntryImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<BicycleRestrictedEntry?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
         (val) => BicycleRestrictedEntryImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<BicycleRestrictedEntry>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<BicycleRestrictedEntry>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -121,17 +104,6 @@ extension BicycleRestrictedEntryContainerExtension on BicycleRestrictedEntry {
 
   static vector.Vector<string_map.StringMap<BicycleRestrictedEntry>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<BicycleRestrictedEntry>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

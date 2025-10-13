@@ -76,133 +76,39 @@ final class DrivingLeaveRoundaboutMetadata {
   }
 }
 
-final class DrivingTurnMetadata {
-  /// The turn number.
-  final core.int turnNumber;
+/// Information about an action.
 
-  const DrivingTurnMetadata({
-    required this.turnNumber,
-  });
-
-  @core.override
-  core.int get hashCode => core.Object.hashAll([turnNumber]);
-
-  @core.override
-  core.bool operator ==(covariant DrivingTurnMetadata other) {
-    if (core.identical(this, other)) {
-      return true;
-    }
-    return turnNumber == other.turnNumber;
-  }
-
-  @core.override
-  core.String toString() {
-    return "DrivingTurnMetadata(turnNumber: $turnNumber)";
-  }
-}
-
-final class DrivingExitMetadata {
-  /// The number in the sequence of consecutive exits.
+final class DrivingActionMetadata {
+  /// The length of the U-turn.
   ///
-  final core.int? sequentialNumber;
+  final DrivingUturnMetadata? uturnMetadata;
 
-  /// Determines whether it is necessary to annotate the exit number in the
-  /// imm stage.
+  /// The number of the exit for leaving the roundabout.
   ///
-  final core.int? numerationProximityMask;
+  final DrivingLeaveRoundaboutMetadata? leaveRoundaboutMetadada;
 
-  const DrivingExitMetadata({
-    this.sequentialNumber,
-    this.numerationProximityMask,
+  const DrivingActionMetadata({
+    this.uturnMetadata,
+    this.leaveRoundaboutMetadada,
   });
 
   @core.override
   core.int get hashCode =>
-      core.Object.hashAll([sequentialNumber, numerationProximityMask]);
+      core.Object.hashAll([uturnMetadata, leaveRoundaboutMetadada]);
 
   @core.override
-  core.bool operator ==(covariant DrivingExitMetadata other) {
+  core.bool operator ==(covariant DrivingActionMetadata other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return sequentialNumber == other.sequentialNumber &&
-        numerationProximityMask == other.numerationProximityMask;
+    return uturnMetadata == other.uturnMetadata &&
+        leaveRoundaboutMetadada == other.leaveRoundaboutMetadada;
   }
 
   @core.override
   core.String toString() {
-    return "DrivingExitMetadata(sequentialNumber: $sequentialNumber, numerationProximityMask: $numerationProximityMask)";
+    return "DrivingActionMetadata(uturnMetadata: $uturnMetadata, leaveRoundaboutMetadada: $leaveRoundaboutMetadada)";
   }
-}
-
-final class DrivingActionMetadata {
-  const DrivingActionMetadata.fromUturnMetadata(
-      DrivingUturnMetadata uturnMetadata)
-      : _value = uturnMetadata;
-
-  const DrivingActionMetadata.fromLeaveRoundaboutMetadata(
-      DrivingLeaveRoundaboutMetadata leaveRoundaboutMetadata)
-      : _value = leaveRoundaboutMetadata;
-
-  const DrivingActionMetadata.fromTurnMetadata(DrivingTurnMetadata turnMetadata)
-      : _value = turnMetadata;
-
-  const DrivingActionMetadata.fromExitMetadata(DrivingExitMetadata exitMetadata)
-      : _value = exitMetadata;
-
-  DrivingUturnMetadata? asUturnMetadata() {
-    if (_value is DrivingUturnMetadata) {
-      return _value;
-    }
-    return null;
-  }
-
-  DrivingLeaveRoundaboutMetadata? asLeaveRoundaboutMetadata() {
-    if (_value is DrivingLeaveRoundaboutMetadata) {
-      return _value;
-    }
-    return null;
-  }
-
-  DrivingTurnMetadata? asTurnMetadata() {
-    if (_value is DrivingTurnMetadata) {
-      return _value;
-    }
-    return null;
-  }
-
-  DrivingExitMetadata? asExitMetadata() {
-    if (_value is DrivingExitMetadata) {
-      return _value;
-    }
-    return null;
-  }
-
-  /// Applies the passed function to the variant value.
-  void when({
-    required void Function(DrivingUturnMetadata value) onUturnMetadata,
-    required void Function(DrivingLeaveRoundaboutMetadata value)
-        onLeaveRoundaboutMetadata,
-    required void Function(DrivingTurnMetadata value) onTurnMetadata,
-    required void Function(DrivingExitMetadata value) onExitMetadata,
-  }) {
-    if (_value is DrivingUturnMetadata) {
-      return onUturnMetadata(_value as DrivingUturnMetadata);
-    }
-    if (_value is DrivingLeaveRoundaboutMetadata) {
-      return onLeaveRoundaboutMetadata(
-          _value as DrivingLeaveRoundaboutMetadata);
-    }
-    if (_value is DrivingTurnMetadata) {
-      return onTurnMetadata(_value as DrivingTurnMetadata);
-    }
-    if (_value is DrivingExitMetadata) {
-      return onExitMetadata(_value as DrivingExitMetadata);
-    }
-    assert(false);
-  }
-
-  final core.dynamic _value;
 }
 
 /// The identifier of the annotation scheme.
@@ -223,32 +129,28 @@ enum DrivingAnnotationSchemeID {
 
 /// The description of the object.
 abstract final class DrivingToponymPhrase implements ffi.Finalizable {
-  factory DrivingToponymPhrase(core.String text, core.int? actionProximity) =>
-      DrivingToponymPhraseImpl(text, actionProximity);
+  factory DrivingToponymPhrase(core.String text) =>
+      DrivingToponymPhraseImpl(text);
 
   DrivingToponymPhrase._();
 
   /// The string containing the description.
   core.String get text;
 
-  /// Positions at which text should be pronounced.
-  ///
-  core.int? get actionProximity;
-
   @core.override
-  core.int get hashCode => core.Object.hashAll([text, actionProximity]);
+  core.int get hashCode => core.Object.hashAll([text]);
 
   @core.override
   core.bool operator ==(covariant DrivingToponymPhrase other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return text == other.text && actionProximity == other.actionProximity;
+    return text == other.text;
   }
 
   @core.override
   core.String toString() {
-    return "DrivingToponymPhrase(text: $text, actionProximity: $actionProximity)";
+    return "DrivingToponymPhrase(text: $text)";
   }
 }
 
@@ -258,9 +160,9 @@ abstract final class DrivingAnnotation implements ffi.Finalizable {
           directions_driving_action.DrivingAction? action,
           core.String? toponym,
           core.String descriptionText,
-          DrivingActionMetadata? actionMetadata,
+          DrivingActionMetadata actionMetadata,
           core.List<directions_driving_landmark.DrivingLandmark> landmarks,
-          core.List<DrivingToponymPhrase> toponymPhrase) =>
+          DrivingToponymPhrase? toponymPhrase) =>
       DrivingAnnotationImpl(action, toponym, descriptionText, actionMetadata,
           landmarks, toponymPhrase);
 
@@ -278,14 +180,14 @@ abstract final class DrivingAnnotation implements ffi.Finalizable {
   core.String get descriptionText;
 
   /// Action metadata.
-  ///
-  DrivingActionMetadata? get actionMetadata;
+  DrivingActionMetadata get actionMetadata;
 
   /// Significant landmarks.
   core.List<directions_driving_landmark.DrivingLandmark> get landmarks;
 
-  /// Toponym phrases with positions for pronunciation.
-  core.List<DrivingToponymPhrase> get toponymPhrase;
+  /// The description of the object.
+  ///
+  DrivingToponymPhrase? get toponymPhrase;
 
   @core.override
   core.int get hashCode => core.Object.hashAll([

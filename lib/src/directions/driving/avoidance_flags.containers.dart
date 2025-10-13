@@ -90,28 +90,11 @@ extension DrivingAvoidanceFlagsContainerExtension on DrivingAvoidanceFlags {
   static vector.Vector<DrivingAvoidanceFlags> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
-        (val) => DrivingAvoidanceFlagsImpl.fromPointer(val, needFree: false)!);
-  }
-
-  static vector.Vector<DrivingAvoidanceFlags?> toPlatformVectorOptional(
-      ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(ptr,
         (val) => DrivingAvoidanceFlagsImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingAvoidanceFlags>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<vector.Vector<DrivingAvoidanceFlags>?>
-      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -121,17 +104,6 @@ extension DrivingAvoidanceFlagsContainerExtension on DrivingAvoidanceFlags {
 
   static vector.Vector<string_map.StringMap<DrivingAvoidanceFlags>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
-    return vector.Vector(
-      ptr,
-      (val) {
-        assert(val != ffi.nullptr);
-        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
-      },
-    );
-  }
-
-  static vector.Vector<string_map.StringMap<DrivingAvoidanceFlags>?>
-      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
