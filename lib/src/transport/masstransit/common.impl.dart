@@ -698,17 +698,63 @@ extension MasstransitLineStyleImpl on MasstransitLineStyle {
 }
 
 @bindings_annotations.ContainerData(
+    toNative: 'MasstransitThreadCategoryImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitThreadCategoryImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitThreadCategory')
+extension MasstransitThreadCategoryImpl on MasstransitThreadCategory {
+  static core.int toInt(MasstransitThreadCategory e) {
+    return e.index;
+  }
+
+  static MasstransitThreadCategory fromInt(core.int val) {
+    return MasstransitThreadCategory.values[val];
+  }
+
+  static MasstransitThreadCategory? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = fromInt(ptr.cast<ffi.Int64>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitThreadCategory? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+
+    final result = malloc.call<ffi.Int64>();
+    result.value = toInt(val);
+
+    return result.cast();
+  }
+}
+
+@bindings_annotations.ContainerData(
     toNative: 'MasstransitThreadImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitThreadImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitThread')
 final class MasstransitThreadImpl extends MasstransitThread {
-  MasstransitThreadImpl(core.String id,
-      core.List<MasstransitStop> essentialStops, core.String? description)
+  MasstransitThreadImpl(
+      core.String id,
+      core.List<MasstransitStop> essentialStops,
+      core.String? description,
+      core.List<MasstransitThreadCategory> category,
+      core.String? comfortClass)
       : this.fromNativePtr(_MasstransitThread_init(
             to_native.toNativeString(id),
             MasstransitStopContainerExtension.toNativeVector(essentialStops),
-            to_native.toNativePtrString(description)));
+            to_native.toNativePtrString(description),
+            MasstransitThreadCategoryContainerExtension.toNativeVector(
+                category),
+            to_native.toNativePtrString(comfortClass)));
 
   @core.override
   late final id = to_platform.toPlatformString(_MasstransitThread_get_id(_ptr));
@@ -719,6 +765,13 @@ final class MasstransitThreadImpl extends MasstransitThread {
   @core.override
   late final description = to_platform
       .toPlatformFromPointerString(_MasstransitThread_get_description(_ptr));
+  @core.override
+  late final category =
+      MasstransitThreadCategoryContainerExtension.toPlatformVector(
+          _MasstransitThread_get_category(_ptr));
+  @core.override
+  late final comfortClass = to_platform
+      .toPlatformFromPointerString(_MasstransitThread_get_comfortClass(_ptr));
 
   @core.override
   final _MasstransitThreadFactory runtimeFactory =
@@ -807,12 +860,20 @@ final _MasstransitThread_free = lib.library
         'yandex_flutter_transport_masstransit_MasstransitThread_free');
 
 final ffi.Pointer<ffi.Void> Function(
-        native_types.NativeString, ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
-    _MasstransitThread_init = lib.library
+        native_types.NativeString,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>) _MasstransitThread_init =
+    lib.library
         .lookup<
                 ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(native_types.NativeString,
-                        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+                    ffi.Pointer<ffi.Void> Function(
+                        native_types.NativeString,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_transport_masstransit_MasstransitThread_init')
         .asFunction(isLeaf: true);
 
@@ -838,4 +899,117 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitThread_get_description')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitThread_get_category = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitThread_get_category')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitThread_get_comfortClass = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitThread_get_comfortClass')
+    .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitRailwayOptionsImpl.getNativePtr',
+    toPlatform:
+        '(val) => MasstransitRailwayOptionsImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitRailwayOptions')
+final class MasstransitRailwayOptionsImpl extends MasstransitRailwayOptions {
+  MasstransitRailwayOptionsImpl(core.String? boardingTrack,
+      core.String? boardingPlatform, core.bool uncertain)
+      : this.fromNativePtr(_MasstransitRailwayOptions_init(
+            to_native.toNativePtrString(boardingTrack),
+            to_native.toNativePtrString(boardingPlatform),
+            uncertain));
+
+  @core.override
+  late final boardingTrack = to_platform.toPlatformFromPointerString(
+      _MasstransitRailwayOptions_get_boardingTrack(_ptr));
+  @core.override
+  late final boardingPlatform = to_platform.toPlatformFromPointerString(
+      _MasstransitRailwayOptions_get_boardingPlatform(_ptr));
+  @core.override
+  late final uncertain = _MasstransitRailwayOptions_get_uncertain(_ptr);
+
+  final ffi.Pointer<ffi.Void> _ptr;
+  static final _finalizer =
+      ffi.NativeFinalizer(_MasstransitRailwayOptions_free.cast());
+
+  MasstransitRailwayOptionsImpl.fromNativePtr(this._ptr) : super._() {
+    _finalizer.attach(this, _ptr);
+  }
+
+  static ffi.Pointer<ffi.Void> getNativePtr(MasstransitRailwayOptions? obj) {
+    return (obj as MasstransitRailwayOptionsImpl?)?._ptr ?? ffi.nullptr;
+  }
+
+  static MasstransitRailwayOptions? fromOptionalPtr(ffi.Pointer<ffi.Void> ptr) {
+    return ptr == ffi.nullptr
+        ? null
+        : MasstransitRailwayOptionsImpl.fromNativePtr(ptr);
+  }
+
+  static MasstransitRailwayOptions? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitRailwayOptionsImpl.fromNativePtr(
+        ptr.cast<ffi.Pointer<ffi.Void>>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+
+    return result;
+  }
+}
+
+final _MasstransitRailwayOptions_free = lib.library
+    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRailwayOptions_free');
+
+final ffi.Pointer<ffi.Void> Function(
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    core
+        .bool) _MasstransitRailwayOptions_init = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(
+                    ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, ffi.Bool)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRailwayOptions_init')
+    .asFunction(isLeaf: true);
+
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRailwayOptions_get_boardingTrack = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRailwayOptions_get_boardingTrack')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi.Pointer<
+        ffi.Void>) _MasstransitRailwayOptions_get_boardingPlatform = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRailwayOptions_get_boardingPlatform')
+    .asFunction(isLeaf: true);
+final core.bool Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRailwayOptions_get_uncertain = lib
+    .library
+    .lookup<ffi.NativeFunction<ffi.Bool Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRailwayOptions_get_uncertain')
     .asFunction(isLeaf: true);

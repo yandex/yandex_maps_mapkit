@@ -88,11 +88,28 @@ extension SearchStateContainerExtension on SearchState {
   static vector.Vector<SearchState> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => SearchStateImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchState?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => SearchStateImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchState>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchState>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -102,6 +119,17 @@ extension SearchStateContainerExtension on SearchState {
 
   static vector.Vector<string_map.StringMap<SearchState>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchState>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -191,12 +219,29 @@ extension SearchWorkingHoursContainerExtension on SearchWorkingHours {
 
   static vector.Vector<SearchWorkingHours> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
+        (val) => SearchWorkingHoursImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchWorkingHours?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr, (val) => SearchWorkingHoursImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchWorkingHours>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchWorkingHours>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -206,6 +251,17 @@ extension SearchWorkingHoursContainerExtension on SearchWorkingHours {
 
   static vector.Vector<string_map.StringMap<SearchWorkingHours>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchWorkingHours>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

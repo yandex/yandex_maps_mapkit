@@ -106,26 +106,37 @@ final class MasstransitPayment {
 
 final class MasstransitSectionPaymentOption {
   final MasstransitPayment? payment;
+  final MasstransitSectionPaymentOptionAppliedFare appliedFare;
 
-  const MasstransitSectionPaymentOption({
+  const MasstransitSectionPaymentOption(
+    this.appliedFare, {
     this.payment,
   });
 
   @core.override
-  core.int get hashCode => core.Object.hashAll([payment]);
+  core.int get hashCode => core.Object.hashAll([
+        payment,
+        appliedFare,
+      ]);
 
   @core.override
   core.bool operator ==(covariant MasstransitSectionPaymentOption other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return payment == other.payment;
+    return payment == other.payment && appliedFare == other.appliedFare;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitSectionPaymentOption(payment: $payment)";
+    return "MasstransitSectionPaymentOption(payment: $payment, appliedFare: $appliedFare, )";
   }
+}
+
+enum MasstransitSectionPaymentOptionAppliedFare {
+  Boarding,
+  Transfer,
+  ;
 }
 
 abstract final class MasstransitRoutePaymentOption implements ffi.Finalizable {

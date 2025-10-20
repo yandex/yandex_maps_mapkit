@@ -90,11 +90,28 @@ extension DrivingRestrictedTurnContainerExtension on DrivingRestrictedTurn {
   static vector.Vector<DrivingRestrictedTurn> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(ptr,
+        (val) => DrivingRestrictedTurnImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<DrivingRestrictedTurn?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
         (val) => DrivingRestrictedTurnImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingRestrictedTurn>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<DrivingRestrictedTurn>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -104,6 +121,17 @@ extension DrivingRestrictedTurnContainerExtension on DrivingRestrictedTurn {
 
   static vector.Vector<string_map.StringMap<DrivingRestrictedTurn>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<DrivingRestrictedTurn>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

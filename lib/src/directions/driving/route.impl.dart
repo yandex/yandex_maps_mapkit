@@ -868,7 +868,7 @@ class DrivingRouteImpl implements DrivingRoute, ffi.Finalizable {
   @core.override
   core.List<core.double?> get speedLimits {
     final result = _Route_get_speedLimits(ptr);
-    return to_platform.toVectorFloat(result);
+    return to_platform.toVectorOptionalFloat(result);
   }
 
   @core.override

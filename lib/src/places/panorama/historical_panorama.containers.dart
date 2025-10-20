@@ -88,12 +88,29 @@ extension HistoricalPanoramaContainerExtension on HistoricalPanorama {
 
   static vector.Vector<HistoricalPanorama> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(ptr,
+        (val) => HistoricalPanoramaImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<HistoricalPanorama?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr, (val) => HistoricalPanoramaImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<HistoricalPanorama>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<HistoricalPanorama>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -103,6 +120,17 @@ extension HistoricalPanoramaContainerExtension on HistoricalPanorama {
 
   static vector.Vector<string_map.StringMap<HistoricalPanorama>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<HistoricalPanorama>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

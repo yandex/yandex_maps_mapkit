@@ -1,14 +1,19 @@
 export 'package:yandex_maps_mapkit/src/directions/driving/annotation.dart'
     hide
-        DrivingToponymPhraseImpl,
-        DrivingToponymPhraseContainerExtension,
         DrivingAnnotationContainerExtension,
+        DrivingToponymPhraseImpl,
+        DrivingAnnotationSchemeIDImpl,
+        DrivingAnnotationSchemeIDContainerExtension,
+        DrivingActionMetadataImpl,
         DrivingUturnMetadataNative,
         DrivingActionMetadataNative,
         DrivingAnnotationImpl,
         DrivingActionMetadataContainerExtension,
-        DrivingAnnotationSchemeIDImpl,
+        DrivingToponymPhraseContainerExtension,
+        DrivingTurnMetadataContainerExtension,
+        DrivingTurnMetadataNative,
+        DrivingExitMetadataNative,
         DrivingUturnMetadataContainerExtension,
         DrivingLeaveRoundaboutMetadataNative,
-        DrivingAnnotationSchemeIDContainerExtension,
-        DrivingLeaveRoundaboutMetadataContainerExtension;
+        DrivingLeaveRoundaboutMetadataContainerExtension,
+        DrivingExitMetadataContainerExtension;

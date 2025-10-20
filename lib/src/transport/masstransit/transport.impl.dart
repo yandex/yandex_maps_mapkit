@@ -268,15 +268,22 @@ extension MasstransitTransportThreadAlertLastTripImpl
     platformType: 'MasstransitBoardingOptions')
 final class MasstransitBoardingOptionsImpl extends MasstransitBoardingOptions {
   MasstransitBoardingOptionsImpl(
-      core.List<MasstransitBoardingOptionsBoardingArea> area)
+      core.List<MasstransitBoardingOptionsBoardingArea> area,
+      transport_masstransit_common.MasstransitRailwayOptions railwayOptions)
       : this.fromNativePtr(_MasstransitBoardingOptions_init(
             MasstransitBoardingOptionsBoardingAreaContainerExtension
-                .toNativeVector(area)));
+                .toNativeVector(area),
+            transport_masstransit_common.MasstransitRailwayOptionsImpl
+                .getNativePtr(railwayOptions)));
 
   @core.override
   late final area =
       MasstransitBoardingOptionsBoardingAreaContainerExtension.toPlatformVector(
           _MasstransitBoardingOptions_get_area(_ptr));
+  @core.override
+  late final railwayOptions =
+      transport_masstransit_common.MasstransitRailwayOptionsImpl.fromNativePtr(
+          _MasstransitBoardingOptions_get_railwayOptions(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer =
@@ -318,11 +325,13 @@ final _MasstransitBoardingOptions_free = lib.library
         'yandex_flutter_transport_masstransit_MasstransitBoardingOptions_free');
 
 final ffi.Pointer<ffi.Void> Function(
+    ffi.Pointer<ffi.Void>,
     ffi
         .Pointer<ffi.Void>) _MasstransitBoardingOptions_init = lib.library
     .lookup<
             ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+                ffi.Pointer<ffi.Void> Function(
+                    ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitBoardingOptions_init')
     .asFunction(isLeaf: true);
 
@@ -333,6 +342,15 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitBoardingOptions_get_area')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitBoardingOptions_get_railwayOptions = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitBoardingOptions_get_railwayOptions')
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
@@ -411,6 +429,94 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_BoardingOptions_MasstransitBoardingOptionsBoardingArea_get_id')
+    .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitTransportStopImpl.getNativePtr',
+    toPlatform:
+        '(val) => MasstransitTransportStopImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitTransportStop')
+final class MasstransitTransportStopImpl extends MasstransitTransportStop {
+  MasstransitTransportStopImpl(
+      transport_masstransit_common.MasstransitStop stop,
+      mapkit_geometry_point.Point position)
+      : this.fromNativePtr(_MasstransitTransportStop_init(
+            transport_masstransit_common.MasstransitStopImpl.getNativePtr(stop),
+            mapkit_geometry_point.PointImpl.toNative(position)));
+
+  @core.override
+  late final stop =
+      transport_masstransit_common.MasstransitStopImpl.fromNativePtr(
+          _MasstransitTransportStop_get_stop(_ptr));
+  @core.override
+  late final position = mapkit_geometry_point.PointImpl.fromNative(
+      _MasstransitTransportStop_get_position(_ptr));
+
+  final ffi.Pointer<ffi.Void> _ptr;
+  static final _finalizer =
+      ffi.NativeFinalizer(_MasstransitTransportStop_free.cast());
+
+  MasstransitTransportStopImpl.fromNativePtr(this._ptr) : super._() {
+    _finalizer.attach(this, _ptr);
+  }
+
+  static ffi.Pointer<ffi.Void> getNativePtr(MasstransitTransportStop? obj) {
+    return (obj as MasstransitTransportStopImpl?)?._ptr ?? ffi.nullptr;
+  }
+
+  static MasstransitTransportStop? fromOptionalPtr(ffi.Pointer<ffi.Void> ptr) {
+    return ptr == ffi.nullptr
+        ? null
+        : MasstransitTransportStopImpl.fromNativePtr(ptr);
+  }
+
+  static MasstransitTransportStop? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitTransportStopImpl.fromNativePtr(
+        ptr.cast<ffi.Pointer<ffi.Void>>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+
+    return result;
+  }
+}
+
+final _MasstransitTransportStop_free = lib.library
+    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
+        'yandex_flutter_transport_masstransit_MasstransitTransportStop_free');
+
+final ffi.Pointer<ffi.Void> Function(
+    ffi.Pointer<ffi.Void>,
+    mapkit_geometry_point
+        .PointNative) _MasstransitTransportStop_init = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(
+                    ffi.Pointer<ffi.Void>, mapkit_geometry_point.PointNative)>>(
+        'yandex_flutter_transport_masstransit_MasstransitTransportStop_init')
+    .asFunction(isLeaf: true);
+
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitTransportStop_get_stop = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitTransportStop_get_stop')
+    .asFunction(isLeaf: true);
+final mapkit_geometry_point.PointNative Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitTransportStop_get_position = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                mapkit_geometry_point.PointNative Function(
+                    ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitTransportStop_get_position')
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
@@ -531,7 +637,11 @@ final class MasstransitTransportTransportThreadImpl
       core.bool isRecommended,
       core.List<MasstransitTransportThreadAlert> alerts,
       transport_masstransit_common.MasstransitStop? alternateDepartureStop,
-      MasstransitBoardingOptions? boardingOptions)
+      MasstransitBoardingOptions? boardingOptions,
+      transport_masstransit_travel_estimation.MasstransitTravelEstimation?
+          estimation,
+      core.List<MasstransitTransportStop> stops,
+      mapkit_geometry_geometry.Polyline geometry)
       : this.fromNativePtr(_MasstransitTransportTransportThread_init(
             transport_masstransit_common.MasstransitThreadImpl.getNativePtr(
                 thread),
@@ -540,7 +650,11 @@ final class MasstransitTransportTransportThreadImpl
                 alerts),
             transport_masstransit_common.MasstransitStopImpl.getNativePtr(
                 alternateDepartureStop),
-            MasstransitBoardingOptionsImpl.getNativePtr(boardingOptions)));
+            MasstransitBoardingOptionsImpl.getNativePtr(boardingOptions),
+            transport_masstransit_travel_estimation
+                .MasstransitTravelEstimationImpl.toPointer(estimation),
+            MasstransitTransportStopContainerExtension.toNativeVector(stops),
+            mapkit_geometry_geometry.PolylineImpl.getNativePtr(geometry)));
 
   @core.override
   late final thread =
@@ -561,6 +675,17 @@ final class MasstransitTransportTransportThreadImpl
   @core.override
   late final boardingOptions = MasstransitBoardingOptionsImpl.fromOptionalPtr(
       _MasstransitTransportTransportThread_get_boardingOptions(_ptr));
+  @core.override
+  late final estimation = transport_masstransit_travel_estimation
+          .MasstransitTravelEstimationImpl
+      .fromPointer(_MasstransitTransportTransportThread_get_estimation(_ptr));
+  @core.override
+  late final stops =
+      MasstransitTransportStopContainerExtension.toPlatformVector(
+          _MasstransitTransportTransportThread_get_stops(_ptr));
+  @core.override
+  late final geometry = mapkit_geometry_geometry.PolylineImpl.fromNativePtr(
+      _MasstransitTransportTransportThread_get_geometry(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer =
@@ -609,14 +734,19 @@ final ffi.Pointer<ffi.Void> Function(
     core.bool,
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
     ffi
-        .Pointer<ffi.Void>) _MasstransitTransportTransportThread_init = lib
-    .library
+        .Pointer<ffi.Void>) _MasstransitTransportTransportThread_init = lib.library
     .lookup<
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>,
                     ffi.Bool,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>)>>(
@@ -663,4 +793,31 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_Transport_MasstransitTransportTransportThread_get_boardingOptions')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi.Pointer<
+        ffi.Void>) _MasstransitTransportTransportThread_get_estimation = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_Transport_MasstransitTransportTransportThread_get_estimation')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitTransportTransportThread_get_stops = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_Transport_MasstransitTransportTransportThread_get_stops')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi.Pointer<
+        ffi.Void>) _MasstransitTransportTransportThread_get_geometry = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_Transport_MasstransitTransportTransportThread_get_geometry')
     .asFunction(isLeaf: true);

@@ -95,11 +95,30 @@ extension DrivingVehicleRestrictionContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
+            DrivingVehicleRestrictionImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<DrivingVehicleRestriction?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
             DrivingVehicleRestrictionImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingVehicleRestriction>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<DrivingVehicleRestriction>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -109,6 +128,17 @@ extension DrivingVehicleRestrictionContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingVehicleRestriction>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<DrivingVehicleRestriction>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -209,11 +239,30 @@ extension DrivingRoadVehicleRestrictionContainerExtension
     return vector.Vector(
         ptr,
         (val) => DrivingRoadVehicleRestrictionImpl.fromPointer(val,
+            needFree: false)!);
+  }
+
+  static vector.Vector<DrivingRoadVehicleRestriction?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => DrivingRoadVehicleRestrictionImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingRoadVehicleRestriction>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<DrivingRoadVehicleRestriction>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -223,6 +272,17 @@ extension DrivingRoadVehicleRestrictionContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingRoadVehicleRestriction>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<DrivingRoadVehicleRestriction>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -325,11 +385,30 @@ extension DrivingManoeuvreVehicleRestrictionContainerExtension
     return vector.Vector(
         ptr,
         (val) => DrivingManoeuvreVehicleRestrictionImpl.fromPointer(val,
+            needFree: false)!);
+  }
+
+  static vector.Vector<DrivingManoeuvreVehicleRestriction?>
+      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => DrivingManoeuvreVehicleRestrictionImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<DrivingManoeuvreVehicleRestriction>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<DrivingManoeuvreVehicleRestriction>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -339,6 +418,18 @@ extension DrivingManoeuvreVehicleRestrictionContainerExtension
 
   static vector.Vector<string_map.StringMap<DrivingManoeuvreVehicleRestriction>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector
+      .Vector<string_map.StringMap<DrivingManoeuvreVehicleRestriction>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

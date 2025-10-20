@@ -89,11 +89,28 @@ extension SearchPlaceInfoContainerExtension on SearchPlaceInfo {
   static vector.Vector<SearchPlaceInfo> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => SearchPlaceInfoImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchPlaceInfo?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => SearchPlaceInfoImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchPlaceInfo>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchPlaceInfo>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -103,6 +120,17 @@ extension SearchPlaceInfoContainerExtension on SearchPlaceInfo {
 
   static vector.Vector<string_map.StringMap<SearchPlaceInfo>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchPlaceInfo>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

@@ -14,11 +14,17 @@ import 'package:yandex_maps_mapkit/src/bindings/common/to_native.dart'
 import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
     as to_platform;
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
+import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
+    as mapkit_geometry_geometry;
+import 'package:yandex_maps_mapkit/src/mapkit/geometry/point.dart'
+    as mapkit_geometry_point;
 import 'package:yandex_maps_mapkit/src/mapkit/time.dart' as mapkit_time;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
     as transport_masstransit_common;
 import 'package:yandex_maps_mapkit/src/transport/masstransit/route.dart'
     as transport_masstransit_route;
+import 'package:yandex_maps_mapkit/src/transport/masstransit/travel_estimation.dart'
+    as transport_masstransit_travel_estimation;
 
 part 'transport.containers.dart';
 part 'transport.impl.dart';
@@ -159,31 +165,37 @@ final class MasstransitTransportThreadAlertLastTrip {
   }
 }
 
-/// Contains information about underground boarding recommendations.
+/// Contains information about underground or railway boarding
+/// recommendations.
 abstract final class MasstransitBoardingOptions implements ffi.Finalizable {
   factory MasstransitBoardingOptions(
-          core.List<MasstransitBoardingOptionsBoardingArea> area) =>
-      MasstransitBoardingOptionsImpl(area);
+          core.List<MasstransitBoardingOptionsBoardingArea> area,
+          transport_masstransit_common.MasstransitRailwayOptions
+              railwayOptions) =>
+      MasstransitBoardingOptionsImpl(area, railwayOptions);
 
   MasstransitBoardingOptions._();
 
   /// Vector of recommended areas to board.
   core.List<MasstransitBoardingOptionsBoardingArea> get area;
 
+  /// Options about boarding to trains.
+  transport_masstransit_common.MasstransitRailwayOptions get railwayOptions;
+
   @core.override
-  core.int get hashCode => core.Object.hashAll([area]);
+  core.int get hashCode => core.Object.hashAll([area, railwayOptions]);
 
   @core.override
   core.bool operator ==(covariant MasstransitBoardingOptions other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return area == other.area;
+    return area == other.area && railwayOptions == other.railwayOptions;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitBoardingOptions(area: $area)";
+    return "MasstransitBoardingOptions(area: $area, railwayOptions: $railwayOptions)";
   }
 }
 
@@ -214,6 +226,38 @@ abstract final class MasstransitBoardingOptionsBoardingArea
   @core.override
   core.String toString() {
     return "MasstransitBoardingOptionsBoardingArea(id: $id)";
+  }
+}
+
+/// The data about the public transport stop.
+abstract final class MasstransitTransportStop implements ffi.Finalizable {
+  factory MasstransitTransportStop(
+          transport_masstransit_common.MasstransitStop stop,
+          mapkit_geometry_point.Point position) =>
+      MasstransitTransportStopImpl(stop, position);
+
+  MasstransitTransportStop._();
+
+  /// Information about public transport stops.
+  transport_masstransit_common.MasstransitStop get stop;
+
+  /// Coordinates of the stop.
+  mapkit_geometry_point.Point get position;
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([stop, position]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitTransportStop other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return stop == other.stop && position == other.position;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitTransportStop(stop: $stop, position: $position)";
   }
 }
 
@@ -272,9 +316,13 @@ abstract final class MasstransitTransportTransportThread
           core.bool isRecommended,
           core.List<MasstransitTransportThreadAlert> alerts,
           transport_masstransit_common.MasstransitStop? alternateDepartureStop,
-          MasstransitBoardingOptions? boardingOptions) =>
+          MasstransitBoardingOptions? boardingOptions,
+          transport_masstransit_travel_estimation.MasstransitTravelEstimation?
+              estimation,
+          core.List<MasstransitTransportStop> stops,
+          mapkit_geometry_geometry.Polyline geometry) =>
       MasstransitTransportTransportThreadImpl(thread, isRecommended, alerts,
-          alternateDepartureStop, boardingOptions);
+          alternateDepartureStop, boardingOptions, estimation, stops, geometry);
 
   MasstransitTransportTransportThread._();
 
@@ -298,9 +346,30 @@ abstract final class MasstransitTransportTransportThread
   ///
   MasstransitBoardingOptions? get boardingOptions;
 
+  /// Time estimation for transport thread.
+  ///
+  transport_masstransit_travel_estimation.MasstransitTravelEstimation?
+      get estimation;
+
+  /// Collection of stops for the section. The first stop in the collection
+  /// is the stop for boarding the transport, and the last stop in the
+  /// collection is the stop for exiting the transport.
+  core.List<MasstransitTransportStop> get stops;
+
+  /// Transport thread geometry.
+  mapkit_geometry_geometry.Polyline get geometry;
+
   @core.override
-  core.int get hashCode => core.Object.hashAll(
-      [thread, isRecommended, alerts, alternateDepartureStop, boardingOptions]);
+  core.int get hashCode => core.Object.hashAll([
+        thread,
+        isRecommended,
+        alerts,
+        alternateDepartureStop,
+        boardingOptions,
+        estimation,
+        stops,
+        geometry
+      ]);
 
   @core.override
   core.bool operator ==(covariant MasstransitTransportTransportThread other) {
@@ -311,11 +380,14 @@ abstract final class MasstransitTransportTransportThread
         isRecommended == other.isRecommended &&
         alerts == other.alerts &&
         alternateDepartureStop == other.alternateDepartureStop &&
-        boardingOptions == other.boardingOptions;
+        boardingOptions == other.boardingOptions &&
+        estimation == other.estimation &&
+        stops == other.stops &&
+        geometry == other.geometry;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitTransportTransportThread(thread: $thread, isRecommended: $isRecommended, alerts: $alerts, alternateDepartureStop: $alternateDepartureStop, boardingOptions: $boardingOptions)";
+    return "MasstransitTransportTransportThread(thread: $thread, isRecommended: $isRecommended, alerts: $alerts, alternateDepartureStop: $alternateDepartureStop, boardingOptions: $boardingOptions, estimation: $estimation, stops: $stops, geometry: $geometry)";
   }
 }

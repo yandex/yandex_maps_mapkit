@@ -97,11 +97,30 @@ extension RoadEventsLayerTextStyleContainerExtension
     return vector.Vector(
         ptr,
         (val) =>
+            RoadEventsLayerTextStyleImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<RoadEventsLayerTextStyle?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) =>
             RoadEventsLayerTextStyleImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<RoadEventsLayerTextStyle>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<RoadEventsLayerTextStyle>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -111,6 +130,17 @@ extension RoadEventsLayerTextStyleContainerExtension
 
   static vector.Vector<string_map.StringMap<RoadEventsLayerTextStyle>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<RoadEventsLayerTextStyle>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -211,11 +241,30 @@ extension RoadEventsLayerRoadEventStyleContainerExtension
     return vector.Vector(
         ptr,
         (val) => RoadEventsLayerRoadEventStyleImpl.fromOptionalPtr(
+            val.cast<ffi.Pointer<ffi.Void>>().value)!);
+  }
+
+  static vector.Vector<RoadEventsLayerRoadEventStyle?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => RoadEventsLayerRoadEventStyleImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
   static vector.Vector<vector.Vector<RoadEventsLayerRoadEventStyle>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<RoadEventsLayerRoadEventStyle>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -225,6 +274,17 @@ extension RoadEventsLayerRoadEventStyleContainerExtension
 
   static vector.Vector<string_map.StringMap<RoadEventsLayerRoadEventStyle>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<RoadEventsLayerRoadEventStyle>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -333,11 +393,31 @@ extension RoadEventsLayerRoadEventStylingPropertiesContainerExtension
     return vector.Vector(
         ptr,
         (val) => RoadEventsLayerRoadEventStylingPropertiesImpl.fromOptionalPtr(
+            val.cast<ffi.Pointer<ffi.Void>>().value)!);
+  }
+
+  static vector.Vector<RoadEventsLayerRoadEventStylingProperties?>
+      toPlatformVectorOptional(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => RoadEventsLayerRoadEventStylingPropertiesImpl.fromOptionalPtr(
             val.cast<ffi.Pointer<ffi.Void>>().value));
   }
 
   static vector.Vector<vector.Vector<RoadEventsLayerRoadEventStylingProperties>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector
+      .Vector<vector.Vector<RoadEventsLayerRoadEventStylingProperties>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -348,6 +428,18 @@ extension RoadEventsLayerRoadEventStylingPropertiesContainerExtension
   static vector
       .Vector<string_map.StringMap<RoadEventsLayerRoadEventStylingProperties>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector
+      .Vector<string_map.StringMap<RoadEventsLayerRoadEventStylingProperties>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

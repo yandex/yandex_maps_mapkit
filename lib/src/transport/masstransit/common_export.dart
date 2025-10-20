@@ -1,12 +1,16 @@
 export 'package:yandex_maps_mapkit/src/transport/masstransit/common.dart'
     hide
+        MasstransitRailwayOptionsImpl,
+        MasstransitRailwayOptionsContainerExtension,
         MasstransitThreadImpl,
         MasstransitThreadContainerExtension,
         MasstransitLineImpl,
+        MasstransitThreadCategoryImpl,
         MasstransitTransportContourStyleContainerExtension,
         MasstransitTransportContourStyleNative,
         MasstransitStopContainerExtension,
         MasstransitTransportTypeImpl,
+        MasstransitThreadCategoryContainerExtension,
         MasstransitTransportTypeContainerExtension,
         MasstransitLineStyleContainerExtension,
         MasstransitStopImpl,

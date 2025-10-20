@@ -300,6 +300,21 @@ final class MasstransitLineStyle {
   }
 }
 
+enum MasstransitThreadCategory {
+  /// Primary thread
+  Primary,
+
+  /// Secondary thread
+  Secondary,
+
+  /// Temporary thread
+  Temporary,
+
+  /// Thread going to depot
+  ToDepot,
+  ;
+}
+
 /// Describes a public transport thread. A thread is one of the
 /// [MasstransitLine] variants. For example, one line can have two
 /// threads: direct and return.
@@ -308,8 +323,11 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
   factory MasstransitThread(
           core.String id,
           core.List<MasstransitStop> essentialStops,
-          core.String? description) =>
-      MasstransitThreadImpl(id, essentialStops, description);
+          core.String? description,
+          core.List<MasstransitThreadCategory> category,
+          core.String? comfortClass) =>
+      MasstransitThreadImpl(
+          id, essentialStops, description, category, comfortClass);
 
   MasstransitThread._();
 
@@ -330,9 +348,18 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
   ///
   core.String? get description;
 
+  /// List of categories describing important traits of the thread. For
+  /// example, "primary", "secondary", "to_depot"
+  core.List<MasstransitThreadCategory> get category;
+
+  /// Comfort class of transport, e.g. "Standart plus", "Lastochka" for
+  /// trains.
+  ///
+  core.String? get comfortClass;
+
   @core.override
-  core.int get hashCode =>
-      core.Object.hashAll([id, essentialStops, description]);
+  core.int get hashCode => core.Object.hashAll(
+      [id, essentialStops, description, category, comfortClass]);
 
   @core.override
   core.bool operator ==(covariant MasstransitThread other) {
@@ -341,14 +368,56 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
     }
     return id == other.id &&
         essentialStops == other.essentialStops &&
-        description == other.description;
+        description == other.description &&
+        category == other.category &&
+        comfortClass == other.comfortClass;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitThread(id: $id, essentialStops: $essentialStops, description: $description)";
+    return "MasstransitThread(id: $id, essentialStops: $essentialStops, description: $description, category: $category, comfortClass: $comfortClass)";
   }
 
   static final struct_factory.StructFactory<MasstransitThread> factory =
       const _MasstransitThreadFactory();
+}
+
+/// Contains information about boarding to trains.
+abstract final class MasstransitRailwayOptions implements ffi.Finalizable {
+  factory MasstransitRailwayOptions(core.String? boardingTrack,
+          core.String? boardingPlatform, core.bool uncertain) =>
+      MasstransitRailwayOptionsImpl(boardingTrack, boardingPlatform, uncertain);
+
+  MasstransitRailwayOptions._();
+
+  /// Departure track annotation, e.g. "3 or 4 track".
+  ///
+  core.String? get boardingTrack;
+
+  /// Departure platform annotation, e.g. "2 platform".
+  ///
+  core.String? get boardingPlatform;
+
+  /// Flag of track/platform selection uncertainty to suggest user
+  /// double-check it in the station.
+  core.bool get uncertain;
+
+  @core.override
+  core.int get hashCode =>
+      core.Object.hashAll([boardingTrack, boardingPlatform, uncertain]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitRailwayOptions other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return boardingTrack == other.boardingTrack &&
+        boardingPlatform == other.boardingPlatform &&
+        uncertain == other.uncertain;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitRailwayOptions(boardingTrack: $boardingTrack, boardingPlatform: $boardingPlatform, uncertain: $uncertain)";
+  }
 }

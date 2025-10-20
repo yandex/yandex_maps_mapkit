@@ -89,11 +89,28 @@ extension BicycleViaPointContainerExtension on BicycleViaPoint {
   static vector.Vector<BicycleViaPoint> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => BicycleViaPointImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<BicycleViaPoint?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => BicycleViaPointImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<BicycleViaPoint>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<BicycleViaPoint>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -103,6 +120,17 @@ extension BicycleViaPointContainerExtension on BicycleViaPoint {
 
   static vector.Vector<string_map.StringMap<BicycleViaPoint>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<BicycleViaPoint>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -193,11 +221,28 @@ extension BicycleWayPointContainerExtension on BicycleWayPoint {
   static vector.Vector<BicycleWayPoint> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => BicycleWayPointImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<BicycleWayPoint?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => BicycleWayPointImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<BicycleWayPoint>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<BicycleWayPoint>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -207,6 +252,17 @@ extension BicycleWayPointContainerExtension on BicycleWayPoint {
 
   static vector.Vector<string_map.StringMap<BicycleWayPoint>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<BicycleWayPoint>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr

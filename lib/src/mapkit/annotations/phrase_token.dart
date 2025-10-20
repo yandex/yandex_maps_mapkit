@@ -184,6 +184,13 @@ enum SpeakerPhraseToken {
   TurnRight,
   BoardFerry,
   Exit,
+  LeftTurn,
+  RightTurn,
+  AtFirstExit,
+  AtSecondExit,
+  AtThirdExit,
+  AtFourthExit,
+  AtFifthExit,
 
   /// Landmarks
   AfterBridge,
@@ -315,6 +322,16 @@ enum SpeakerPhraseToken {
   TakeTheUnderground,
   TakeTheWaterTransport,
   TakeTheTransport,
+
+  /// Indoor-specific tokens
+  ElevatorDown,
+  ElevatorUp,
+  Escalator,
+  EscalatorDown,
+  EscalatorUp,
+  Travolator,
+  TravolatorDown,
+  TravolatorUp,
 
   /// Language-specific In numbers ending in 1 (except 1 and ..11): 21,
   /// ..., 91, 101, 121, etc.

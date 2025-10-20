@@ -88,11 +88,28 @@ extension SearchShowtimeContainerExtension on SearchShowtime {
   static vector.Vector<SearchShowtime> toPlatformVector(
       ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
+        ptr, (val) => SearchShowtimeImpl.fromPointer(val, needFree: false)!);
+  }
+
+  static vector.Vector<SearchShowtime?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
         ptr, (val) => SearchShowtimeImpl.fromPointer(val, needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchShowtime>> toPlatformVectorVector(
       ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchShowtime>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -102,6 +119,17 @@ extension SearchShowtimeContainerExtension on SearchShowtime {
 
   static vector.Vector<string_map.StringMap<SearchShowtime>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchShowtime>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -202,11 +230,30 @@ extension SearchShowtimesObjectMetadataContainerExtension
     return vector.Vector(
         ptr,
         (val) => SearchShowtimesObjectMetadataImpl.fromPointer(val,
+            needFree: false)!);
+  }
+
+  static vector.Vector<SearchShowtimesObjectMetadata?> toPlatformVectorOptional(
+      ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+        ptr,
+        (val) => SearchShowtimesObjectMetadataImpl.fromPointer(val,
             needFree: false));
   }
 
   static vector.Vector<vector.Vector<SearchShowtimesObjectMetadata>>
       toPlatformVectorVector(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformVector(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<vector.Vector<SearchShowtimesObjectMetadata>?>
+      toPlatformVectorVectorOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
@@ -216,6 +263,17 @@ extension SearchShowtimesObjectMetadataContainerExtension
 
   static vector.Vector<string_map.StringMap<SearchShowtimesObjectMetadata>>
       toPlatformVectorDictionary(ffi.Pointer<ffi.Void> ptr) {
+    return vector.Vector(
+      ptr,
+      (val) {
+        assert(val != ffi.nullptr);
+        return toPlatformMap(val.cast<ffi.Pointer<ffi.Void>>().value);
+      },
+    );
+  }
+
+  static vector.Vector<string_map.StringMap<SearchShowtimesObjectMetadata>?>
+      toPlatformVectorDictionaryOptional(ffi.Pointer<ffi.Void> ptr) {
     return vector.Vector(
         ptr,
         (val) => val == ffi.nullptr
