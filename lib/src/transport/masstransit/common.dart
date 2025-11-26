@@ -315,6 +315,80 @@ enum MasstransitThreadCategory {
   ;
 }
 
+/// Info for essential stop
+
+final class MasstransitEssentialStopInfo {
+  /// First stop on thread
+  final core.bool first_stop;
+
+  /// Intermediate terminus stop on thread
+  final core.bool intermediate_terminus;
+
+  /// Important stop on thread
+  final core.bool important;
+
+  /// Last stop on thread
+  final core.bool last_stop;
+
+  const MasstransitEssentialStopInfo({
+    this.first_stop = false,
+    this.intermediate_terminus = false,
+    this.important = false,
+    this.last_stop = false,
+  });
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll(
+      [first_stop, intermediate_terminus, important, last_stop]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitEssentialStopInfo other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return first_stop == other.first_stop &&
+        intermediate_terminus == other.intermediate_terminus &&
+        important == other.important &&
+        last_stop == other.last_stop;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitEssentialStopInfo(first_stop: $first_stop, intermediate_terminus: $intermediate_terminus, important: $important, last_stop: $last_stop)";
+  }
+}
+
+/// Essential stop on thread
+abstract final class MasstransitEssentialStop implements ffi.Finalizable {
+  factory MasstransitEssentialStop(
+          MasstransitStop stop, MasstransitEssentialStopInfo info) =>
+      MasstransitEssentialStopImpl(stop, info);
+
+  MasstransitEssentialStop._();
+
+  /// Stop on the thread
+  MasstransitStop get stop;
+
+  /// Info for stop [MasstransitEssentialStopInfo].
+  MasstransitEssentialStopInfo get info;
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([stop, info]);
+
+  @core.override
+  core.bool operator ==(covariant MasstransitEssentialStop other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return stop == other.stop && info == other.info;
+  }
+
+  @core.override
+  core.String toString() {
+    return "MasstransitEssentialStop(stop: $stop, info: $info)";
+  }
+}
+
 /// Describes a public transport thread. A thread is one of the
 /// [MasstransitLine] variants. For example, one line can have two
 /// threads: direct and return.
@@ -322,7 +396,7 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
     implements ffi.Finalizable {
   factory MasstransitThread(
           core.String id,
-          core.List<MasstransitStop> essentialStops,
+          core.List<MasstransitEssentialStop> essentialStops,
           core.String? description,
           core.List<MasstransitThreadCategory> category,
           core.String? comfortClass) =>
@@ -336,7 +410,7 @@ abstract final class MasstransitThread extends mapkit_base_metadata.BaseMetadata
 
   /// List of important stops on the thread, such as the first and last
   /// stops.
-  core.List<MasstransitStop> get essentialStops;
+  core.List<MasstransitEssentialStop> get essentialStops;
 
   /// 'Description' is a specific thread name which must be used in
   /// addition to the corresponding [MasstransitLine] name.

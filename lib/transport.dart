@@ -20,6 +20,7 @@ export 'package:yandex_maps_mapkit/src/transport/masstransit/weight_export.dart'
 export 'package:yandex_maps_mapkit/src/transport/masstransit/route_painter_export.dart';
 export 'package:yandex_maps_mapkit/src/transport/masstransit/transport_export.dart';
 export 'package:yandex_maps_mapkit/src/transport/masstransit/bicycle_router_v2_export.dart';
+export 'package:yandex_maps_mapkit/src/transport/masstransit/internal/transport_metadata_export.dart';
 export 'package:yandex_maps_mapkit/src/transport/masstransit/internal/trajectory_export.dart';
 export 'package:yandex_maps_mapkit/src/transport/masstransit/internal/vehicle_raw_data_export.dart';
 export 'package:yandex_maps_mapkit/src/transport/masstransit/internal/section_metadata_internal_export.dart';

@@ -736,6 +736,161 @@ extension MasstransitThreadCategoryImpl on MasstransitThreadCategory {
   }
 }
 
+final class MasstransitEssentialStopInfoNative extends ffi.Struct {
+  @ffi.Bool()
+  external core.bool first_stop;
+  @ffi.Bool()
+  external core.bool intermediate_terminus;
+  @ffi.Bool()
+  external core.bool important;
+  @ffi.Bool()
+  external core.bool last_stop;
+}
+
+final MasstransitEssentialStopInfoNative Function(
+    core.bool,
+    core.bool,
+    core.bool,
+    core
+        .bool) _MasstransitEssentialStopInfoNativeInit = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                MasstransitEssentialStopInfoNative Function(
+                    ffi.Bool, ffi.Bool, ffi.Bool, ffi.Bool)>>(
+        'yandex_flutter_transport_masstransit_MasstransitEssentialStopInfo_init')
+    .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitEssentialStopInfoImpl.toPointer',
+    toPlatform:
+        '(val) => MasstransitEssentialStopInfoImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitEssentialStopInfo')
+extension MasstransitEssentialStopInfoImpl on MasstransitEssentialStopInfo {
+  static MasstransitEssentialStopInfo fromNative(
+      MasstransitEssentialStopInfoNative native) {
+    return MasstransitEssentialStopInfo(
+        first_stop: native.first_stop,
+        intermediate_terminus: native.intermediate_terminus,
+        important: native.important,
+        last_stop: native.last_stop);
+  }
+
+  static MasstransitEssentialStopInfoNative toNative(
+      MasstransitEssentialStopInfo obj) {
+    return _MasstransitEssentialStopInfoNativeInit(obj.first_stop,
+        obj.intermediate_terminus, obj.important, obj.last_stop);
+  }
+
+  static MasstransitEssentialStopInfo? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitEssentialStopInfoImpl.fromNative(
+        ptr.cast<MasstransitEssentialStopInfoNative>().ref);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+    return result;
+  }
+
+  static ffi.Pointer<ffi.Void> toPointer(MasstransitEssentialStopInfo? val) {
+    if (val == null) {
+      return ffi.nullptr;
+    }
+    final result = malloc.call<MasstransitEssentialStopInfoNative>();
+    result.ref = toNative(val);
+
+    return result.cast();
+  }
+}
+
+@bindings_annotations.ContainerData(
+    toNative: 'MasstransitEssentialStopImpl.getNativePtr',
+    toPlatform:
+        '(val) => MasstransitEssentialStopImpl.fromPointer(val, needFree: false)',
+    platformType: 'MasstransitEssentialStop')
+final class MasstransitEssentialStopImpl extends MasstransitEssentialStop {
+  MasstransitEssentialStopImpl(
+      MasstransitStop stop, MasstransitEssentialStopInfo info)
+      : this.fromNativePtr(_MasstransitEssentialStop_init(
+            MasstransitStopImpl.getNativePtr(stop),
+            MasstransitEssentialStopInfoImpl.toNative(info)));
+
+  @core.override
+  late final stop = MasstransitStopImpl.fromNativePtr(
+      _MasstransitEssentialStop_get_stop(_ptr));
+  @core.override
+  late final info = MasstransitEssentialStopInfoImpl.fromNative(
+      _MasstransitEssentialStop_get_info(_ptr));
+
+  final ffi.Pointer<ffi.Void> _ptr;
+  static final _finalizer =
+      ffi.NativeFinalizer(_MasstransitEssentialStop_free.cast());
+
+  MasstransitEssentialStopImpl.fromNativePtr(this._ptr) : super._() {
+    _finalizer.attach(this, _ptr);
+  }
+
+  static ffi.Pointer<ffi.Void> getNativePtr(MasstransitEssentialStop? obj) {
+    return (obj as MasstransitEssentialStopImpl?)?._ptr ?? ffi.nullptr;
+  }
+
+  static MasstransitEssentialStop? fromOptionalPtr(ffi.Pointer<ffi.Void> ptr) {
+    return ptr == ffi.nullptr
+        ? null
+        : MasstransitEssentialStopImpl.fromNativePtr(ptr);
+  }
+
+  static MasstransitEssentialStop? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = MasstransitEssentialStopImpl.fromNativePtr(
+        ptr.cast<ffi.Pointer<ffi.Void>>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+
+    return result;
+  }
+}
+
+final _MasstransitEssentialStop_free = lib.library
+    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
+        'yandex_flutter_transport_masstransit_MasstransitEssentialStop_free');
+
+final ffi.Pointer<ffi.Void> Function(
+        ffi.Pointer<ffi.Void>, MasstransitEssentialStopInfoNative)
+    _MasstransitEssentialStop_init = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
+                        MasstransitEssentialStopInfoNative)>>(
+            'yandex_flutter_transport_masstransit_MasstransitEssentialStop_init')
+        .asFunction(isLeaf: true);
+
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitEssentialStop_get_stop = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitEssentialStop_get_stop')
+    .asFunction(isLeaf: true);
+final MasstransitEssentialStopInfoNative Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitEssentialStop_get_info = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                MasstransitEssentialStopInfoNative Function(
+                    ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitEssentialStop_get_info')
+    .asFunction(isLeaf: true);
+
 @bindings_annotations.ContainerData(
     toNative: 'MasstransitThreadImpl.getNativePtr',
     toPlatform:
@@ -744,13 +899,14 @@ extension MasstransitThreadCategoryImpl on MasstransitThreadCategory {
 final class MasstransitThreadImpl extends MasstransitThread {
   MasstransitThreadImpl(
       core.String id,
-      core.List<MasstransitStop> essentialStops,
+      core.List<MasstransitEssentialStop> essentialStops,
       core.String? description,
       core.List<MasstransitThreadCategory> category,
       core.String? comfortClass)
       : this.fromNativePtr(_MasstransitThread_init(
             to_native.toNativeString(id),
-            MasstransitStopContainerExtension.toNativeVector(essentialStops),
+            MasstransitEssentialStopContainerExtension.toNativeVector(
+                essentialStops),
             to_native.toNativePtrString(description),
             MasstransitThreadCategoryContainerExtension.toNativeVector(
                 category),
@@ -760,7 +916,7 @@ final class MasstransitThreadImpl extends MasstransitThread {
   late final id = to_platform.toPlatformString(_MasstransitThread_get_id(_ptr));
   @core.override
   late final essentialStops =
-      MasstransitStopContainerExtension.toPlatformVector(
+      MasstransitEssentialStopContainerExtension.toPlatformVector(
           _MasstransitThread_get_essentialStops(_ptr));
   @core.override
   late final description = to_platform
