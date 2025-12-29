@@ -1095,9 +1095,19 @@ abstract final class MasstransitRouteMetadata
           core.List<MasstransitComfortTag> comfortTags,
           MasstransitStairsSummary stairsSummary,
           core.List<transport_masstransit_fare.MasstransitRoutePaymentOption>
-              paymentOptions) =>
-      MasstransitRouteMetadataImpl(weight, settings, estimation, wayPoints,
-          routeId, flags, comfortTags, stairsSummary, paymentOptions);
+              paymentOptions,
+          core.String? routeExplanation) =>
+      MasstransitRouteMetadataImpl(
+          weight,
+          settings,
+          estimation,
+          wayPoints,
+          routeId,
+          flags,
+          comfortTags,
+          stairsSummary,
+          paymentOptions,
+          routeExplanation);
 
   MasstransitRouteMetadata._();
 
@@ -1131,6 +1141,7 @@ abstract final class MasstransitRouteMetadata
   /// List of payment options with prices for the whole route.
   core.List<transport_masstransit_fare.MasstransitRoutePaymentOption>
       get paymentOptions;
+  core.String? get routeExplanation;
 
   @core.override
   core.int get hashCode => core.Object.hashAll([
@@ -1142,7 +1153,8 @@ abstract final class MasstransitRouteMetadata
         flags,
         comfortTags,
         stairsSummary,
-        paymentOptions
+        paymentOptions,
+        routeExplanation
       ]);
 
   @core.override
@@ -1158,12 +1170,13 @@ abstract final class MasstransitRouteMetadata
         flags == other.flags &&
         comfortTags == other.comfortTags &&
         stairsSummary == other.stairsSummary &&
-        paymentOptions == other.paymentOptions;
+        paymentOptions == other.paymentOptions &&
+        routeExplanation == other.routeExplanation;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitRouteMetadata(weight: $weight, settings: $settings, estimation: $estimation, wayPoints: $wayPoints, routeId: $routeId, flags: $flags, comfortTags: $comfortTags, stairsSummary: $stairsSummary, paymentOptions: $paymentOptions)";
+    return "MasstransitRouteMetadata(weight: $weight, settings: $settings, estimation: $estimation, wayPoints: $wayPoints, routeId: $routeId, flags: $flags, comfortTags: $comfortTags, stairsSummary: $stairsSummary, paymentOptions: $paymentOptions, routeExplanation: $routeExplanation)";
   }
 
   static final struct_factory.StructFactory<MasstransitRouteMetadata> factory =
@@ -1257,6 +1270,11 @@ abstract class MasstransitRoute implements ffi.Finalizable {
 
   /// Return distance between two polyline positions.
   core.double distanceBetweenPolylinePositions(
+      mapkit_geometry_geometry.PolylinePosition from,
+      mapkit_geometry_geometry.PolylinePosition to);
+
+  /// Return travel time between two polyline positions.
+  core.double timeBetweenPolylinePositions(
       mapkit_geometry_geometry.PolylinePosition from,
       mapkit_geometry_geometry.PolylinePosition to);
 }

@@ -157,6 +157,21 @@ class SearchManagerImpl implements SearchManager, ffi.Finalizable {
     return search_session.SearchSessionImpl.fromNativePtr(result);
   }
 
+  search_session.SearchSession searchByBusinessOids(
+    search_search_options.SearchOptions searchOptions,
+    search_session.SearchSessionSearchListener searchListener, {
+    required core.List<core.String> businessOids,
+  }) {
+    final result = _SearchManager_searchByBusinessOids(
+      ptr,
+      to_native.toNativeVectorString(businessOids),
+      search_search_options.SearchOptionsImpl.toNative(searchOptions),
+      search_session.SearchSessionSearchListenerImpl.getNativePtr(
+          searchListener),
+    );
+    return search_session.SearchSessionImpl.fromNativePtr(result);
+  }
+
   search_suggest_session.SearchSuggestSession createSuggestSession() {
     final result = _SearchManager_createSuggestSession(ptr);
     return search_suggest_session.SearchSuggestSessionImpl.fromNativePtr(
@@ -250,6 +265,21 @@ final ffi.Pointer<ffi.Void> Function(
                         search_search_options.SearchOptionsNative,
                         ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SearchManager_searchByURI')
+        .asFunction();
+final ffi.Pointer<ffi.Void> Function(
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        search_search_options.SearchOptionsNative,
+        ffi.Pointer<ffi.Void>) _SearchManager_searchByBusinessOids =
+    lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        search_search_options.SearchOptionsNative,
+                        ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SearchManager_searchByBusinessOids')
         .asFunction();
 final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     _SearchManager_createSuggestSession = lib.library

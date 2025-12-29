@@ -2380,7 +2380,8 @@ final class MasstransitRouteMetadataImpl extends MasstransitRouteMetadata {
       core.List<MasstransitComfortTag> comfortTags,
       MasstransitStairsSummary stairsSummary,
       core.List<transport_masstransit_fare.MasstransitRoutePaymentOption>
-          paymentOptions)
+          paymentOptions,
+      core.String? routeExplanation)
       : this.fromNativePtr(_MasstransitRouteMetadata_init(
             transport_masstransit_weight.MasstransitWeightImpl.toNative(weight),
             MasstransitRouteSettingsImpl.getNativePtr(settings),
@@ -2395,7 +2396,8 @@ final class MasstransitRouteMetadataImpl extends MasstransitRouteMetadata {
             MasstransitStairsSummaryImpl.toNative(stairsSummary),
             transport_masstransit_fare
                     .MasstransitRoutePaymentOptionContainerExtension
-                .toNativeVector(paymentOptions)));
+                .toNativeVector(paymentOptions),
+            to_native.toNativePtrString(routeExplanation)));
 
   @core.override
   late final weight =
@@ -2430,6 +2432,9 @@ final class MasstransitRouteMetadataImpl extends MasstransitRouteMetadata {
   late final paymentOptions =
       transport_masstransit_fare.MasstransitRoutePaymentOptionContainerExtension
           .toPlatformVector(_MasstransitRouteMetadata_get_paymentOptions(_ptr));
+  @core.override
+  late final routeExplanation = to_platform.toPlatformFromPointerString(
+      _MasstransitRouteMetadata_get_routeExplanation(_ptr));
 
   @core.override
   final _MasstransitRouteMetadataFactory runtimeFactory =
@@ -2533,6 +2538,7 @@ final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
     MasstransitStairsSummaryNative,
+    ffi.Pointer<ffi.Void>,
     ffi
         .Pointer<ffi.Void>) _MasstransitRouteMetadata_init = lib.library
     .lookup<
@@ -2546,6 +2552,7 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     MasstransitStairsSummaryNative,
+                    ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_init')
     .asFunction(isLeaf: true);
@@ -2628,6 +2635,15 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_get_paymentOptions')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRouteMetadata_get_routeExplanation = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRouteMetadata_get_routeExplanation')
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
@@ -2940,6 +2956,16 @@ class MasstransitRouteImpl implements MasstransitRoute, ffi.Finalizable {
         mapkit_geometry_geometry.PolylinePositionImpl.toNative(to));
     return result;
   }
+
+  core.double timeBetweenPolylinePositions(
+      mapkit_geometry_geometry.PolylinePosition from,
+      mapkit_geometry_geometry.PolylinePosition to) {
+    final result = _Route_timeBetweenPolylinePositions(
+        ptr,
+        mapkit_geometry_geometry.PolylinePositionImpl.toNative(from),
+        mapkit_geometry_geometry.PolylinePositionImpl.toNative(to));
+    return result;
+  }
 }
 
 final _MasstransitRoute_free = lib.library
@@ -3004,6 +3030,20 @@ final core.double Function(
                     mapkit_geometry_geometry.PolylinePositionNative,
                     mapkit_geometry_geometry.PolylinePositionNative)>>(
         'yandex_flutter_transport_masstransit_MasstransitRoute_distanceBetweenPolylinePositions')
+    .asFunction();
+final core.double Function(
+    ffi.Pointer<ffi.Void>,
+    mapkit_geometry_geometry.PolylinePositionNative,
+    mapkit_geometry_geometry
+        .PolylinePositionNative) _Route_timeBetweenPolylinePositions = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Double Function(
+                    ffi.Pointer<ffi.Void>,
+                    mapkit_geometry_geometry.PolylinePositionNative,
+                    mapkit_geometry_geometry.PolylinePositionNative)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRoute_timeBetweenPolylinePositions')
     .asFunction();
 final void Function(ffi.Pointer<ffi.Void>, core.int) _MasstransitRoute_set = lib
     .library

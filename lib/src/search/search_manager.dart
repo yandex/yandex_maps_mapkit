@@ -160,6 +160,25 @@ abstract class SearchManager implements ffi.Finalizable {
     required core.String uri,
   });
 
+  /// Search request for multiple business objects by their OIDs.
+  ///
+  /// [businessOids] List of business object identifiers (OIDs).
+  /// [searchOptions] Additional search parameters, see
+  /// [search_search_options.SearchOptions] definition for details.
+  /// Currently the only supported options are
+  /// [search_search_options.SearchOptions.origin],
+  /// [search_search_options.SearchOptions.snippets] and
+  /// [search_search_options.SearchOptions.resultPageSize].
+  /// [searchListener] Listener to handle search result.
+  ///
+  /// Return [search_session.SearchSession] which allows search cancel and
+  /// retry. Should be stored by user or search is automatically cancelled.
+  search_session.SearchSession searchByBusinessOids(
+    search_search_options.SearchOptions searchOptions,
+    search_session.SearchSessionSearchListener searchListener, {
+    required core.List<core.String> businessOids,
+  });
+
   /// Creates session for suggest requests.
   search_suggest_session.SearchSuggestSession createSuggestSession();
 }
