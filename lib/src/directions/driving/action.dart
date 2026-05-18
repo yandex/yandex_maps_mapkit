@@ -13,9 +13,6 @@ part 'action.impl.dart';
 
 /// Driver actions.
 enum DrivingAction {
-  /// Unknown action.
-  Unknown,
-
   /// Going straight.
   Straight,
 

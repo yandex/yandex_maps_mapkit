@@ -340,3 +340,35 @@ abstract final class SearchFilterSet implements ffi.Finalizable {
     return "SearchFilterSet(ids: $ids)";
   }
 }
+
+/// Group of filters.
+abstract final class SearchBusinessFilterGroup implements ffi.Finalizable {
+  factory SearchBusinessFilterGroup(
+          core.String? name, core.List<core.String> filterIds) =>
+      SearchBusinessFilterGroupImpl(name, filterIds);
+
+  SearchBusinessFilterGroup._();
+
+  /// Group name.
+  ///
+  core.String? get name;
+
+  /// IDs for filters in the group.
+  core.List<core.String> get filterIds;
+
+  @core.override
+  core.int get hashCode => core.Object.hashAll([name, filterIds]);
+
+  @core.override
+  core.bool operator ==(covariant SearchBusinessFilterGroup other) {
+    if (core.identical(this, other)) {
+      return true;
+    }
+    return name == other.name && filterIds == other.filterIds;
+  }
+
+  @core.override
+  core.String toString() {
+    return "SearchBusinessFilterGroup(name: $name, filterIds: $filterIds)";
+  }
+}

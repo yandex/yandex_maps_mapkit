@@ -657,3 +657,85 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SearchFilterSet_get_ids')
         .asFunction(isLeaf: true);
+
+@bindings_annotations.ContainerData(
+    toNative: 'SearchBusinessFilterGroupImpl.getNativePtr',
+    toPlatform:
+        '(val) => SearchBusinessFilterGroupImpl.fromPointer(val, needFree: false)',
+    platformType: 'SearchBusinessFilterGroup')
+final class SearchBusinessFilterGroupImpl extends SearchBusinessFilterGroup {
+  SearchBusinessFilterGroupImpl(
+      core.String? name, core.List<core.String> filterIds)
+      : this.fromNativePtr(_SearchBusinessFilterGroup_init(
+            to_native.toNativePtrString(name),
+            to_native.toNativeVectorString(filterIds)));
+
+  @core.override
+  late final name = to_platform
+      .toPlatformFromPointerString(_SearchBusinessFilterGroup_get_name(_ptr));
+  @core.override
+  late final filterIds = to_platform
+      .toVectorString(_SearchBusinessFilterGroup_get_filterIds(_ptr));
+
+  final ffi.Pointer<ffi.Void> _ptr;
+  static final _finalizer =
+      ffi.NativeFinalizer(_SearchBusinessFilterGroup_free.cast());
+
+  SearchBusinessFilterGroupImpl.fromNativePtr(this._ptr) : super._() {
+    _finalizer.attach(this, _ptr);
+  }
+
+  static ffi.Pointer<ffi.Void> getNativePtr(SearchBusinessFilterGroup? obj) {
+    return (obj as SearchBusinessFilterGroupImpl?)?._ptr ?? ffi.nullptr;
+  }
+
+  static SearchBusinessFilterGroup? fromOptionalPtr(ffi.Pointer<ffi.Void> ptr) {
+    return ptr == ffi.nullptr
+        ? null
+        : SearchBusinessFilterGroupImpl.fromNativePtr(ptr);
+  }
+
+  static SearchBusinessFilterGroup? fromPointer(ffi.Pointer<ffi.Void> ptr,
+      {core.bool needFree = true}) {
+    if (ptr == ffi.nullptr) {
+      return null;
+    }
+    final result = SearchBusinessFilterGroupImpl.fromNativePtr(
+        ptr.cast<ffi.Pointer<ffi.Void>>().value);
+
+    if (needFree) {
+      malloc.free(ptr);
+    }
+
+    return result;
+  }
+}
+
+final _SearchBusinessFilterGroup_free = lib.library
+    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Void)>>(
+        'yandex_flutter_search_SearchBusinessFilterGroup_free');
+
+final ffi.Pointer<ffi.Void> Function(
+        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
+    _SearchBusinessFilterGroup_init = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SearchBusinessFilterGroup_init')
+        .asFunction(isLeaf: true);
+
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _SearchBusinessFilterGroup_get_name = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SearchBusinessFilterGroup_get_name')
+        .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _SearchBusinessFilterGroup_get_filterIds = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SearchBusinessFilterGroup_get_filterIds')
+        .asFunction(isLeaf: true);

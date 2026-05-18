@@ -12,6 +12,7 @@ final class SearchBusinessResultMetadataImpl
       core.List<search_chain.SearchChain> chains,
       core.List<search_business_filter.SearchBusinessFilter> businessFilters,
       search_business_filter.SearchFilterSet? importantFilters,
+      core.List<search_business_filter.SearchBusinessFilterGroup> filterGroups,
       core.List<core.String> pricesCurrencies)
       : this.fromNativePtr(_SearchBusinessResultMetadata_init(
             search_category.SearchCategoryContainerExtension.toNativeVector(
@@ -21,6 +22,8 @@ final class SearchBusinessResultMetadataImpl
                 .toNativeVector(businessFilters),
             search_business_filter.SearchFilterSetImpl.getNativePtr(
                 importantFilters),
+            search_business_filter.SearchBusinessFilterGroupContainerExtension
+                .toNativeVector(filterGroups),
             to_native.toNativeVectorString(pricesCurrencies)));
 
   @core.override
@@ -40,6 +43,10 @@ final class SearchBusinessResultMetadataImpl
   late final importantFilters =
       search_business_filter.SearchFilterSetImpl.fromOptionalPtr(
           _SearchBusinessResultMetadata_get_importantFilters(_ptr));
+  @core.override
+  late final filterGroups = search_business_filter
+          .SearchBusinessFilterGroupContainerExtension
+      .toPlatformVector(_SearchBusinessResultMetadata_get_filterGroups(_ptr));
   @core.override
   late final pricesCurrencies = to_platform
       .toVectorString(_SearchBusinessResultMetadata_get_pricesCurrencies(_ptr));
@@ -88,11 +95,13 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>) _SearchBusinessResultMetadata_init =
     lib.library
         .lookup<
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
@@ -132,6 +141,15 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_search_SearchBusinessResultMetadata_get_importantFilters')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _SearchBusinessResultMetadata_get_filterGroups = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_search_SearchBusinessResultMetadata_get_filterGroups')
     .asFunction(isLeaf: true);
 final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<

@@ -255,7 +255,7 @@ abstract final class DrivingToponymPhrase implements ffi.Finalizable {
 /// The annotation that is displayed on the map.
 abstract final class DrivingAnnotation implements ffi.Finalizable {
   factory DrivingAnnotation(
-          directions_driving_action.DrivingAction? action,
+          directions_driving_action.DrivingAction action,
           core.String? toponym,
           core.String descriptionText,
           DrivingActionMetadata? actionMetadata,
@@ -267,8 +267,7 @@ abstract final class DrivingAnnotation implements ffi.Finalizable {
   DrivingAnnotation._();
 
   /// Driver action.
-  ///
-  directions_driving_action.DrivingAction? get action;
+  directions_driving_action.DrivingAction get action;
 
   /// The toponym of the location.
   ///

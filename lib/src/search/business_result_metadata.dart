@@ -28,9 +28,11 @@ abstract final class SearchBusinessResultMetadata implements ffi.Finalizable {
           core.List<search_business_filter.SearchBusinessFilter>
               businessFilters,
           search_business_filter.SearchFilterSet? importantFilters,
+          core.List<search_business_filter.SearchBusinessFilterGroup>
+              filterGroups,
           core.List<core.String> pricesCurrencies) =>
       SearchBusinessResultMetadataImpl(categories, chains, businessFilters,
-          importantFilters, pricesCurrencies);
+          importantFilters, filterGroups, pricesCurrencies);
 
   SearchBusinessResultMetadata._();
 
@@ -53,6 +55,9 @@ abstract final class SearchBusinessResultMetadata implements ffi.Finalizable {
   ///
   search_business_filter.SearchFilterSet? get importantFilters;
 
+  /// Grouped BusinessFilter's by their meaning.
+  core.List<search_business_filter.SearchBusinessFilterGroup> get filterGroups;
+
   /// Relevant currency for the prices
   core.List<core.String> get pricesCurrencies;
 
@@ -62,6 +67,7 @@ abstract final class SearchBusinessResultMetadata implements ffi.Finalizable {
         chains,
         businessFilters,
         importantFilters,
+        filterGroups,
         pricesCurrencies
       ]);
 
@@ -74,11 +80,12 @@ abstract final class SearchBusinessResultMetadata implements ffi.Finalizable {
         chains == other.chains &&
         businessFilters == other.businessFilters &&
         importantFilters == other.importantFilters &&
+        filterGroups == other.filterGroups &&
         pricesCurrencies == other.pricesCurrencies;
   }
 
   @core.override
   core.String toString() {
-    return "SearchBusinessResultMetadata(categories: $categories, chains: $chains, businessFilters: $businessFilters, importantFilters: $importantFilters, pricesCurrencies: $pricesCurrencies)";
+    return "SearchBusinessResultMetadata(categories: $categories, chains: $chains, businessFilters: $businessFilters, importantFilters: $importantFilters, filterGroups: $filterGroups, pricesCurrencies: $pricesCurrencies)";
   }
 }

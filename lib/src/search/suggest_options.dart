@@ -28,6 +28,24 @@ final class SuggestType {
   /// Mass transit routes.
   static const Transit = SuggestType(1 << 2);
 
+  /// Organization that can be uniquely identified by search request.
+  static const OneOrg = SuggestType(1 << 4);
+
+  /// Chains.
+  static const Chain = SuggestType(1 << 5);
+
+  /// Rubrics.
+  static const Rubric = SuggestType(1 << 6);
+
+  /// Text hints.
+  static const TextHint = SuggestType(1 << 7);
+
+  /// Promo queries.
+  static const PromoQuery = SuggestType(1 << 8);
+
+  /// Coordinates.
+  static const Coords = SuggestType(1 << 9);
+
   const SuggestType(this.value);
 
   final core.int value;

@@ -214,6 +214,9 @@ final class MasstransitConstructionMask {
   /// Air-conditioned place. Can be a covered gallery, a mall or any other
   /// climate-static edges.
   final core.bool indoor;
+
+  /// Spiral object, e.g. stairs
+  final core.bool spiral;
   final MasstransitEscalator? escalator;
   final MasstransitElevator? elevator;
 
@@ -226,6 +229,7 @@ final class MasstransitConstructionMask {
     required this.tunnel,
     this.travolator,
     required this.indoor,
+    required this.spiral,
     this.escalator,
     this.elevator,
   });
@@ -240,6 +244,7 @@ final class MasstransitConstructionMask {
         tunnel,
         travolator,
         indoor,
+        spiral,
         escalator,
         elevator
       ]);
@@ -257,13 +262,14 @@ final class MasstransitConstructionMask {
         tunnel == other.tunnel &&
         travolator == other.travolator &&
         indoor == other.indoor &&
+        spiral == other.spiral &&
         escalator == other.escalator &&
         elevator == other.elevator;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitConstructionMask(stairs: $stairs, pass: $pass, crosswalk: $crosswalk, binding: $binding, transition: $transition, tunnel: $tunnel, travolator: $travolator, indoor: $indoor, escalator: $escalator, elevator: $elevator)";
+    return "MasstransitConstructionMask(stairs: $stairs, pass: $pass, crosswalk: $crosswalk, binding: $binding, transition: $transition, tunnel: $tunnel, travolator: $travolator, indoor: $indoor, spiral: $spiral, escalator: $escalator, elevator: $elevator)";
   }
 }
 

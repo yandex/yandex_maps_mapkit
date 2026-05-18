@@ -148,8 +148,10 @@ abstract class SearchManager implements ffi.Finalizable {
   /// [search_search_options.SearchOptions] definition for details.
   /// Currently the only supported options are
   /// [search_search_options.SearchOptions.origin],
-  /// [search_search_options.SearchOptions.snippets] and.
-  /// [search_search_options.SearchOptions.resultPageSize].
+  /// [search_search_options.SearchOptions.snippets],
+  /// [search_search_options.SearchOptions.resultPageSize],
+  /// [search_search_options.SearchOptions.similarOrgsRequest] and
+  /// [search_search_options.SearchOptions.searchArea].
   /// [searchListener] Listener to handle search result.
   ///
   /// Return [search_session.SearchSession] which allows search cancel and

@@ -1,5 +1,6 @@
 export 'package:yandex_maps_mapkit/src/search/business_filter.dart'
     hide
+        SearchBusinessFilterGroupImpl,
         SearchFilterSetContainerExtension,
         SearchBusinessFilterValuesContainerExtension,
         SearchBusinessFilterRangeValueContainerExtension,
@@ -8,6 +9,7 @@ export 'package:yandex_maps_mapkit/src/search/business_filter.dart'
         SearchBusinessFilterDateValueNative,
         SearchBusinessFilterEnumValueImpl,
         SearchBusinessFilterDateValueContainerExtension,
+        SearchBusinessFilterGroupContainerExtension,
         SearchBusinessFilterRangeValueNative,
         SearchFilterSetImpl,
         SearchBusinessFilterBooleanValueNative,

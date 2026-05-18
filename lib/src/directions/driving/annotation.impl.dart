@@ -463,14 +463,14 @@ final ffi.Pointer<ffi.Void> Function(
     platformType: 'DrivingAnnotation')
 final class DrivingAnnotationImpl extends DrivingAnnotation {
   DrivingAnnotationImpl(
-      directions_driving_action.DrivingAction? action,
+      directions_driving_action.DrivingAction action,
       core.String? toponym,
       core.String descriptionText,
       DrivingActionMetadata? actionMetadata,
       core.List<directions_driving_landmark.DrivingLandmark> landmarks,
       core.List<DrivingToponymPhrase> toponymPhrase)
       : this.fromNativePtr(_DrivingAnnotation_init(
-            directions_driving_action.DrivingActionImpl.toPointer(action),
+            directions_driving_action.DrivingActionImpl.toInt(action),
             to_native.toNativePtrString(toponym),
             to_native.toNativeString(descriptionText),
             DrivingActionMetadataImpl.toPointer(actionMetadata),
@@ -480,7 +480,7 @@ final class DrivingAnnotationImpl extends DrivingAnnotation {
                 toponymPhrase)));
 
   @core.override
-  late final action = directions_driving_action.DrivingActionImpl.fromPointer(
+  late final action = directions_driving_action.DrivingActionImpl.fromInt(
       _DrivingAnnotation_get_action(_ptr));
   @core.override
   late final toponym = to_platform
@@ -536,7 +536,7 @@ final _DrivingAnnotation_free = lib.library
         'yandex_flutter_directions_driving_DrivingAnnotation_free');
 
 final ffi.Pointer<ffi.Void> Function(
-        ffi.Pointer<ffi.Void>,
+        core.int,
         ffi.Pointer<ffi.Void>,
         native_types.NativeString,
         ffi.Pointer<ffi.Void>,
@@ -546,7 +546,7 @@ final ffi.Pointer<ffi.Void> Function(
         .lookup<
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(
-                        ffi.Pointer<ffi.Void>,
+                        ffi.Int64,
                         ffi.Pointer<ffi.Void>,
                         native_types.NativeString,
                         ffi.Pointer<ffi.Void>,
@@ -555,11 +555,9 @@ final ffi.Pointer<ffi.Void> Function(
             'yandex_flutter_directions_driving_DrivingAnnotation_init')
         .asFunction(isLeaf: true);
 
-final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
-    _DrivingAnnotation_get_action = lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+final core.int Function(ffi.Pointer<ffi.Void>) _DrivingAnnotation_get_action =
+    lib.library
+        .lookup<ffi.NativeFunction<ffi.Int64 Function(ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_directions_driving_DrivingAnnotation_get_action')
         .asFunction(isLeaf: true);
 final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)

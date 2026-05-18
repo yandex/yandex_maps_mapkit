@@ -377,6 +377,8 @@ final class MasstransitConstructionMaskNative extends ffi.Struct {
   external ffi.Pointer<ffi.Void> travolator;
   @ffi.Bool()
   external core.bool indoor;
+  @ffi.Bool()
+  external core.bool spiral;
   external ffi.Pointer<ffi.Void> escalator;
   external ffi.Pointer<ffi.Void> elevator;
 }
@@ -389,6 +391,7 @@ final MasstransitConstructionMaskNative Function(
     core.bool,
     core.bool,
     ffi.Pointer<ffi.Void>,
+    core.bool,
     core.bool,
     ffi.Pointer<ffi.Void>,
     ffi
@@ -403,6 +406,7 @@ final MasstransitConstructionMaskNative Function(
                     ffi.Bool,
                     ffi.Bool,
                     ffi.Pointer<ffi.Void>,
+                    ffi.Bool,
                     ffi.Bool,
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>)>>(
@@ -426,6 +430,7 @@ extension MasstransitConstructionMaskImpl on MasstransitConstructionMask {
         tunnel: native.tunnel,
         travolator: MasstransitTravolatorImpl.fromPointer(native.travolator),
         indoor: native.indoor,
+        spiral: native.spiral,
         escalator: MasstransitEscalatorImpl.fromPointer(native.escalator),
         elevator: MasstransitElevatorImpl.fromPointer(native.elevator));
   }
@@ -441,6 +446,7 @@ extension MasstransitConstructionMaskImpl on MasstransitConstructionMask {
         obj.tunnel,
         MasstransitTravolatorImpl.toPointer(obj.travolator),
         obj.indoor,
+        obj.spiral,
         MasstransitEscalatorImpl.toPointer(obj.escalator),
         MasstransitElevatorImpl.toPointer(obj.elevator));
   }
