@@ -11,6 +11,8 @@ import 'package:yandex_maps_mapkit/src/bindings/common/exception.dart'
     as exception;
 import 'package:yandex_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
+import 'package:yandex_maps_mapkit/src/bindings/common/to_platform.dart'
+    as to_platform;
 import 'package:yandex_maps_mapkit/src/bindings/common/vector.dart' as vector;
 import 'package:yandex_maps_mapkit/src/mapkit/geometry/geometry.dart'
     as mapkit_geometry_geometry;
@@ -84,6 +86,12 @@ abstract class SearchSession implements ffi.Finalizable {
   ///
   /// [searchListener] Listener to handle search result.
   void resubmit(SearchSessionSearchListener searchListener);
+
+  /// Returns the server-generated context from the last response, if any.
+  /// Can be passed to a new session via
+  /// [search_search_options.SearchOptions.overriddenContext] to reuse
+  /// session state.
+  core.String? context();
 }
 
 abstract final class SearchSessionSearchListener {

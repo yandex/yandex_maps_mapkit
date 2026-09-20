@@ -499,25 +499,31 @@ final class MasstransitIndoorLevel {
   /// Localized level name.
   final core.String levelName;
 
+  /// Id of the indoor plan the level belongs to.
+  final core.int planId;
+
   const MasstransitIndoorLevel({
     required this.levelId,
     required this.levelName,
+    required this.planId,
   });
 
   @core.override
-  core.int get hashCode => core.Object.hashAll([levelId, levelName]);
+  core.int get hashCode => core.Object.hashAll([levelId, levelName, planId]);
 
   @core.override
   core.bool operator ==(covariant MasstransitIndoorLevel other) {
     if (core.identical(this, other)) {
       return true;
     }
-    return levelId == other.levelId && levelName == other.levelName;
+    return levelId == other.levelId &&
+        levelName == other.levelName &&
+        planId == other.planId;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitIndoorLevel(levelId: $levelId, levelName: $levelName)";
+    return "MasstransitIndoorLevel(levelId: $levelId, levelName: $levelName, planId: $planId)";
   }
 }
 
@@ -717,8 +723,11 @@ abstract final class MasstransitRouteStopMetadata
   factory MasstransitRouteStopMetadata(
           transport_masstransit_common.MasstransitStop stop,
           transport_masstransit_common.MasstransitStop? stopExit,
-          mapkit_geometry_point.Point? exitPoint) =>
-      MasstransitRouteStopMetadataImpl(stop, stopExit, exitPoint);
+          mapkit_geometry_point.Point? exitPoint,
+          transport_masstransit_common.MasstransitStop? stopEntrance,
+          mapkit_geometry_point.Point? entrancePoint) =>
+      MasstransitRouteStopMetadataImpl(
+          stop, stopExit, exitPoint, stopEntrance, entrancePoint);
 
   MasstransitRouteStopMetadata._();
 
@@ -733,8 +742,17 @@ abstract final class MasstransitRouteStopMetadata
   ///
   mapkit_geometry_point.Point? get exitPoint;
 
+  /// Underground station entrance
+  ///
+  transport_masstransit_common.MasstransitStop? get stopEntrance;
+
+  /// Coordinates of underground station entrance
+  ///
+  mapkit_geometry_point.Point? get entrancePoint;
+
   @core.override
-  core.int get hashCode => core.Object.hashAll([stop, stopExit, exitPoint]);
+  core.int get hashCode => core.Object.hashAll(
+      [stop, stopExit, exitPoint, stopEntrance, entrancePoint]);
 
   @core.override
   core.bool operator ==(covariant MasstransitRouteStopMetadata other) {
@@ -743,12 +761,14 @@ abstract final class MasstransitRouteStopMetadata
     }
     return stop == other.stop &&
         stopExit == other.stopExit &&
-        exitPoint == other.exitPoint;
+        exitPoint == other.exitPoint &&
+        stopEntrance == other.stopEntrance &&
+        entrancePoint == other.entrancePoint;
   }
 
   @core.override
   core.String toString() {
-    return "MasstransitRouteStopMetadata(stop: $stop, stopExit: $stopExit, exitPoint: $exitPoint)";
+    return "MasstransitRouteStopMetadata(stop: $stop, stopExit: $stopExit, exitPoint: $exitPoint, stopEntrance: $stopEntrance, entrancePoint: $entrancePoint)";
   }
 
   static final struct_factory.StructFactory<MasstransitRouteStopMetadata>

@@ -85,6 +85,11 @@ class SearchSessionImpl implements SearchSession, ffi.Finalizable {
     _Session_resubmit(
         ptr, SearchSessionSearchListenerImpl.getNativePtr(searchListener));
   }
+
+  core.String? context() {
+    final result = _Session_context(ptr);
+    return to_platform.toPlatformFromPointerString(result);
+  }
 }
 
 final _SearchSession_free = lib.library
@@ -162,6 +167,13 @@ final void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)
                     ffi.Void Function(
                         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
             'yandex_flutter_search_SearchSession_resubmit')
+        .asFunction();
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>) _Session_context =
+    lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'yandex_flutter_search_SearchSession_context')
         .asFunction();
 final void Function(ffi.Pointer<ffi.Void>, core.int) _SearchSession_set = lib
     .library

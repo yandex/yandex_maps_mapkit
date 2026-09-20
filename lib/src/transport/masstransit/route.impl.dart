@@ -1000,15 +1000,19 @@ final ffi.Pointer<ffi.Void> Function(
 final class MasstransitIndoorLevelNative extends ffi.Struct {
   external native_types.NativeString levelId;
   external native_types.NativeString levelName;
+  @ffi.Int64()
+  external core.int planId;
 }
 
 final MasstransitIndoorLevelNative Function(
-        native_types.NativeString, native_types.NativeString)
+        native_types.NativeString, native_types.NativeString, core.int)
     _MasstransitIndoorLevelNativeInit = lib.library
         .lookup<
                 ffi.NativeFunction<
                     MasstransitIndoorLevelNative Function(
-                        native_types.NativeString, native_types.NativeString)>>(
+                        native_types.NativeString,
+                        native_types.NativeString,
+                        ffi.Int64)>>(
             'yandex_flutter_transport_masstransit_MasstransitIndoorLevel_init')
         .asFunction(isLeaf: true);
 
@@ -1022,13 +1026,15 @@ extension MasstransitIndoorLevelImpl on MasstransitIndoorLevel {
       MasstransitIndoorLevelNative native) {
     return MasstransitIndoorLevel(
         levelId: to_platform.toPlatformString(native.levelId),
-        levelName: to_platform.toPlatformString(native.levelName));
+        levelName: to_platform.toPlatformString(native.levelName),
+        planId: native.planId);
   }
 
   static MasstransitIndoorLevelNative toNative(MasstransitIndoorLevel obj) {
     return _MasstransitIndoorLevelNativeInit(
         to_native.toNativeString(obj.levelId),
-        to_native.toNativeString(obj.levelName));
+        to_native.toNativeString(obj.levelName),
+        obj.planId);
   }
 
   static MasstransitIndoorLevel? fromPointer(ffi.Pointer<ffi.Void> ptr,
@@ -1469,12 +1475,17 @@ final class MasstransitRouteStopMetadataImpl
   MasstransitRouteStopMetadataImpl(
       transport_masstransit_common.MasstransitStop stop,
       transport_masstransit_common.MasstransitStop? stopExit,
-      mapkit_geometry_point.Point? exitPoint)
+      mapkit_geometry_point.Point? exitPoint,
+      transport_masstransit_common.MasstransitStop? stopEntrance,
+      mapkit_geometry_point.Point? entrancePoint)
       : this.fromNativePtr(_MasstransitRouteStopMetadata_init(
             transport_masstransit_common.MasstransitStopImpl.getNativePtr(stop),
             transport_masstransit_common.MasstransitStopImpl.getNativePtr(
                 stopExit),
-            mapkit_geometry_point.PointImpl.toPointer(exitPoint)));
+            mapkit_geometry_point.PointImpl.toPointer(exitPoint),
+            transport_masstransit_common.MasstransitStopImpl.getNativePtr(
+                stopEntrance),
+            mapkit_geometry_point.PointImpl.toPointer(entrancePoint)));
 
   @core.override
   late final stop =
@@ -1487,6 +1498,13 @@ final class MasstransitRouteStopMetadataImpl
   @core.override
   late final exitPoint = mapkit_geometry_point.PointImpl.fromPointer(
       _MasstransitRouteStopMetadata_get_exitPoint(_ptr));
+  @core.override
+  late final stopEntrance =
+      transport_masstransit_common.MasstransitStopImpl.fromOptionalPtr(
+          _MasstransitRouteStopMetadata_get_stopEntrance(_ptr));
+  @core.override
+  late final entrancePoint = mapkit_geometry_point.PointImpl.fromPointer(
+      _MasstransitRouteStopMetadata_get_entrancePoint(_ptr));
 
   @core.override
   final _MasstransitRouteStopMetadataFactory runtimeFactory =
@@ -1585,12 +1603,18 @@ final _MasstransitRouteStopMetadata_free = lib.library.lookup<
 final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
     ffi
         .Pointer<ffi.Void>) _MasstransitRouteStopMetadata_init = lib.library
     .lookup<
             ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
-                    ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>(
+                ffi.Pointer<ffi.Void> Function(
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitRouteStopMetadata_init')
     .asFunction(isLeaf: true);
 
@@ -1619,6 +1643,23 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
         'yandex_flutter_transport_masstransit_MasstransitRouteStopMetadata_get_exitPoint')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRouteStopMetadata_get_stopEntrance = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRouteStopMetadata_get_stopEntrance')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi.Pointer<
+        ffi.Void>) _MasstransitRouteStopMetadata_get_entrancePoint = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'yandex_flutter_transport_masstransit_MasstransitRouteStopMetadata_get_entrancePoint')
     .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
